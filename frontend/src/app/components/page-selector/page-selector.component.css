@@ -1,0 +1,37 @@
+.page-selector-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #027bffff;
+    color: white;
+    border-radius: 10%;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+button:hover {
+    background-color: #025fbb;
+}
+
+.page-number {
+    color: gray;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.page-number:hover {
+    color: black;
+    cursor: pointer;
+}

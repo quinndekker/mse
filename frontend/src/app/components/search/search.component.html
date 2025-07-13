@@ -1,0 +1,22 @@
+<div class="search-container">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <input
+            id="searchQuery"
+            formControlName="searchQuery"
+            required
+            placeholder="Search for a company name or stock ticker symbol..."
+        />
+        <button type="submit">
+            SEARCH
+        </button>
+    </form>
+</div>
+<div class="results-container" *ngIf="showResults">
+    <app-stock-list
+    [stockList]="stockList"
+    ></app-stock-list>
+</div>
+<div *ngIf="showNoResults">
+    <h1>No Results Found</h1>
+    <h2>Try a more specific search.</h2>
+</div>

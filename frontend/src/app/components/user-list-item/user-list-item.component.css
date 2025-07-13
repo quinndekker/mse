@@ -1,0 +1,9 @@
+.user-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 15px;
+}

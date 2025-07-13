@@ -1,0 +1,37 @@
+<div class="stock-list-item-container">
+    <div 
+    class="stock-ticker"
+    #tooltip="matTooltip"
+    matTooltip="{{tickerDescription}}">
+        {{stock?.ticker || 'N/A'}}
+    </div>
+
+    <div class="stock-data">
+        <table class="stock-table">
+          <tr>
+            <td>Open</td>
+            <td>{{ stock?.open }}</td>
+            <td>High</td>
+            <td>{{ stock?.high }}</td>
+          </tr>
+          <tr>
+            <td>Low</td>
+            <td>{{ stock?.low }}</td>
+            <td>Close</td>
+            <td>{{ stock?.close }}</td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td>{{ stock?.price }}</td>
+            <td>Change</td>
+            <td>{{ stock?.change }}</td>
+          </tr>
+          <tr>
+            <td>Volume</td>
+            <td>{{ stock?.volume }}</td>
+            <td>Change %</td>
+            <td>{{ stock?.changePercent }}</td>
+          </tr>
+        </table>
+      </div>
+</div>

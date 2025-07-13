@@ -1,0 +1,42 @@
+.search-container {
+    width: 90%; 
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    background-color: #027bffff;
+    color: white;
+    border-radius: 5%;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+button:hover {
+    background-color: #025fbb;
+}
+
+.results-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

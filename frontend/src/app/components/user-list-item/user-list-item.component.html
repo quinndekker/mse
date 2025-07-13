@@ -1,0 +1,11 @@
+<div class="user-container">
+    <div>
+        {{ user?.firstName }} {{ user?.lastName }} {{ user?.email }}
+    </div>
+    <button *ngIf="!user?.admin" class="promote-button" (click)="promoteUser()">
+        Promote to Admin
+    </button>
+    <button *ngIf="user?.admin" class="demote-button" (click)="demoteUser()">
+        Demote to User
+    </button>
+</div>

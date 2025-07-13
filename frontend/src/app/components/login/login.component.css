@@ -1,0 +1,38 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50vw;
+    background-color: rgb(252, 252, 252);
+    padding: 20px;
+    border-radius: 5px;
+    border-color: rgb(163, 163, 163);
+    border-style: solid;
+    border-width: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.logo {
+    width: 50%;
+    height: auto;
+}
+
+.divider {
+    width: 95%;
+    height: 4px;
+    background-color: rgb(163, 163, 163);
+    margin-top: 10px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.window-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,10 @@
+<div class="stock-list-container">
+    <app-page-selector
+    [page]="stockList?.page || 1"
+    [totalPages]="stockList?.totalPages || 1"
+    ></app-page-selector>
+    <div *ngFor="let stock of stockList?.stocks || []">
+        <app-stock-list-item
+        [stock]="stock"></app-stock-list-item>
+    </div>
+</div>

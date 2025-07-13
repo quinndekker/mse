@@ -1,0 +1,26 @@
+.stock-list-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.stock-ticker {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.stock-table {
+    width: 80%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  .stock-table td {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }

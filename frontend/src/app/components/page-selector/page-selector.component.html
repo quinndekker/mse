@@ -1,0 +1,14 @@
+<div class="page-selector-container">
+    <button *ngIf="page > 1" (click)="selectPage(1)">First Page</button>
+    <button *ngIf="page > 1" (click)="selectPage(page - 1)">&lt;</button>
+    <div *ngIf="page > 1" class="page-number" (click)="selectPage(page - 1)">
+        {{ page - 1 }}
+    </div>
+    {{ page }}
+    <div *ngIf="page !== totalPages" class="page-number" (click)="selectPage(page + 1)">
+        {{ page + 1 }}
+    </div>
+    <button *ngIf="page !== totalPages" (click)="selectPage(page + 1)">&gt;</button>
+    <button *ngIf="page !== totalPages" (click)="selectPage(totalPages)">Last Page</button>
+    Page {{page}} of {{totalPages}}
+</div>
