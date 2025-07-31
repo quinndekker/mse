@@ -1,0 +1,27 @@
+<h2>Make a Stock Prediction</h2>
+
+<form (ngSubmit)="submitPrediction()" #predictionForm="ngForm">
+  <label for="ticker">Ticker:</label>
+  <input type="text" id="ticker" name="ticker" [(ngModel)]="ticker" required>
+
+  <label for="modelType">Model Type:</label>
+  <select id="modelType" name="modelType" [(ngModel)]="modelType" required>
+    <option value="lstm">LSTM</option>
+    <option value="gru">GRU</option>
+    <option value="rnn">RNN</option>
+  </select>
+
+  <label for="timeline">Prediction Timeline:</label>
+  <select id="timeline" name="predictionTimeline" [(ngModel)]="predictionTimeline" required>
+    <option value="1d">1 Day</option>
+    <option value="2w">2 Weeks</option>
+    <option value="2m">2 Months</option>
+  </select>
+
+  <button type="submit">Predict</button>
+</form>
+
+<div *ngIf="result">
+  <h3>Prediction Result</h3>
+  <p>Predicted Price: {{ result.predictedPrice }}</p>
+</div>

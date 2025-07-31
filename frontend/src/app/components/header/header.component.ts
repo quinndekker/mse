@@ -108,4 +108,8 @@ export class HeaderComponent implements OnInit {
   navigateToSectors() {
     this.router.navigate(['/sectors']);
   }
+
+  navigateToPredictions() {
+    this.router.navigate(['/predictions']);
+  }
 }

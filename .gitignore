@@ -4,3 +4,5 @@ backend/.env
 frontend/node_modules/
 backend/node_modules/
 frontend/.angular/cache/
+backend/services/stock_prediction_service/get_daily_data
+backend/services/stock_prediction_service/predictive_models
