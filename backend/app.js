@@ -12,8 +12,7 @@ const authRouter = require('./routes/auth');
 const userRouter = require('./routes/user');
 const guard = require('./routes/guard');
 const stockRouter = require('./routes/stock');
-// const movieRouter = require('./routes/movie');
-// const reviewRouter = require('./routes/review');
+const listRouter = require('./routes/list');
 
 require('dotenv').config();
 
@@ -46,6 +45,7 @@ app.use('/', authRouter);
 app.use('/api', guard);
 app.use('/api/user', userRouter);
 app.use('/api/stock', stockRouter);
+app.use('/api/list', listRouter);
 app.use('*', (req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');
 });

@@ -1,37 +1,46 @@
 <div class="stock-list-item-container">
     <div 
     class="stock-ticker"
-    #tooltip="matTooltip"
-    matTooltip="{{tickerDescription}}">
-        {{stock?.ticker || 'N/A'}}
+    >
+        {{stock?.ticker || 'N/A'}} <app-info [text]="definitions.ticker"></app-info>
     </div>
 
     <div class="stock-data">
-        <table class="stock-table">
-          <tr>
-            <td>Open</td>
-            <td>{{ stock?.open }}</td>
-            <td>High</td>
-            <td>{{ stock?.high }}</td>
-          </tr>
-          <tr>
-            <td>Low</td>
-            <td>{{ stock?.low }}</td>
-            <td>Close</td>
-            <td>{{ stock?.close }}</td>
-          </tr>
-          <tr>
-            <td>Price</td>
-            <td>{{ stock?.price }}</td>
-            <td>Change</td>
-            <td>{{ stock?.change }}</td>
-          </tr>
-          <tr>
-            <td>Volume</td>
-            <td>{{ stock?.volume }}</td>
-            <td>Change %</td>
-            <td>{{ stock?.changePercent }}</td>
-          </tr>
-        </table>
-      </div>
+      <table class="stock-table">
+        <tr>
+          <td class="info-label">Open <app-info [text]="definitions.open"></app-info></td>
+          <td>{{ stock?.open }}</td>
+          <td class="info-label">High <app-info [text]="definitions.high"></app-info></td>
+          <td>{{ stock?.high }}</td>
+        </tr>
+        <tr>
+          <td class="info-label">Low <app-info [text]="definitions.low"></app-info></td>
+          <td>{{ stock?.low }}</td>
+          <td class="info-label">Close <app-info [text]="definitions.close"></app-info></td>
+          <td>{{ stock?.close }}</td>
+        </tr>
+        <tr>
+          <td class="info-label">Price <app-info [text]="definitions.price"></app-info></td>
+          <td>{{ stock?.price }}</td>
+          <td class="info-label">Change <app-info [text]="definitions.change"></app-info></td>
+          <td>{{ stock?.change }}</td>
+        </tr>
+        <tr>
+          <td class="info-label">Volume <app-info [text]="definitions.volume"></app-info></td>
+          <td>{{ stock?.volume }}</td>
+          <td class="info-label">Change % <app-info [text]="definitions.changePercent"></app-info></td>
+          <td>{{ stock?.changePercent }}</td>
+        </tr>
+      </table>
+    </div>
+    <div *ngIf="userLists.length > 0" class="add-button-container">
+      <label for="listSelect">Add to list:</label>
+      <select id="listSelect" [(ngModel)]="selectedListId">
+        <option *ngFor="let list of userLists" [value]="list._id">
+          {{ list.name }}
+        </option>
+      </select>
+      <button class="add-button" (click)="addToList()">Add</button>
+    </div>
+    
 </div>

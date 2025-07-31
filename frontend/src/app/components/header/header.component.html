@@ -1,14 +1,17 @@
 <div class="header-container">
     <img src="../app/assets/mse_logo.png" alt="OverStock Logo" class="logo">
     <div class="header-right" *ngIf="this.showItems">
-        <div class="header-item">
+        <div class="header-item" (click)="navigateToMyStocks()">
             My Stocks
         </div>
         <div class="header-item" (click)="navigateToSearch()">
             Search
         </div>
-        <div *ngIf="currentUserIsAdmin" class="header-item" (click)="navigateToAllUsers()">
-            All Users
+        <div class="header-item" (click)="navigateToLists()">
+            Lists
+        </div>
+        <div class="header-item" (click)="navigateToSectors()">
+            Sectors
         </div>
         <div class="header-item" (click)="navigateToProfile()">
             <img src="https://cdn-icons-png.flaticon.com/512/12225/12225935.png" alt="Profile Icon" class="profile-picture" (error)="profilePictureUrl = 'assets/profileIcon.jpg'">

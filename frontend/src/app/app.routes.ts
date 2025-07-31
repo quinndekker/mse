@@ -7,6 +7,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SearchComponent } from './components/search/search.component';
 import { AuthAdminGuard } from './guards/authAdmin.guard';
 import { AllUsersComponent } from './components/all-users/all-users.component';
+import { ListsComponent } from './components/lists/lists.component';
+import { ListComponent } from './components/list/list.component';
+import { SectorsComponent } from './components/sectors/sectors.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -14,6 +17,9 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+    { path: 'lists', component: ListsComponent, canActivate: [AuthGuard] },
+    { path: 'lists/:id', component: ListComponent, canActivate: [AuthGuard] },
+    { path: 'sectors', component: SectorsComponent, canActivate: [AuthGuard] },
     { path: 'allusers', component: AllUsersComponent, canActivate: [AuthAdminGuard] },
     { path: '', redirectTo: '/search', pathMatch: 'full' },
     { path: '**', redirectTo: '/search' }

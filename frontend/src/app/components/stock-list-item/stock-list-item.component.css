@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     background-color: white;
     border-radius: 8px;
     margin-top: 15px;
@@ -24,3 +24,31 @@
     border: 1px solid #ccc;
     text-align: left;
   }
+
+.stock-data {
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.add-button-container {
+  background-color: rgb(0, 255, 0);;
+  border: 5px solid rgb(188, 186, 186);
+  border-radius: 5%;
+  width: 10%;
+  font-size: 75%;
+  padding: 10px;
+}
+
+.add-button {
+  background-color: white;
+  color: black;
+  margin-top: 7px;
+}
+
+.info-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -6,24 +6,24 @@ const saltRounds = 10;
 
 async function generateMockUsers() {
   // Check if there are already mock users
-  const existing = await User.find();
-  if(existing.length > 1000) {
-    return;
-  }
+//   const existing = await User.find();
+//   if(existing.length > 1000) {
+//     return;
+//   }
 
-  console.log("Generating mock users");
+//   console.log("Generating mock users");
 
-  for (let i = 0; i < 5000; i++) {
-    const user = {
-      firstName: 'mock',
-      lastName: `user ${i}`,
-      email: `mockuser${i}@email.com`,
-      password: await bcrypt.hash("password", saltRounds)
-    };
-    User.create(user);
-  }
+//   for (let i = 0; i < 5000; i++) {
+//     const user = {
+//       firstName: 'mock',
+//       lastName: `user ${i}`,
+//       email: `mockuser${i}@email.com`,
+//       password: await bcrypt.hash("password", saltRounds)
+//     };
+//     User.create(user);
+//   }
 
-  console.log("Mock users generated");
+//   console.log("Mock users generated");
 }
 
 // get all users

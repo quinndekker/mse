@@ -1,0 +1,14 @@
+<button
+    class="info-button"
+    matButton="elevated"
+    [matTooltip]="text"
+    aria-label="Info Tooltip"
+>
+    <img
+    class = "info"
+    [src]="imageSrc" 
+    (mouseover)="onMouseOver()" 
+    (mouseout)="onMouseOut()" 
+    alt="Hover Image"
+    >
+</button>

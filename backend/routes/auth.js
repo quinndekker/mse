@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client('39536509300-g04og3umfjppgbq7mdd87e3teru10onp.apps.googleusercontent.com');
+const { createMyStocks } = require('../services/listService');
 
 passport.use(new LocalStrategy(
    async (email, done) => {
@@ -67,6 +68,14 @@ passport.use(new LocalStrategy(
                 picture: picture || 'https://static.thenounproject.com/png/5034901-200.png',
                 googleId: sub
             });
+
+            // create My Stocks list for new user
+            const list = await createMyStocks(user._id);
+            if (!list) {
+                console.error('Error creating My Stocks list for new user');
+            } else {
+                console.log('My Stocks list created successfully for new user');
+            }
         }
 
         // Use Passport to login

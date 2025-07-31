@@ -1,0 +1,39 @@
+<div class="lists-container">
+    <h2>My Lists</h2>
+  
+    <!-- Error message -->
+    <div *ngIf="errorMsg" class="error">
+      {{ errorMsg }}
+    </div>
+  
+    <!-- New-list input -->
+    <form (ngSubmit)="addList()" #listForm="ngForm" class="add-form">
+      <input
+        type="text"
+        name="listName"
+        [(ngModel)]="newListName"
+        placeholder="New list name"
+        required
+      />
+      <button type="submit" [disabled]="loading || listForm.invalid">
+        Add
+      </button>
+    </form>
+  
+    <!-- Loading indicator -->
+    <p *ngIf="loading">Loading…</p>
+  
+    <!-- Existing lists -->
+    <ul class="list-group">
+        <li
+          *ngFor="let l of lists"
+          class="list-item"
+          (click)="openList(l._id!)"
+          style="cursor:pointer"
+        >
+          {{ l.name }}
+          <span *ngIf="l.myStocks" class="badge">My Stocks</span>
+        </li>
+      </ul>
+  </div>
+  

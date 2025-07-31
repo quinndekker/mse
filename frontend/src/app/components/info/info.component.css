@@ -1,0 +1,12 @@
+.info {
+    width: 15px;
+    height: auto;
+}
+
+.info-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    align-self: center;
+}

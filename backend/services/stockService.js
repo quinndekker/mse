@@ -101,5 +101,6 @@ async function getStockData(tickers) {
 
 
 module.exports = {
-    searchStocks
+    searchStocks,
+    getStockData
 };

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../models/user';
 import { Router } from '@angular/router';
+import { ListService, List } from '../../services/list/list.service';
 
 @Component({
   selector: 'app-header',
@@ -18,10 +19,13 @@ export class HeaderComponent implements OnInit {
   profilePictureUrl: string | null = null;
   email: string | null = null;
   currentUserIsAdmin: boolean = false;
+  userLists: List[] = [];
+  myStocksId: string | null = null;
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private listService: ListService
   ) {}
 
 
@@ -50,11 +54,42 @@ export class HeaderComponent implements OnInit {
     this.profilePictureUrl = this.currentUser?.picture || null;
     this.email = this.currentUser?.email || null;
     this.currentUserIsAdmin = this.currentUser?.admin || false;
+    this.getUserLists();
+  }
+
+  getUserLists() {
+    this.listService.getUserLists().subscribe({
+      next: lists => {
+        this.userLists = lists;
+      },
+      error: err => {
+        console.error('Error fetching user lists:', err);
+      }
+    });
   }
 
   navigateToProfile() {
     if (this.currentUser) {
       this.router.navigate(['/profile']);
+    }
+  }
+
+  navigateToMyStocks() {
+    // Ensure userLists is defined and has items before navigating
+    if ( this.userLists.length <= 0) {
+      return;
+    }
+
+    this.updateMyStocksId();
+    if (this.myStocksId) {
+      this.router.navigate(['/lists', this.myStocksId]);
+    }
+  }
+
+  updateMyStocksId() {
+    const myStocksList = this.userLists.find(list => list.name === 'My Stocks');
+    if (myStocksList) {
+      this.myStocksId = myStocksList._id || '';
     }
   }
 
@@ -64,5 +99,13 @@ export class HeaderComponent implements OnInit {
 
   navigateToAllUsers() {
     this.router.navigate(['/allusers']);
+  }
+
+  navigateToLists() {
+    this.router.navigate(['/lists']);
+  }
+
+  navigateToSectors() {
+    this.router.navigate(['/sectors']);
   }
 }

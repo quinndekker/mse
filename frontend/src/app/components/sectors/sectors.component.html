@@ -1,0 +1,21 @@
+<div class="sector-container">
+    <h2>What Are SPDR Sectors?</h2>
+    <p class="intro">
+      SPDR (Standard & Poor's Depositary Receipts) sectors are a family of exchange-traded funds (ETFs) that divide the S&P 500 into 11 major industry sectors. Each sector ETF groups companies that operate in similar parts of the economy, like Technology, Health Care, or Energy.
+    </p>
+  
+    <p class="benefits">
+      In the context of our stock prediction app, understanding sectors is essential. Stocks in the same sector often follow similar trends due to shared economic drivers. By training machine learning models per sector, we can improve prediction accuracy by focusing on common behavior patterns and isolating sector-specific market movements.
+    </p>
+  
+    <h3>SPDR Sector Breakdown</h3>
+    <div class="sector-grid">
+      <mat-card *ngFor="let sector of sectors" class="sector-card">
+        <mat-card-title>{{ sector.name }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ sector.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  
