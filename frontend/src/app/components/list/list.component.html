@@ -1,15 +1,19 @@
-<div *ngIf="loading">Loading…</div>
+<!-- <div *ngIf="loading">Loading…</div> -->
 
-    <div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+<div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
 
-    <div *ngIf="list">
-      <h2>{{ list.name }}</h2>
+<div *ngIf="list">
+  <h2>{{ list.name }}</h2>
 
-      <p *ngIf="list.tickers.length === 0">
-        No tickers in this list.
-      </p>
+  <p *ngIf="list.tickers.length === 0">
+    No tickers in this list.
+  </p>
 
-      <ul>
-        <li *ngFor="let t of list.tickers">{{ t }}</li>
-      </ul>
-    </div>
+  <ul>
+    <li *ngFor="let t of list.tickers">
+      <button (click)="navigateToStock(t)">
+        {{ t }}
+      </button>
+    </li>
+  </ul>
+</div>

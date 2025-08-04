@@ -1,18 +1,28 @@
 const path = require('path');
 const { exec } = require('child_process');
+const fs = require('fs');
 
-/**
- * Runs the Python prediction script and returns the predicted price.
- * @param {string} ticker - The stock ticker (e.g., "AAPL")
- * @param {string} modelType - The model type ("lstm", "gru", "rnn")
- * @param {string} predictionTimeline - The prediction timeframe ("1d", "2w", "2m")
- * @returns {Promise<number>} The predicted stock price
- */
 function runPredictionScript(ticker, modelType, predictionTimeline) {
   return new Promise((resolve, reject) => {
     const modelName = `general_${predictionTimeline}_${modelType}`;
-    const csvPath = path.resolve(`services/stock_prediction_service/test_data/compiled_${ticker.toUpperCase()}.csv`);
+    const testDataDir = path.resolve('services/stock_prediction_service/test_data');
+    let csvPath = path.resolve(testDataDir, `compiled_${ticker.toUpperCase()}.csv`);
     const scriptPath = path.resolve(`services/stock_prediction_service/prediction_generators/predict_${modelType.toLowerCase()}_v2.py`);
+
+    // Check if target CSV exists
+    if (!fs.existsSync(csvPath)) {
+        console.warn(`⚠️ CSV for ticker "${ticker}" not found. Selecting a random fallback CSV.`);
+  
+        const allFiles = fs.readdirSync(testDataDir).filter(file => file.endsWith('.csv'));
+        if (allFiles.length === 0) {
+          return reject(new Error('No CSV files found in test_data directory.'));
+        }
+  
+        // Pick a random CSV file
+        const randomCsv = allFiles[Math.floor(Math.random() * allFiles.length)];
+        csvPath = path.join(testDataDir, randomCsv);
+        console.warn(` Using fallback CSV: ${randomCsv}`);
+      }
 
     const cmd = `python3 ${scriptPath} ${csvPath} ${modelName}`;
 

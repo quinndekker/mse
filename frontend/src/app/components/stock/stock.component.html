@@ -1,1 +1,77 @@
-<p>stock works!</p>
+<div class="stock-container" *ngIf="quote; else loadingOrError">
+    <h2>{{ companyName }} ({{ ticker }})</h2>
+    <table class="quote-table">
+        <tr>
+          <td>
+            Open <app-info [text]="definitions.open"></app-info>
+          </td>
+          <td>$ {{ quote['02. open'] | number:'1.2-2' }}</td>
+        </tr>
+      
+        <tr>
+          <td>
+            High <app-info [text]="definitions.high"></app-info>
+          </td>
+          <td>$ {{ quote['03. high'] | number:'1.2-2' }}</td>
+        </tr>
+      
+        <tr>
+          <td>
+            Low <app-info [text]="definitions.low"></app-info>
+          </td>
+          <td>$ {{ quote['04. low'] | number:'1.2-2' }}</td>
+        </tr>
+      
+        <tr>
+          <td>
+            Price <app-info [text]="definitions.price"></app-info>
+          </td>
+          <td>$ {{ quote['05. price'] | number:'1.2-2' }}</td>
+        </tr>
+      
+        <tr>
+          <td>
+            Previous Close <app-info [text]="definitions.previousClose"></app-info>
+          </td>
+          <td>$ {{ quote['08. previous close'] | number:'1.2-2' }}</td>
+        </tr>
+      
+        <tr>
+          <td>
+            Change <app-info [text]="definitions.change"></app-info>
+          </td>
+          <td [ngClass]="{'positive': quote['09. change'] >= 0, 'negative': quote['09. change'] < 0}">
+            $ {{ quote['09. change'] | number:'1.2-2' }}
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Change % <app-info [text]="definitions.changePercent"></app-info>
+          </td>
+          <td [ngClass]="{'positive': isPositive(quote['10. change percent']), 'negative': !isPositive(quote['10. change percent'])}">
+            {{ quote['10. change percent'] }}
+          </td>
+        </tr>
+      
+        <tr>
+          <td>
+            Volume <app-info [text]="definitions.volume"></app-info>
+          </td>
+          <td>{{ quote['06. volume'] | number }}</td>
+        </tr>
+      
+        <tr>
+          <td>
+            Latest Trading Day <app-info [text]="definitions.latestTradingDay"></app-info>
+          </td>
+          <td>{{ quote['07. latest trading day'] }}</td>
+        </tr>
+      </table>      
+  </div>
+  
+  <ng-template #loadingOrError>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div *ngIf="!errorMessage">Loading stock data...</div>
+  </ng-template>
+  

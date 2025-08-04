@@ -1,3 +1,5 @@
+
+
 .stock-list-item-container {
     display: flex;
     justify-content: space-between;
@@ -6,6 +8,8 @@
     background-color: white;
     border-radius: 8px;
     margin-top: 15px;
+    width: 100%;
+    cursor: pointer;
 }
 
 .stock-ticker {

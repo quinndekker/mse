@@ -38,4 +38,21 @@ router.post('/', async (req, res) => {
     }
   });
 
+  router.get('/', async (req, res) => {
+    if (!req.user || !req.user._id) {
+      return res.status(401).json({ error: 'Unauthorized: user not found on request' });
+    }
+  
+    try {
+      const predictions = await Prediction.find({ user: req.user._id })
+        .sort({ createdAt: -1 })
+        .exec();
+  
+      res.status(200).json(predictions);
+    } catch (err) {
+      console.error('❌ Error fetching predictions:', err);
+      res.status(500).json({ error: 'Failed to fetch predictions' });
+    }
+  });
+
 module.exports = router;

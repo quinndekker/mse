@@ -22,7 +22,7 @@ export const routes: Routes = [
     { path: 'predictions', component: PredictionsComponent, canActivate: [AuthGuard] },
     { path: 'lists', component: ListsComponent, canActivate: [AuthGuard] },
     { path: 'lists/:id', component: ListComponent, canActivate: [AuthGuard] },
-    { path: 'stock/:symbol', component: StockComponent, canActivate: [AuthGuard] },
+    { path: 'stock/:ticker', component: StockComponent, canActivate: [AuthGuard] },
     { path: 'sectors', component: SectorsComponent, canActivate: [AuthGuard] },
     { path: 'allusers', component: AllUsersComponent, canActivate: [AuthAdminGuard] },
     { path: '', redirectTo: '/search', pathMatch: 'full' },

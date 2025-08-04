@@ -1,5 +1,5 @@
-<div class="stock-list-item-container">
-    <div 
+<button (click)="navigateToStock()" class="stock-list-item-container">
+    <!-- <div 
     class="stock-ticker"
     >
         {{stock?.ticker || 'N/A'}} <app-info [text]="definitions.ticker"></app-info>
@@ -41,6 +41,12 @@
         </option>
       </select>
       <button class="add-button" (click)="addToList()">Add</button>
+    </div> -->
+    <div class="stock-ticker">
+        {{ stock?.ticker || 'N/A' }} <app-info [text]="definitions.ticker"></app-info>
+    </div>
+    <div>
+        {{ stock?.name || 'N/A' }} <app-info [text]="definitions.name"></app-info>
     </div>
     
-</div>
+  </button>

@@ -1,0 +1,39 @@
+.stock-container {
+    padding: 20px;
+    background-color: #f3f7fb;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .quote-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .quote-table td {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .quote-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+    padding: 1em;
+  }
+
+  .positive {
+    color: green;
+    font-weight: 600;
+  }
+  
+  .negative {
+    color: red;
+    font-weight: 600;
+  }
+  
+  

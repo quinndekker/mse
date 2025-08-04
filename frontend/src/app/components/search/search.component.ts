@@ -22,6 +22,7 @@ export class SearchComponent {
   stockList: StockList | null = null;
   showResults: boolean = false;
   showNoResults: boolean = false;
+  showLoading: boolean = false;
   constructor(private fb: FormBuilder, private stockService: StockService) {
     this.searchForm = this.fb.group({
       searchQuery: ['', Validators.required]
@@ -30,13 +31,18 @@ export class SearchComponent {
 
   onSubmit() {
     if (this.searchForm.valid) {
+      this.showResults = false;
+      this.showLoading = true;
       const { searchQuery } = this.searchForm.value;
       this.searchQuery = searchQuery; 
       this.searchStocks(searchQuery, 1, 10);
     }
   }
 
-  searchStocks(searchQuery: string, page: number = 1, limit: number = 10) {
+  searchStocks(searchQuery: string, page: number = 1, limit: number = 100) {
+    this.showNoResults = false;
+    this.showResults = false;
+    this.showLoading = true;
     this.stockService.searchStocks(searchQuery, page, limit).subscribe({
       next: (results) => {
         this.stockList = {
@@ -51,6 +57,7 @@ export class SearchComponent {
           results.stocks.forEach((stock: any) => {
             const stockData: Stock = {
               ticker: stock.ticker || 'N/A',
+              name: stock.name || 'N/A',
               open: Number(stock.open) || 0,
               high: Number(stock.high) || 0,
               low: Number(stock.low) || 0,
@@ -67,6 +74,7 @@ export class SearchComponent {
           console.warn('results.stocks is not an array:', results.stocks);
         }
 
+        this.showLoading = false;
         if (this.stockList.stocks.length > 0) {
           this.showResults = true;
           this.showNoResults = false;
@@ -80,5 +88,4 @@ export class SearchComponent {
       }
     });
   }
-
 }

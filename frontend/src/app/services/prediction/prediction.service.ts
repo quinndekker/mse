@@ -21,4 +21,13 @@ export class PredictionService {
       })
     );
   }
+
+  getUserPredictions(): Observable<any> {
+    return this.http.get(`${this.apiUrl}`).pipe(
+      catchError((error) => {
+        console.error('Error fetching user predictions:', error);
+        return throwError(() => error);
+      })
+    );
+  }
 }

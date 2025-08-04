@@ -8,4 +8,5 @@ export interface Stock {
     change: number;
     changePercent: number;
     price: number;
+    name: string;
 }

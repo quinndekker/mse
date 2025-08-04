@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ListService, List } from '../../services/list/list.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -19,7 +20,8 @@ export class ListComponent {
 
   constructor(
     private listService: ListService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +42,14 @@ export class ListComponent {
           this.loading = false;
         }
       });
+  }
+
+  navigateToStock(ticker: string): void {
+    if (ticker) {
+      this.router.navigate(['/stock', ticker]);
+    } else {
+      console.warn('Ticker is undefined or empty.');
+    }
   }
 
 }

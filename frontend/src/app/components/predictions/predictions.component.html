@@ -25,3 +25,29 @@
   <h3>Prediction Result</h3>
   <p>Predicted Price: {{ result.predictedPrice }}</p>
 </div>
+
+<div class="predictions-container" *ngIf="predictions.length > 0; else noPredictions">
+  <h2 class="header">Your Predictions</h2>
+
+  <div class="prediction-card" *ngFor="let prediction of predictions">
+    <div class="card-header">
+      <span class="ticker">{{ prediction?.ticker }} <app-info [text]="definitions.ticker"></app-info></span>
+      <span class="timeline"><app-info [text]="definitions.predictionTimeline"></app-info>({{ prediction?.predictionTimeline?.toUpperCase() }})</span>
+    </div>
+
+    <div class="card-body">
+      <p><app-info [text]="definitions.predictedPrice"></app-info><strong> Predicted Price: </strong>${{ prediction?.predictedPrice?.toFixed(2) }}</p>
+      <p><app-info [text]="definitions.modelType"></app-info><strong> Model Type: </strong>{{ prediction?.modelType?.toUpperCase() }}</p>
+      <p><app-info [text]="definitions.status"></app-info><strong> Status: </strong>{{ prediction?.status }}</p>
+      <p><app-info [text]="definitions.startDate"></app-info><strong> Start Date: </strong>{{ prediction?.startDate | date:'short' }}</p>
+      <p><app-info [text]="definitions.endDate"></app-info><strong> End Date: </strong>{{ prediction?.endDate ? (prediction?.endDate | date:'short') : 'Not available' }}</p>
+      <p><app-info [text]="definitions.priceDifference"></app-info><strong> Price Difference: </strong>{{ prediction?.priceDifference ? prediction?.priceDifference : 'Pending' }}</p>
+      <p><app-info [text]="definitions.predictionAccuracy"></app-info><strong> Prediction Accuracy: </strong>{{ prediction?.predictionAccuracy ? prediction?.predictionAccuracy : 'Pending' }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noPredictions>
+  <p class="no-results">You have no predictions yet.</p>
+</ng-template>
+

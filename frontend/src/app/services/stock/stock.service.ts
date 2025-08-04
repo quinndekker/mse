@@ -25,4 +25,13 @@ export class StockService {
     ));
   }
 
+  getQuoteByTicker(ticker: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${ticker}`).pipe(
+      catchError((error) => {
+        console.error(`Error fetching quote for ${ticker}:`, error);
+        return throwError(() => error);
+      })
+    );
+  }
+
 }

@@ -1,0 +1,48 @@
+.predictions-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .prediction-card {
+    background-color: #f5faff;
+    border-left: 4px solid #007acc;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ticker {
+    color: #007acc;
+  }
+  
+  .timeline {
+    font-style: italic;
+    color: #666;
+  }
+  
+  .card-body p {
+    margin: 0.3rem 0;
+  }
+  
+  .no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #888;
+  }
+  
