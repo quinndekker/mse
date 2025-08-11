@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { 
+  HttpClient,
+  HttpParams
+ } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -22,8 +25,12 @@ export class PredictionService {
     );
   }
 
-  getUserPredictions(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`).pipe(
+  getUserPredictions(ticker?: string): Observable<any> {
+    const params = ticker && ticker.trim()
+      ? new HttpParams().set('ticker', ticker.trim())
+      : undefined;
+  
+    return this.http.get<any>(this.apiUrl, { params }).pipe(
       catchError((error) => {
         console.error('Error fetching user predictions:', error);
         return throwError(() => error);

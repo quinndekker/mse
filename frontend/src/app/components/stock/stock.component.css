@@ -35,5 +35,19 @@
     color: red;
     font-weight: 600;
   }
+
+  .predictions-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .predictions-button:hover {
+    background-color: #0056b3;
+  }
   
   

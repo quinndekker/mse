@@ -12,6 +12,7 @@ import { ListComponent } from './components/list/list.component';
 import { SectorsComponent } from './components/sectors/sectors.component';
 import { StockComponent } from './components/stock/stock.component';
 import { PredictionsComponent } from './components/predictions/predictions.component';
+import { SectorComponent } from './components/sector/sector.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -20,10 +21,12 @@ export const routes: Routes = [
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
     { path: 'predictions', component: PredictionsComponent, canActivate: [AuthGuard] },
+    { path: 'predictions/:ticker', component: PredictionsComponent, canActivate: [AuthGuard] },
     { path: 'lists', component: ListsComponent, canActivate: [AuthGuard] },
     { path: 'lists/:id', component: ListComponent, canActivate: [AuthGuard] },
     { path: 'stock/:ticker', component: StockComponent, canActivate: [AuthGuard] },
     { path: 'sectors', component: SectorsComponent, canActivate: [AuthGuard] },
+    { path: 'sectors/:sector', component: SectorComponent, canActivate: [AuthGuard] },
     { path: 'allusers', component: AllUsersComponent, canActivate: [AuthAdminGuard] },
     { path: '', redirectTo: '/search', pathMatch: 'full' },
     { path: '**', redirectTo: '/search' }

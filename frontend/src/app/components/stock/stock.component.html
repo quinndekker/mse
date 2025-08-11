@@ -69,6 +69,10 @@
         </tr>
       </table>      
   </div>
+
+  <button class="predictions-button" (click)="navigateToPredictions()">
+    View Predictions
+  </button>
   
   <ng-template #loadingOrError>
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>

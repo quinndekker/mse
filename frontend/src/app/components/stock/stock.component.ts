@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { StockService } from '../../services/stock/stock.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfoComponent } from '../info/info.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stock',
@@ -36,7 +37,8 @@ export class StockComponent {
 
   constructor(
     private stockService: StockService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -69,6 +71,14 @@ export class StockComponent {
 
   isPositive(value: string): boolean {
     return !value.startsWith('-');
+  }
+
+  navigateToPredictions() {
+    if (this.ticker) {
+      this.router.navigate(['/predictions', this.ticker]);
+    } else {
+      console.error('Ticker is not defined, cannot navigate to predictions.');
+    }
   }
 }
 

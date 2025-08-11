@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +14,9 @@ import { MatCardModule } from '@angular/material/card';
   styleUrl: './sectors.component.css'
 })
 export class SectorsComponent {
+
+  constructor(private router: Router) {}
+
   sectors = [
     {
       name: 'Technology',
@@ -59,4 +63,8 @@ export class SectorsComponent {
       description: 'Telecom and media firms. Example: Verizon, Meta.'
     }
   ];
+
+  navigateToSector(sector: string): void {
+    this.router.navigate(['/sectors', sector]);
+  }
 }

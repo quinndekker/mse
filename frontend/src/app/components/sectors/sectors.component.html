@@ -11,10 +11,12 @@
     <h3>SPDR Sector Breakdown</h3>
     <div class="sector-grid">
       <mat-card *ngFor="let sector of sectors" class="sector-card">
-        <mat-card-title>{{ sector.name }}</mat-card-title>
-        <mat-card-content>
-          <p>{{ sector.description }}</p>
-        </mat-card-content>
+        <div (click)="navigateToSector(sector.name)" class="sector-content">
+          <mat-card-title>{{ sector.name }}</mat-card-title>
+          <mat-card-content>
+            <p>{{ sector.description }}</p>
+          </mat-card-content>
+        </div>
       </mat-card>
     </div>
   </div>

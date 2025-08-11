@@ -14,6 +14,9 @@ const predictionSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    endDate: {
+        type: Date
+    },
     predictionTimeline: {
         type: String,
         required: true
@@ -27,6 +30,9 @@ const predictionSchema = new mongoose.Schema({
         default: "Pending"
     },
     predictedPrice: {
+        type: Number
+    },
+    actualPrice: {
         type: Number
     }
 }, 

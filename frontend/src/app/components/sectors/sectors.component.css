@@ -24,4 +24,8 @@
   .sector-card {
     padding: 10px;
   }
+
+  .sector-content {
+    cursor: pointer;
+  }
   

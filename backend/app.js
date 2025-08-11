@@ -14,6 +14,7 @@ const guard = require('./routes/guard');
 const stockRouter = require('./routes/stock');
 const listRouter = require('./routes/list');
 const predictionRouter = require('./routes/prediction');
+const sectorRouter = require('./routes/sector');
 
 require('dotenv').config();
 
@@ -48,6 +49,7 @@ app.use('/api/user', userRouter);
 app.use('/api/stock', stockRouter);
 app.use('/api/list', listRouter);
 app.use('/api/prediction', predictionRouter);
+app.use('/api/sector', sectorRouter);
 app.use('*', (req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');
 });

@@ -1,0 +1,3736 @@
+{
+    "Meta Data": {
+        "1: Symbol": "aapd",
+        "2: Indicator": "Bollinger Bands (BBANDS)",
+        "3: Last Refreshed": "2025-08-08",
+        "4: Interval": "daily",
+        "5: Time Period": 10,
+        "6.1: Deviation multiplier for upper band": 2,
+        "6.2: Deviation multiplier for lower band": 2,
+        "6.3: MA Type": 0,
+        "7: Series Type": "close",
+        "8: Time Zone": "US/Eastern Time"
+    },
+    "Technical Analysis: BBANDS": {
+        "2025-08-08": {
+            "Real Upper Band": "18.4061",
+            "Real Middle Band": "17.1036",
+            "Real Lower Band": "15.8012"
+        },
+        "2025-08-07": {
+            "Real Upper Band": "18.1502",
+            "Real Middle Band": "17.2226",
+            "Real Lower Band": "16.2951"
+        },
+        "2025-08-06": {
+            "Real Upper Band": "18.0485",
+            "Real Middle Band": "17.2746",
+            "Real Lower Band": "16.5008"
+        },
+        "2025-08-05": {
+            "Real Upper Band": "18.0540",
+            "Real Middle Band": "17.2693",
+            "Real Lower Band": "16.4846"
+        },
+        "2025-08-04": {
+            "Real Upper Band": "17.9045",
+            "Real Middle Band": "17.1713",
+            "Real Lower Band": "16.4381"
+        },
+        "2025-08-01": {
+            "Real Upper Band": "17.7170",
+            "Real Middle Band": "17.0923",
+            "Real Lower Band": "16.4676"
+        },
+        "2025-07-31": {
+            "Real Upper Band": "17.3952",
+            "Real Middle Band": "17.0163",
+            "Real Lower Band": "16.6374"
+        },
+        "2025-07-30": {
+            "Real Upper Band": "17.2869",
+            "Real Middle Band": "16.9913",
+            "Real Lower Band": "16.6958"
+        },
+        "2025-07-29": {
+            "Real Upper Band": "17.2285",
+            "Real Middle Band": "16.9780",
+            "Real Lower Band": "16.7276"
+        },
+        "2025-07-28": {
+            "Real Upper Band": "17.2756",
+            "Real Middle Band": "16.9907",
+            "Real Lower Band": "16.7058"
+        },
+        "2025-07-25": {
+            "Real Upper Band": "17.3481",
+            "Real Middle Band": "17.0297",
+            "Real Lower Band": "16.7112"
+        },
+        "2025-07-24": {
+            "Real Upper Band": "17.3514",
+            "Real Middle Band": "17.0487",
+            "Real Lower Band": "16.7459"
+        },
+        "2025-07-23": {
+            "Real Upper Band": "17.3455",
+            "Real Middle Band": "17.0557",
+            "Real Lower Band": "16.7659"
+        },
+        "2025-07-22": {
+            "Real Upper Band": "17.3314",
+            "Real Middle Band": "17.0770",
+            "Real Lower Band": "16.8226"
+        },
+        "2025-07-21": {
+            "Real Upper Band": "17.3031",
+            "Real Middle Band": "17.1080",
+            "Real Lower Band": "16.9129"
+        },
+        "2025-07-18": {
+            "Real Upper Band": "17.2961",
+            "Real Middle Band": "17.1240",
+            "Real Lower Band": "16.9519"
+        },
+        "2025-07-17": {
+            "Real Upper Band": "17.3361",
+            "Real Middle Band": "17.1020",
+            "Real Lower Band": "16.8679"
+        },
+        "2025-07-16": {
+            "Real Upper Band": "17.3303",
+            "Real Middle Band": "17.0790",
+            "Real Lower Band": "16.8277"
+        },
+        "2025-07-15": {
+            "Real Upper Band": "17.3845",
+            "Real Middle Band": "17.0960",
+            "Real Lower Band": "16.8075"
+        },
+        "2025-07-14": {
+            "Real Upper Band": "17.5156",
+            "Real Middle Band": "17.1270",
+            "Real Lower Band": "16.7384"
+        },
+        "2025-07-11": {
+            "Real Upper Band": "17.7950",
+            "Real Middle Band": "17.1900",
+            "Real Lower Band": "16.5850"
+        },
+        "2025-07-10": {
+            "Real Upper Band": "17.9908",
+            "Real Middle Band": "17.2700",
+            "Real Lower Band": "16.5492"
+        },
+        "2025-07-09": {
+            "Real Upper Band": "18.1116",
+            "Real Middle Band": "17.3570",
+            "Real Lower Band": "16.6024"
+        },
+        "2025-07-08": {
+            "Real Upper Band": "18.2444",
+            "Real Middle Band": "17.4450",
+            "Real Lower Band": "16.6456"
+        },
+        "2025-07-07": {
+            "Real Upper Band": "18.3153",
+            "Real Middle Band": "17.5140",
+            "Real Lower Band": "16.7127"
+        },
+        "2025-07-03": {
+            "Real Upper Band": "18.3725",
+            "Real Middle Band": "17.5889",
+            "Real Lower Band": "16.8053"
+        },
+        "2025-07-02": {
+            "Real Upper Band": "18.4532",
+            "Real Middle Band": "17.7326",
+            "Real Lower Band": "17.0120"
+        },
+        "2025-07-01": {
+            "Real Upper Band": "18.4590",
+            "Real Middle Band": "17.8762",
+            "Real Lower Band": "17.2934"
+        },
+        "2025-06-30": {
+            "Real Upper Band": "18.4138",
+            "Real Middle Band": "17.9540",
+            "Real Lower Band": "17.4942"
+        },
+        "2025-06-27": {
+            "Real Upper Band": "18.4312",
+            "Real Middle Band": "18.0277",
+            "Real Lower Band": "17.6242"
+        },
+        "2025-06-26": {
+            "Real Upper Band": "18.4342",
+            "Real Middle Band": "18.0395",
+            "Real Lower Band": "17.6449"
+        },
+        "2025-06-25": {
+            "Real Upper Band": "18.4356",
+            "Real Middle Band": "18.0574",
+            "Real Lower Band": "17.6792"
+        },
+        "2025-06-24": {
+            "Real Upper Band": "18.4587",
+            "Real Middle Band": "18.0454",
+            "Real Lower Band": "17.6321"
+        },
+        "2025-06-23": {
+            "Real Upper Band": "18.4659",
+            "Real Middle Band": "18.0324",
+            "Real Lower Band": "17.5990"
+        },
+        "2025-06-20": {
+            "Real Upper Band": "18.5032",
+            "Real Middle Band": "18.0096",
+            "Real Lower Band": "17.5159"
+        },
+        "2025-06-18": {
+            "Real Upper Band": "18.5033",
+            "Real Middle Band": "18.0086",
+            "Real Lower Band": "17.5138"
+        },
+        "2025-06-17": {
+            "Real Upper Band": "18.4363",
+            "Real Middle Band": "17.9470",
+            "Real Lower Band": "17.4577"
+        },
+        "2025-06-16": {
+            "Real Upper Band": "18.3041",
+            "Real Middle Band": "17.8755",
+            "Real Lower Band": "17.4469"
+        },
+        "2025-06-13": {
+            "Real Upper Band": "18.2480",
+            "Real Middle Band": "17.8437",
+            "Real Lower Band": "17.4394"
+        },
+        "2025-06-12": {
+            "Real Upper Band": "18.0876",
+            "Real Middle Band": "17.8020",
+            "Real Lower Band": "17.5163"
+        },
+        "2025-06-11": {
+            "Real Upper Band": "18.0498",
+            "Real Middle Band": "17.7911",
+            "Real Lower Band": "17.5323"
+        },
+        "2025-06-10": {
+            "Real Upper Band": "17.9773",
+            "Real Middle Band": "17.7732",
+            "Real Lower Band": "17.5690"
+        },
+        "2025-06-09": {
+            "Real Upper Band": "18.0037",
+            "Real Middle Band": "17.7930",
+            "Real Lower Band": "17.5824"
+        },
+        "2025-06-06": {
+            "Real Upper Band": "18.2467",
+            "Real Middle Band": "17.8477",
+            "Real Lower Band": "17.4487"
+        },
+        "2025-06-05": {
+            "Real Upper Band": "18.2342",
+            "Real Middle Band": "17.8685",
+            "Real Lower Band": "17.5028"
+        },
+        "2025-06-04": {
+            "Real Upper Band": "18.2296",
+            "Real Middle Band": "17.8546",
+            "Real Lower Band": "17.4797"
+        },
+        "2025-06-03": {
+            "Real Upper Band": "18.3020",
+            "Real Middle Band": "17.8199",
+            "Real Lower Band": "17.3377"
+        },
+        "2025-06-02": {
+            "Real Upper Band": "18.3905",
+            "Real Middle Band": "17.7712",
+            "Real Lower Band": "17.1519"
+        },
+        "2025-05-30": {
+            "Real Upper Band": "18.4776",
+            "Real Middle Band": "17.6887",
+            "Real Lower Band": "16.8999"
+        },
+        "2025-05-29": {
+            "Real Upper Band": "18.4926",
+            "Real Middle Band": "17.5964",
+            "Real Lower Band": "16.7001"
+        },
+        "2025-05-28": {
+            "Real Upper Band": "18.4584",
+            "Real Middle Band": "17.4921",
+            "Real Lower Band": "16.5258"
+        },
+        "2025-05-27": {
+            "Real Upper Band": "18.3942",
+            "Real Middle Band": "17.3868",
+            "Real Lower Band": "16.3793"
+        },
+        "2025-05-23": {
+            "Real Upper Band": "18.2657",
+            "Real Middle Band": "17.2944",
+            "Real Lower Band": "16.3231"
+        },
+        "2025-05-22": {
+            "Real Upper Band": "18.1480",
+            "Real Middle Band": "17.2716",
+            "Real Lower Band": "16.3952"
+        },
+        "2025-05-21": {
+            "Real Upper Band": "18.3139",
+            "Real Middle Band": "17.3123",
+            "Real Lower Band": "16.3107"
+        },
+        "2025-05-20": {
+            "Real Upper Band": "18.5253",
+            "Real Middle Band": "17.3719",
+            "Real Lower Band": "16.2184"
+        },
+        "2025-05-19": {
+            "Real Upper Band": "18.6895",
+            "Real Middle Band": "17.4513",
+            "Real Lower Band": "16.2131"
+        },
+        "2025-05-16": {
+            "Real Upper Band": "18.8197",
+            "Real Middle Band": "17.5437",
+            "Real Lower Band": "16.2677"
+        },
+        "2025-05-15": {
+            "Real Upper Band": "18.8158",
+            "Real Middle Band": "17.6003",
+            "Real Lower Band": "16.3849"
+        },
+        "2025-05-14": {
+            "Real Upper Band": "18.8182",
+            "Real Middle Band": "17.5984",
+            "Real Lower Band": "16.3785"
+        },
+        "2025-05-13": {
+            "Real Upper Band": "18.8090",
+            "Real Middle Band": "17.6053",
+            "Real Lower Band": "16.4016"
+        },
+        "2025-05-12": {
+            "Real Upper Band": "18.7776",
+            "Real Middle Band": "17.6291",
+            "Real Lower Band": "16.4807"
+        },
+        "2025-05-09": {
+            "Real Upper Band": "18.7608",
+            "Real Middle Band": "17.6450",
+            "Real Lower Band": "16.5292"
+        },
+        "2025-05-08": {
+            "Real Upper Band": "18.6463",
+            "Real Middle Band": "17.5517",
+            "Real Lower Band": "16.4570"
+        },
+        "2025-05-07": {
+            "Real Upper Band": "18.4652",
+            "Real Middle Band": "17.4563",
+            "Real Lower Band": "16.4474"
+        },
+        "2025-05-06": {
+            "Real Upper Band": "18.2219",
+            "Real Middle Band": "17.3838",
+            "Real Lower Band": "16.5457"
+        },
+        "2025-05-05": {
+            "Real Upper Band": "18.1739",
+            "Real Middle Band": "17.3729",
+            "Real Lower Band": "16.5718"
+        },
+        "2025-05-02": {
+            "Real Upper Band": "18.4692",
+            "Real Middle Band": "17.4295",
+            "Real Lower Band": "16.3898"
+        },
+        "2025-05-01": {
+            "Real Upper Band": "18.6671",
+            "Real Middle Band": "17.5060",
+            "Real Lower Band": "16.3449"
+        },
+        "2025-04-30": {
+            "Real Upper Band": "18.9001",
+            "Real Middle Band": "17.6669",
+            "Real Lower Band": "16.4337"
+        },
+        "2025-04-29": {
+            "Real Upper Band": "18.8914",
+            "Real Middle Band": "17.7573",
+            "Real Lower Band": "16.6231"
+        },
+        "2025-04-28": {
+            "Real Upper Band": "18.8641",
+            "Real Middle Band": "17.8308",
+            "Real Lower Band": "16.7974"
+        },
+        "2025-04-25": {
+            "Real Upper Band": "18.8786",
+            "Real Middle Band": "17.9381",
+            "Real Lower Band": "16.9976"
+        },
+        "2025-04-24": {
+            "Real Upper Band": "19.0890",
+            "Real Middle Band": "18.1139",
+            "Real Lower Band": "17.1387"
+        },
+        "2025-04-23": {
+            "Real Upper Band": "18.9990",
+            "Real Middle Band": "18.2053",
+            "Real Lower Band": "17.4116"
+        },
+        "2025-04-22": {
+            "Real Upper Band": "20.6060",
+            "Real Middle Band": "18.5887",
+            "Real Lower Band": "16.5713"
+        },
+        "2025-04-21": {
+            "Real Upper Band": "21.0885",
+            "Real Middle Band": "18.8320",
+            "Real Lower Band": "16.5755"
+        },
+        "2025-04-17": {
+            "Real Upper Band": "21.2484",
+            "Real Middle Band": "18.9373",
+            "Real Lower Band": "16.6262"
+        },
+        "2025-04-16": {
+            "Real Upper Band": "21.2479",
+            "Real Middle Band": "18.9463",
+            "Real Lower Band": "16.6446"
+        },
+        "2025-04-15": {
+            "Real Upper Band": "21.4087",
+            "Real Middle Band": "18.7744",
+            "Real Lower Band": "16.1401"
+        },
+        "2025-04-14": {
+            "Real Upper Band": "21.5086",
+            "Real Middle Band": "18.6761",
+            "Real Lower Band": "15.8436"
+        },
+        "2025-04-11": {
+            "Real Upper Band": "21.5713",
+            "Real Middle Band": "18.5917",
+            "Real Lower Band": "15.6121"
+        },
+        "2025-04-10": {
+            "Real Upper Band": "21.5777",
+            "Real Middle Band": "18.4973",
+            "Real Lower Band": "15.4169"
+        },
+        "2025-04-09": {
+            "Real Upper Band": "21.5022",
+            "Real Middle Band": "18.2827",
+            "Real Lower Band": "15.0632"
+        },
+        "2025-04-08": {
+            "Real Upper Band": "21.4767",
+            "Real Middle Band": "18.1635",
+            "Real Lower Band": "14.8504"
+        },
+        "2025-04-07": {
+            "Real Upper Band": "20.2643",
+            "Real Middle Band": "17.7017",
+            "Real Lower Band": "15.1390"
+        },
+        "2025-04-04": {
+            "Real Upper Band": "19.1638",
+            "Real Middle Band": "17.3620",
+            "Real Lower Band": "15.5602"
+        },
+        "2025-04-03": {
+            "Real Upper Band": "18.0154",
+            "Real Middle Band": "17.1156",
+            "Real Lower Band": "16.2159"
+        },
+        "2025-04-02": {
+            "Real Upper Band": "17.5038",
+            "Real Middle Band": "17.0329",
+            "Real Lower Band": "16.5620"
+        },
+        "2025-04-01": {
+            "Real Upper Band": "17.6016",
+            "Real Middle Band": "17.0973",
+            "Real Lower Band": "16.5929"
+        },
+        "2025-03-31": {
+            "Real Upper Band": "17.7527",
+            "Real Middle Band": "17.1774",
+            "Real Lower Band": "16.6020"
+        },
+        "2025-03-28": {
+            "Real Upper Band": "17.8326",
+            "Real Middle Band": "17.2387",
+            "Real Lower Band": "16.6448"
+        },
+        "2025-03-27": {
+            "Real Upper Band": "17.9074",
+            "Real Middle Band": "17.2731",
+            "Real Lower Band": "16.6388"
+        },
+        "2025-03-26": {
+            "Real Upper Band": "18.0359",
+            "Real Middle Band": "17.3829",
+            "Real Lower Band": "16.7299"
+        },
+        "2025-03-25": {
+            "Real Upper Band": "18.0171",
+            "Real Middle Band": "17.4175",
+            "Real Lower Band": "16.8180"
+        },
+        "2025-03-24": {
+            "Real Upper Band": "17.9603",
+            "Real Middle Band": "17.4394",
+            "Real Lower Band": "16.9186"
+        },
+        "2025-03-21": {
+            "Real Upper Band": "18.1153",
+            "Real Middle Band": "17.3872",
+            "Real Lower Band": "16.6590"
+        },
+        "2025-03-20": {
+            "Real Upper Band": "18.4594",
+            "Real Middle Band": "17.2392",
+            "Real Lower Band": "16.0190"
+        },
+        "2025-03-19": {
+            "Real Upper Band": "18.4853",
+            "Real Middle Band": "17.0853",
+            "Real Lower Band": "15.6853"
+        },
+        "2025-03-18": {
+            "Real Upper Band": "18.4578",
+            "Real Middle Band": "16.9383",
+            "Real Lower Band": "15.4189"
+        },
+        "2025-03-17": {
+            "Real Upper Band": "18.3078",
+            "Real Middle Band": "16.7687",
+            "Real Lower Band": "15.2295"
+        },
+        "2025-03-14": {
+            "Real Upper Band": "18.1302",
+            "Real Middle Band": "16.5950",
+            "Real Lower Band": "15.0599"
+        },
+        "2025-03-13": {
+            "Real Upper Band": "17.8738",
+            "Real Middle Band": "16.3918",
+            "Real Lower Band": "14.9099"
+        },
+        "2025-03-12": {
+            "Real Upper Band": "17.2952",
+            "Real Middle Band": "16.1886",
+            "Real Lower Band": "15.0821"
+        },
+        "2025-03-11": {
+            "Real Upper Band": "16.8587",
+            "Real Middle Band": "16.0219",
+            "Real Lower Band": "15.1852"
+        },
+        "2025-03-10": {
+            "Real Upper Band": "16.4780",
+            "Real Middle Band": "15.8424",
+            "Real Lower Band": "15.2068"
+        },
+        "2025-03-07": {
+            "Real Upper Band": "16.2529",
+            "Real Middle Band": "15.7132",
+            "Real Lower Band": "15.1734"
+        },
+        "2025-03-06": {
+            "Real Upper Band": "16.2543",
+            "Real Middle Band": "15.6698",
+            "Real Lower Band": "15.0852"
+        },
+        "2025-03-05": {
+            "Real Upper Band": "16.1711",
+            "Real Middle Band": "15.6007",
+            "Real Lower Band": "15.0303"
+        },
+        "2025-03-04": {
+            "Real Upper Band": "16.0635",
+            "Real Middle Band": "15.5386",
+            "Real Lower Band": "15.0136"
+        },
+        "2025-03-03": {
+            "Real Upper Band": "15.9289",
+            "Real Middle Band": "15.4823",
+            "Real Lower Band": "15.0357"
+        },
+        "2025-02-28": {
+            "Real Upper Band": "15.8247",
+            "Real Middle Band": "15.4379",
+            "Real Lower Band": "15.0512"
+        },
+        "2025-02-27": {
+            "Real Upper Band": "15.8247",
+            "Real Middle Band": "15.4379",
+            "Real Lower Band": "15.0512"
+        },
+        "2025-02-26": {
+            "Real Upper Band": "15.8247",
+            "Real Middle Band": "15.4379",
+            "Real Lower Band": "15.0512"
+        },
+        "2025-02-25": {
+            "Real Upper Band": "16.0644",
+            "Real Middle Band": "15.4883",
+            "Real Lower Band": "14.9121"
+        },
+        "2025-02-24": {
+            "Real Upper Band": "16.4404",
+            "Real Middle Band": "15.6175",
+            "Real Lower Band": "14.7946"
+        },
+        "2025-02-21": {
+            "Real Upper Band": "16.6937",
+            "Real Middle Band": "15.7477",
+            "Real Lower Band": "14.8016"
+        },
+        "2025-02-20": {
+            "Real Upper Band": "16.7582",
+            "Real Middle Band": "15.8296",
+            "Real Lower Band": "14.9009"
+        },
+        "2025-02-19": {
+            "Real Upper Band": "16.8015",
+            "Real Middle Band": "15.9174",
+            "Real Lower Band": "15.0332"
+        },
+        "2025-02-18": {
+            "Real Upper Band": "16.8100",
+            "Real Middle Band": "15.9992",
+            "Real Lower Band": "15.1885"
+        },
+        "2025-02-14": {
+            "Real Upper Band": "16.8619",
+            "Real Middle Band": "16.1097",
+            "Real Lower Band": "15.3576"
+        },
+        "2025-02-13": {
+            "Real Upper Band": "16.7569",
+            "Real Middle Band": "16.1689",
+            "Real Lower Band": "15.5809"
+        },
+        "2025-02-12": {
+            "Real Upper Band": "16.6869",
+            "Real Middle Band": "16.1975",
+            "Real Lower Band": "15.7081"
+        },
+        "2025-02-11": {
+            "Real Upper Band": "16.7127",
+            "Real Middle Band": "16.1847",
+            "Real Lower Band": "15.6566"
+        },
+        "2025-02-10": {
+            "Real Upper Band": "16.7241",
+            "Real Middle Band": "16.1482",
+            "Real Lower Band": "15.5722"
+        },
+        "2025-02-07": {
+            "Real Upper Band": "16.6756",
+            "Real Middle Band": "16.1334",
+            "Real Lower Band": "15.5911"
+        },
+        "2025-02-06": {
+            "Real Upper Band": "16.8652",
+            "Real Middle Band": "16.1728",
+            "Real Lower Band": "15.4805"
+        },
+        "2025-02-05": {
+            "Real Upper Band": "17.0522",
+            "Real Middle Band": "16.2449",
+            "Real Lower Band": "15.4375"
+        },
+        "2025-02-04": {
+            "Real Upper Band": "17.1896",
+            "Real Middle Band": "16.3090",
+            "Real Lower Band": "15.4283"
+        },
+        "2025-02-03": {
+            "Real Upper Band": "17.3322",
+            "Real Middle Band": "16.3839",
+            "Real Lower Band": "15.4357"
+        },
+        "2025-01-31": {
+            "Real Upper Band": "17.3181",
+            "Real Middle Band": "16.3731",
+            "Real Lower Band": "15.4281"
+        },
+        "2025-01-30": {
+            "Real Upper Band": "17.3367",
+            "Real Middle Band": "16.4283",
+            "Real Lower Band": "15.5200"
+        },
+        "2025-01-29": {
+            "Real Upper Band": "17.3367",
+            "Real Middle Band": "16.4283",
+            "Real Lower Band": "15.5200"
+        },
+        "2025-01-28": {
+            "Real Upper Band": "17.2807",
+            "Real Middle Band": "16.4727",
+            "Real Lower Band": "15.6647"
+        },
+        "2025-01-27": {
+            "Real Upper Band": "17.2263",
+            "Real Middle Band": "16.5033",
+            "Real Lower Band": "15.7804"
+        },
+        "2025-01-24": {
+            "Real Upper Band": "17.2578",
+            "Real Middle Band": "16.4579",
+            "Real Lower Band": "15.6581"
+        },
+        "2025-01-23": {
+            "Real Upper Band": "17.2124",
+            "Real Middle Band": "16.3198",
+            "Real Lower Band": "15.4272"
+        },
+        "2025-01-22": {
+            "Real Upper Band": "17.1005",
+            "Real Middle Band": "16.1916",
+            "Real Lower Band": "15.2827"
+        },
+        "2025-01-21": {
+            "Real Upper Band": "16.9571",
+            "Real Middle Band": "16.0476",
+            "Real Lower Band": "15.1381"
+        },
+        "2025-01-17": {
+            "Real Upper Band": "16.6508",
+            "Real Middle Band": "15.9045",
+            "Real Lower Band": "15.1583"
+        },
+        "2025-01-16": {
+            "Real Upper Band": "16.5208",
+            "Real Middle Band": "15.8118",
+            "Real Lower Band": "15.1028"
+        },
+        "2025-01-15": {
+            "Real Upper Band": "16.3312",
+            "Real Middle Band": "15.6648",
+            "Real Lower Band": "14.9984"
+        },
+        "2025-01-14": {
+            "Real Upper Band": "16.3470",
+            "Real Middle Band": "15.5741",
+            "Real Lower Band": "14.8012"
+        },
+        "2025-01-13": {
+            "Real Upper Band": "16.2259",
+            "Real Middle Band": "15.4310",
+            "Real Lower Band": "14.6362"
+        },
+        "2025-01-10": {
+            "Real Upper Band": "16.0859",
+            "Real Middle Band": "15.2762",
+            "Real Lower Band": "14.4664"
+        },
+        "2025-01-08": {
+            "Real Upper Band": "15.9134",
+            "Real Middle Band": "15.1440",
+            "Real Lower Band": "14.3746"
+        },
+        "2025-01-07": {
+            "Real Upper Band": "15.8113",
+            "Real Middle Band": "15.0641",
+            "Real Lower Band": "14.3169"
+        },
+        "2025-01-06": {
+            "Real Upper Band": "15.6581",
+            "Real Middle Band": "14.9860",
+            "Real Lower Band": "14.3139"
+        },
+        "2025-01-03": {
+            "Real Upper Band": "15.5748",
+            "Real Middle Band": "14.9550",
+            "Real Lower Band": "14.3353"
+        },
+        "2025-01-02": {
+            "Real Upper Band": "15.4540",
+            "Real Middle Band": "14.9230",
+            "Real Lower Band": "14.3919"
+        },
+        "2024-12-31": {
+            "Real Upper Band": "15.2502",
+            "Real Middle Band": "14.8626",
+            "Real Lower Band": "14.4751"
+        },
+        "2024-12-30": {
+            "Real Upper Band": "15.2358",
+            "Real Middle Band": "14.8574",
+            "Real Lower Band": "14.4790"
+        },
+        "2024-12-27": {
+            "Real Upper Band": "15.3054",
+            "Real Middle Band": "14.8805",
+            "Real Lower Band": "14.4557"
+        },
+        "2024-12-26": {
+            "Real Upper Band": "15.3755",
+            "Real Middle Band": "14.9234",
+            "Real Lower Band": "14.4713"
+        },
+        "2024-12-24": {
+            "Real Upper Band": "15.4231",
+            "Real Middle Band": "14.9958",
+            "Real Lower Band": "14.5685"
+        },
+        "2024-12-23": {
+            "Real Upper Band": "15.4081",
+            "Real Middle Band": "15.0544",
+            "Real Lower Band": "14.7008"
+        },
+        "2024-12-20": {
+            "Real Upper Band": "15.4110",
+            "Real Middle Band": "15.1032",
+            "Real Lower Band": "14.7954"
+        },
+        "2024-12-19": {
+            "Real Upper Band": "15.4977",
+            "Real Middle Band": "15.1735",
+            "Real Lower Band": "14.8492"
+        },
+        "2024-12-18": {
+            "Real Upper Band": "15.5704",
+            "Real Middle Band": "15.2105",
+            "Real Lower Band": "14.8507"
+        },
+        "2024-12-17": {
+            "Real Upper Band": "15.6334",
+            "Real Middle Band": "15.2408",
+            "Real Lower Band": "14.8482"
+        },
+        "2024-12-16": {
+            "Real Upper Band": "15.6327",
+            "Real Middle Band": "15.3042",
+            "Real Lower Band": "14.9758"
+        },
+        "2024-12-13": {
+            "Real Upper Band": "15.7089",
+            "Real Middle Band": "15.3735",
+            "Real Lower Band": "15.0382"
+        },
+        "2024-12-12": {
+            "Real Upper Band": "15.8541",
+            "Real Middle Band": "15.4399",
+            "Real Lower Band": "15.0257"
+        },
+        "2024-12-11": {
+            "Real Upper Band": "16.0142",
+            "Real Middle Band": "15.5209",
+            "Real Lower Band": "15.0276"
+        },
+        "2024-12-10": {
+            "Real Upper Band": "16.1276",
+            "Real Middle Band": "15.5912",
+            "Real Lower Band": "15.0547"
+        },
+        "2024-12-09": {
+            "Real Upper Band": "16.2394",
+            "Real Middle Band": "15.6849",
+            "Real Lower Band": "15.1303"
+        },
+        "2024-12-06": {
+            "Real Upper Band": "16.3927",
+            "Real Middle Band": "15.7952",
+            "Real Lower Band": "15.1976"
+        },
+        "2024-12-05": {
+            "Real Upper Band": "16.5573",
+            "Real Middle Band": "15.8869",
+            "Real Lower Band": "15.2165"
+        },
+        "2024-12-04": {
+            "Real Upper Band": "16.6410",
+            "Real Middle Band": "15.9786",
+            "Real Lower Band": "15.3163"
+        },
+        "2024-12-03": {
+            "Real Upper Band": "16.6953",
+            "Real Middle Band": "16.0743",
+            "Real Lower Band": "15.4533"
+        },
+        "2024-12-02": {
+            "Real Upper Band": "16.6937",
+            "Real Middle Band": "16.1699",
+            "Real Lower Band": "15.6461"
+        },
+        "2024-11-29": {
+            "Real Upper Band": "16.7629",
+            "Real Middle Band": "16.2675",
+            "Real Lower Band": "15.7721"
+        },
+        "2024-11-27": {
+            "Real Upper Band": "16.7384",
+            "Real Middle Band": "16.3241",
+            "Real Lower Band": "15.9099"
+        },
+        "2024-11-26": {
+            "Real Upper Band": "16.7784",
+            "Real Middle Band": "16.3885",
+            "Real Lower Band": "15.9987"
+        },
+        "2024-11-25": {
+            "Real Upper Band": "16.7966",
+            "Real Middle Band": "16.4627",
+            "Real Lower Band": "16.1288"
+        },
+        "2024-11-22": {
+            "Real Upper Band": "16.8048",
+            "Real Middle Band": "16.5213",
+            "Real Lower Band": "16.2378"
+        },
+        "2024-11-21": {
+            "Real Upper Band": "16.7962",
+            "Real Middle Band": "16.5359",
+            "Real Lower Band": "16.2756"
+        },
+        "2024-11-20": {
+            "Real Upper Band": "16.7945",
+            "Real Middle Band": "16.5398",
+            "Real Lower Band": "16.2852"
+        },
+        "2024-11-19": {
+            "Real Upper Band": "16.8699",
+            "Real Middle Band": "16.5857",
+            "Real Lower Band": "16.3015"
+        },
+        "2024-11-18": {
+            "Real Upper Band": "16.9057",
+            "Real Middle Band": "16.6198",
+            "Real Lower Band": "16.3340"
+        },
+        "2024-11-15": {
+            "Real Upper Band": "16.9691",
+            "Real Middle Band": "16.6638",
+            "Real Lower Band": "16.3585"
+        },
+        "2024-11-14": {
+            "Real Upper Band": "16.9972",
+            "Real Middle Band": "16.6784",
+            "Real Lower Band": "16.3596"
+        },
+        "2024-11-13": {
+            "Real Upper Band": "16.9703",
+            "Real Middle Band": "16.6999",
+            "Real Lower Band": "16.4295"
+        },
+        "2024-11-12": {
+            "Real Upper Band": "17.0373",
+            "Real Middle Band": "16.6628",
+            "Real Lower Band": "16.2882"
+        },
+        "2024-11-11": {
+            "Real Upper Band": "17.1166",
+            "Real Middle Band": "16.5945",
+            "Real Lower Band": "16.0724"
+        },
+        "2024-11-08": {
+            "Real Upper Band": "17.1305",
+            "Real Middle Band": "16.5291",
+            "Real Lower Band": "15.9277"
+        },
+        "2024-11-07": {
+            "Real Upper Band": "17.1320",
+            "Real Middle Band": "16.5008",
+            "Real Lower Band": "15.8695"
+        },
+        "2024-11-06": {
+            "Real Upper Band": "17.1284",
+            "Real Middle Band": "16.4793",
+            "Real Lower Band": "15.8303"
+        },
+        "2024-11-05": {
+            "Real Upper Band": "17.0358",
+            "Real Middle Band": "16.4188",
+            "Real Lower Band": "15.8018"
+        },
+        "2024-11-04": {
+            "Real Upper Band": "16.9721",
+            "Real Middle Band": "16.3290",
+            "Real Lower Band": "15.6859"
+        },
+        "2024-11-01": {
+            "Real Upper Band": "16.8058",
+            "Real Middle Band": "16.2226",
+            "Real Lower Band": "15.6395"
+        },
+        "2024-10-31": {
+            "Real Upper Band": "16.5837",
+            "Real Middle Band": "16.1338",
+            "Real Lower Band": "15.6839"
+        },
+        "2024-10-30": {
+            "Real Upper Band": "16.3880",
+            "Real Middle Band": "16.0826",
+            "Real Lower Band": "15.7771"
+        },
+        "2024-10-29": {
+            "Real Upper Band": "16.3530",
+            "Real Middle Band": "16.0699",
+            "Real Lower Band": "15.7868"
+        },
+        "2024-10-28": {
+            "Real Upper Band": "16.3514",
+            "Real Middle Band": "16.0660",
+            "Real Lower Band": "15.7806"
+        },
+        "2024-10-25": {
+            "Real Upper Band": "16.3669",
+            "Real Middle Band": "16.0757",
+            "Real Lower Band": "15.7846"
+        },
+        "2024-10-24": {
+            "Real Upper Band": "16.4595",
+            "Real Middle Band": "16.0992",
+            "Real Lower Band": "15.7388"
+        },
+        "2024-10-23": {
+            "Real Upper Band": "16.4831",
+            "Real Middle Band": "16.1070",
+            "Real Lower Band": "15.7308"
+        },
+        "2024-10-22": {
+            "Real Upper Band": "16.4982",
+            "Real Middle Band": "16.1128",
+            "Real Lower Band": "15.7275"
+        },
+        "2024-10-21": {
+            "Real Upper Band": "16.6156",
+            "Real Middle Band": "16.1811",
+            "Real Lower Band": "15.7467"
+        },
+        "2024-10-18": {
+            "Real Upper Band": "16.8172",
+            "Real Middle Band": "16.2846",
+            "Real Lower Band": "15.7520"
+        },
+        "2024-10-17": {
+            "Real Upper Band": "16.8264",
+            "Real Middle Band": "16.3402",
+            "Real Lower Band": "15.8541"
+        },
+        "2024-10-16": {
+            "Real Upper Band": "16.8602",
+            "Real Middle Band": "16.3837",
+            "Real Lower Band": "15.9071"
+        },
+        "2024-10-15": {
+            "Real Upper Band": "16.8686",
+            "Real Middle Band": "16.4178",
+            "Real Lower Band": "15.9670"
+        },
+        "2024-10-14": {
+            "Real Upper Band": "16.8289",
+            "Real Middle Band": "16.4695",
+            "Real Lower Band": "16.1102"
+        },
+        "2024-10-11": {
+            "Real Upper Band": "16.8614",
+            "Real Middle Band": "16.4578",
+            "Real Lower Band": "16.0543"
+        },
+        "2024-10-10": {
+            "Real Upper Band": "16.8586",
+            "Real Middle Band": "16.4539",
+            "Real Lower Band": "16.0492"
+        },
+        "2024-10-09": {
+            "Real Upper Band": "16.8594",
+            "Real Middle Band": "16.4617",
+            "Real Lower Band": "16.0641"
+        },
+        "2024-10-08": {
+            "Real Upper Band": "16.8641",
+            "Real Middle Band": "16.4832",
+            "Real Lower Band": "16.1024"
+        },
+        "2024-10-07": {
+            "Real Upper Band": "16.8484",
+            "Real Middle Band": "16.4705",
+            "Real Lower Band": "16.0926"
+        },
+        "2024-10-04": {
+            "Real Upper Band": "16.7066",
+            "Real Middle Band": "16.4327",
+            "Real Lower Band": "16.1588"
+        },
+        "2024-10-03": {
+            "Real Upper Band": "16.6949",
+            "Real Middle Band": "16.4184",
+            "Real Lower Band": "16.1419"
+        },
+        "2024-10-02": {
+            "Real Upper Band": "16.6620",
+            "Real Middle Band": "16.3934",
+            "Real Lower Band": "16.1249"
+        },
+        "2024-10-01": {
+            "Real Upper Band": "16.8585",
+            "Real Middle Band": "16.4382",
+            "Real Lower Band": "16.0178"
+        },
+        "2024-09-30": {
+            "Real Upper Band": "17.1458",
+            "Real Middle Band": "16.5090",
+            "Real Lower Band": "15.8722"
+        },
+        "2024-09-27": {
+            "Real Upper Band": "17.3323",
+            "Real Middle Band": "16.6315",
+            "Real Lower Band": "15.9308"
+        },
+        "2024-09-26": {
+            "Real Upper Band": "17.3635",
+            "Real Middle Band": "16.6725",
+            "Real Lower Band": "15.9814"
+        },
+        "2024-09-25": {
+            "Real Upper Band": "17.3763",
+            "Real Middle Band": "16.7076",
+            "Real Lower Band": "16.0389"
+        },
+        "2024-09-24": {
+            "Real Upper Band": "17.3902",
+            "Real Middle Band": "16.7349",
+            "Real Lower Band": "16.0796"
+        },
+        "2024-09-23": {
+            "Real Upper Band": "17.4307",
+            "Real Middle Band": "16.7913",
+            "Real Lower Band": "16.1519"
+        },
+        "2024-09-20": {
+            "Real Upper Band": "17.4424",
+            "Real Middle Band": "16.8339",
+            "Real Lower Band": "16.2253"
+        },
+        "2024-09-19": {
+            "Real Upper Band": "17.4035",
+            "Real Middle Band": "16.8909",
+            "Real Lower Band": "16.3784"
+        },
+        "2024-09-18": {
+            "Real Upper Band": "17.2855",
+            "Real Middle Band": "16.9383",
+            "Real Lower Band": "16.5912"
+        },
+        "2024-09-17": {
+            "Real Upper Band": "17.2832",
+            "Real Middle Band": "16.9354",
+            "Real Lower Band": "16.5877"
+        },
+        "2024-09-16": {
+            "Real Upper Band": "17.1873",
+            "Real Middle Band": "16.8880",
+            "Real Lower Band": "16.5887"
+        },
+        "2024-09-13": {
+            "Real Upper Band": "17.1487",
+            "Real Middle Band": "16.7922",
+            "Real Lower Band": "16.4358"
+        },
+        "2024-09-12": {
+            "Real Upper Band": "17.2246",
+            "Real Middle Band": "16.7332",
+            "Real Lower Band": "16.2418"
+        },
+        "2024-09-11": {
+            "Real Upper Band": "17.2201",
+            "Real Middle Band": "16.7042",
+            "Real Lower Band": "16.1883"
+        },
+        "2024-09-10": {
+            "Real Upper Band": "17.2167",
+            "Real Middle Band": "16.6607",
+            "Real Lower Band": "16.1047"
+        },
+        "2024-09-09": {
+            "Real Upper Band": "17.1262",
+            "Real Middle Band": "16.6007",
+            "Real Lower Band": "16.0752"
+        },
+        "2024-09-06": {
+            "Real Upper Band": "17.0420",
+            "Real Middle Band": "16.5523",
+            "Real Lower Band": "16.0626"
+        },
+        "2024-09-05": {
+            "Real Upper Band": "16.9485",
+            "Real Middle Band": "16.5194",
+            "Real Lower Band": "16.0904"
+        },
+        "2024-09-04": {
+            "Real Upper Band": "16.8806",
+            "Real Middle Band": "16.4865",
+            "Real Lower Band": "16.0924"
+        },
+        "2024-09-03": {
+            "Real Upper Band": "16.7192",
+            "Real Middle Band": "16.4391",
+            "Real Lower Band": "16.1590"
+        },
+        "2024-08-30": {
+            "Real Upper Band": "16.5990",
+            "Real Middle Band": "16.4110",
+            "Real Lower Band": "16.2231"
+        },
+        "2024-08-29": {
+            "Real Upper Band": "16.6029",
+            "Real Middle Band": "16.4256",
+            "Real Lower Band": "16.2482"
+        },
+        "2024-08-28": {
+            "Real Upper Band": "16.5844",
+            "Real Middle Band": "16.4565",
+            "Real Lower Band": "16.3286"
+        },
+        "2024-08-27": {
+            "Real Upper Band": "16.7130",
+            "Real Middle Band": "16.4865",
+            "Real Lower Band": "16.2600"
+        },
+        "2024-08-26": {
+            "Real Upper Band": "16.8021",
+            "Real Middle Band": "16.5320",
+            "Real Lower Band": "16.2619"
+        },
+        "2024-08-23": {
+            "Real Upper Band": "17.0075",
+            "Real Middle Band": "16.5997",
+            "Real Lower Band": "16.1920"
+        },
+        "2024-08-22": {
+            "Real Upper Band": "17.2072",
+            "Real Middle Band": "16.6781",
+            "Real Lower Band": "16.1489"
+        },
+        "2024-08-21": {
+            "Real Upper Band": "17.4534",
+            "Real Middle Band": "16.7632",
+            "Real Lower Band": "16.0730"
+        },
+        "2024-08-20": {
+            "Real Upper Band": "17.7472",
+            "Real Middle Band": "16.8900",
+            "Real Lower Band": "16.0327"
+        },
+        "2024-08-19": {
+            "Real Upper Band": "18.0487",
+            "Real Middle Band": "17.0428",
+            "Real Lower Band": "16.0370"
+        },
+        "2024-08-16": {
+            "Real Upper Band": "18.1873",
+            "Real Middle Band": "17.1725",
+            "Real Lower Band": "16.1577"
+        },
+        "2024-08-15": {
+            "Real Upper Band": "18.1356",
+            "Real Middle Band": "17.2228",
+            "Real Lower Band": "16.3100"
+        },
+        "2024-08-14": {
+            "Real Upper Band": "18.0775",
+            "Real Middle Band": "17.2750",
+            "Real Lower Band": "16.4726"
+        },
+        "2024-08-13": {
+            "Real Upper Band": "18.0760",
+            "Real Middle Band": "17.2760",
+            "Real Lower Band": "16.4760"
+        },
+        "2024-08-12": {
+            "Real Upper Band": "18.0548",
+            "Real Middle Band": "17.2983",
+            "Real Lower Band": "16.5417"
+        },
+        "2024-08-09": {
+            "Real Upper Band": "18.0552",
+            "Real Middle Band": "17.2963",
+            "Real Lower Band": "16.5374"
+        },
+        "2024-08-08": {
+            "Real Upper Band": "18.0522",
+            "Real Middle Band": "17.2808",
+            "Real Lower Band": "16.5095"
+        },
+        "2024-08-07": {
+            "Real Upper Band": "18.0181",
+            "Real Middle Band": "17.2470",
+            "Real Lower Band": "16.4759"
+        },
+        "2024-08-06": {
+            "Real Upper Band": "17.8902",
+            "Real Middle Band": "17.1764",
+            "Real Lower Band": "16.4625"
+        },
+        "2024-08-05": {
+            "Real Upper Band": "17.6253",
+            "Real Middle Band": "17.0341",
+            "Real Lower Band": "16.4430"
+        },
+        "2024-08-02": {
+            "Real Upper Band": "17.3029",
+            "Real Middle Band": "16.9180",
+            "Real Lower Band": "16.5331"
+        },
+        "2024-08-01": {
+            "Real Upper Band": "17.3122",
+            "Real Middle Band": "16.8803",
+            "Real Lower Band": "16.4484"
+        },
+        "2024-07-31": {
+            "Real Upper Band": "17.2804",
+            "Real Middle Band": "16.8329",
+            "Real Lower Band": "16.3853"
+        },
+        "2024-07-30": {
+            "Real Upper Band": "17.3508",
+            "Real Middle Band": "16.7797",
+            "Real Lower Band": "16.2086"
+        },
+        "2024-07-29": {
+            "Real Upper Band": "17.4376",
+            "Real Middle Band": "16.6616",
+            "Real Lower Band": "15.8857"
+        },
+        "2024-07-26": {
+            "Real Upper Band": "17.4021",
+            "Real Middle Band": "16.5417",
+            "Real Lower Band": "15.6812"
+        },
+        "2024-07-25": {
+            "Real Upper Band": "17.2665",
+            "Real Middle Band": "16.4478",
+            "Real Lower Band": "15.6291"
+        },
+        "2024-07-24": {
+            "Real Upper Band": "17.0665",
+            "Real Middle Band": "16.3704",
+            "Real Lower Band": "15.6743"
+        },
+        "2024-07-23": {
+            "Real Upper Band": "16.8513",
+            "Real Middle Band": "16.2669",
+            "Real Lower Band": "15.6825"
+        },
+        "2024-07-22": {
+            "Real Upper Band": "16.7965",
+            "Real Middle Band": "16.2398",
+            "Real Lower Band": "15.6831"
+        },
+        "2024-07-19": {
+            "Real Upper Band": "16.7163",
+            "Real Middle Band": "16.2117",
+            "Real Lower Band": "15.7071"
+        },
+        "2024-07-18": {
+            "Real Upper Band": "16.6595",
+            "Real Middle Band": "16.1953",
+            "Real Lower Band": "15.7311"
+        },
+        "2024-07-17": {
+            "Real Upper Band": "16.7522",
+            "Real Middle Band": "16.2146",
+            "Real Lower Band": "15.6770"
+        },
+        "2024-07-16": {
+            "Real Upper Band": "16.9370",
+            "Real Middle Band": "16.2756",
+            "Real Lower Band": "15.6142"
+        },
+        "2024-07-15": {
+            "Real Upper Band": "17.1727",
+            "Real Middle Band": "16.4052",
+            "Real Lower Band": "15.6378"
+        },
+        "2024-07-12": {
+            "Real Upper Band": "17.5735",
+            "Real Middle Band": "16.5862",
+            "Real Lower Band": "15.5989"
+        },
+        "2024-07-11": {
+            "Real Upper Band": "17.7415",
+            "Real Middle Band": "16.7100",
+            "Real Lower Band": "15.6786"
+        },
+        "2024-07-10": {
+            "Real Upper Band": "17.9003",
+            "Real Middle Band": "16.8213",
+            "Real Lower Band": "15.7423"
+        },
+        "2024-07-09": {
+            "Real Upper Band": "18.0510",
+            "Real Middle Band": "17.0003",
+            "Real Lower Band": "15.9496"
+        },
+        "2024-07-08": {
+            "Real Upper Band": "18.1882",
+            "Real Middle Band": "17.1568",
+            "Real Lower Band": "16.1253"
+        },
+        "2024-07-05": {
+            "Real Upper Band": "18.2817",
+            "Real Middle Band": "17.3170",
+            "Real Lower Band": "16.3523"
+        },
+        "2024-07-03": {
+            "Real Upper Band": "18.2192",
+            "Real Middle Band": "17.4446",
+            "Real Lower Band": "16.6701"
+        },
+        "2024-07-02": {
+            "Real Upper Band": "18.1440",
+            "Real Middle Band": "17.4982",
+            "Real Lower Band": "16.8525"
+        },
+        "2024-07-01": {
+            "Real Upper Band": "18.0773",
+            "Real Middle Band": "17.5249",
+            "Real Lower Band": "16.9726"
+        },
+        "2024-06-28": {
+            "Real Upper Band": "18.0489",
+            "Real Middle Band": "17.5570",
+            "Real Lower Band": "17.0652"
+        },
+        "2024-06-27": {
+            "Real Upper Band": "18.0265",
+            "Real Middle Band": "17.5235",
+            "Real Lower Band": "17.0206"
+        },
+        "2024-06-26": {
+            "Real Upper Band": "18.0257",
+            "Real Middle Band": "17.5286",
+            "Real Lower Band": "17.0315"
+        },
+        "2024-06-25": {
+            "Real Upper Band": "18.1223",
+            "Real Middle Band": "17.5776",
+            "Real Lower Band": "17.0329"
+        },
+        "2024-06-24": {
+            "Real Upper Band": "18.9173",
+            "Real Middle Band": "17.7333",
+            "Real Lower Band": "16.5494"
+        },
+        "2024-06-21": {
+            "Real Upper Band": "19.2375",
+            "Real Middle Band": "17.8453",
+            "Real Lower Band": "16.4530"
+        },
+        "2024-06-20": {
+            "Real Upper Band": "19.5731",
+            "Real Middle Band": "17.9686",
+            "Real Lower Band": "16.3642"
+        },
+        "2024-06-18": {
+            "Real Upper Band": "19.8133",
+            "Real Middle Band": "18.1026",
+            "Real Lower Band": "16.3918"
+        },
+        "2024-06-17": {
+            "Real Upper Band": "20.0241",
+            "Real Middle Band": "18.2900",
+            "Real Lower Band": "16.5560"
+        },
+        "2024-06-14": {
+            "Real Upper Band": "20.1179",
+            "Real Middle Band": "18.4985",
+            "Real Lower Band": "16.8791"
+        },
+        "2024-06-13": {
+            "Real Upper Band": "20.2236",
+            "Real Middle Band": "18.6908",
+            "Real Lower Band": "17.1580"
+        },
+        "2024-06-12": {
+            "Real Upper Band": "20.1970",
+            "Real Middle Band": "18.9046",
+            "Real Lower Band": "17.6122"
+        },
+        "2024-06-11": {
+            "Real Upper Band": "19.9952",
+            "Real Middle Band": "19.1207",
+            "Real Lower Band": "18.2463"
+        },
+        "2024-06-10": {
+            "Real Upper Band": "19.6949",
+            "Real Middle Band": "19.2862",
+            "Real Lower Band": "18.8775"
+        },
+        "2024-06-07": {
+            "Real Upper Band": "19.7573",
+            "Real Middle Band": "19.3120",
+            "Real Lower Band": "18.8667"
+        },
+        "2024-06-06": {
+            "Real Upper Band": "19.9116",
+            "Real Middle Band": "19.4086",
+            "Real Lower Band": "18.9057"
+        },
+        "2024-06-05": {
+            "Real Upper Band": "19.9165",
+            "Real Middle Band": "19.4392",
+            "Real Lower Band": "18.9620"
+        },
+        "2024-06-04": {
+            "Real Upper Band": "19.8735",
+            "Real Middle Band": "19.4679",
+            "Real Lower Band": "19.0624"
+        },
+        "2024-06-03": {
+            "Real Upper Band": "19.8560",
+            "Real Middle Band": "19.4957",
+            "Real Lower Band": "19.1353"
+        },
+        "2024-05-31": {
+            "Real Upper Band": "19.8375",
+            "Real Middle Band": "19.5320",
+            "Real Lower Band": "19.2266"
+        },
+        "2024-05-30": {
+            "Real Upper Band": "19.8392",
+            "Real Middle Band": "19.5512",
+            "Real Lower Band": "19.2631"
+        },
+        "2024-05-29": {
+            "Real Upper Band": "19.8441",
+            "Real Middle Band": "19.5612",
+            "Real Lower Band": "19.2783"
+        },
+        "2024-05-28": {
+            "Real Upper Band": "19.9086",
+            "Real Middle Band": "19.5861",
+            "Real Lower Band": "19.2636"
+        },
+        "2024-05-24": {
+            "Real Upper Band": "20.0051",
+            "Real Middle Band": "19.6215",
+            "Real Lower Band": "19.2378"
+        },
+        "2024-05-23": {
+            "Real Upper Band": "20.2485",
+            "Real Middle Band": "19.6932",
+            "Real Lower Band": "19.1379"
+        },
+        "2024-05-22": {
+            "Real Upper Band": "20.3263",
+            "Real Middle Band": "19.7171",
+            "Real Lower Band": "19.1079"
+        },
+        "2024-05-21": {
+            "Real Upper Band": "20.4853",
+            "Real Middle Band": "19.8022",
+            "Real Lower Band": "19.1192"
+        },
+        "2024-05-20": {
+            "Real Upper Band": "20.5894",
+            "Real Middle Band": "19.9084",
+            "Real Lower Band": "19.2274"
+        },
+        "2024-05-17": {
+            "Real Upper Band": "20.6876",
+            "Real Middle Band": "20.0069",
+            "Real Lower Band": "19.3262"
+        },
+        "2024-05-16": {
+            "Real Upper Band": "20.7050",
+            "Real Middle Band": "20.0767",
+            "Real Lower Band": "19.4485"
+        },
+        "2024-05-15": {
+            "Real Upper Band": "21.2762",
+            "Real Middle Band": "20.2747",
+            "Real Lower Band": "19.2732"
+        },
+        "2024-05-14": {
+            "Real Upper Band": "21.8592",
+            "Real Middle Band": "20.5206",
+            "Real Lower Band": "19.1819"
+        },
+        "2024-05-13": {
+            "Real Upper Band": "22.2157",
+            "Real Middle Band": "20.7310",
+            "Real Lower Band": "19.2463"
+        },
+        "2024-05-10": {
+            "Real Upper Band": "22.3306",
+            "Real Middle Band": "20.8869",
+            "Real Lower Band": "19.4432"
+        },
+        "2024-05-09": {
+            "Real Upper Band": "22.5883",
+            "Real Middle Band": "21.0591",
+            "Real Lower Band": "19.5298"
+        },
+        "2024-05-08": {
+            "Real Upper Band": "22.7192",
+            "Real Middle Band": "21.2379",
+            "Real Lower Band": "19.7566"
+        },
+        "2024-05-07": {
+            "Real Upper Band": "22.8259",
+            "Real Middle Band": "21.4101",
+            "Real Lower Band": "19.9943"
+        },
+        "2024-05-06": {
+            "Real Upper Band": "22.9242",
+            "Real Middle Band": "21.6014",
+            "Real Lower Band": "20.2786"
+        },
+        "2024-05-03": {
+            "Real Upper Band": "22.9587",
+            "Real Middle Band": "21.8003",
+            "Real Lower Band": "20.6420"
+        },
+        "2024-05-02": {
+            "Real Upper Band": "22.6900",
+            "Real Middle Band": "22.0318",
+            "Real Lower Band": "21.3736"
+        },
+        "2024-05-01": {
+            "Real Upper Band": "22.6945",
+            "Real Middle Band": "22.1064",
+            "Real Lower Band": "21.5183"
+        },
+        "2024-04-30": {
+            "Real Upper Band": "22.7028",
+            "Real Middle Band": "22.1169",
+            "Real Lower Band": "21.5311"
+        },
+        "2024-04-29": {
+            "Real Upper Band": "22.7020",
+            "Real Middle Band": "22.1208",
+            "Real Lower Band": "21.5395"
+        },
+        "2024-04-26": {
+            "Real Upper Band": "22.6865",
+            "Real Middle Band": "22.1256",
+            "Real Lower Band": "21.5646"
+        },
+        "2024-04-25": {
+            "Real Upper Band": "22.8786",
+            "Real Middle Band": "22.0309",
+            "Real Lower Band": "21.1832"
+        },
+        "2024-04-24": {
+            "Real Upper Band": "22.9325",
+            "Real Middle Band": "21.9610",
+            "Real Lower Band": "20.9895"
+        },
+        "2024-04-23": {
+            "Real Upper Band": "22.9613",
+            "Real Middle Band": "21.9783",
+            "Real Lower Band": "20.9952"
+        },
+        "2024-04-22": {
+            "Real Upper Band": "22.9048",
+            "Real Middle Band": "21.9448",
+            "Real Lower Band": "20.9848"
+        },
+        "2024-04-19": {
+            "Real Upper Band": "22.8257",
+            "Real Middle Band": "21.9132",
+            "Real Lower Band": "21.0007"
+        },
+        "2024-04-18": {
+            "Real Upper Band": "22.6518",
+            "Real Middle Band": "21.8520",
+            "Real Lower Band": "21.0522"
+        },
+        "2024-04-17": {
+            "Real Upper Band": "22.5824",
+            "Real Middle Band": "21.8262",
+            "Real Lower Band": "21.0699"
+        },
+        "2024-04-16": {
+            "Real Upper Band": "22.5374",
+            "Real Middle Band": "21.8051",
+            "Real Lower Band": "21.0729"
+        },
+        "2024-04-15": {
+            "Real Upper Band": "22.5508",
+            "Real Middle Band": "21.8118",
+            "Real Lower Band": "21.0728"
+        },
+        "2024-04-12": {
+            "Real Upper Band": "22.5632",
+            "Real Middle Band": "21.8463",
+            "Real Lower Band": "21.1293"
+        },
+        "2024-04-11": {
+            "Real Upper Band": "22.4266",
+            "Real Middle Band": "21.9075",
+            "Real Lower Band": "21.3883"
+        },
+        "2024-04-10": {
+            "Real Upper Band": "22.3521",
+            "Real Middle Band": "21.9266",
+            "Real Lower Band": "21.5011"
+        },
+        "2024-04-09": {
+            "Real Upper Band": "22.2713",
+            "Real Middle Band": "21.8931",
+            "Real Lower Band": "21.5149"
+        },
+        "2024-04-08": {
+            "Real Upper Band": "22.2569",
+            "Real Middle Band": "21.8702",
+            "Real Lower Band": "21.4835"
+        },
+        "2024-04-05": {
+            "Real Upper Band": "22.2023",
+            "Real Middle Band": "21.8128",
+            "Real Lower Band": "21.4232"
+        },
+        "2024-04-04": {
+            "Real Upper Band": "22.1653",
+            "Real Middle Band": "21.7822",
+            "Real Lower Band": "21.3990"
+        },
+        "2024-04-03": {
+            "Real Upper Band": "22.3124",
+            "Real Middle Band": "21.6617",
+            "Real Lower Band": "21.0109"
+        },
+        "2024-04-02": {
+            "Real Upper Band": "22.2799",
+            "Real Middle Band": "21.5813",
+            "Real Lower Band": "20.8827"
+        },
+        "2024-04-01": {
+            "Real Upper Band": "22.1551",
+            "Real Middle Band": "21.5174",
+            "Real Lower Band": "20.8797"
+        },
+        "2024-03-28": {
+            "Real Upper Band": "22.0752",
+            "Real Middle Band": "21.4845",
+            "Real Lower Band": "20.8937"
+        },
+        "2024-03-27": {
+            "Real Upper Band": "22.0373",
+            "Real Middle Band": "21.4617",
+            "Real Lower Band": "20.8860"
+        },
+        "2024-03-26": {
+            "Real Upper Band": "22.0812",
+            "Real Middle Band": "21.4884",
+            "Real Lower Band": "20.8956"
+        },
+        "2024-03-25": {
+            "Real Upper Band": "21.9753",
+            "Real Middle Band": "21.4446",
+            "Real Lower Band": "20.9139"
+        },
+        "2024-03-22": {
+            "Real Upper Band": "21.9182",
+            "Real Middle Band": "21.4208",
+            "Real Lower Band": "20.9234"
+        },
+        "2024-03-21": {
+            "Real Upper Band": "21.9723",
+            "Real Middle Band": "21.4408",
+            "Real Lower Band": "20.9093"
+        },
+        "2024-03-20": {
+            "Real Upper Band": "22.0755",
+            "Real Middle Band": "21.4702",
+            "Real Lower Band": "20.8650"
+        },
+        "2024-03-19": {
+            "Real Upper Band": "22.0662",
+            "Real Middle Band": "21.5791",
+            "Real Lower Band": "21.0919"
+        },
+        "2024-03-18": {
+            "Real Upper Band": "22.0386",
+            "Real Middle Band": "21.6469",
+            "Real Lower Band": "21.2551"
+        },
+        "2024-03-15": {
+            "Real Upper Band": "22.0786",
+            "Real Middle Band": "21.6288",
+            "Real Lower Band": "21.1791"
+        },
+        "2024-03-14": {
+            "Real Upper Band": "22.2665",
+            "Real Middle Band": "21.5421",
+            "Real Lower Band": "20.8177"
+        },
+        "2024-03-13": {
+            "Real Upper Band": "22.3979",
+            "Real Middle Band": "21.4491",
+            "Real Lower Band": "20.5002"
+        },
+        "2024-03-12": {
+            "Real Upper Band": "22.4265",
+            "Real Middle Band": "21.3229",
+            "Real Lower Band": "20.2192"
+        },
+        "2024-03-11": {
+            "Real Upper Band": "22.4612",
+            "Real Middle Band": "21.2099",
+            "Real Lower Band": "19.9587"
+        },
+        "2024-03-08": {
+            "Real Upper Band": "22.4165",
+            "Real Middle Band": "21.1065",
+            "Real Lower Band": "19.7965"
+        },
+        "2024-03-07": {
+            "Real Upper Band": "22.2738",
+            "Real Middle Band": "20.9632",
+            "Real Lower Band": "19.6526"
+        },
+        "2024-03-06": {
+            "Real Upper Band": "21.9945",
+            "Real Middle Band": "20.7772",
+            "Real Lower Band": "19.5599"
+        },
+        "2024-03-05": {
+            "Real Upper Band": "21.5870",
+            "Real Middle Band": "20.6159",
+            "Real Lower Band": "19.6448"
+        },
+        "2024-03-04": {
+            "Real Upper Band": "21.0465",
+            "Real Middle Band": "20.4764",
+            "Real Lower Band": "19.9063"
+        },
+        "2024-03-01": {
+            "Real Upper Band": "20.6850",
+            "Real Middle Band": "20.3863",
+            "Real Lower Band": "20.0875"
+        },
+        "2024-02-29": {
+            "Real Upper Band": "20.5860",
+            "Real Middle Band": "20.3322",
+            "Real Lower Band": "20.0784"
+        },
+        "2024-02-28": {
+            "Real Upper Band": "20.5443",
+            "Real Middle Band": "20.2885",
+            "Real Lower Band": "20.0328"
+        },
+        "2024-02-27": {
+            "Real Upper Band": "20.5341",
+            "Real Middle Band": "20.2430",
+            "Real Lower Band": "19.9518"
+        },
+        "2024-02-26": {
+            "Real Upper Band": "20.5895",
+            "Real Middle Band": "20.1879",
+            "Real Lower Band": "19.7864"
+        },
+        "2024-02-23": {
+            "Real Upper Band": "20.5937",
+            "Real Middle Band": "20.1016",
+            "Real Lower Band": "19.6094"
+        },
+        "2024-02-22": {
+            "Real Upper Band": "20.5687",
+            "Real Middle Band": "20.0361",
+            "Real Lower Band": "19.5034"
+        },
+        "2024-02-21": {
+            "Real Upper Band": "20.5908",
+            "Real Middle Band": "19.9782",
+            "Real Lower Band": "19.3656"
+        },
+        "2024-02-20": {
+            "Real Upper Band": "20.5210",
+            "Real Middle Band": "19.9023",
+            "Real Lower Band": "19.2836"
+        },
+        "2024-02-16": {
+            "Real Upper Band": "20.3607",
+            "Real Middle Band": "19.8311",
+            "Real Lower Band": "19.3016"
+        },
+        "2024-02-15": {
+            "Real Upper Band": "20.2166",
+            "Real Middle Band": "19.7884",
+            "Real Lower Band": "19.3602"
+        },
+        "2024-02-14": {
+            "Real Upper Band": "20.1100",
+            "Real Middle Band": "19.7533",
+            "Real Lower Band": "19.3966"
+        },
+        "2024-02-13": {
+            "Real Upper Band": "20.0839",
+            "Real Middle Band": "19.7476",
+            "Real Lower Band": "19.4113"
+        },
+        "2024-02-12": {
+            "Real Upper Band": "20.0146",
+            "Real Middle Band": "19.7163",
+            "Real Lower Band": "19.4180"
+        },
+        "2024-02-09": {
+            "Real Upper Band": "20.0629",
+            "Real Middle Band": "19.6669",
+            "Real Lower Band": "19.2710"
+        },
+        "2024-02-08": {
+            "Real Upper Band": "20.1088",
+            "Real Middle Band": "19.6290",
+            "Real Lower Band": "19.1491"
+        },
+        "2024-02-07": {
+            "Real Upper Band": "20.1620",
+            "Real Middle Band": "19.5664",
+            "Real Lower Band": "18.9707"
+        },
+        "2024-02-06": {
+            "Real Upper Band": "20.2033",
+            "Real Middle Band": "19.5132",
+            "Real Lower Band": "18.8231"
+        },
+        "2024-02-05": {
+            "Real Upper Band": "20.2251",
+            "Real Middle Band": "19.4506",
+            "Real Lower Band": "18.6761"
+        },
+        "2024-02-02": {
+            "Real Upper Band": "20.1786",
+            "Real Middle Band": "19.3842",
+            "Real Lower Band": "18.5897"
+        },
+        "2024-02-01": {
+            "Real Upper Band": "20.0452",
+            "Real Middle Band": "19.3215",
+            "Real Lower Band": "18.5979"
+        },
+        "2024-01-31": {
+            "Real Upper Band": "19.9725",
+            "Real Middle Band": "19.2981",
+            "Real Lower Band": "18.6238"
+        },
+        "2024-01-30": {
+            "Real Upper Band": "20.0782",
+            "Real Middle Band": "19.3171",
+            "Real Lower Band": "18.5561"
+        },
+        "2024-01-29": {
+            "Real Upper Band": "20.2392",
+            "Real Middle Band": "19.3608",
+            "Real Lower Band": "18.4823"
+        },
+        "2024-01-26": {
+            "Real Upper Band": "20.3443",
+            "Real Middle Band": "19.4196",
+            "Real Lower Band": "18.4949"
+        },
+        "2024-01-25": {
+            "Real Upper Band": "20.4377",
+            "Real Middle Band": "19.4860",
+            "Real Lower Band": "18.5343"
+        },
+        "2024-01-24": {
+            "Real Upper Band": "20.4784",
+            "Real Middle Band": "19.5619",
+            "Real Lower Band": "18.6455"
+        },
+        "2024-01-23": {
+            "Real Upper Band": "20.5061",
+            "Real Middle Band": "19.6549",
+            "Real Lower Band": "18.8037"
+        },
+        "2024-01-22": {
+            "Real Upper Band": "20.4499",
+            "Real Middle Band": "19.7489",
+            "Real Lower Band": "19.0479"
+        },
+        "2024-01-19": {
+            "Real Upper Band": "20.4848",
+            "Real Middle Band": "19.8827",
+            "Real Lower Band": "19.2805"
+        },
+        "2024-01-18": {
+            "Real Upper Band": "20.4503",
+            "Real Middle Band": "19.9823",
+            "Real Lower Band": "19.5144"
+        },
+        "2024-01-17": {
+            "Real Upper Band": "20.4012",
+            "Real Middle Band": "20.0266",
+            "Real Lower Band": "19.6520"
+        },
+        "2024-01-16": {
+            "Real Upper Band": "20.3518",
+            "Real Middle Band": "19.9915",
+            "Real Lower Band": "19.6312"
+        },
+        "2024-01-12": {
+            "Real Upper Band": "20.5011",
+            "Real Middle Band": "19.8966",
+            "Real Lower Band": "19.2921"
+        },
+        "2024-01-11": {
+            "Real Upper Band": "20.6075",
+            "Real Middle Band": "19.8150",
+            "Real Lower Band": "19.0225"
+        },
+        "2024-01-10": {
+            "Real Upper Band": "20.6417",
+            "Real Middle Band": "19.7334",
+            "Real Lower Band": "18.8250"
+        },
+        "2024-01-09": {
+            "Real Upper Band": "20.6496",
+            "Real Middle Band": "19.6613",
+            "Real Lower Band": "18.6729"
+        },
+        "2024-01-08": {
+            "Real Upper Band": "20.6122",
+            "Real Middle Band": "19.5711",
+            "Real Lower Band": "18.5300"
+        },
+        "2024-01-05": {
+            "Real Upper Band": "20.5660",
+            "Real Middle Band": "19.4762",
+            "Real Lower Band": "18.3864"
+        },
+        "2024-01-04": {
+            "Real Upper Band": "20.2917",
+            "Real Middle Band": "19.3260",
+            "Real Lower Band": "18.3602"
+        },
+        "2024-01-03": {
+            "Real Upper Band": "19.9828",
+            "Real Middle Band": "19.1674",
+            "Real Lower Band": "18.3521"
+        },
+        "2024-01-02": {
+            "Real Upper Band": "19.6665",
+            "Real Middle Band": "19.0439",
+            "Real Lower Band": "18.4213"
+        },
+        "2023-12-29": {
+            "Real Upper Band": "19.2638",
+            "Real Middle Band": "18.9214",
+            "Real Lower Band": "18.5791"
+        },
+        "2023-12-28": {
+            "Real Upper Band": "19.2294",
+            "Real Middle Band": "18.8599",
+            "Real Lower Band": "18.4904"
+        },
+        "2023-12-27": {
+            "Real Upper Band": "19.1989",
+            "Real Middle Band": "18.8106",
+            "Real Lower Band": "18.4223"
+        },
+        "2023-12-26": {
+            "Real Upper Band": "19.1431",
+            "Real Middle Band": "18.7904",
+            "Real Lower Band": "18.4376"
+        },
+        "2023-12-22": {
+            "Real Upper Band": "19.1150",
+            "Real Middle Band": "18.7832",
+            "Real Lower Band": "18.4515"
+        },
+        "2023-12-21": {
+            "Real Upper Band": "19.0494",
+            "Real Middle Band": "18.7565",
+            "Real Lower Band": "18.4636"
+        },
+        "2023-12-20": {
+            "Real Upper Band": "19.0426",
+            "Real Middle Band": "18.7542",
+            "Real Lower Band": "18.4658"
+        },
+        "2023-12-19": {
+            "Real Upper Band": "19.1164",
+            "Real Middle Band": "18.7750",
+            "Real Lower Band": "18.4336"
+        },
+        "2023-12-18": {
+            "Real Upper Band": "19.1499",
+            "Real Middle Band": "18.8031",
+            "Real Lower Band": "18.4562"
+        },
+        "2023-12-15": {
+            "Real Upper Band": "19.3457",
+            "Real Middle Band": "18.8630",
+            "Real Lower Band": "18.3804"
+        },
+        "2023-12-14": {
+            "Real Upper Band": "19.4065",
+            "Real Middle Band": "18.9155",
+            "Real Lower Band": "18.4244"
+        },
+        "2023-12-13": {
+            "Real Upper Band": "19.4665",
+            "Real Middle Band": "18.9923",
+            "Real Lower Band": "18.5180"
+        },
+        "2023-12-12": {
+            "Real Upper Band": "19.4898",
+            "Real Middle Band": "19.0723",
+            "Real Lower Band": "18.6548"
+        },
+        "2023-12-11": {
+            "Real Upper Band": "19.5142",
+            "Real Middle Band": "19.1107",
+            "Real Lower Band": "18.7073"
+        },
+        "2023-12-08": {
+            "Real Upper Band": "19.5496",
+            "Real Middle Band": "19.1398",
+            "Real Lower Band": "18.7300"
+        },
+        "2023-12-07": {
+            "Real Upper Band": "19.5161",
+            "Real Middle Band": "19.1934",
+            "Real Lower Band": "18.8708"
+        },
+        "2023-12-06": {
+            "Real Upper Band": "19.4753",
+            "Real Middle Band": "19.2178",
+            "Real Lower Band": "18.9602"
+        },
+        "2023-12-05": {
+            "Real Upper Band": "19.4689",
+            "Real Middle Band": "19.2289",
+            "Real Lower Band": "18.9889"
+        },
+        "2023-12-04": {
+            "Real Upper Band": "19.4244",
+            "Real Middle Band": "19.2429",
+            "Real Lower Band": "19.0614"
+        },
+        "2023-12-01": {
+            "Real Upper Band": "19.3991",
+            "Real Middle Band": "19.2345",
+            "Real Lower Band": "19.0699"
+        },
+        "2023-11-30": {
+            "Real Upper Band": "19.4050",
+            "Real Middle Band": "19.2448",
+            "Real Lower Band": "19.0846"
+        },
+        "2023-11-29": {
+            "Real Upper Band": "19.4550",
+            "Real Middle Band": "19.2579",
+            "Real Lower Band": "19.0608"
+        },
+        "2023-11-28": {
+            "Real Upper Band": "19.5123",
+            "Real Middle Band": "19.2724",
+            "Real Lower Band": "19.0325"
+        },
+        "2023-11-27": {
+            "Real Upper Band": "19.7116",
+            "Real Middle Band": "19.3258",
+            "Real Lower Band": "18.9400"
+        },
+        "2023-11-24": {
+            "Real Upper Band": "19.7720",
+            "Real Middle Band": "19.3558",
+            "Real Lower Band": "18.9396"
+        },
+        "2023-11-22": {
+            "Real Upper Band": "20.0117",
+            "Real Middle Band": "19.4314",
+            "Real Lower Band": "18.8510"
+        },
+        "2023-11-21": {
+            "Real Upper Band": "20.1490",
+            "Real Middle Band": "19.5175",
+            "Real Lower Band": "18.8860"
+        },
+        "2023-11-20": {
+            "Real Upper Band": "20.2829",
+            "Real Middle Band": "19.6092",
+            "Real Lower Band": "18.9354"
+        },
+        "2023-11-17": {
+            "Real Upper Band": "20.4604",
+            "Real Middle Band": "19.7393",
+            "Real Lower Band": "19.0183"
+        },
+        "2023-11-16": {
+            "Real Upper Band": "20.7226",
+            "Real Middle Band": "19.8789",
+            "Real Lower Band": "19.0351"
+        },
+        "2023-11-15": {
+            "Real Upper Band": "20.8375",
+            "Real Middle Band": "20.0081",
+            "Real Lower Band": "19.1788"
+        },
+        "2023-11-14": {
+            "Real Upper Band": "21.0837",
+            "Real Middle Band": "20.1627",
+            "Real Lower Band": "19.2416"
+        },
+        "2023-11-13": {
+            "Real Upper Band": "21.4250",
+            "Real Middle Band": "20.3537",
+            "Real Lower Band": "19.2824"
+        },
+        "2023-11-10": {
+            "Real Upper Band": "21.7041",
+            "Real Middle Band": "20.5223",
+            "Real Lower Band": "19.3405"
+        },
+        "2023-11-09": {
+            "Real Upper Band": "21.9359",
+            "Real Middle Band": "20.7349",
+            "Real Lower Band": "19.5339"
+        },
+        "2023-11-08": {
+            "Real Upper Band": "22.2172",
+            "Real Middle Band": "20.9231",
+            "Real Lower Band": "19.6291"
+        },
+        "2023-11-07": {
+            "Real Upper Band": "22.2142",
+            "Real Middle Band": "21.0599",
+            "Real Lower Band": "19.9055"
+        },
+        "2023-11-06": {
+            "Real Upper Band": "22.1191",
+            "Real Middle Band": "21.1583",
+            "Real Lower Band": "20.1976"
+        },
+        "2023-11-03": {
+            "Real Upper Band": "22.0462",
+            "Real Middle Band": "21.2295",
+            "Real Lower Band": "20.4128"
+        },
+        "2023-11-02": {
+            "Real Upper Band": "22.0102",
+            "Real Middle Band": "21.2726",
+            "Real Lower Band": "20.5350"
+        },
+        "2023-11-01": {
+            "Real Upper Band": "21.9510",
+            "Real Middle Band": "21.2969",
+            "Real Lower Band": "20.6429"
+        },
+        "2023-10-31": {
+            "Real Upper Band": "21.9827",
+            "Real Middle Band": "21.2745",
+            "Real Lower Band": "20.5662"
+        },
+        "2023-10-30": {
+            "Real Upper Band": "22.0009",
+            "Real Middle Band": "21.1930",
+            "Real Lower Band": "20.3851"
+        },
+        "2023-10-27": {
+            "Real Upper Band": "21.9918",
+            "Real Middle Band": "21.0890",
+            "Real Lower Band": "20.1862"
+        },
+        "2023-10-26": {
+            "Real Upper Band": "21.8405",
+            "Real Middle Band": "20.9560",
+            "Real Lower Band": "20.0716"
+        },
+        "2023-10-25": {
+            "Real Upper Band": "21.5086",
+            "Real Middle Band": "20.7809",
+            "Real Lower Band": "20.0532"
+        },
+        "2023-10-24": {
+            "Real Upper Band": "21.3411",
+            "Real Middle Band": "20.6732",
+            "Real Lower Band": "20.0053"
+        },
+        "2023-10-23": {
+            "Real Upper Band": "21.2295",
+            "Real Middle Band": "20.6076",
+            "Real Lower Band": "19.9858"
+        },
+        "2023-10-20": {
+            "Real Upper Band": "21.0744",
+            "Real Middle Band": "20.5327",
+            "Real Lower Band": "19.9910"
+        },
+        "2023-10-19": {
+            "Real Upper Band": "20.8579",
+            "Real Middle Band": "20.4747",
+            "Real Lower Band": "20.0914"
+        },
+        "2023-10-18": {
+            "Real Upper Band": "20.8537",
+            "Real Middle Band": "20.4737",
+            "Real Lower Band": "20.0938"
+        },
+        "2023-10-17": {
+            "Real Upper Band": "20.9353",
+            "Real Middle Band": "20.4915",
+            "Real Lower Band": "20.0477"
+        },
+        "2023-10-16": {
+            "Real Upper Band": "21.1218",
+            "Real Middle Band": "20.5430",
+            "Real Lower Band": "19.9643"
+        },
+        "2023-10-13": {
+            "Real Upper Band": "21.2039",
+            "Real Middle Band": "20.5917",
+            "Real Lower Band": "19.9796"
+        },
+        "2023-10-12": {
+            "Real Upper Band": "21.3785",
+            "Real Middle Band": "20.6760",
+            "Real Lower Band": "19.9736"
+        },
+        "2023-10-11": {
+            "Real Upper Band": "21.4890",
+            "Real Middle Band": "20.7875",
+            "Real Lower Band": "20.0859"
+        },
+        "2023-10-10": {
+            "Real Upper Band": "21.5757",
+            "Real Middle Band": "20.8924",
+            "Real Lower Band": "20.2090"
+        },
+        "2023-10-09": {
+            "Real Upper Band": "21.5851",
+            "Real Middle Band": "20.9645",
+            "Real Lower Band": "20.3438"
+        },
+        "2023-10-06": {
+            "Real Upper Band": "21.5160",
+            "Real Middle Band": "20.9935",
+            "Real Lower Band": "20.4710"
+        },
+        "2023-10-05": {
+            "Real Upper Band": "21.4655",
+            "Real Middle Band": "21.0216",
+            "Real Lower Band": "20.5777"
+        },
+        "2023-10-04": {
+            "Real Upper Band": "21.4602",
+            "Real Middle Band": "21.0291",
+            "Real Lower Band": "20.5980"
+        },
+        "2023-10-03": {
+            "Real Upper Band": "21.4784",
+            "Real Middle Band": "21.0047",
+            "Real Lower Band": "20.5311"
+        },
+        "2023-10-02": {
+            "Real Upper Band": "21.5603",
+            "Real Middle Band": "20.9205",
+            "Real Lower Band": "20.2806"
+        },
+        "2023-09-29": {
+            "Real Upper Band": "21.5823",
+            "Real Middle Band": "20.8685",
+            "Real Lower Band": "20.1547"
+        },
+        "2023-09-28": {
+            "Real Upper Band": "21.4945",
+            "Real Middle Band": "20.8219",
+            "Real Lower Band": "20.1492"
+        },
+        "2023-09-27": {
+            "Real Upper Band": "21.3596",
+            "Real Middle Band": "20.7594",
+            "Real Lower Band": "20.1592"
+        },
+        "2023-09-26": {
+            "Real Upper Band": "21.1797",
+            "Real Middle Band": "20.7099",
+            "Real Lower Band": "20.2401"
+        },
+        "2023-09-25": {
+            "Real Upper Band": "21.0247",
+            "Real Middle Band": "20.6522",
+            "Real Lower Band": "20.2797"
+        },
+        "2023-09-22": {
+            "Real Upper Band": "21.0605",
+            "Real Middle Band": "20.6116",
+            "Real Lower Band": "20.1628"
+        },
+        "2023-09-21": {
+            "Real Upper Band": "21.0160",
+            "Real Middle Band": "20.5682",
+            "Real Lower Band": "20.1203"
+        },
+        "2023-09-20": {
+            "Real Upper Band": "20.9266",
+            "Real Middle Band": "20.5228",
+            "Real Lower Band": "20.1189"
+        },
+        "2023-09-19": {
+            "Real Upper Band": "20.9869",
+            "Real Middle Band": "20.4385",
+            "Real Lower Band": "19.8901"
+        },
+        "2023-09-18": {
+            "Real Upper Band": "21.2801",
+            "Real Middle Band": "20.3261",
+            "Real Lower Band": "19.3721"
+        },
+        "2023-09-15": {
+            "Real Upper Band": "21.3802",
+            "Real Middle Band": "20.2036",
+            "Real Lower Band": "19.0270"
+        },
+        "2023-09-14": {
+            "Real Upper Band": "21.2777",
+            "Real Middle Band": "20.0597",
+            "Real Lower Band": "18.8417"
+        },
+        "2023-09-13": {
+            "Real Upper Band": "21.1442",
+            "Real Middle Band": "19.9251",
+            "Real Lower Band": "18.7060"
+        },
+        "2023-09-12": {
+            "Real Upper Band": "20.8690",
+            "Real Middle Band": "19.8100",
+            "Real Lower Band": "18.7511"
+        },
+        "2023-09-11": {
+            "Real Upper Band": "20.7291",
+            "Real Middle Band": "19.7668",
+            "Real Lower Band": "18.8046"
+        },
+        "2023-09-08": {
+            "Real Upper Band": "20.7490",
+            "Real Middle Band": "19.7733",
+            "Real Lower Band": "18.7977"
+        },
+        "2023-09-07": {
+            "Real Upper Band": "20.8259",
+            "Real Middle Band": "19.7938",
+            "Real Lower Band": "18.7617"
+        },
+        "2023-09-06": {
+            "Real Upper Band": "20.7122",
+            "Real Middle Band": "19.7529",
+            "Real Lower Band": "18.7937"
+        },
+        "2023-09-05": {
+            "Real Upper Band": "20.8688",
+            "Real Middle Band": "19.8151",
+            "Real Lower Band": "18.7614"
+        },
+        "2023-09-01": {
+            "Real Upper Band": "21.0143",
+            "Real Middle Band": "19.9634",
+            "Real Lower Band": "18.9126"
+        },
+        "2023-08-31": {
+            "Real Upper Band": "21.1364",
+            "Real Middle Band": "20.1259",
+            "Real Lower Band": "19.1154"
+        },
+        "2023-08-30": {
+            "Real Upper Band": "21.2170",
+            "Real Middle Band": "20.2781",
+            "Real Lower Band": "19.3392"
+        },
+        "2023-08-29": {
+            "Real Upper Band": "21.0900",
+            "Real Middle Band": "20.3988",
+            "Real Lower Band": "19.7076"
+        },
+        "2023-08-28": {
+            "Real Upper Band": "20.9766",
+            "Real Middle Band": "20.4721",
+            "Real Lower Band": "19.9676"
+        },
+        "2023-08-25": {
+            "Real Upper Band": "20.9673",
+            "Real Middle Band": "20.4785",
+            "Real Lower Band": "19.9896"
+        },
+        "2023-08-24": {
+            "Real Upper Band": "20.9659",
+            "Real Middle Band": "20.4840",
+            "Real Lower Band": "20.0022"
+        },
+        "2023-08-23": {
+            "Real Upper Band": "20.9447",
+            "Real Middle Band": "20.4627",
+            "Real Lower Band": "19.9807"
+        },
+        "2023-08-22": {
+            "Real Upper Band": "20.8864",
+            "Real Middle Band": "20.4961",
+            "Real Lower Band": "20.1058"
+        },
+        "2023-08-21": {
+            "Real Upper Band": "20.9072",
+            "Real Middle Band": "20.4627",
+            "Real Lower Band": "20.0182"
+        },
+        "2023-08-18": {
+            "Real Upper Band": "20.8705",
+            "Real Middle Band": "20.4274",
+            "Real Lower Band": "19.9843"
+        },
+        "2023-08-17": {
+            "Real Upper Band": "20.8042",
+            "Real Middle Band": "20.3402",
+            "Real Lower Band": "19.8761"
+        },
+        "2023-08-16": {
+            "Real Upper Band": "20.9834",
+            "Real Middle Band": "20.1564",
+            "Real Lower Band": "19.3293"
+        },
+        "2023-08-15": {
+            "Real Upper Band": "21.0897",
+            "Real Middle Band": "19.9874",
+            "Real Lower Band": "18.8851"
+        },
+        "2023-08-14": {
+            "Real Upper Band": "21.1501",
+            "Real Middle Band": "19.8008",
+            "Real Lower Band": "18.4516"
+        },
+        "2023-08-11": {
+            "Real Upper Band": "21.1584",
+            "Real Middle Band": "19.6279",
+            "Real Lower Band": "18.0973"
+        },
+        "2023-08-10": {
+            "Real Upper Band": "21.0187",
+            "Real Middle Band": "19.4459",
+            "Real Lower Band": "17.8732"
+        },
+        "2023-08-09": {
+            "Real Upper Band": "20.7750",
+            "Real Middle Band": "19.2863",
+            "Real Lower Band": "17.7976"
+        },
+        "2023-08-08": {
+            "Real Upper Band": "20.4629",
+            "Real Middle Band": "19.1164",
+            "Real Lower Band": "17.7698"
+        },
+        "2023-08-07": {
+            "Real Upper Band": "20.1461",
+            "Real Middle Band": "18.9744",
+            "Real Lower Band": "17.8027"
+        },
+        "2023-08-04": {
+            "Real Upper Band": "19.6174",
+            "Real Middle Band": "18.8277",
+            "Real Lower Band": "18.0380"
+        },
+        "2023-08-03": {
+            "Real Upper Band": "19.0490",
+            "Real Middle Band": "18.7247",
+            "Real Lower Band": "18.4004"
+        },
+        "2023-08-02": {
+            "Real Upper Band": "18.9617",
+            "Real Middle Band": "18.6978",
+            "Real Lower Band": "18.4338"
+        },
+        "2023-08-01": {
+            "Real Upper Band": "18.9285",
+            "Real Middle Band": "18.6708",
+            "Real Lower Band": "18.4132"
+        },
+        "2023-07-31": {
+            "Real Upper Band": "18.9308",
+            "Real Middle Band": "18.6848",
+            "Real Lower Band": "18.4387"
+        },
+        "2023-07-28": {
+            "Real Upper Band": "18.9067",
+            "Real Middle Band": "18.7024",
+            "Real Lower Band": "18.4980"
+        },
+        "2023-07-27": {
+            "Real Upper Band": "18.9877",
+            "Real Middle Band": "18.7484",
+            "Real Lower Band": "18.5092"
+        },
+        "2023-07-26": {
+            "Real Upper Band": "19.0553",
+            "Real Middle Band": "18.7716",
+            "Real Lower Band": "18.4880"
+        },
+        "2023-07-25": {
+            "Real Upper Band": "19.1330",
+            "Real Middle Band": "18.8134",
+            "Real Lower Band": "18.4938"
+        },
+        "2023-07-24": {
+            "Real Upper Band": "19.2676",
+            "Real Middle Band": "18.8654",
+            "Real Lower Band": "18.4632"
+        },
+        "2023-07-21": {
+            "Real Upper Band": "19.3428",
+            "Real Middle Band": "18.9025",
+            "Real Lower Band": "18.4623"
+        },
+        "2023-07-20": {
+            "Real Upper Band": "19.3516",
+            "Real Middle Band": "18.9100",
+            "Real Lower Band": "18.4683"
+        },
+        "2023-07-19": {
+            "Real Upper Band": "19.3507",
+            "Real Middle Band": "18.9211",
+            "Real Lower Band": "18.4915"
+        },
+        "2023-07-18": {
+            "Real Upper Band": "19.3141",
+            "Real Middle Band": "18.9536",
+            "Real Lower Band": "18.5931"
+        },
+        "2023-07-17": {
+            "Real Upper Band": "19.3014",
+            "Real Middle Band": "18.9619",
+            "Real Lower Band": "18.6225"
+        },
+        "2023-07-14": {
+            "Real Upper Band": "19.3112",
+            "Real Middle Band": "18.9584",
+            "Real Lower Band": "18.6057"
+        },
+        "2023-07-13": {
+            "Real Upper Band": "19.3197",
+            "Real Middle Band": "18.9634",
+            "Real Lower Band": "18.6072"
+        },
+        "2023-07-12": {
+            "Real Upper Band": "19.3310",
+            "Real Middle Band": "18.9699",
+            "Real Lower Band": "18.6089"
+        },
+        "2023-07-11": {
+            "Real Upper Band": "19.3635",
+            "Real Middle Band": "18.9823",
+            "Real Lower Band": "18.6010"
+        },
+        "2023-07-10": {
+            "Real Upper Band": "19.4718",
+            "Real Middle Band": "19.0064",
+            "Real Lower Band": "18.5410"
+        },
+        "2023-07-07": {
+            "Real Upper Band": "19.5150",
+            "Real Middle Band": "19.0209",
+            "Real Lower Band": "18.5269"
+        },
+        "2023-07-06": {
+            "Real Upper Band": "19.5731",
+            "Real Middle Band": "19.0543",
+            "Real Lower Band": "18.5356"
+        },
+        "2023-07-05": {
+            "Real Upper Band": "19.7146",
+            "Real Middle Band": "19.1277",
+            "Real Lower Band": "18.5408"
+        },
+        "2023-07-03": {
+            "Real Upper Band": "19.7854",
+            "Real Middle Band": "19.1869",
+            "Real Lower Band": "18.5885"
+        },
+        "2023-06-30": {
+            "Real Upper Band": "19.8134",
+            "Real Middle Band": "19.2582",
+            "Real Lower Band": "18.7031"
+        },
+        "2023-06-29": {
+            "Real Upper Band": "19.6829",
+            "Real Middle Band": "19.3314",
+            "Real Lower Band": "18.9798"
+        },
+        "2023-06-28": {
+            "Real Upper Band": "19.7119",
+            "Real Middle Band": "19.3856",
+            "Real Lower Band": "19.0594"
+        },
+        "2023-06-27": {
+            "Real Upper Band": "19.7259",
+            "Real Middle Band": "19.4438",
+            "Real Lower Band": "19.1617"
+        },
+        "2023-06-26": {
+            "Real Upper Band": "19.7183",
+            "Real Middle Band": "19.4832",
+            "Real Lower Band": "19.2480"
+        },
+        "2023-06-23": {
+            "Real Upper Band": "19.8619",
+            "Real Middle Band": "19.5236",
+            "Real Lower Band": "19.1853"
+        },
+        "2023-06-22": {
+            "Real Upper Band": "19.9658",
+            "Real Middle Band": "19.5831",
+            "Real Lower Band": "19.2004"
+        },
+        "2023-06-21": {
+            "Real Upper Band": "20.1807",
+            "Real Middle Band": "19.6777",
+            "Real Lower Band": "19.1747"
+        },
+        "2023-06-20": {
+            "Real Upper Band": "20.2786",
+            "Real Middle Band": "19.7270",
+            "Real Lower Band": "19.1754"
+        },
+        "2023-06-16": {
+            "Real Upper Band": "20.3350",
+            "Real Middle Band": "19.7820",
+            "Real Lower Band": "19.2291"
+        },
+        "2023-06-15": {
+            "Real Upper Band": "20.3382",
+            "Real Middle Band": "19.8194",
+            "Real Lower Band": "19.3006"
+        },
+        "2023-06-14": {
+            "Real Upper Band": "20.2923",
+            "Real Middle Band": "19.8791",
+            "Real Lower Band": "19.4659"
+        },
+        "2023-06-13": {
+            "Real Upper Band": "20.3576",
+            "Real Middle Band": "19.9435",
+            "Real Lower Band": "19.5294"
+        },
+        "2023-06-12": {
+            "Real Upper Band": "20.4011",
+            "Real Middle Band": "20.0032",
+            "Real Lower Band": "19.6052"
+        },
+        "2023-06-09": {
+            "Real Upper Band": "20.4744",
+            "Real Middle Band": "20.0925",
+            "Real Lower Band": "19.7107"
+        },
+        "2023-06-08": {
+            "Real Upper Band": "20.7027",
+            "Real Middle Band": "20.1791",
+            "Real Lower Band": "19.6555"
+        },
+        "2023-06-07": {
+            "Real Upper Band": "20.9072",
+            "Real Middle Band": "20.2741",
+            "Real Lower Band": "19.6410"
+        },
+        "2023-06-06": {
+            "Real Upper Band": "21.0747",
+            "Real Middle Band": "20.3397",
+            "Real Lower Band": "19.6048"
+        },
+        "2023-06-05": {
+            "Real Upper Band": "21.1197",
+            "Real Middle Band": "20.3921",
+            "Real Lower Band": "19.6644"
+        },
+        "2023-06-02": {
+            "Real Upper Band": "21.1238",
+            "Real Middle Band": "20.4361",
+            "Real Lower Band": "19.7485"
+        },
+        "2023-06-01": {
+            "Real Upper Band": "21.0692",
+            "Real Middle Band": "20.4961",
+            "Real Lower Band": "19.9229"
+        },
+        "2023-05-31": {
+            "Real Upper Band": "21.0366",
+            "Real Middle Band": "20.5796",
+            "Real Lower Band": "20.1225"
+        },
+        "2023-05-30": {
+            "Real Upper Band": "21.0495",
+            "Real Middle Band": "20.6374",
+            "Real Lower Band": "20.2253"
+        },
+        "2023-05-26": {
+            "Real Upper Band": "21.0219",
+            "Real Middle Band": "20.6943",
+            "Real Lower Band": "20.3666"
+        },
+        "2023-05-25": {
+            "Real Upper Band": "21.0202",
+            "Real Middle Band": "20.7242",
+            "Real Lower Band": "20.4282"
+        },
+        "2023-05-24": {
+            "Real Upper Band": "21.0125",
+            "Real Middle Band": "20.7099",
+            "Real Lower Band": "20.4073"
+        },
+        "2023-05-23": {
+            "Real Upper Band": "20.9737",
+            "Real Middle Band": "20.6897",
+            "Real Lower Band": "20.4057"
+        },
+        "2023-05-22": {
+            "Real Upper Band": "20.9549",
+            "Real Middle Band": "20.6846",
+            "Real Lower Band": "20.4144"
+        },
+        "2023-05-19": {
+            "Real Upper Band": "20.9552",
+            "Real Middle Band": "20.6892",
+            "Real Lower Band": "20.4232"
+        },
+        "2023-05-18": {
+            "Real Upper Band": "20.9340",
+            "Real Middle Band": "20.7066",
+            "Real Lower Band": "20.4793"
+        },
+        "2023-05-17": {
+            "Real Upper Band": "21.4090",
+            "Real Middle Band": "20.8268",
+            "Real Lower Band": "20.2446"
+        },
+        "2023-05-16": {
+            "Real Upper Band": "21.5705",
+            "Real Middle Band": "20.8911",
+            "Real Lower Band": "20.2117"
+        },
+        "2023-05-15": {
+            "Real Upper Band": "21.6583",
+            "Real Middle Band": "20.9397",
+            "Real Lower Band": "20.2211"
+        },
+        "2023-05-12": {
+            "Real Upper Band": "21.7009",
+            "Real Middle Band": "20.9755",
+            "Real Lower Band": "20.2501"
+        },
+        "2023-05-11": {
+            "Real Upper Band": "21.7323",
+            "Real Middle Band": "21.0131",
+            "Real Lower Band": "20.2939"
+        },
+        "2023-05-10": {
+            "Real Upper Band": "21.7649",
+            "Real Middle Band": "21.0819",
+            "Real Lower Band": "20.3989"
+        },
+        "2023-05-09": {
+            "Real Upper Band": "21.9934",
+            "Real Middle Band": "21.2077",
+            "Real Lower Band": "20.4219"
+        },
+        "2023-05-08": {
+            "Real Upper Band": "22.1595",
+            "Real Middle Band": "21.3132",
+            "Real Lower Band": "20.4669"
+        },
+        "2023-05-05": {
+            "Real Upper Band": "22.1640",
+            "Real Middle Band": "21.4187",
+            "Real Lower Band": "20.6735"
+        },
+        "2023-05-04": {
+            "Real Upper Band": "22.0882",
+            "Real Middle Band": "21.5289",
+            "Real Lower Band": "20.9695"
+        },
+        "2023-05-03": {
+            "Real Upper Band": "22.0642",
+            "Real Middle Band": "21.5123",
+            "Real Lower Band": "20.9605"
+        },
+        "2023-05-02": {
+            "Real Upper Band": "22.0634",
+            "Real Middle Band": "21.5077",
+            "Real Lower Band": "20.9521"
+        },
+        "2023-05-01": {
+            "Real Upper Band": "22.0665",
+            "Real Middle Band": "21.5283",
+            "Real Lower Band": "20.9901"
+        },
+        "2023-04-28": {
+            "Real Upper Band": "22.0673",
+            "Real Middle Band": "21.5797",
+            "Real Lower Band": "21.0920"
+        },
+        "2023-04-27": {
+            "Real Upper Band": "22.0318",
+            "Real Middle Band": "21.6338",
+            "Real Lower Band": "21.2358"
+        },
+        "2023-04-26": {
+            "Real Upper Band": "21.9974",
+            "Real Middle Band": "21.6669",
+            "Real Lower Band": "21.3363"
+        },
+        "2023-04-25": {
+            "Real Upper Band": "22.2246",
+            "Real Middle Band": "21.7100",
+            "Real Lower Band": "21.1954"
+        },
+        "2023-04-24": {
+            "Real Upper Band": "22.3637",
+            "Real Middle Band": "21.7485",
+            "Real Lower Band": "21.1333"
+        },
+        "2023-04-21": {
+            "Real Upper Band": "22.4416",
+            "Real Middle Band": "21.7898",
+            "Real Lower Band": "21.1380"
+        },
+        "2023-04-20": {
+            "Real Upper Band": "22.4416",
+            "Real Middle Band": "21.7898",
+            "Real Lower Band": "21.1380"
+        },
+        "2023-04-19": {
+            "Real Upper Band": "22.4499",
+            "Real Middle Band": "21.8265",
+            "Real Lower Band": "21.2031"
+        },
+        "2023-04-18": {
+            "Real Upper Band": "22.4177",
+            "Real Middle Band": "21.8513",
+            "Real Lower Band": "21.2849"
+        },
+        "2023-04-17": {
+            "Real Upper Band": "22.4156",
+            "Real Middle Band": "21.8528",
+            "Real Lower Band": "21.2900"
+        },
+        "2023-04-14": {
+            "Real Upper Band": "22.4153",
+            "Real Middle Band": "21.8555",
+            "Real Lower Band": "21.2958"
+        },
+        "2023-04-13": {
+            "Real Upper Band": "22.4461",
+            "Real Middle Band": "21.8890",
+            "Real Lower Band": "21.3318"
+        },
+        "2023-04-12": {
+            "Real Upper Band": "22.5165",
+            "Real Middle Band": "21.9509",
+            "Real Lower Band": "21.3852"
+        },
+        "2023-04-11": {
+            "Real Upper Band": "22.6673",
+            "Real Middle Band": "21.9841",
+            "Real Lower Band": "21.3008"
+        },
+        "2023-04-10": {
+            "Real Upper Band": "22.7758",
+            "Real Middle Band": "22.0153",
+            "Real Lower Band": "21.2547"
+        },
+        "2023-04-06": {
+            "Real Upper Band": "22.8117",
+            "Real Middle Band": "22.0336",
+            "Real Lower Band": "21.2556"
+        },
+        "2023-04-05": {
+            "Real Upper Band": "22.9076",
+            "Real Middle Band": "22.1089",
+            "Real Lower Band": "21.3102"
+        },
+        "2023-04-04": {
+            "Real Upper Band": "22.9999",
+            "Real Middle Band": "22.1777",
+            "Real Lower Band": "21.3555"
+        },
+        "2023-04-03": {
+            "Real Upper Band": "23.0050",
+            "Real Middle Band": "22.2606",
+            "Real Lower Band": "21.5163"
+        },
+        "2023-03-31": {
+            "Real Upper Band": "22.9693",
+            "Real Middle Band": "22.3768",
+            "Real Lower Band": "21.7842"
+        },
+        "2023-03-30": {
+            "Real Upper Band": "23.0410",
+            "Real Middle Band": "22.5100",
+            "Real Lower Band": "21.9790"
+        },
+        "2023-03-29": {
+            "Real Upper Band": "23.0723",
+            "Real Middle Band": "22.5989",
+            "Real Lower Band": "22.1255"
+        },
+        "2023-03-28": {
+            "Real Upper Band": "23.2859",
+            "Real Middle Band": "22.7059",
+            "Real Lower Band": "22.1259"
+        },
+        "2023-03-27": {
+            "Real Upper Band": "23.4989",
+            "Real Middle Band": "22.7791",
+            "Real Lower Band": "22.0593"
+        },
+        "2023-03-24": {
+            "Real Upper Band": "23.7972",
+            "Real Middle Band": "22.8922",
+            "Real Lower Band": "21.9872"
+        },
+        "2023-03-23": {
+            "Real Upper Band": "24.1024",
+            "Real Middle Band": "23.0651",
+            "Real Lower Band": "22.0279"
+        },
+        "2023-03-22": {
+            "Real Upper Band": "24.2113",
+            "Real Middle Band": "23.1851",
+            "Real Lower Band": "22.1589"
+        },
+        "2023-03-21": {
+            "Real Upper Band": "24.2012",
+            "Real Middle Band": "23.2631",
+            "Real Lower Band": "22.3251"
+        },
+        "2023-03-20": {
+            "Real Upper Band": "24.1477",
+            "Real Middle Band": "23.3731",
+            "Real Lower Band": "22.5985"
+        },
+        "2023-03-17": {
+            "Real Upper Band": "24.0646",
+            "Real Middle Band": "23.4259",
+            "Real Lower Band": "22.7872"
+        },
+        "2023-03-16": {
+            "Real Upper Band": "24.0745",
+            "Real Middle Band": "23.4825",
+            "Real Lower Band": "22.8904"
+        },
+        "2023-03-15": {
+            "Real Upper Band": "24.3698",
+            "Real Middle Band": "23.6400",
+            "Real Lower Band": "22.9103"
+        },
+        "2023-03-14": {
+            "Real Upper Band": "24.6564",
+            "Real Middle Band": "23.7676",
+            "Real Lower Band": "22.8788"
+        },
+        "2023-03-13": {
+            "Real Upper Band": "24.7408",
+            "Real Middle Band": "23.8477",
+            "Real Lower Band": "22.9547"
+        },
+        "2023-03-10": {
+            "Real Upper Band": "24.7974",
+            "Real Middle Band": "23.8900",
+            "Real Lower Band": "22.9826"
+        },
+        "2023-03-09": {
+            "Real Upper Band": "24.8631",
+            "Real Middle Band": "23.9201",
+            "Real Lower Band": "22.9770"
+        },
+        "2023-03-08": {
+            "Real Upper Band": "24.8721",
+            "Real Middle Band": "23.9401",
+            "Real Lower Band": "23.0081"
+        },
+        "2023-03-07": {
+            "Real Upper Band": "24.8434",
+            "Real Middle Band": "24.0020",
+            "Real Lower Band": "23.1607"
+        },
+        "2023-03-06": {
+            "Real Upper Band": "24.8372",
+            "Real Middle Band": "24.0518",
+            "Real Lower Band": "23.2664"
+        },
+        "2023-03-03": {
+            "Real Upper Band": "24.7738",
+            "Real Middle Band": "24.0727",
+            "Real Lower Band": "23.3717"
+        },
+        "2023-03-02": {
+            "Real Upper Band": "24.8626",
+            "Real Middle Band": "24.0345",
+            "Real Lower Band": "23.2063"
+        },
+        "2023-03-01": {
+            "Real Upper Band": "24.8598",
+            "Real Middle Band": "23.8833",
+            "Real Lower Band": "22.9068"
+        },
+        "2023-02-28": {
+            "Real Upper Band": "24.6572",
+            "Real Middle Band": "23.7567",
+            "Real Lower Band": "22.8561"
+        },
+        "2023-02-27": {
+            "Real Upper Band": "24.5531",
+            "Real Middle Band": "23.6547",
+            "Real Lower Band": "22.7562"
+        },
+        "2023-02-24": {
+            "Real Upper Band": "24.4351",
+            "Real Middle Band": "23.6012",
+            "Real Lower Band": "22.7672"
+        },
+        "2023-02-23": {
+            "Real Upper Band": "24.2208",
+            "Real Middle Band": "23.5361",
+            "Real Lower Band": "22.8514"
+        },
+        "2023-02-22": {
+            "Real Upper Band": "24.1379",
+            "Real Middle Band": "23.4979",
+            "Real Lower Band": "22.8578"
+        },
+        "2023-02-21": {
+            "Real Upper Band": "24.0110",
+            "Real Middle Band": "23.4131",
+            "Real Lower Band": "22.8153"
+        },
+        "2023-02-17": {
+            "Real Upper Band": "23.8055",
+            "Real Middle Band": "23.3640",
+            "Real Lower Band": "22.9224"
+        },
+        "2023-02-16": {
+            "Real Upper Band": "23.7977",
+            "Real Middle Band": "23.3330",
+            "Real Lower Band": "22.8683"
+        },
+        "2023-02-15": {
+            "Real Upper Band": "23.8745",
+            "Real Middle Band": "23.3767",
+            "Real Lower Band": "22.8789"
+        },
+        "2023-02-14": {
+            "Real Upper Band": "24.3700",
+            "Real Middle Band": "23.5398",
+            "Real Lower Band": "22.7095"
+        },
+        "2023-02-13": {
+            "Real Upper Band": "24.7932",
+            "Real Middle Band": "23.6873",
+            "Real Lower Band": "22.5815"
+        },
+        "2023-02-10": {
+            "Real Upper Band": "25.1762",
+            "Real Middle Band": "23.8695",
+            "Real Lower Band": "22.5627"
+        },
+        "2023-02-09": {
+            "Real Upper Band": "25.3038",
+            "Real Middle Band": "23.9576",
+            "Real Lower Band": "22.6114"
+        },
+        "2023-02-08": {
+            "Real Upper Band": "25.5038",
+            "Real Middle Band": "24.0744",
+            "Real Lower Band": "22.6450"
+        },
+        "2023-02-07": {
+            "Real Upper Band": "25.7845",
+            "Real Middle Band": "24.2484",
+            "Real Lower Band": "22.7122"
+        },
+        "2023-02-06": {
+            "Real Upper Band": "25.8426",
+            "Real Middle Band": "24.4442",
+            "Real Lower Band": "23.0458"
+        },
+        "2023-02-03": {
+            "Real Upper Band": "25.9741",
+            "Real Middle Band": "24.6219",
+            "Real Lower Band": "23.2696"
+        },
+        "2023-02-02": {
+            "Real Upper Band": "26.0321",
+            "Real Middle Band": "24.9033",
+            "Real Lower Band": "23.7746"
+        },
+        "2023-02-01": {
+            "Real Upper Band": "26.3148",
+            "Real Middle Band": "25.1800",
+            "Real Lower Band": "24.0452"
+        },
+        "2023-01-31": {
+            "Real Upper Band": "26.6486",
+            "Real Middle Band": "25.3622",
+            "Real Lower Band": "24.0758"
+        },
+        "2023-01-30": {
+            "Real Upper Band": "26.8557",
+            "Real Middle Band": "25.5134",
+            "Real Lower Band": "24.1711"
+        },
+        "2023-01-27": {
+            "Real Upper Band": "27.0833",
+            "Real Middle Band": "25.6628",
+            "Real Lower Band": "24.2423"
+        },
+        "2023-01-26": {
+            "Real Upper Band": "27.2281",
+            "Real Middle Band": "25.8923",
+            "Real Lower Band": "24.5565"
+        },
+        "2023-01-25": {
+            "Real Upper Band": "27.2982",
+            "Real Middle Band": "26.0801",
+            "Real Lower Band": "24.8620"
+        },
+        "2023-01-24": {
+            "Real Upper Band": "27.5863",
+            "Real Middle Band": "26.2891",
+            "Real Lower Band": "24.9919"
+        },
+        "2023-01-23": {
+            "Real Upper Band": "27.7037",
+            "Real Middle Band": "26.5259",
+            "Real Lower Band": "25.3482"
+        },
+        "2023-01-20": {
+            "Real Upper Band": "27.7887",
+            "Real Middle Band": "26.7528",
+            "Real Lower Band": "25.7168"
+        },
+        "2023-01-19": {
+            "Real Upper Band": "28.3862",
+            "Real Middle Band": "27.0197",
+            "Real Lower Band": "25.6532"
+        },
+        "2023-01-18": {
+            "Real Upper Band": "28.7102",
+            "Real Middle Band": "27.2079",
+            "Real Lower Band": "25.7056"
+        },
+        "2023-01-17": {
+            "Real Upper Band": "29.0391",
+            "Real Middle Band": "27.4247",
+            "Real Lower Band": "25.8104"
+        },
+        "2023-01-13": {
+            "Real Upper Band": "28.9818",
+            "Real Middle Band": "27.5468",
+            "Real Lower Band": "26.1118"
+        },
+        "2023-01-12": {
+            "Real Upper Band": "28.9148",
+            "Real Middle Band": "27.6545",
+            "Real Lower Band": "26.3942"
+        },
+        "2023-01-11": {
+            "Real Upper Band": "29.0018",
+            "Real Middle Band": "27.8139",
+            "Real Lower Band": "26.6261"
+        },
+        "2023-01-10": {
+            "Real Upper Band": "28.8641",
+            "Real Middle Band": "27.8977",
+            "Real Lower Band": "26.9314"
+        },
+        "2023-01-09": {
+            "Real Upper Band": "28.8820",
+            "Real Middle Band": "27.8855",
+            "Real Lower Band": "26.8890"
+        },
+        "2023-01-06": {
+            "Real Upper Band": "28.9333",
+            "Real Middle Band": "27.8482",
+            "Real Lower Band": "26.7630"
+        },
+        "2023-01-05": {
+            "Real Upper Band": "29.1070",
+            "Real Middle Band": "27.7324",
+            "Real Lower Band": "26.3577"
+        },
+        "2023-01-04": {
+            "Real Upper Band": "28.8746",
+            "Real Middle Band": "27.5807",
+            "Real Lower Band": "26.2868"
+        },
+        "2023-01-03": {
+            "Real Upper Band": "28.6824",
+            "Real Middle Band": "27.4540",
+            "Real Lower Band": "26.2257"
+        },
+        "2022-12-30": {
+            "Real Upper Band": "28.3092",
+            "Real Middle Band": "27.2538",
+            "Real Lower Band": "26.1984"
+        },
+        "2022-12-29": {
+            "Real Upper Band": "28.3166",
+            "Real Middle Band": "27.1251",
+            "Real Lower Band": "25.9336"
+        },
+        "2022-12-28": {
+            "Real Upper Band": "28.5424",
+            "Real Middle Band": "26.8709",
+            "Real Lower Band": "25.1993"
+        },
+        "2022-12-27": {
+            "Real Upper Band": "28.2992",
+            "Real Middle Band": "26.4995",
+            "Real Lower Band": "24.6999"
+        },
+        "2022-12-23": {
+            "Real Upper Band": "28.1287",
+            "Real Middle Band": "26.2239",
+            "Real Lower Band": "24.3191"
+        },
+        "2022-12-22": {
+            "Real Upper Band": "27.8835",
+            "Real Middle Band": "26.0264",
+            "Real Lower Band": "24.1693"
+        },
+        "2022-12-21": {
+            "Real Upper Band": "27.6195",
+            "Real Middle Band": "25.8335",
+            "Real Lower Band": "24.0475"
+        },
+        "2022-12-20": {
+            "Real Upper Band": "27.4843",
+            "Real Middle Band": "25.7356",
+            "Real Lower Band": "23.9869"
+        },
+        "2022-12-19": {
+            "Real Upper Band": "27.0697",
+            "Real Middle Band": "25.5363",
+            "Real Lower Band": "24.0029"
+        },
+        "2022-12-16": {
+            "Real Upper Band": "26.5534",
+            "Real Middle Band": "25.2791",
+            "Real Lower Band": "24.0047"
+        },
+        "2022-12-15": {
+            "Real Upper Band": "26.1020",
+            "Real Middle Band": "25.0467",
+            "Real Lower Band": "23.9913"
+        },
+        "2022-12-14": {
+            "Real Upper Band": "25.6520",
+            "Real Middle Band": "24.8412",
+            "Real Lower Band": "24.0303"
+        },
+        "2022-12-13": {
+            "Real Upper Band": "25.6322",
+            "Real Middle Band": "24.7591",
+            "Real Lower Band": "23.8860"
+        },
+        "2022-12-12": {
+            "Real Upper Band": "25.8103",
+            "Real Middle Band": "24.8393",
+            "Real Lower Band": "23.8684"
+        },
+        "2022-12-09": {
+            "Real Upper Band": "25.8272",
+            "Real Middle Band": "24.8542",
+            "Real Lower Band": "23.8812"
+        },
+        "2022-12-08": {
+            "Real Upper Band": "25.7434",
+            "Real Middle Band": "24.7600",
+            "Real Lower Band": "23.7766"
+        },
+        "2022-12-07": {
+            "Real Upper Band": "25.7195",
+            "Real Middle Band": "24.6300",
+            "Real Lower Band": "23.5405"
+        },
+        "2022-12-06": {
+            "Real Upper Band": "25.4806",
+            "Real Middle Band": "24.4780",
+            "Real Lower Band": "23.4755"
+        },
+        "2022-12-05": {
+            "Real Upper Band": "25.3207",
+            "Real Middle Band": "24.4006",
+            "Real Lower Band": "23.4805"
+        },
+        "2022-12-02": {
+            "Real Upper Band": "25.3147",
+            "Real Middle Band": "24.3362",
+            "Real Lower Band": "23.3577"
+        },
+        "2022-12-01": {
+            "Real Upper Band": "25.3118",
+            "Real Middle Band": "24.2987",
+            "Real Lower Band": "23.2855"
+        },
+        "2022-11-30": {
+            "Real Upper Band": "25.3101",
+            "Real Middle Band": "24.2953",
+            "Real Lower Band": "23.2805"
+        },
+        "2022-11-29": {
+            "Real Upper Band": "25.3023",
+            "Real Middle Band": "24.2716",
+            "Real Lower Band": "23.2409"
+        },
+        "2022-11-28": {
+            "Real Upper Band": "24.7963",
+            "Real Middle Band": "24.1500",
+            "Real Lower Band": "23.5038"
+        },
+        "2022-11-25": {
+            "Real Upper Band": "24.4192",
+            "Real Middle Band": "24.0597",
+            "Real Lower Band": "23.7001"
+        },
+        "2022-11-23": {
+            "Real Upper Band": "24.5210",
+            "Real Middle Band": "24.0822",
+            "Real Lower Band": "23.6434"
+        },
+        "2022-11-22": {
+            "Real Upper Band": "26.1027",
+            "Real Middle Band": "24.3875",
+            "Real Lower Band": "22.6724"
+        },
+        "2022-11-21": {
+            "Real Upper Band": "26.5345",
+            "Real Middle Band": "24.5954",
+            "Real Lower Band": "22.6564"
+        },
+        "2022-11-18": {
+            "Real Upper Band": "26.8997",
+            "Real Middle Band": "24.7754",
+            "Real Lower Band": "22.6512"
+        },
+        "2022-11-17": {
+            "Real Upper Band": "27.2100",
+            "Real Middle Band": "25.0185",
+            "Real Lower Band": "22.8270"
+        },
+        "2022-11-16": {
+            "Real Upper Band": "27.3892",
+            "Real Middle Band": "25.2428",
+            "Real Lower Band": "23.0964"
+        },
+        "2022-11-15": {
+            "Real Upper Band": "27.3649",
+            "Real Middle Band": "25.3378",
+            "Real Lower Band": "23.3106"
+        },
+        "2022-11-14": {
+            "Real Upper Band": "27.3380",
+            "Real Middle Band": "25.3555",
+            "Real Lower Band": "23.3729"
+        },
+        "2022-11-11": {
+            "Real Upper Band": "27.4178",
+            "Real Middle Band": "25.3047",
+            "Real Lower Band": "23.1917"
+        },
+        "2022-11-10": {
+            "Real Upper Band": "27.5305",
+            "Real Middle Band": "25.2419",
+            "Real Lower Band": "22.9533"
+        },
+        "2022-11-09": {
+            "Real Upper Band": "27.5566",
+            "Real Middle Band": "25.3171",
+            "Real Lower Band": "23.0775"
+        },
+        "2022-11-08": {
+            "Real Upper Band": "27.0950",
+            "Real Middle Band": "25.0831",
+            "Real Lower Band": "23.0713"
+        },
+        "2022-11-07": {
+            "Real Upper Band": "26.8718",
+            "Real Middle Band": "24.8948",
+            "Real Lower Band": "22.9177"
+        },
+        "2022-11-04": {
+            "Real Upper Band": "26.5462",
+            "Real Middle Band": "24.7369",
+            "Real Lower Band": "22.9276"
+        },
+        "2022-11-03": {
+            "Real Upper Band": "26.1161",
+            "Real Middle Band": "24.6036",
+            "Real Lower Band": "23.0911"
+        },
+        "2022-11-02": {
+            "Real Upper Band": "25.8737",
+            "Real Middle Band": "24.5519",
+            "Real Lower Band": "23.2302"
+        },
+        "2022-11-01": {
+            "Real Upper Band": "26.0130",
+            "Real Middle Band": "24.5954",
+            "Real Lower Band": "23.1779"
+        },
+        "2022-10-31": {
+            "Real Upper Band": "26.2265",
+            "Real Middle Band": "24.7338",
+            "Real Lower Band": "23.2411"
+        },
+        "2022-10-28": {
+            "Real Upper Band": "26.3899",
+            "Real Middle Band": "24.9351",
+            "Real Lower Band": "23.4804"
+        },
+        "2022-10-27": {
+            "Real Upper Band": "26.6101",
+            "Real Middle Band": "25.2480",
+            "Real Lower Band": "23.8859"
+        },
+        "2022-10-26": {
+            "Real Upper Band": "26.6884",
+            "Real Middle Band": "25.2938",
+            "Real Lower Band": "23.8992"
+        },
+        "2022-10-25": {
+            "Real Upper Band": "27.0040",
+            "Real Middle Band": "25.5015",
+            "Real Lower Band": "23.9989"
+        },
+        "2022-10-24": {
+            "Real Upper Band": "27.0371",
+            "Real Middle Band": "25.7372",
+            "Real Lower Band": "24.4373"
+        },
+        "2022-10-21": {
+            "Real Upper Band": "26.9432",
+            "Real Middle Band": "25.9041",
+            "Real Lower Band": "24.8650"
+        },
+        "2022-10-20": {
+            "Real Upper Band": "26.8652",
+            "Real Middle Band": "26.0392",
+            "Real Lower Band": "25.2132"
+        },
+        "2022-10-19": {
+            "Real Upper Band": "26.9022",
+            "Real Middle Band": "26.0138",
+            "Real Lower Band": "25.1254"
+        },
+        "2022-10-18": {
+            "Real Upper Band": "26.9678",
+            "Real Middle Band": "25.9757",
+            "Real Lower Band": "24.9836"
+        },
+        "2022-10-17": {
+            "Real Upper Band": "27.0059",
+            "Real Middle Band": "25.9440",
+            "Real Lower Band": "24.8821"
+        },
+        "2022-10-14": {
+            "Real Upper Band": "27.0178",
+            "Real Middle Band": "25.9621",
+            "Real Lower Band": "24.9064"
+        },
+        "2022-10-13": {
+            "Real Upper Band": "27.0845",
+            "Real Middle Band": "25.9812",
+            "Real Lower Band": "24.8778"
+        },
+        "2022-10-12": {
+            "Real Upper Band": "27.0924",
+            "Real Middle Band": "25.9993",
+            "Real Lower Band": "24.9062"
+        },
+        "2022-10-11": {
+            "Real Upper Band": "27.0685",
+            "Real Middle Band": "25.8029",
+            "Real Lower Band": "24.5374"
+        },
+        "2022-10-10": {
+            "Real Upper Band": "27.0169",
+            "Real Middle Band": "25.5922",
+            "Real Lower Band": "24.1675"
+        },
+        "2022-10-07": {
+            "Real Upper Band": "26.9140",
+            "Real Middle Band": "25.4272",
+            "Real Lower Band": "23.9403"
+        },
+        "2022-10-06": {
+            "Real Upper Band": "26.6981",
+            "Real Middle Band": "25.2639",
+            "Real Lower Band": "23.8298"
+        },
+        "2022-10-05": {
+            "Real Upper Band": "26.7154",
+            "Real Middle Band": "25.1442",
+            "Real Lower Band": "23.5730"
+        },
+        "2022-10-04": {
+            "Real Upper Band": "26.7341",
+            "Real Middle Band": "25.0336",
+            "Real Lower Band": "23.3331"
+        },
+        "2022-10-03": {
+            "Real Upper Band": "26.7685",
+            "Real Middle Band": "24.8676",
+            "Real Lower Band": "22.9667"
+        },
+        "2022-09-30": {
+            "Real Upper Band": "26.4885",
+            "Real Middle Band": "24.6681",
+            "Real Lower Band": "22.8477"
+        },
+        "2022-09-29": {
+            "Real Upper Band": "25.6327",
+            "Real Middle Band": "24.4471",
+            "Real Lower Band": "23.2615"
+        },
+        "2022-09-28": {
+            "Real Upper Band": "24.9423",
+            "Real Middle Band": "24.2837",
+            "Real Lower Band": "23.6251"
+        },
+        "2022-09-27": {
+            "Real Upper Band": "24.8568",
+            "Real Middle Band": "24.2014",
+            "Real Lower Band": "23.5459"
+        },
+        "2022-09-26": {
+            "Real Upper Band": "24.8156",
+            "Real Middle Band": "24.1679",
+            "Real Lower Band": "23.5203"
+        },
+        "2022-09-23": {
+            "Real Upper Band": "25.0054",
+            "Real Middle Band": "23.9884",
+            "Real Lower Band": "22.9715"
+        },
+        "2022-09-22": {
+            "Real Upper Band": "24.8198",
+            "Real Middle Band": "23.8875",
+            "Real Lower Band": "22.9553"
+        },
+        "2022-09-21": {
+            "Real Upper Band": "24.8131",
+            "Real Middle Band": "23.8845",
+            "Real Lower Band": "22.9558"
+        },
+        "2022-09-20": {
+            "Real Upper Band": "24.7890",
+            "Real Middle Band": "23.8674",
+            "Real Lower Band": "22.9459"
+        },
+        "2022-09-19": {
+            "Real Upper Band": "24.8341",
+            "Real Middle Band": "23.9227",
+            "Real Lower Band": "23.0112"
+        },
+        "2022-09-16": {
+            "Real Upper Band": "24.8306",
+            "Real Middle Band": "23.9195",
+            "Real Lower Band": "23.0083"
+        },
+        "2022-09-15": {
+            "Real Upper Band": "24.6555",
+            "Real Middle Band": "23.8224",
+            "Real Lower Band": "22.9894"
+        },
+        "2022-09-14": {
+            "Real Upper Band": "24.5333",
+            "Real Middle Band": "23.7574",
+            "Real Lower Band": "22.9815"
+        },
+        "2022-09-13": {
+            "Real Upper Band": "24.5151",
+            "Real Middle Band": "23.7144",
+            "Real Lower Band": "22.9138"
+        },
+        "2022-09-12": {
+            "Real Upper Band": "24.4662",
+            "Real Middle Band": "23.6154",
+            "Real Lower Band": "22.7647"
+        },
+        "2022-09-09": {
+            "Real Upper Band": "24.4705",
+            "Real Middle Band": "23.6140",
+            "Real Lower Band": "22.7575"
+        },
+        "2022-09-08": {
+            "Real Upper Band": "24.7640",
+            "Real Middle Band": "23.4439",
+            "Real Lower Band": "22.1239"
+        },
+        "2022-09-07": {
+            "Real Upper Band": "24.6542",
+            "Real Middle Band": "23.2570",
+            "Real Lower Band": "21.8599"
+        },
+        "2022-09-06": {
+            "Real Upper Band": "24.5294",
+            "Real Middle Band": "23.1013",
+            "Real Lower Band": "21.6732"
+        },
+        "2022-09-02": {
+            "Real Upper Band": "24.2387",
+            "Real Middle Band": "22.9169",
+            "Real Lower Band": "21.5951"
+        },
+        "2022-09-01": {
+            "Real Upper Band": "23.9959",
+            "Real Middle Band": "22.7020",
+            "Real Lower Band": "21.4081"
+        },
+        "2022-08-31": {
+            "Real Upper Band": "23.8423",
+            "Real Middle Band": "22.4910",
+            "Real Lower Band": "21.1397"
+        },
+        "2022-08-30": {
+            "Real Upper Band": "23.5222",
+            "Real Middle Band": "22.2660",
+            "Real Lower Band": "21.0098"
+        },
+        "2022-08-29": {
+            "Real Upper Band": "23.1361",
+            "Real Middle Band": "22.0849",
+            "Real Lower Band": "21.0337"
+        },
+        "2022-08-26": {
+            "Real Upper Band": "22.7942",
+            "Real Middle Band": "21.9349",
+            "Real Lower Band": "21.0756"
+        },
+        "2022-08-25": {
+            "Real Upper Band": "22.5087",
+            "Real Middle Band": "21.8316",
+            "Real Lower Band": "21.1545"
+        },
+        "2022-08-24": {
+            "Real Upper Band": "22.5627",
+            "Real Middle Band": "21.8557",
+            "Real Lower Band": "21.1488"
+        },
+        "2022-08-23": {
+            "Real Upper Band": "22.5029",
+            "Real Middle Band": "21.8352",
+            "Real Lower Band": "21.1674"
+        },
+        "2022-08-22": {
+            "Real Upper Band": "22.6556",
+            "Real Middle Band": "21.8687",
+            "Real Lower Band": "21.0818"
+        }
+    }
+}
