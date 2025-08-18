@@ -54,11 +54,11 @@
       <p>
         <app-info [text]="definitions.predictedPrice"></app-info>
         <strong> Predicted Price: </strong>
-        <ng-container *ngIf="prediction?.predictedPrice !== null && prediction?.predictedPrice !== undefined; else pendingPrice">
+        <ng-container *ngIf="prediction?.predictedPrice !== null && prediction?.predictedPrice !== undefined; else noPred">
           ${{ prediction.predictedPrice | number:'1.2-2' }}
         </ng-container>
-        <ng-template #pendingPrice>Pending</ng-template>
-      </p>      
+        <ng-template #noPred><span class="insufficient">Insufficient Data <app-info [text]="definitions.insuffientData"></app-info></span></ng-template>
+      </p>
       <p><app-info [text]="definitions.modelType"></app-info><strong> Model Type: </strong>{{ prediction?.modelType?.toUpperCase() }}</p>
       <p><app-info [text]="definitions.status"></app-info><strong> Status: </strong>{{ prediction?.status }}</p>
       <p><app-info [text]="definitions.startDate"></app-info>

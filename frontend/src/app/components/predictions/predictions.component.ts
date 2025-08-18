@@ -37,7 +37,8 @@ export class PredictionsComponent {
     endDate: "The future date corresponding to the selected timeline. For instance, a 2-week prediction from August 1st will show an end date around August 15th.",
     priceDifference: "The difference between the actual price at the end date and the model's predicted price. Useful to assess how close the model was.",
     predictionAccuracy: "A score or percentage that shows how accurate the prediction was, calculated based on the real price vs predicted price after the time period passed.",
-    actualPrice: "The real market opening price on the end date (first trade of that session), fetched from Alpha Vantage once the end date has passed. This value is used to evaluate the model’s prediction. Before the end date, it will show as Pending."
+    actualPrice: "The real market opening price on the end date (first trade of that session), fetched from Alpha Vantage once the end date has passed. This value is used to evaluate the model’s prediction. Before the end date, it will show as Pending.",
+    insuffientData: "Indicates whether the model had enough historical data to make a prediction. If true, it means the model could not find enough data points to generate a reliable forecast."
   };
   
 

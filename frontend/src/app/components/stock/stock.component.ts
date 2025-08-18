@@ -4,12 +4,19 @@ import { StockService } from '../../services/stock/stock.service';
 import { ActivatedRoute } from '@angular/router';
 import { InfoComponent } from '../info/info.component';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';    
+import { PriceChartComponent } from '../price-chart/price-chart.component';
+import { PredictionService } from '../../services/prediction/prediction.service'; // <-- add
+
+
 
 @Component({
   selector: 'app-stock',
   imports: [
     CommonModule,
-    InfoComponent
+    InfoComponent,
+    FormsModule,
+    PriceChartComponent
   ],
   templateUrl: './stock.component.html',
   styleUrl: './stock.component.css'
@@ -20,6 +27,18 @@ export class StockComponent {
   companyName: string | null = null;
   quote: any = null; // You can create a type/interface later if needed
   errorMessage: string | null = null;
+
+  timeframes: string[] = ['1d','5d','1m','3m','6m','1y','5y','max'];
+  selectedTimeframe: string = '6m';
+  points = 30;
+  series: Array<{ t: string; close: number }> = [];
+  seriesLoading = false;
+  seriesError: string | null = null;
+  predictionSeries: Array<{ t: string; close: number }> = [];
+
+  predictions: any[] = [];
+  predictionsLoading = false;
+  predictionsError: string | null = null;
 
   definitions = {
     open: "The stock's price when the market opened on the latest trading day. For example, if the market opened at $150.25 on a Monday, that's the value shown here.",
@@ -38,7 +57,8 @@ export class StockComponent {
   constructor(
     private stockService: StockService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private predictionService: PredictionService 
   ) {}
 
   ngOnInit(): void {
@@ -46,10 +66,25 @@ export class StockComponent {
       this.ticker = params.get('ticker');
       if (this.ticker) {
         this.getData(this.ticker);
+        this.fetchPriceSeries();       
+        this.fetchPredictions(this.ticker);  
       } else {
         this.errorMessage = 'Ticker is missing in route.';
       }
     });
+  }
+
+  get chartUnit(): 'minute' | 'hour' | 'day' | 'month' {
+    switch (this.selectedTimeframe) {
+      case '1d':
+      case '5d':
+        return 'hour';
+      case '5y':
+      case 'max':
+        return 'month';
+      default:
+        return 'day';
+    }
   }
 
   getData(ticker: string) {
@@ -80,6 +115,81 @@ export class StockComponent {
       console.error('Ticker is not defined, cannot navigate to predictions.');
     }
   }
+
+  fetchPriceSeries() {
+    if (!this.ticker) return;
+    this.seriesLoading = true;
+    this.seriesError = null;
+    this.stockService.getPriceSeries(this.ticker, this.selectedTimeframe, this.points).subscribe({
+      next: (res) => {
+        console.log('price-series points:', res?.data?.length, res);
+        this.series = res?.data ?? [];
+        this.seriesLoading = false;
+      },
+      error: (err) => {
+        console.error('Price series error:', err);
+        this.seriesError = 'Unable to load price series';
+        this.seriesLoading = false;
+      }
+    });
+  }
+
+  fetchPredictions(ticker: string) {
+    this.predictionsLoading = true;
+    this.predictionsError = null;
+  
+    this.predictionService.getUserPredictions(ticker).subscribe({
+      next: (res) => {
+        const list = Array.isArray(res) ? res : (res?.predictions ?? []);
+        this.predictions = list;
+        this.predictionSeries = this.normalizePredictionsToSeries(list);  // ← feed chart
+        this.predictionsLoading = false;
+      },
+      error: (err) => {
+        console.error('Error fetching predictions:', err);
+        this.predictions = [];
+        this.predictionSeries = [];
+        this.predictionsError = 'Unable to load predictions';
+        this.predictionsLoading = false;
+      }
+    });
+  }
+  
+
+  private computeEndDate(startDate: string | Date, timeline: string): string | null {
+    if (!startDate) return null;
+    const d = new Date(startDate);
+  
+    switch ((timeline || '').toLowerCase()) {
+      case '1d': d.setDate(d.getDate() + 1); break;
+      case '2w': d.setDate(d.getDate() + 14); break;
+      case '2m': d.setMonth(d.getMonth() + 2); break;
+      default: return null; // unknown code
+    }
+  
+    // Optional: align to ~market open (13:30Z); skip if you don't care
+    d.setUTCHours(13, 30, 0, 0);
+    return d.toISOString();
+  }
+  
+  private normalizePredictionsToSeries(preds: any[]): Array<{ t: string; close: number }> {
+    // keep items that have an end date (provided or computable) AND a numeric predictedPrice
+    const points = preds
+      .map(p => {
+        const t = p.endDate ?? this.computeEndDate(p.startDate, p.predictionTimeline);
+        const close = Number(p.predictedPrice);
+        return t && Number.isFinite(close) ? { t, close } : null;
+      })
+      .filter((x): x is { t: string; close: number } => !!x)
+      // de-dupe by timestamp (keep the last one)
+      .reduce((acc, cur) => acc.set(cur.t, cur), new Map<string, { t: string; close: number }>())
+      .values();
+  
+    return Array.from(points).sort(
+      (a, b) => new Date(a.t).getTime() - new Date(b.t).getTime()
+    );
+  }
+  
 }
 
 

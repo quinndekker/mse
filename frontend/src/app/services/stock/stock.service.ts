@@ -34,4 +34,15 @@ export class StockService {
     );
   }
 
+  getPriceSeries(ticker: string, timeframe: string, points: number = 120): Observable<any> {
+    return this.http.get(`${this.apiUrl}/${ticker}/price-series`, {
+      params: { timeframe, points }
+    }).pipe(
+      catchError((error) => {
+        console.error(`Error fetching price series for ${ticker}:`, error);
+        return throwError(() => error);
+      })
+    );
+  }
+
 }

@@ -70,12 +70,39 @@
       </table>      
   </div>
 
+  <div class="tf-bar">
+    <label for="timeframe">Timeframe</label>
+    <select
+      id="timeframe"
+      [(ngModel)]="selectedTimeframe"
+      (change)="fetchPriceSeries()"
+      class="tf-select"
+    >
+      <option *ngFor="let tf of timeframes" [value]="tf">{{ tf }}</option>
+    </select>
+
+    <span class="tf-meta" *ngIf="series && series.length && !seriesLoading">
+      {{ series.length }} prices loaded
+    </span>
+    <span class="tf-meta loading" *ngIf="seriesLoading">Loading series…</span>
+    <span class="tf-meta error" *ngIf="seriesError">{{ seriesError }}</span>
+  </div>
+
+  <app-price-chart
+    [priceSeries]="series"
+    [predictionSeries]="predictionSeries"
+    [timeUnit]="chartUnit">
+  </app-price-chart> 
+
   <button class="predictions-button" (click)="navigateToPredictions()">
     View Predictions
   </button>
+
   
   <ng-template #loadingOrError>
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <div *ngIf="!errorMessage">Loading stock data...</div>
   </ng-template>
+
+  
   

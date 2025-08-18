@@ -21,6 +21,9 @@
     "@angular/router": "^19.2.0",
     "@react-oauth/google": "^0.12.2",
     "appwrite": "^18.1.1",
+    "chart.js": "^4.5.0",
+    "chartjs-adapter-date-fns": "^3.0.0",
+    "ng2-charts": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
