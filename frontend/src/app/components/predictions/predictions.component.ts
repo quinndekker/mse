@@ -63,11 +63,10 @@ export class PredictionsComponent {
       )
       .subscribe({
         next: (predictions) => {
-          console.log('✅ User predictions:', predictions);
           this.predictions = predictions;
         },
         error: (error) => {
-          console.error('❌ Error fetching user predictions:', error);
+          console.error('Error fetching user predictions:', error);
           this.predictions = [];
         }
       });

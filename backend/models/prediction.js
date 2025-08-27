@@ -34,9 +34,19 @@ const predictionSchema = new mongoose.Schema({
     },
     actualPrice: {
         type: Number
+    },
+    sector: {
+        type: String,
+        default: "none"
+    },
+    priceDifference: {
+        type: Number
+    },
+    predictionAccuracy: {
+        type: Number
     }
-}, 
-{ timestamps: true });
+}, { timestamps: true });
+
 
 predictionSchema.set('toObject', { virtuals: true });
 predictionSchema.set('toJSON', { virtuals: true });

@@ -51,4 +51,8 @@
     color: #64748b;      /* slate-500 */
     font-style: italic;
   }
+
+  .positive { color: #16a34a; }
+  .negative { color: #dc2626; }
+  .neutral  { color: inherit; } 
   

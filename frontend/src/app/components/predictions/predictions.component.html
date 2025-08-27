@@ -67,15 +67,37 @@
       <p><app-info [text]="definitions.endDate"></app-info>
         <strong> End Date: </strong>{{ prediction?.endDate ? (prediction.endDate | date:'shortDate') : 'Not available' }}
       </p>
-      <p><app-info [text]="definitions.priceDifference"></app-info><strong> Price Difference: </strong>{{ prediction?.priceDifference ? prediction?.priceDifference : 'Pending' }}</p>
-      <p><app-info [text]="definitions.predictionAccuracy"></app-info><strong> Prediction Accuracy: </strong>{{ prediction?.predictionAccuracy ? prediction?.predictionAccuracy : 'Pending' }}</p>
       <p>
-        <app-info [text]="definitions.actualPrice"></app-info>
-        <strong> Actual Price: </strong>
-        <ng-container *ngIf="prediction?.actualPrice !== null && prediction?.actualPrice !== undefined; else pendingActual">
-          ${{ prediction.actualPrice | number:'1.2-2' }}
+        <app-info [text]="definitions.priceDifference"></app-info>
+        <strong> Price Difference: </strong>
+        <ng-container *ngIf="prediction?.priceDifference !== null && prediction?.priceDifference !== undefined; else pdPending">
+          <span
+            [ngClass]="{
+              positive: prediction.priceDifference > 0,
+              negative: prediction.priceDifference < 0,
+              neutral: prediction.priceDifference === 0
+            }"
+          >
+            {{ prediction.priceDifference | currency:'USD':'symbol':'1.2-2' }}
+          </span>
         </ng-container>
-        <ng-template #pendingActual>Pending</ng-template>
+        <ng-template #pdPending>Pending</ng-template>
+      </p>
+      <p>
+        <app-info [text]="definitions.predictionAccuracy"></app-info>
+        <strong> Prediction Accuracy: </strong>
+        <ng-container *ngIf="prediction?.predictionAccuracy !== null && prediction?.predictionAccuracy !== undefined; else paPending">
+          <span
+            [ngClass]="{
+              positive: prediction.predictionAccuracy > 0,
+              negative: prediction.predictionAccuracy < 0,
+              neutral: prediction.predictionAccuracy === 0
+            }"
+          >
+            {{ prediction.predictionAccuracy | number:'1.2-2' }}%
+          </span>
+        </ng-container>
+        <ng-template #paPending>Pending</ng-template>
       </p>
     </div>
   </div>

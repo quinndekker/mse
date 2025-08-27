@@ -136,7 +136,25 @@ async function fetchDailySeries(ticker, apiKey) {
   const series = json['Time Series (Daily)'];
   if (!series) throw new Error(`Alpha Vantage missing daily series for ${ticker}`);
 
-  return series; // { 'YYYY-MM-DD': { '1. open': '...', ... }, ... }
+  return series; 
+}
+
+function setPredictionMetrics(doc) {
+  // priceDifference = predicted - actual
+  if (doc.predictedPrice != null && doc.actualPrice != null) {
+    doc.priceDifference = Number(doc.predictedPrice) - Number(doc.actualPrice);
+
+    // predictionAccuracy as % difference: 100 - ((pred - actual) / actual) * 100
+    if (Number(doc.actualPrice) !== 0) {
+      doc.predictionAccuracy =
+        100 - (((Number(doc.predictedPrice) - Number(doc.actualPrice)) / Number(doc.actualPrice)) * 100);
+    } else {
+      doc.predictionAccuracy = null; 
+    }
+  } else {
+    doc.priceDifference = null;
+    doc.predictionAccuracy = null;
+  }
 }
 
 module.exports = {
@@ -145,4 +163,5 @@ module.exports = {
   toYMDInTZ,
   getAlphaKey,
   fetchDailySeries,
+  setPredictionMetrics,
 };

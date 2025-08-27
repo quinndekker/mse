@@ -94,5 +94,23 @@
 .tf-meta.loading { color: #2563eb; }
 .tf-meta.error { color: #dc2626; }
 
-  
-  
+.chart-wrap { height: 360px; margin-top: 12px; }
+.plot-controls { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.group-controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; flex: 1; }
+.control { display: inline-flex; gap: 6px; align-items: center; }
+
+.plot-controls {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.chart-wrap {
+  margin-top: 8px;
+  margin-bottom: 12px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+}

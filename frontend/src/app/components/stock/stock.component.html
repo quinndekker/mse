@@ -88,11 +88,30 @@
     <span class="tf-meta error" *ngIf="seriesError">{{ seriesError }}</span>
   </div>
 
-  <app-price-chart
-    [priceSeries]="series"
-    [predictionSeries]="predictionSeries"
-    [timeUnit]="chartUnit">
-  </app-price-chart> 
+  <div class="plot-controls" *ngIf="predictionGroups?.length || series?.length">
+    <label class="control">
+      <input type="checkbox" [(ngModel)]="selectedActual" (change)="updateChart()" />
+      Show actual price
+    </label>
+  
+    <div class="group-controls">
+      <div class="group" *ngFor="let g of predictionGroups">
+        <label>
+          <input
+            type="checkbox"
+            [(ngModel)]="selectedKeys[keyOf(g)]"
+            (change)="updateChart()"
+          />
+          {{ g.modelType.toUpperCase() }} • {{ g.timeframe }} ({{ g.items.length }})
+        </label>
+      </div>
+    </div>
+  </div>
+  
+  <div class="chart-wrap">
+    <canvas #comboChart></canvas>
+  </div>
+  
 
   <button class="predictions-button" (click)="navigateToPredictions()">
     View Predictions
