@@ -1,4 +1,4 @@
-<h2>Make a Stock Prediction</h2>
+<!-- <h2>Make a Stock Prediction</h2>
 
 <form (ngSubmit)="submitPrediction()" #predictionForm="ngForm">
   <label for="ticker">Ticker:</label>
@@ -19,9 +19,9 @@
   </select>
 
   <button type="submit">Predict</button>
-</form>
+</form> -->
 
-<div *ngIf="result">
+<!-- <div *ngIf="result">
   <h3>Prediction Result</h3>
   <p>Predicted Price: {{ result.predictedPrice }}</p>
 </div>
@@ -106,4 +106,17 @@
 <ng-template #noPredictions>
   <p class="no-results">You have no predictions yet.</p>
 </ng-template>
+ -->
+ <section class="page">
+  <header class="page-header">
+    <h1>All Predictions <ng-container *ngIf="ticker">for {{ ticker }}</ng-container></h1>
+  </header>
 
+  <div *ngIf="loading">Loading…</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <app-prediction-list
+    *ngIf="!loading && !error"
+    [predictions]="predictions">
+  </app-prediction-list>
+</section>

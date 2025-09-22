@@ -114,3 +114,103 @@
   padding: 10px;
   border-radius: 8px;
 }
+
+.pred-list-wrap {
+  margin-bottom: 20px;
+}
+
+.pred-create-card {
+  margin: 1rem 0 1.25rem;
+  padding: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+}
+
+.pred-create-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.ticker-pill {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  border: 1px solid #e5e7eb;
+  font-weight: 600;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+.field select {
+  width: 100%;
+  padding: 0.5rem 0.55rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.field.readonly .readonly-box {
+  width: 100%;
+  padding: 0.5rem 0.55rem;
+  border: 1px dashed #ddd;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #333;
+  font-weight: 600;
+}
+
+.error { color: #b00020; font-size: 0.8rem; margin-top: 0.2rem; }
+
+.actions {
+  margin-top: 0.75rem;
+}
+
+.actions button {
+  padding: 0.55rem 0.9rem;
+  border-radius: 8px;
+  border: 1px solid #d5d5d5;
+  background: #111827;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+.actions button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin-right: 0.4rem;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.result {
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+}
+.result.success { color: #0b5d1e; }
+.result.error { color: #b00020; }

@@ -1,0 +1,242 @@
+<div class="wrapper">
+    <header class="hero">
+      <h1 class="title">Models Overview</h1>
+      <p class="subtitle">
+        Quick reference for <span class="badge">LSTM</span>, <span class="badge">GRU</span>, and <span class="badge">RNN</span> — what they are, when to use them, and key trade-offs.
+      </p>
+    </header>
+  
+    <!-- LSTM -->
+    <section id="lstm" class="card">
+      <div class="card-head">
+        <h2 class="card-title">
+          LSTM (Long Short-Term Memory)
+          <span class="tag tag-primary">Most robust</span>
+        </h2>
+        <p class="card-sub">Captures long-term dependencies using input/forget/output gates and a cell state.</p>
+      </div>
+  
+      <div class="grid">
+        <div class="cell">
+          <h3>What it is</h3>
+          <p>
+            LSTMs augment a recurrent unit with a persistent <em>cell state</em> and gating mechanisms that regulate information flow, mitigating vanishing gradients on long sequences.
+          </p>
+          <ul class="bullets">
+            <li>Gates: <strong>input</strong>, <strong>forget</strong>, <strong>output</strong></li>
+            <li>Good at: longer contexts, noisy signals, irregular patterns</li>
+            <li>Typical sizes: 32–256 hidden units per layer, 1–3 layers for tabular/finance</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h3>When to choose LSTM</h3>
+          <ul class="ticks">
+            <li>Longer temporal dependencies (multi-week/month signals)</li>
+            <li>More features &amp; potential non-stationarity</li>
+            <li>You can afford slightly higher compute vs GRU</li>
+          </ul>
+          <h3 class="mt">Trade-offs</h3>
+          <ul class="crosses">
+            <li>Heavier than GRU → slower training/inference</li>
+            <li>More hyperparameters to tune</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <!-- Controls -->
+      <div class="controls">
+        <label>
+          Sector
+          <select [(ngModel)]="state.lstm.sector" (change)="onSelectChanged('lstm')">
+            <option *ngFor="let s of sectors" [value]="s.value">{{ s.label }}</option>
+          </select>
+        </label>
+      
+        <label>
+          Timeframe
+          <select [(ngModel)]="state.lstm.timeframe" (change)="onSelectChanged('lstm')">
+            <option *ngFor="let t of timeframes" [value]="t.value">{{ t.label }}</option>
+          </select>
+        </label>
+      </div>
+      
+      <!-- Metrics -->
+      <div class="metrics">
+        <ng-container *ngIf="state.lstm.loading">Loading…</ng-container>
+        <ng-container *ngIf="state.lstm.error && !state.lstm.loading">
+          <span class="err">{{ state.lstm.error }}</span>
+        </ng-container>
+        <ng-container *ngIf="state.lstm.data as d">
+          <div class="metric">
+            <span class="metric-label">MSE</span>
+            <span class="metric-val">{{ d.mse | number:'1.0-6' }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Training Time</span>
+            <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
+          </div>
+          <div class="metric small">
+            <span>Sector:</span> {{ d.sectorName }} ({{ d.sectorSpdr }}) • <span>TF:</span> {{ d.timeframe }}
+          </div>
+        </ng-container>
+      </div>      
+    </section>
+  
+    <!-- GRU -->
+    <section id="gru" class="card">
+      <div class="card-head">
+        <h2 class="card-title">
+          GRU (Gated Recurrent Unit)
+          <span class="tag tag-accent">Fast &amp; strong baseline</span>
+        </h2>
+        <p class="card-sub">Simplified gating (update/reset) without a separate cell state; fewer parameters than LSTM.</p>
+      </div>
+  
+      <div class="grid">
+        <div class="cell">
+          <h3>What it is</h3>
+          <p>
+            GRUs combine the hidden and cell states, using <em>update</em> and <em>reset</em> gates to regulate memory.
+            Often comparable to LSTM accuracy with lower latency.
+          </p>
+          <ul class="bullets">
+            <li>Good at: medium-range dependencies, tighter compute budgets</li>
+            <li>Typical sizes: 32–256 units, 1–3 layers</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h3>When to choose GRU</h3>
+          <ul class="ticks">
+            <li>Need speed/parameter efficiency</li>
+            <li>Similar performance to LSTM in your domain</li>
+            <li>Smaller datasets (less risk of overfitting with fewer params)</li>
+          </ul>
+          <h3 class="mt">Trade-offs</h3>
+          <ul class="crosses">
+            <li>Sometimes slightly worse than LSTM on very long sequences</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="controls">
+        <label>
+          Sector
+          <select [(ngModel)]="state.gru.sector" (change)="onSelectChanged('gru')">
+            <option *ngFor="let s of sectors" [value]="s.value">{{ s.label }}</option>
+          </select>
+        </label>
+      
+        <label>
+          Timeframe
+          <select [(ngModel)]="state.gru.timeframe" (change)="onSelectChanged('gru')">
+            <option *ngFor="let t of timeframes" [value]="t.value">{{ t.label }}</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="metrics">
+        <ng-container *ngIf="state.gru.loading">Loading…</ng-container>
+        <ng-container *ngIf="state.gru.error && !state.gru.loading">
+          <span class="err">{{ state.gru.error }}</span>
+        </ng-container>
+        <ng-container *ngIf="state.gru.data as d">
+          <div class="metric">
+            <span class="metric-label">MSE</span>
+            <span class="metric-val">{{ d.mse | number:'1.0-6' }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Training Time</span>
+            <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
+          </div>
+          <div class="metric small">
+            <span>Sector:</span> {{ d.sectorName }} ({{ d.sectorSpdr }}) • <span>TF:</span> {{ d.timeframe }}
+          </div>
+        </ng-container>
+      </div>      
+    </section>
+  
+    <!-- Vanilla RNN -->
+    <section id="rnn" class="card">
+      <div class="card-head">
+        <h2 class="card-title">
+          Vanilla RNN (Elman)
+          <span class="tag">Lightweight</span>
+        </h2>
+        <p class="card-sub">Basic recurrent layer without gating; can capture short-term patterns but prone to vanishing gradients.</p>
+      </div>
+  
+      <div class="grid">
+        <div class="cell">
+          <h3>What it is</h3>
+          <p>
+            A simple recurrent transformation of the hidden state over time steps. Works best for short contexts and small problems.
+          </p>
+          <ul class="bullets">
+            <li>Good at: short-term signals, quick experiments, educational baselines</li>
+            <li>Typical sizes: 16–128 units, 1–2 layers</li>
+          </ul>
+        </div>
+        <div class="cell">
+          <h3>When to choose RNN</h3>
+          <ul class="ticks">
+            <li>Very small models or strict latency constraints</li>
+            <li>Short context windows (e.g., 5–20 steps)</li>
+          </ul>
+          <h3 class="mt">Trade-offs</h3>
+          <ul class="crosses">
+            <li>Struggles with long-term dependencies (vanishing gradients)</li>
+            <li>Often outperformed by GRU/LSTM on real-world tasks</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <div class="controls">
+        <label>
+          Sector
+          <select [(ngModel)]="state.rnn.sector" (change)="onSelectChanged('rnn')">
+            <option *ngFor="let s of sectors" [value]="s.value">{{ s.label }}</option>
+          </select>
+        </label>
+      
+        <label>
+          Timeframe
+          <select [(ngModel)]="state.rnn.timeframe" (change)="onSelectChanged('rnn')">
+            <option *ngFor="let t of timeframes" [value]="t.value">{{ t.label }}</option>
+          </select>
+        </label>
+      </div>
+      
+      <div class="metrics">
+        <ng-container *ngIf="state.rnn.loading">Loading…</ng-container>
+        <ng-container *ngIf="state.rnn.error && !state.rnn.loading">
+          <span class="err">{{ state.rnn.error }}</span>
+        </ng-container>
+        <ng-container *ngIf="state.rnn.data as d">
+          <div class="metric">
+            <span class="metric-label">MSE</span>
+            <span class="metric-val">{{ d.mse | number:'1.0-6' }}</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Training Time</span>
+            <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
+          </div>
+          <div class="metric small">
+            <span>Sector:</span> {{ d.sectorName }} ({{ d.sectorSpdr }}) • <span>TF:</span> {{ d.timeframe }}
+          </div>
+        </ng-container>
+      </div>      
+    </section>
+  
+    <footer class="footer">
+      <div class="legend">
+        <span class="dot dot-primary"></span> Strong long-term memory
+        <span class="dot dot-accent"></span> Best speed/accuracy balance
+        <span class="dot"></span> Minimal baseline
+      </div>
+      <a href="#top" class="back-to-top" (click)="$event.preventDefault(); scrollTo('top')">Back to Top</a>
+    </footer>
+  </div>
+  
+  <!-- Invisible anchor for "Back to Top" -->
+  <div id="top" aria-hidden="true"></div>
+  

@@ -93,6 +93,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  navigateToModels() {
+    this.router.navigate(['/models']);
+  }
+
   navigateToSearch() {
     this.router.navigate(['/search']);
   }

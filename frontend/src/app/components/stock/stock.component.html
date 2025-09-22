@@ -70,6 +70,81 @@
       </table>      
   </div>
 
+  <!-- Make a Prediction (for this ticker) -->
+<section class="pred-create-card" *ngIf="ticker">
+  <header class="pred-create-header">
+    <h3>Make a Prediction for <span class="ticker-pill">{{ ticker }}</span></h3>
+  </header>
+
+  <form (ngSubmit)="submitPredictionForTicker(predForm)" #predForm="ngForm" novalidate>
+    <div class="grid">
+      <!-- Ticker (read-only display) -->
+      <div class="field readonly">
+        <label>Ticker</label>
+        <div class="readonly-box">{{ ticker }}</div>
+      </div>
+
+      <!-- Model Type -->
+      <div class="field">
+        <label for="modelType">Model Type
+          <app-info [text]="definitions.modelType"></app-info>
+        </label>
+        <select
+          id="modelType"
+          name="modelType"
+          [(ngModel)]="modelType"
+          required
+          #modelCtrl="ngModel"
+        >
+          <option value="lstm">LSTM</option>
+          <option value="gru">GRU</option>
+          <option value="rnn">RNN</option>
+        </select>
+        <small class="error" *ngIf="modelCtrl.invalid && (modelCtrl.dirty || modelCtrl.touched)">
+          Choose a model type.
+        </small>
+      </div>
+
+      <!-- Timeline -->
+      <div class="field">
+        <label for="predictionTimeline">Prediction Length
+          <app-info [text]="definitions.predictionTimeline"></app-info>
+        </label>
+        <select
+          id="predictionTimeline"
+          name="predictionTimeline"
+          [(ngModel)]="predictionTimeline"
+          required
+          #timelineCtrl="ngModel"
+        >
+          <option value="1d">1 Day</option>
+          <option value="2w">2 Weeks</option>
+          <option value="2m">2 Months</option>
+        </select>
+        <small class="error" *ngIf="timelineCtrl.invalid && (timelineCtrl.dirty || timelineCtrl.touched)">
+          Choose a length.
+        </small>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="submit" [disabled]="predForm.invalid || submitting">
+        <ng-container *ngIf="!submitting; else spinner">Predict</ng-container>
+      </button>
+      <ng-template #spinner>
+        <span class="spinner"></span> Predicting…
+      </ng-template>
+    </div>
+
+    <!-- Inline result -->
+    <p class="result success" *ngIf="createSuccess">
+      ✅ Prediction created{{ createdPredictionPrice ? (': $' + (createdPredictionPrice | number:'1.2-2')) : '' }}.
+    </p>
+    <p class="result error" *ngIf="createError">{{ createError }}</p>
+  </form>
+</section>
+
+
   <div class="tf-bar">
     <label for="timeframe">Timeframe</label>
     <select
@@ -112,9 +187,21 @@
     <canvas #comboChart></canvas>
   </div>
   
+  <section *ngIf="predictionsLoading" class="pred-list-wrap">
+    Loading {{ ticker }} predictions…
+  </section>
+  
+  <section *ngIf="!predictionsLoading && !predictionsError" class="pred-list-wrap">
+    <h3>Predictions for {{ ticker }}</h3>
+    <app-prediction-list [predictions]="predictions"></app-prediction-list>
+  </section>
+  
+  <section *ngIf="!predictionsLoading && predictionsError" class="pred-list-wrap error">
+    {{ predictionsError }}
+  </section>
 
   <button class="predictions-button" (click)="navigateToPredictions()">
-    View Predictions
+    Go To Your Predictions
   </button>
 
   

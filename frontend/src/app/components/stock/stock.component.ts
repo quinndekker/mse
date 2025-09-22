@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { PredictionService } from '../../services/prediction/prediction.service';
 import { ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js/auto';
+import { PredictionsListComponent } from '../prediction-list/prediction-list.component';
+import { Prediction } from '../../models/prediction';
 
 type ModelType = 'lstm' | 'gru' | 'rnn';
 type Timeframe = '1d' | '2w' | '2m';
@@ -34,6 +36,7 @@ type ChartDatum = { x: string; y: number; ap?: number|null; diff?: number|null; 
     CommonModule,
     InfoComponent,
     FormsModule,
+    PredictionsListComponent,
   ],
   templateUrl: './stock.component.html',
   styleUrl: './stock.component.css'
@@ -53,9 +56,19 @@ export class StockComponent {
   seriesError: string | null = null;
   predictionSeries: Array<{ t: string; close: number }> = [];
 
-  predictions: any[] = [];
+  predictions: Prediction[] = [];
   predictionsLoading = false;
   predictionsError: string | null = null;
+
+
+  modelType: 'lstm' | 'gru' | 'rnn' = 'lstm';
+  predictionTimeline: '1d' | '2w' | '2m' = '1d';
+
+  // create-state
+  submitting = false;
+  createSuccess = false;
+  createError: string | null = null;
+  createdPredictionPrice: number | null = null;
 
   readonly MODEL_TYPES: ModelType[] = ['lstm', 'gru', 'rnn'];
   readonly TIMEFRAMES: Timeframe[] = ['1d', '2w', '2m'];
@@ -70,7 +83,9 @@ export class StockComponent {
     change: "The dollar amount the stock has moved compared to the previous close. Positive means gain (e.g., +$2.50), negative means loss (e.g., -$1.75).",
     changePercent: "The percentage the stock price has changed since the previous close. For example, +1.25% means the stock gained value today.",
     volume: "The total number of shares traded during the day. High volume (e.g., 10 million) often indicates strong interest or news activity.",
-    latestTradingDay: "The calendar date of the most recent trading session, usually a weekday like '2025-08-02' (a Friday)."
+    latestTradingDay: "The calendar date of the most recent trading session, usually a weekday like '2025-08-02' (a Friday).",
+    modelType: "The type of machine learning model used for the prediction:\n- LSTM: Good for long-term patterns\n- GRU: Faster to train, handles short-term trends well\n- RNN: Simpler, general-purpose",
+    predictionTimeline: "The time frame for the prediction:\n- 1 Day: Next trading day\n- 2 Weeks: Two weeks from now\n- 2 Months: Two months into the future",
   };
 
   constructor(
@@ -93,18 +108,44 @@ export class StockComponent {
     });
   }
 
-  // get chartUnit(): 'minute' | 'hour' | 'day' | 'month' {
-  //   switch (this.selectedTimeframe) {
-  //     case '1d':
-  //     case '5d':
-  //       return 'hour';
-  //     case '5y':
-  //     case 'max':
-  //       return 'month';
-  //     default:
-  //       return 'day';
-  //   }
-  // }
+  submitPredictionForTicker(form: any) {
+    if (!this.ticker) return;
+  
+    this.submitting = true;
+    this.createSuccess = false;
+    this.createError = null;
+    this.createdPredictionPrice = null;
+  
+    const t = this.ticker.toUpperCase().trim();
+  
+    this.predictionService.createPrediction(t, this.modelType, this.predictionTimeline).subscribe({
+      next: (res: any) => {
+        this.submitting = false;
+        this.createSuccess = true;
+        this.createdPredictionPrice = (typeof res?.predictedPrice === 'number') ? res.predictedPrice : null;
+  
+        // Optimistically add to the page’s prediction list
+        const created = {
+          ...res,
+          ticker: t,
+          modelType: this.modelType,
+          predictionTimeline: this.predictionTimeline,
+          startDate: res?.startDate ?? new Date().toISOString(),
+          endDate: res?.endDate ?? this.computeEndDate(new Date(), this.predictionTimeline),
+          status: res?.status ?? 'Completed'
+        };
+        this.predictions = [created, ...this.predictions];
+        this.predictionGroups = this.buildPredictionGroups(this.predictions);
+        this.updateChart();
+  
+      },
+      error: (err) => {
+        console.error('❌ Prediction error:', err);
+        this.submitting = false;
+        this.createError = 'Failed to create prediction. Not enough information on company';
+      }
+    });
+  }
 
   getData(ticker: string) {
     this.errorMessage = null;
@@ -253,16 +294,6 @@ private chart?: Chart;
 // UI state
 selectedActual = true;                                // toggle for actual price
 selectedKeys: Record<string, boolean> = {};           // toggle per prediction group
-
-// --- NEW: day key helper (America/New_York)
-// private dateKey(iso: string): string {
-//   const d = new Date(iso);
-//   const ymd = new Intl.DateTimeFormat('en-CA', {
-//     timeZone: 'America/New_York',
-//     year: 'numeric', month: '2-digit', day: '2-digit'
-//   }).format(d);
-//   return ymd; // 'YYYY-MM-DD'
-// }
 
 // unchanged
 keyOf(g: PredictionGroup): string {

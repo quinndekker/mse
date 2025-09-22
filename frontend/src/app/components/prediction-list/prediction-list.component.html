@@ -1,0 +1,97 @@
+<div class="controls">
+    <span class="hint">Click a column to sort</span>
+  </div>
+  
+  <table class="predictions-table" *ngIf="sortedPredictions().length; else empty">
+    <thead>
+      <tr>
+        <th (click)="setSort('ticker')" class="sortable">
+          Ticker <app-info [text]="definitions.ticker"></app-info>
+          <span class="sort">{{ sortIcon('ticker') }}</span>
+        </th>
+        <th (click)="setSort('modelType')" class="sortable">
+          Model Type <app-info [text]="definitions.modelType"></app-info>
+          <span class="sort">{{ sortIcon('modelType') }}</span>
+        </th>
+        <th (click)="setSort('predictionTimeline')" class="sortable">
+          Prediction Length <app-info [text]="definitions.predictionTimeline"></app-info>
+          <span class="sort">{{ sortIcon('predictionTimeline') }}</span>
+        </th>
+        <th>
+          Status <app-info [text]="definitions.status"></app-info>
+        </th>
+        <th>
+          Start <app-info [text]="definitions.startDate"></app-info>
+        </th>
+        <th>
+          End <app-info [text]="definitions.endDate"></app-info>
+        </th>
+        <th>
+          Predicted <app-info [text]="definitions.predictedPrice"></app-info>
+        </th>
+        <th>
+          Accuracy <app-info [text]="definitions.predictionAccuracy"></app-info>
+        </th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let p of sortedPredictions(); trackBy: trackByRow" class="row">
+        <td class="ticker">
+          <a [routerLink]="['/stock', p.ticker]">{{ p.ticker }}</a>
+        </td>
+  
+        <td>
+          <span class="badge badge-model">{{ p.modelType.toUpperCase() }}</span>
+        </td>
+  
+        <td>
+          <span class="badge badge-timeline">{{ p.predictionTimeline.toUpperCase() }}</span>
+        </td>
+  
+        <td>
+          <span
+            class="status"
+            [ngClass]="{
+              completed: (p.status || '').toLowerCase() === 'completed',
+              pending:   (p.status || '').toLowerCase() === 'pending'
+            }"
+          >
+            {{ p.status }}
+          </span>
+        </td>
+  
+        <td>{{ p.startDate | date: 'shortDate' }}</td>
+  
+        <td>{{ p.endDate ? (p.endDate | date:'shortDate') : '—' }}</td>
+  
+        <td class="numeric">
+          <ng-container *ngIf="p.predictedPrice !== null && p.predictedPrice !== undefined; else dash">
+            {{ p.predictedPrice | currency:'USD':'symbol':'1.2-2' }}
+          </ng-container>
+          <ng-template #dash>—</ng-template>
+        </td>
+  
+        <td class="numeric">
+          <ng-container *ngIf="p.predictionAccuracy !== null && p.predictionAccuracy !== undefined; else dash2">
+            <span
+              class="accuracy"
+              [ngClass]="{
+                good: p.predictionAccuracy >= 66,
+                meh:  p.predictionAccuracy >= 33 && p.predictionAccuracy < 66,
+                bad:  p.predictionAccuracy < 33
+              }"
+            >
+              {{ p.predictionAccuracy | number:'1.2-2' }}%
+            </span>
+          </ng-container>
+          <ng-template #dash2>—</ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <ng-template #empty>
+    <p class="empty">No predictions yet.</p>
+  </ng-template>
+  

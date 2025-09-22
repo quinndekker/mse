@@ -1,0 +1,220 @@
+:host {
+    display: block;
+  }
+  
+  html {
+    scroll-behavior: smooth; /* smooth fragment jumps */
+  }
+  
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1.25rem;
+  }
+  
+  .hero {
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+  
+  .title {
+    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: 0.2px;
+    margin: 0.25rem 0 0.5rem;
+  }
+  
+  .subtitle {
+    color: #586174;
+    margin: 0 auto 0.75rem;
+    max-width: 800px;
+    line-height: 1.5;
+  }
+  
+  .badge {
+    background: #eef2ff;
+    color: #3b49df;
+    padding: 0.15rem 0.45rem;
+    border-radius: 0.4rem;
+    font-weight: 600;
+  }
+  
+  .subnav {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: inline-flex;
+    gap: 0.5rem;
+    background: #ffffffcc;
+    backdrop-filter: blur(6px);
+    padding: 0.5rem;
+    border-radius: 999px;
+    border: 1px solid #e6e9ef;
+    box-shadow: 0 3px 12px rgba(10, 10, 30, 0.06);
+  }
+  
+  .chip {
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid #dfe3ea;
+    color: #2b3340;
+    transition: transform .08s ease, background .2s ease;
+  }
+  .chip:hover { background: #f5f7fb; transform: translateY(-1px); }
+  
+  .card {
+    background: #fff;
+    border: 1px solid #e6e9ef;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0 8px 24px rgba(22, 28, 45, 0.04);
+  }
+  
+  .card-head { margin-bottom: 0.5rem; }
+  
+  .card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0;
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    font-weight: 800;
+  }
+  
+  .card-sub {
+    margin: 0.25rem 0 0;
+    color: #6b7280;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    border: 1px solid #e1e6ef;
+    background: #f8fafc;
+    color: #334155;
+    font-weight: 700;
+  }
+  .tag-primary { background: #eef2ff; color: #4338ca; border-color: #e0e7ff; }
+  .tag-accent  { background: #ecfdf5; color: #065f46; border-color: #d1fae5; }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  @media (min-width: 820px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  
+  .cell h3 {
+    margin: 0.25rem 0 0.35rem;
+    font-size: 1rem;
+    font-weight: 800;
+  }
+  
+  .bullets, .ticks, .crosses {
+    margin: 0.25rem 0 0.75rem 1rem;
+    padding: 0;
+  }
+  .bullets li { list-style: disc; margin: 0.25rem 0; }
+  .ticks li   { list-style: "✔︎ "; margin: 0.25rem 0; color: #065f46; }
+  .crosses li { list-style: "✖ "; margin: 0.25rem 0; color: #9a3412; }
+  
+  .mt { margin-top: 0.75rem; }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .75rem;
+    margin: 1.5rem 0 0.25rem;
+    flex-wrap: wrap;
+  }
+  
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    color: #6b7280;
+    font-size: .9rem;
+  }
+  
+  .dot {
+    display: inline-block;
+    width: .65rem;
+    height: .65rem;
+    background: #64748b;
+    border-radius: 50%;
+    margin-right: .25rem;
+  }
+  .dot-primary { background: #4338ca; }
+  .dot-accent  { background: #047857; }
+  
+  .back-to-top {
+    text-decoration: none;
+    font-weight: 700;
+    color: #334155;
+    border: 1px solid #e5e7eb;
+    padding: .35rem .6rem;
+    border-radius: .5rem;
+  }
+  .back-to-top:hover { background: #f8fafc; }
+  
+  .controls {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: .5rem 0 1rem;
+  }
+  .controls label {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    font-weight: 700;
+    color: #334155;
+  }
+  .controls select {
+    border: 1px solid #e5e7eb;
+    border-radius: .5rem;
+    padding: .35rem .5rem;
+    background: #fff;
+  }
+  
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: .75rem;
+    align-items: center;
+    margin: .5rem 0 0;
+  }
+  .metric {
+    border: 1px solid #e6e9ef;
+    border-radius: .75rem;
+    padding: .6rem .75rem;
+    background: #f9fafb;
+  }
+  .metric.small {
+    grid-column: 1 / -1;
+    background: #fff;
+  }
+  .metric-label {
+    display: block;
+    font-size: .75rem;
+    color: #6b7280;
+  }
+  .metric-val {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #111827;
+  }
+  .err {
+    color: #b91c1c;
+    font-weight: 700;
+  }
+  

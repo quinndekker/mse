@@ -13,6 +13,7 @@ import { SectorsComponent } from './components/sectors/sectors.component';
 import { StockComponent } from './components/stock/stock.component';
 import { PredictionsComponent } from './components/predictions/predictions.component';
 import { SectorComponent } from './components/sector/sector.component';
+import { ModelsComponent } from './components/models/models.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
     { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+    { path: 'models', component: ModelsComponent, canActivate: [AuthGuard] },
     { path: 'predictions', component: PredictionsComponent, canActivate: [AuthGuard] },
     { path: 'predictions/:ticker', component: PredictionsComponent, canActivate: [AuthGuard] },
     { path: 'lists', component: ListsComponent, canActivate: [AuthGuard] },

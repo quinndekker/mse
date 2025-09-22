@@ -15,6 +15,7 @@ const stockRouter = require('./routes/stock');
 const listRouter = require('./routes/list');
 const predictionRouter = require('./routes/prediction');
 const sectorRouter = require('./routes/sector');
+const modelDetailsRouter = require('./routes/modelDetails');
 
 require('dotenv').config();
 
@@ -50,6 +51,7 @@ app.use('/api/stock', stockRouter);
 app.use('/api/list', listRouter);
 app.use('/api/prediction', predictionRouter);
 app.use('/api/sector', sectorRouter);
+app.use('/api/modelDetails', modelDetailsRouter);
 app.use('*', (req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');
 });
