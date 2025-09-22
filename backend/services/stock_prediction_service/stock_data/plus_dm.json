@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Plus Directional Movement (PLUS_DM)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: PLUS_DM": {
+        "2025-09-19": {
+            "PLUS_DM": "2.0541"
+        },
+        "2025-09-18": {
+            "PLUS_DM": "2.2824"
+        },
+        "2025-09-17": {
+            "PLUS_DM": "2.2249"
+        },
+        "2025-09-16": {
+            "PLUS_DM": "2.4721"
+        },
+        "2025-09-15": {
+            "PLUS_DM": "2.7467"
+        },
         "2025-09-12": {
             "PLUS_DM": "3.0519"
         },

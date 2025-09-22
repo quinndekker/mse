@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Minus Directional Movement (MINUS_DM)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: MINUS_DM": {
+        "2025-09-19": {
+            "MINUS_DM": "4.8335"
+        },
+        "2025-09-18": {
+            "MINUS_DM": "4.3817"
+        },
+        "2025-09-17": {
+            "MINUS_DM": "4.8685"
+        },
+        "2025-09-16": {
+            "MINUS_DM": "4.8761"
+        },
+        "2025-09-15": {
+            "MINUS_DM": "4.8790"
+        },
         "2025-09-12": {
             "MINUS_DM": "5.4211"
         },

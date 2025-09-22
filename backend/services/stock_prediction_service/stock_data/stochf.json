@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Stochastic Fast (STOCHF)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5.1: FastK Period": 5,
         "5.2: FastD Period": 3,
@@ -10,6 +10,26 @@
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: STOCHF": {
+        "2025-09-19": {
+            "FastK": "5.2448",
+            "FastD": "13.8180"
+        },
+        "2025-09-18": {
+            "FastK": "18.3521",
+            "FastD": "19.6623"
+        },
+        "2025-09-17": {
+            "FastK": "17.8571",
+            "FastD": "23.7302"
+        },
+        "2025-09-16": {
+            "FastK": "22.7778",
+            "FastD": "27.6852"
+        },
+        "2025-09-15": {
+            "FastK": "30.5556",
+            "FastD": "37.2969"
+        },
         "2025-09-12": {
             "FastK": "29.7222",
             "FastD": "41.8176"

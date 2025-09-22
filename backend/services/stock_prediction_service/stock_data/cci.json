@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Commodity Channel Index (CCI)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: CCI": {
+        "2025-09-19": {
+            "CCI": "-151.0550"
+        },
+        "2025-09-18": {
+            "CCI": "-91.1051"
+        },
+        "2025-09-17": {
+            "CCI": "-115.2897"
+        },
+        "2025-09-16": {
+            "CCI": "-120.5951"
+        },
+        "2025-09-15": {
+            "CCI": "-146.4121"
+        },
         "2025-09-12": {
             "CCI": "-146.0671"
         },

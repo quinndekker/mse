@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Moving Average Convergence/Divergence (MACD)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5.1: Fast Period": 12,
         "5.2: Slow Period": 26,
@@ -11,6 +11,31 @@
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: MACD": {
+        "2025-09-19": {
+            "MACD": "-0.8507",
+            "MACD_Signal": "-0.3576",
+            "MACD_Hist": "-0.4931"
+        },
+        "2025-09-18": {
+            "MACD": "-0.6851",
+            "MACD_Signal": "-0.2343",
+            "MACD_Hist": "-0.4508"
+        },
+        "2025-09-17": {
+            "MACD": "-0.5870",
+            "MACD_Signal": "-0.1216",
+            "MACD_Hist": "-0.4654"
+        },
+        "2025-09-16": {
+            "MACD": "-0.4747",
+            "MACD_Signal": "-0.0052",
+            "MACD_Hist": "-0.4694"
+        },
+        "2025-09-15": {
+            "MACD": "-0.3692",
+            "MACD_Signal": "0.1121",
+            "MACD_Hist": "-0.4813"
+        },
         "2025-09-12": {
             "MACD": "-0.2577",
             "MACD_Signal": "0.2325",

@@ -2,11 +2,26 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "True Range (TRANGE)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: TRANGE": {
+        "2025-09-19": {
+            "TRANGE": "1.5100"
+        },
+        "2025-09-18": {
+            "TRANGE": "1.9700"
+        },
+        "2025-09-17": {
+            "TRANGE": "1.7100"
+        },
+        "2025-09-16": {
+            "TRANGE": "1.2850"
+        },
+        "2025-09-15": {
+            "TRANGE": "0.6340"
+        },
         "2025-09-12": {
             "TRANGE": "2.4000"
         },

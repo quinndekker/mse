@@ -2,12 +2,32 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Hilbert Transform - SineWave (HT_SINE)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_SINE": {
+        "2025-09-19": {
+            "SINE": "0.2365",
+            "LEAD SINE": "0.8543"
+        },
+        "2025-09-18": {
+            "SINE": "0.1180",
+            "LEAD SINE": "0.7856"
+        },
+        "2025-09-17": {
+            "SINE": "-0.0238",
+            "LEAD SINE": "0.6901"
+        },
+        "2025-09-16": {
+            "SINE": "-0.1676",
+            "LEAD SINE": "0.5786"
+        },
+        "2025-09-15": {
+            "SINE": "-0.4100",
+            "LEAD SINE": "0.3550"
+        },
         "2025-09-12": {
             "SINE": "-0.5960",
             "LEAD SINE": "0.1464"

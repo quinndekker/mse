@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Average Directional Movement Index Rating (ADXR)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: ADXR": {
+        "2025-09-19": {
+            "ADXR": "25.0645"
+        },
+        "2025-09-18": {
+            "ADXR": "24.9466"
+        },
+        "2025-09-17": {
+            "ADXR": "25.3074"
+        },
+        "2025-09-16": {
+            "ADXR": "25.9417"
+        },
+        "2025-09-15": {
+            "ADXR": "26.4845"
+        },
         "2025-09-12": {
             "ADXR": "27.4028"
         },

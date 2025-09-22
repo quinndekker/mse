@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Midpoint Price over period (MIDPRICE)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: MIDPRICE": {
+        "2025-09-19": {
+            "MIDPRICE": "73.1350"
+        },
+        "2025-09-18": {
+            "MIDPRICE": "73.5700"
+        },
+        "2025-09-17": {
+            "MIDPRICE": "73.6900"
+        },
+        "2025-09-16": {
+            "MIDPRICE": "73.8500"
+        },
+        "2025-09-15": {
+            "MIDPRICE": "73.9900"
+        },
         "2025-09-12": {
             "MIDPRICE": "75.3181"
         },

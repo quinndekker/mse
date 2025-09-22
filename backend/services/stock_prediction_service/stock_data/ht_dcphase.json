@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Hilbert Transform - Dominant Cycle Phase (HT_DCPHASE)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_DCPHASE": {
+        "2025-09-19": {
+            "HT_DCPHASE": "13.6787"
+        },
+        "2025-09-18": {
+            "HT_DCPHASE": "6.7767"
+        },
+        "2025-09-17": {
+            "HT_DCPHASE": "-1.3620"
+        },
+        "2025-09-16": {
+            "HT_DCPHASE": "-9.6500"
+        },
+        "2025-09-15": {
+            "HT_DCPHASE": "-24.2038"
+        },
         "2025-09-12": {
             "HT_DCPHASE": "-36.5826"
         },

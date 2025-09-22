@@ -2,12 +2,32 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Hilbert Transform - Phasor Components (HT_PHASOR)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_PHASOR": {
+        "2025-09-19": {
+            "PHASE": "-0.5951",
+            "QUADRATURE": "-1.2569"
+        },
+        "2025-09-18": {
+            "PHASE": "-0.0612",
+            "QUADRATURE": "0.2495"
+        },
+        "2025-09-17": {
+            "PHASE": "-0.7656",
+            "QUADRATURE": "1.0957"
+        },
+        "2025-09-16": {
+            "PHASE": "-0.9299",
+            "QUADRATURE": "0.9285"
+        },
+        "2025-09-15": {
+            "PHASE": "-1.3589",
+            "QUADRATURE": "1.5250"
+        },
         "2025-09-12": {
             "PHASE": "-1.6807",
             "QUADRATURE": "0.9969"

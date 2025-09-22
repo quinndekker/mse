@@ -2,11 +2,26 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "On Balance Volume (OBV)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: OBV": {
+        "2025-09-19": {
+            "OBV": "1220966858.0000"
+        },
+        "2025-09-18": {
+            "OBV": "1254382433.0000"
+        },
+        "2025-09-17": {
+            "OBV": "1269300804.0000"
+        },
+        "2025-09-16": {
+            "OBV": "1280409506.0000"
+        },
+        "2025-09-15": {
+            "OBV": "1289223062.0000"
+        },
         "2025-09-12": {
             "OBV": "1278899311.0000"
         },

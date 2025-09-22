@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Percentage Price Oscillator (PPO)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5.1: Fast Period": 10,
         "5.2: Slow Period": 20,
@@ -11,6 +11,21 @@
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: PPO": {
+        "2025-09-19": {
+            "PPO": "-2.3343"
+        },
+        "2025-09-18": {
+            "PPO": "-2.2496"
+        },
+        "2025-09-17": {
+            "PPO": "-2.0613"
+        },
+        "2025-09-16": {
+            "PPO": "-2.0091"
+        },
+        "2025-09-15": {
+            "PPO": "-2.0817"
+        },
         "2025-09-12": {
             "PPO": "-1.7918"
         },

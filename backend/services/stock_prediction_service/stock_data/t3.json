@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Triple Exponential Moving Average (T3)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Volume Factor (vFactor)": 0.7,
@@ -10,6 +10,21 @@
         "8: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: T3": {
+        "2025-09-19": {
+            "T3": "73.4983"
+        },
+        "2025-09-18": {
+            "T3": "73.8786"
+        },
+        "2025-09-17": {
+            "T3": "74.2388"
+        },
+        "2025-09-16": {
+            "T3": "74.5984"
+        },
+        "2025-09-15": {
+            "T3": "74.9548"
+        },
         "2025-09-12": {
             "T3": "75.3094"
         },

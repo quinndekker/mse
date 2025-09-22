@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Williams' %R (WILLR)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: WILLR": {
+        "2025-09-19": {
+            "WILLR": "-96.8685"
+        },
+        "2025-09-18": {
+            "WILLR": "-87.5000"
+        },
+        "2025-09-17": {
+            "WILLR": "-83.1731"
+        },
+        "2025-09-16": {
+            "WILLR": "-78.6458"
+        },
+        "2025-09-15": {
+            "WILLR": "-73.3010"
+        },
         "2025-09-12": {
             "WILLR": "-84.2095"
         },

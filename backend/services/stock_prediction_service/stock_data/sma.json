@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Simple Moving Average (SMA)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: SMA": {
+        "2025-09-19": {
+            "SMA": "73.0410"
+        },
+        "2025-09-18": {
+            "SMA": "73.3430"
+        },
+        "2025-09-17": {
+            "SMA": "73.6680"
+        },
+        "2025-09-16": {
+            "SMA": "73.9110"
+        },
+        "2025-09-15": {
+            "SMA": "74.0650"
+        },
         "2025-09-12": {
             "SMA": "74.4576"
         },

@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Aroon Oscillator (AROONOSC)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: AROONOSC": {
+        "2025-09-19": {
+            "AROONOSC": "-60.0000"
+        },
+        "2025-09-18": {
+            "AROONOSC": "-90.0000"
+        },
+        "2025-09-17": {
+            "AROONOSC": "-90.0000"
+        },
+        "2025-09-16": {
+            "AROONOSC": "-80.0000"
+        },
+        "2025-09-15": {
+            "AROONOSC": "-90.0000"
+        },
         "2025-09-12": {
             "AROONOSC": "-90.0000"
         },

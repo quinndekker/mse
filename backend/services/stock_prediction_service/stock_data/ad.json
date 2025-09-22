@@ -2,11 +2,26 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Chaikin A/D Line",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: Chaikin A/D": {
+        "2025-09-19": {
+            "Chaikin A/D": "1429714334.5951"
+        },
+        "2025-09-18": {
+            "Chaikin A/D": "1456491053.6349"
+        },
+        "2025-09-17": {
+            "Chaikin A/D": "1464291014.1070"
+        },
+        "2025-09-16": {
+            "Chaikin A/D": "1466304872.3643"
+        },
+        "2025-09-15": {
+            "Chaikin A/D": "1466064814.4187"
+        },
         "2025-09-12": {
             "Chaikin A/D": "1461570563.1948"
         },

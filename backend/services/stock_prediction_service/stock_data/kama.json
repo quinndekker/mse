@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Kaufman Adaptive Moving Average (KAMA)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: KAMA": {
+        "2025-09-19": {
+            "KAMA": "73.2992"
+        },
+        "2025-09-18": {
+            "KAMA": "73.8357"
+        },
+        "2025-09-17": {
+            "KAMA": "74.2461"
+        },
+        "2025-09-16": {
+            "KAMA": "74.4724"
+        },
+        "2025-09-15": {
+            "KAMA": "74.5671"
+        },
         "2025-09-12": {
             "KAMA": "74.7936"
         },

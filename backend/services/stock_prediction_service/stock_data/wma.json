@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Weighted Moving Average (WMA)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: WMA": {
+        "2025-09-19": {
+            "WMA": "72.5478"
+        },
+        "2025-09-18": {
+            "WMA": "72.9938"
+        },
+        "2025-09-17": {
+            "WMA": "73.2789"
+        },
+        "2025-09-16": {
+            "WMA": "73.5700"
+        },
+        "2025-09-15": {
+            "WMA": "73.8091"
+        },
         "2025-09-12": {
             "WMA": "74.0686"
         },

@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Double Exponential Moving Average (DEMA)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: DEMA": {
+        "2025-09-19": {
+            "DEMA": "71.6579"
+        },
+        "2025-09-18": {
+            "DEMA": "72.2804"
+        },
+        "2025-09-17": {
+            "DEMA": "72.6038"
+        },
+        "2025-09-16": {
+            "DEMA": "72.9688"
+        },
+        "2025-09-15": {
+            "DEMA": "73.2859"
+        },
         "2025-09-12": {
             "DEMA": "73.6086"
         },

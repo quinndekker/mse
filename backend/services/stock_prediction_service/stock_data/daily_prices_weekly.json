@@ -2,10 +2,17 @@
     "Meta Data": {
         "1. Information": "Weekly Prices (open, high, low, close) and Volumes",
         "2. Symbol": "NKE",
-        "3. Last Refreshed": "2025-09-12",
+        "3. Last Refreshed": "2025-09-19",
         "4. Time Zone": "US/Eastern"
     },
     "Weekly Time Series": {
+        "2025-09-19": {
+            "1. open": "73.1800",
+            "2. high": "73.6000",
+            "3. low": "70.7400",
+            "4. close": "70.8900",
+            "5. volume": "78579955"
+        },
         "2025-09-12": {
             "1. open": "74.2600",
             "2. high": "75.5300",

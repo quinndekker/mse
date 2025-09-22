@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Hilbert Transform - Instantaneous Trendline (HT_TRENDLINE)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_TRENDLINE": {
+        "2025-09-19": {
+            "HT_TRENDLINE": "75.0103"
+        },
+        "2025-09-18": {
+            "HT_TRENDLINE": "75.2315"
+        },
+        "2025-09-17": {
+            "HT_TRENDLINE": "75.4343"
+        },
+        "2025-09-16": {
+            "HT_TRENDLINE": "75.6407"
+        },
+        "2025-09-15": {
+            "HT_TRENDLINE": "75.8226"
+        },
         "2025-09-12": {
             "HT_TRENDLINE": "75.9315"
         },

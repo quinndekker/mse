@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Parabolic SAR (SAR)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5.1: Acceleration": 0.02,
         "5.2: Maximum": 0.2,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: SAR": {
+        "2025-09-19": {
+            "SAR": "74.8982"
+        },
+        "2025-09-18": {
+            "SAR": "75.3466"
+        },
+        "2025-09-17": {
+            "SAR": "75.8561"
+        },
+        "2025-09-16": {
+            "SAR": "76.2924"
+        },
+        "2025-09-15": {
+            "SAR": "76.7771"
+        },
         "2025-09-12": {
             "SAR": "77.3156"
         },

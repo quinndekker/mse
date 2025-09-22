@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "MESA Adaptive Moving Average (MAMA)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5.1: Fast Limit": 0.02,
         "5.2: Slow Limit": 0.05,
@@ -10,6 +10,26 @@
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: MAMA": {
+        "2025-09-19": {
+            "MAMA": "73.5341",
+            "FAMA": "69.6025"
+        },
+        "2025-09-18": {
+            "MAMA": "73.5881",
+            "FAMA": "69.5628"
+        },
+        "2025-09-17": {
+            "MAMA": "73.6664",
+            "FAMA": "69.4596"
+        },
+        "2025-09-16": {
+            "MAMA": "73.7378",
+            "FAMA": "69.3517"
+        },
+        "2025-09-15": {
+            "MAMA": "73.7579",
+            "FAMA": "69.3074"
+        },
         "2025-09-12": {
             "MAMA": "73.7962",
             "FAMA": "69.1933"

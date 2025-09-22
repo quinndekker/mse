@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "NKE",
         "2: Indicator": "Stochastic Relative Strength Index (STOCHRSI)",
-        "3: Last Refreshed": "2025-09-12",
+        "3: Last Refreshed": "2025-09-19",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6.1: FastK Period": 5,
@@ -12,6 +12,26 @@
         "8: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: STOCHRSI": {
+        "2025-09-19": {
+            "FastK": "0.0000",
+            "FastD": "0.0000"
+        },
+        "2025-09-18": {
+            "FastK": "0.0000",
+            "FastD": "0.0000"
+        },
+        "2025-09-17": {
+            "FastK": "0.0000",
+            "FastD": "1.2226"
+        },
+        "2025-09-16": {
+            "FastK": "0.0000",
+            "FastD": "1.2226"
+        },
+        "2025-09-15": {
+            "FastK": "3.6678",
+            "FastD": "34.5559"
+        },
         "2025-09-12": {
             "FastK": "0.0000",
             "FastD": "53.8076"
