@@ -65,14 +65,19 @@ async function runPredictionScript(ticker, modelType, predictionTimeline) {
   await run('python3', [csvGenScript, '-t', ticker], { cwd: path.resolve('.') });
 
   // 2) Find the CSV and wait until it’s fully written
-  let csvPath = `services/stock_prediction_service/stock_data/compiled_${ticker.toLowerCase()}.csv`;
+  let csvPath = `services/stock_prediction_service/stock_data/compiled_${ticker.toUpperCase()}.csv`;
 
   if (!csvPath) {
     throw new Error(`CSV for ${ticker} not found in any expected location.`);
   }
   console.log(`CSV ready: ${csvPath}`);
 
-  // 3) Run prediction
+  // 3) Process CSV to fill None values
+  const processScript = path.resolve("services/stock_prediction_service/get_daily_data/process_prediction_data.py");
+  console.log(`Processing CSV for missing values...`);
+  await run("python3", [processScript, csvPath, csvPath], { cwd: path.resolve(".") });
+
+  // 4) Run prediction
   console.log(`Running prediction with model: ${modelName}`);
   const { stdout } = await run('python3', [predictScript, csvPath, modelName], { cwd: path.resolve('.') });
 
