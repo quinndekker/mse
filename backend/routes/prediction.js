@@ -16,7 +16,7 @@ const {
 
 // --- CREATE (queued) ---
 router.post('/', async (req, res) => {
-  const { ticker, modelType, predictionTimeline } = req.body;
+  const { ticker, modelType, predictionTimeline, sectorTicker } = req.body;
 
   if (!req.user || !req.user._id) {
     return res.status(401).json({ error: 'Unauthorized: user not found on request' });
@@ -45,22 +45,21 @@ router.post('/', async (req, res) => {
       return res.status(429).json({ error: 'Too many pending predictions, try again shortly.' });
     }
 
-    // 2) Enqueue the single-file task (only 1 runs at a time)
+    // Enqueue the single-file task
     await predictionQueue.enqueue(async () => {
       // mark running
       await Prediction.updateOne({ _id: prediction._id }, { $set: { status: 'Running', startedAt: new Date() } });
 
       try {
-        const price = await runPredictionScript(prediction.ticker, modelType, predictionTimeline);
+        const price = await runPredictionScript(prediction.ticker, modelType, predictionTimeline, secto);
 
         const doc = await Prediction.findById(prediction._id);
-        if (!doc) return; // doc deleted mid-run?
+        if (!doc) return; 
 
         doc.predictedPrice = price;
         doc.status = 'Completed';
         doc.completedAt = new Date();
 
-        // If you want to compute metrics immediately when actualPrice already exists:
         setPredictionMetrics(doc);
         await doc.save();
       } catch (e) {
@@ -71,7 +70,7 @@ router.post('/', async (req, res) => {
       }
     }, { predictionId: prediction._id.toString(), ticker: prediction.ticker, modelType, predictionTimeline });
 
-    // 3) Respond immediately
+    //  Respond immediately
     return res.status(202).json({
       message: 'Prediction queued',
       id: prediction._id,
@@ -85,7 +84,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// --- LIST (unchanged logic; just ensure setPredictionMetrics is imported) ---
 router.get('/', async (req, res) => {
   if (!req.user || !req.user._id) {
     return res.status(401).json({ error: 'Unauthorized: user not found on request' });
@@ -102,7 +100,6 @@ router.get('/', async (req, res) => {
 
     const predictions = await Prediction.find(filter).sort({ createdAt: -1 }).exec();
 
-    // fill actualPrice when endDate has passed
     const todayNY = toYMDInTZ(new Date(), 'America/New_York');
 
     const needUpdate = predictions.filter(p => {

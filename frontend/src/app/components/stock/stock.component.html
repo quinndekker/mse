@@ -104,6 +104,21 @@
           Choose a model type.
         </small>
       </div>
+      <div class="use-sector" *ngIf="showSector">
+        <input
+          type="checkbox"
+          id="useSector"
+          name="useSectorCheckbox"
+          [(ngModel)]="useSector"
+          class="toggle-input"
+        />
+        <label for="useSector" class="toggle-label">
+          <span class="toggle-track" aria-hidden="true">
+            <span class="toggle-thumb"></span>
+          </span>
+          <span class="toggle-text">Use model trained specifically on {{ sectorName }} sector</span>
+        </label>
+      </div>
 
       <!-- Timeline -->
       <div class="field">
@@ -150,7 +165,7 @@
     <select
       id="timeframe"
       [(ngModel)]="selectedTimeframe"
-      (change)="fetchPriceSeries()"
+      (change)="updateTimeframe()"
       class="tf-select"
     >
       <option *ngFor="let tf of timeframes" [value]="tf">{{ tf }}</option>

@@ -45,8 +45,8 @@ function run(cmd, args, opts = {}) {
   });
 }
 
-async function runPredictionScript(ticker, modelType, predictionTimeline) {
-  const modelName = `general_${predictionTimeline}_${modelType}`.toLowerCase();
+async function runPredictionScript(ticker, modelType, predictionTimeline, sectorTicker = 'general') {
+  const modelName = `${sectorTicker}_${predictionTimeline}_${modelType}`.toLowerCase();
 
   // Adjust these to match your actual generator output
   const expectedCsvPaths = [
@@ -98,7 +98,6 @@ const endDateScript = path.resolve(
   'utils/compute_end_date_pmc.py'
 );
 
-// Returns either 'YYYY-MM-DD' or an ISO timestamp (UTC) depending on `format`
 async function getPredictionEndDateFromPython(timeframe, startDate = new Date(), format = 'iso') {
   const startYMD = new Date(startDate).toISOString().slice(0, 10); // YYYY-MM-DD
   const { stdout } = await run(
@@ -106,7 +105,6 @@ async function getPredictionEndDateFromPython(timeframe, startDate = new Date(),
     ['-u', endDateScript, timeframe, '--start', startYMD, '--format', format],
     { cwd: path.resolve('.') }
   );
-  // Take the last non-empty line in case the script prints extra logs
   const out = stdout.trim().split(/\r?\n/).filter(Boolean).pop();
   if (!out) throw new Error('End-date script returned no output');
   return out;
@@ -127,7 +125,6 @@ async function getAlphaKey() {
 }
 
 async function fetchDailySeries(ticker, apiKey) {
-  // Node 18+: global fetch; otherwise: const fetch = (await import('node-fetch')).default;
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${encodeURIComponent(
     ticker
   )}&apikey=${encodeURIComponent(apiKey)}&outputsize=full`;

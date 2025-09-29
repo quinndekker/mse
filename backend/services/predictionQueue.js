@@ -5,7 +5,6 @@ class PredictionQueue {
       this.active = false;
     }
   
-    // taskFn: () => Promise<void>
     enqueue(taskFn, meta = {}) {
       return new Promise((resolve, reject) => {
         this.q.push({ taskFn, resolve, reject, meta, enqueuedAt: Date.now() });

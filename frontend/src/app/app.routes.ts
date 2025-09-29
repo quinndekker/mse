@@ -27,6 +27,7 @@ export const routes: Routes = [
     { path: 'lists', component: ListsComponent, canActivate: [AuthGuard] },
     { path: 'lists/:id', component: ListComponent, canActivate: [AuthGuard] },
     { path: 'stock/:ticker', component: StockComponent, canActivate: [AuthGuard] },
+    { path: 'stock/:ticker/:sector', component: StockComponent, canActivate: [AuthGuard] },
     { path: 'sectors', component: SectorsComponent, canActivate: [AuthGuard] },
     { path: 'sectors/:sector', component: SectorComponent, canActivate: [AuthGuard] },
     { path: 'allusers', component: AllUsersComponent, canActivate: [AuthAdminGuard] },

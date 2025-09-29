@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 })
 export class StockListItemComponent {
   @Input() stock: Stock | null = null;
+  @Input() sector?: string; 
 
   // userLists: List[] = [];
   selectedListId: string | null = null;
@@ -70,6 +71,10 @@ export class StockListItemComponent {
 
   navigateToStock() {
     if (this.stock && this.stock.ticker) {
+      if (this.sector) {
+        this.router.navigate(['/stock', this.stock.ticker, this.sector]);
+        return;
+      }
       this.router.navigate(['/stock', this.stock.ticker]);
     } else {
       console.warn('Stock ticker is not defined, cannot navigate.');

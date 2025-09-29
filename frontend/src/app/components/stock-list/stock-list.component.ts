@@ -17,7 +17,12 @@ import { StockListItemComponent } from '../stock-list-item/stock-list-item.compo
 })
 export class StockListComponent {
   @Input() stockList: StockList | null = null;
+  @Input() sector?: string;
 
   constructor() { }
+
+  ngOnInit(): void {
+    
+  }
 
 }

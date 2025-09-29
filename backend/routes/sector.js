@@ -40,4 +40,28 @@ router.get('/:sector', async (req, res) => {
   }
 });
 
+router.get('/ticker-by-name/:name', async (req, res) => {
+  const raw = (req.params.name || '').trim();
+  if (!raw) return res.status(400).json({ message: 'Sector name is required' });
+
+  try {
+    const sector = await Sector.findOne({
+      name: new RegExp(`^${escapeRegex(raw)}$`, 'i')
+    }).lean();
+
+    if (!sector) {
+      return res.status(404).json({ message: `Sector '${raw}' not found` });
+    }
+
+    return res.status(200).json({
+      name: sector.name,
+      ticker: sector.ticker
+    });
+  } catch (err) {
+    console.error('ticker-by-name error:', err);
+    return res.status(500).json({ message: 'Failed to look up sector ticker' });
+  }
+});
+
+
 module.exports = router;

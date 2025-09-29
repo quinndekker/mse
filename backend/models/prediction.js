@@ -37,7 +37,7 @@ const predictionSchema = new mongoose.Schema({
     },
     sector: {
         type: String,
-        default: "none"
+        default: "general"
     },
     priceDifference: {
         type: Number

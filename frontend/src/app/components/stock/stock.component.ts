@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { afterNextRender, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StockService } from '../../services/stock/stock.service';
 import { ActivatedRoute } from '@angular/router';
@@ -10,6 +10,8 @@ import { ViewChild, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 import { PredictionsListComponent } from '../prediction-list/prediction-list.component';
 import { Prediction } from '../../models/prediction';
+import { SectorService } from '../../services/sector/sector.service';
+import { Stock } from '../../models/stock';
 
 type ModelType = 'lstm' | 'gru' | 'rnn';
 type Timeframe = '1d' | '2w' | '2m';
@@ -44,6 +46,9 @@ type ChartDatum = { x: string; y: number; ap?: number|null; diff?: number|null; 
 
 export class StockComponent {
   ticker: string | null = null;
+  sectorName: string | null = null;
+  sectorTicker: string | null = null;
+  showSector: boolean = false;
   companyName: string | null = null;
   quote: any = null; // You can create a type/interface later if needed
   errorMessage: string | null = null;
@@ -52,6 +57,7 @@ export class StockComponent {
   selectedTimeframe: string = '6m';
   points = 30;
   series: Array<{ t: string; close: number }> = [];
+  sectorSeries: Array<{ t: string; close: number }> = [];
   seriesLoading = false;
   seriesError: string | null = null;
   predictionSeries: Array<{ t: string; close: number }> = [];
@@ -59,6 +65,8 @@ export class StockComponent {
   predictions: Prediction[] = [];
   predictionsLoading = false;
   predictionsError: string | null = null;
+
+  useSector: boolean = false;
 
 
   modelType: 'lstm' | 'gru' | 'rnn' = 'lstm';
@@ -92,7 +100,8 @@ export class StockComponent {
     private stockService: StockService,
     private route: ActivatedRoute,
     private router: Router,
-    private predictionService: PredictionService 
+    private predictionService: PredictionService,
+    private sectorService: SectorService
   ) {}
 
   ngOnInit(): void {
@@ -106,7 +115,65 @@ export class StockComponent {
         this.errorMessage = 'Ticker is missing in route.';
       }
     });
+
+    this.route.queryParamMap.subscribe(qp => {
+      const qpSector = qp.get('sector');
+      const pSector  = this.route.snapshot.paramMap.get('sector');
+      this.sectorName = qpSector ?? pSector;
+      this.showSector = !!this.sectorName;
+  
+      if (this.showSector && this.sectorName) {
+        this.getSectorInfo();
+      }
+    });
   }
+
+  getSectorInfo(): void {
+    if (this.sectorName) {
+      this.sectorService.getSectorTickerByName(this.sectorName).subscribe({
+        next: ({ ticker }) => {
+          this.sectorTicker = ticker;
+          this.getSectorPriceSeries();
+        },
+        error: (err) => {
+          console.error('sector ticker lookup failed:', err);
+        }
+      });
+    }
+  }
+
+  getSectorPriceSeries(): void {
+    if (!this.sectorName && !this.sectorTicker) return;
+  
+    const id = this.sectorTicker;
+    this.stockService.getPriceSeries(id!, this.selectedTimeframe, this.points).subscribe({
+      next: (res) => {
+        this.sectorSeries = res?.data ?? [];
+        this.updateChart();
+      },
+      error: (err) => {
+        console.error('sector price series error:', err);
+        this.seriesError = 'Unable to load sector price series';
+        this.sectorSeries = [];
+        this.updateChart();
+      }
+    });
+  }
+
+  private pointsForSector(): Array<{ t: string; y: number }> {
+    const byDay = new Map<string, number>();
+    for (const p of [...(this.sectorSeries ?? [])].sort(
+      (a, b) => new Date(a.t).getTime() - new Date(b.t).getTime()
+    )) {
+      const y = Number(p.close);
+      if (!Number.isFinite(y)) continue;
+      byDay.set(this.dayKeyUTC(p.t), y);
+    }
+    return Array.from(byDay.entries())
+      .sort(([a], [b]) => a.localeCompare(b))
+      .map(([t, y]) => ({ t, y }));
+  }
+  
 
   submitPredictionForTicker(form: any) {
     if (!this.ticker) return;
@@ -117,8 +184,13 @@ export class StockComponent {
     this.createdPredictionPrice = null;
   
     const t = this.ticker.toUpperCase().trim();
+
+    let predictiveModelSector = "general";
+    if (this.showSector && this.sectorName) {
+      predictiveModelSector = this.sectorName.toLowerCase();
+    }
   
-    this.predictionService.createPrediction(t, this.modelType, this.predictionTimeline).subscribe({
+    this.predictionService.createPrediction(t, this.modelType, this.predictionTimeline, predictiveModelSector).subscribe({
       next: (res: any) => {
         this.submitting = false;
         this.createSuccess = true;
@@ -145,6 +217,13 @@ export class StockComponent {
         this.createError = 'Failed to create prediction. Not enough information on company';
       }
     });
+  }
+
+  updateTimeframe() {
+    this.fetchPriceSeries();
+    if (this.showSector) {
+      this.getSectorPriceSeries();
+    }
   }
 
   getData(ticker: string) {
@@ -322,9 +401,16 @@ private alignToLabels(labels: string[], pts: Array<{ t: string; y: number }>): (
 
 private buildLabels(): string[] {
   const set = new Set<string>();
+
   if (this.selectedActual && this.series?.length) {
     for (const p of this.series) set.add(this.dayKeyUTC(p.t));
   }
+
+  // NEW: include sector labels when enabled
+  if (this.showSector && this.sectorSeries?.length) {
+    for (const p of this.sectorSeries) set.add(this.dayKeyUTC(p.t));
+  }
+
   for (const g of this.predictionGroups) {
     const k = this.keyOf(g);
     if (!this.selectedKeys[k]) continue;
@@ -335,6 +421,7 @@ private buildLabels(): string[] {
   }
   return Array.from(set).sort();
 }
+
 
 private pointsForActual(): Array<{ t: string; y: number }> {
   const byDay = new Map<string, number>();
@@ -391,6 +478,22 @@ updateChart(): void {
     });
   }
 
+  if (this.showSector && this.showSector && this.sectorSeries?.length) {
+    const spts = this.pointsForSector();
+    datasets.push({
+      label: `${this.sectorName} Price`,
+      data: spts.map(p => ({ x: this.labelForDayKey(p.t), y: p.y })),
+      borderColor: '#6b7280',       // gray
+      backgroundColor: '#6b7280',
+      borderDash: [5, 3],
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      isSector: true,
+      sectorName: this.sectorName
+    });
+  }
+
   for (const g of this.predictionGroups) {
     const key = this.keyOf(g);
     if (!this.selectedKeys[key]) continue;
@@ -442,6 +545,7 @@ datasets.push({
                 const raw: any = ctx.raw || {};
                 const ds: any = ctx.dataset || {};
                 const isActual = (ds.label || '').toLowerCase().includes('actual');
+                const isSector = !!ds.isSector;
         
                 const y = typeof ctx.parsed?.y === 'number' ? ctx.parsed.y : raw.y;
                 const lines: string[] = [];
@@ -449,6 +553,12 @@ datasets.push({
                 if (isActual) {
                   // Actual series
                   lines.push(`Actual: $${Number(y).toFixed(2)}`);
+                } else if (isSector)
+                {
+                  const name = ds.sectorName || 'Sector';
+                  lines.push(`${name} Sector`);
+                  lines.push(`Price (SPDR Ticker: ${this.sectorTicker}): $${Number(y).toFixed(2)}`);
+
                 } else {
                   // Prediction series
                   const mt = (ds.modelType ?? '').toString().toUpperCase();

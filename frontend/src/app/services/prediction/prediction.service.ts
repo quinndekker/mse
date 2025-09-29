@@ -14,8 +14,8 @@ export class PredictionService {
 
   constructor(private http: HttpClient) {}
 
-  createPrediction(ticker: string, modelType: string, predictionTimeline: string): Observable<any> {
-    const payload = { ticker, modelType, predictionTimeline };
+  createPrediction(ticker: string, modelType: string, predictionTimeline: string, sectorTicker="general"): Observable<any> {
+    const payload = { ticker, modelType, predictionTimeline, sectorTicker };
 
     return this.http.post(`${this.apiUrl}`, payload).pipe(
       catchError((error) => {

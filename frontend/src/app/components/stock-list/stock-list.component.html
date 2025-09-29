@@ -1,10 +1,14 @@
 <div class="stock-list-container">
+    <div *ngIf="sector">
+        <h2>{{ sector }} Sector Stocks</h2>
+      </div>
     <app-page-selector
     [page]="stockList?.page || 1"
     [totalPages]="stockList?.totalPages || 1"
     ></app-page-selector>
     <div *ngFor="let stock of stockList?.stocks || []">
         <app-stock-list-item
-        [stock]="stock"></app-stock-list-item>
+        [stock]="stock"
+        [sector]="sector"></app-stock-list-item>
     </div>
 </div>

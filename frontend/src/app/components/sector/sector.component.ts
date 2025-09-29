@@ -16,7 +16,7 @@ import { Stock } from '../../models/stock';
   styleUrl: './sector.component.css'
 })
 export class SectorComponent {
-  sector: string | null = null;
+  sector: string | undefined;
 
   stockList: StockList | null = null;
 
@@ -26,7 +26,7 @@ export class SectorComponent {
   ) { }
 
   ngOnInit(): void {
-    this.sector = this.route.snapshot.paramMap.get('sector');
+    this.sector = this.route.snapshot.paramMap.get('sector') ?? undefined;
 
     if (!this.sector) {
       console.error('Sector is missing in route.');

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { SectorTickerResponse } from '../../models/sectorTickerResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,16 @@ export class SectorService {
           return throwError(() => error);
         }
       ));
+    }
+
+    getSectorTickerByName(sectorName: string): Observable<SectorTickerResponse> {
+      return this.http
+        .get<SectorTickerResponse>(`${this.apiUrl}/ticker-by-name/${encodeURIComponent(sectorName)}`)
+        .pipe(
+          catchError((error) => {
+            console.error('error getting sector ticker:', error);
+            return throwError(() => error);
+          })
+        );
     }
 }
