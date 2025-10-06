@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Parabolic SAR (SAR)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5.1: Acceleration": 0.02,
         "5.2: Maximum": 0.2,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: SAR": {
+        "2025-10-03": {
+            "SAR": "316.8992"
+        },
+        "2025-10-02": {
+            "SAR": "317.5860"
+        },
+        "2025-10-01": {
+            "SAR": "318.0100"
+        },
+        "2025-09-30": {
+            "SAR": "318.0100"
+        },
+        "2025-09-29": {
+            "SAR": "310.7155"
+        },
         "2025-09-26": {
             "SAR": "308.9419"
         },

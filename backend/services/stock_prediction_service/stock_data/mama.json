@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "MESA Adaptive Moving Average (MAMA)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5.1: Fast Limit": 0.02,
         "5.2: Slow Limit": 0.05,
@@ -10,6 +10,26 @@
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: MAMA": {
+        "2025-10-03": {
+            "MAMA": "301.8245",
+            "FAMA": "278.6472"
+        },
+        "2025-10-02": {
+            "MAMA": "301.3926",
+            "FAMA": "278.0529"
+        },
+        "2025-10-01": {
+            "MAMA": "301.2670",
+            "FAMA": "277.8171"
+        },
+        "2025-09-30": {
+            "MAMA": "301.0743",
+            "FAMA": "277.5802"
+        },
+        "2025-09-29": {
+            "MAMA": "300.3187",
+            "FAMA": "276.9778"
+        },
         "2025-09-26": {
             "MAMA": "299.5097",
             "FAMA": "276.3793"

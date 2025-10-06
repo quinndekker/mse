@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Bollinger Bands (BBANDS)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6.1: Deviation multiplier for upper band": 2,
@@ -12,6 +12,31 @@
         "8: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: BBANDS": {
+        "2025-10-03": {
+            "Real Upper Band": "317.9063",
+            "Real Middle Band": "312.7520",
+            "Real Lower Band": "307.5977"
+        },
+        "2025-10-02": {
+            "Real Upper Band": "318.1611",
+            "Real Middle Band": "313.2270",
+            "Real Lower Band": "308.2929"
+        },
+        "2025-10-01": {
+            "Real Upper Band": "316.9831",
+            "Real Middle Band": "313.7950",
+            "Real Lower Band": "310.6069"
+        },
+        "2025-09-30": {
+            "Real Upper Band": "316.7251",
+            "Real Middle Band": "313.8990",
+            "Real Lower Band": "311.0729"
+        },
+        "2025-09-29": {
+            "Real Upper Band": "317.0646",
+            "Real Middle Band": "313.2750",
+            "Real Lower Band": "309.4854"
+        },
         "2025-09-26": {
             "Real Upper Band": "316.8198",
             "Real Middle Band": "312.5960",

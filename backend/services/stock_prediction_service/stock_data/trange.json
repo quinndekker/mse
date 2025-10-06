@@ -2,11 +2,26 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "True Range (TRANGE)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: TRANGE": {
+        "2025-10-03": {
+            "TRANGE": "4.1100"
+        },
+        "2025-10-02": {
+            "TRANGE": "4.5700"
+        },
+        "2025-10-01": {
+            "TRANGE": "8.0200"
+        },
+        "2025-09-30": {
+            "TRANGE": "7.3000"
+        },
+        "2025-09-29": {
+            "TRANGE": "4.3500"
+        },
         "2025-09-26": {
             "TRANGE": "4.3600"
         },

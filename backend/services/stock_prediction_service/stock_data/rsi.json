@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Relative Strength Index (RSI)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: RSI": {
+        "2025-10-03": {
+            "RSI": "51.6102"
+        },
+        "2025-10-02": {
+            "RSI": "45.0504"
+        },
+        "2025-10-01": {
+            "RSI": "53.3430"
+        },
+        "2025-09-30": {
+            "RSI": "70.8833"
+        },
+        "2025-09-29": {
+            "RSI": "72.0580"
+        },
         "2025-09-26": {
             "RSI": "73.6206"
         },

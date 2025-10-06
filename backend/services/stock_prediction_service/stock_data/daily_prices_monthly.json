@@ -2,16 +2,23 @@
     "Meta Data": {
         "1. Information": "Monthly Prices (open, high, low, close) and Volumes",
         "2. Symbol": "JPM",
-        "3. Last Refreshed": "2025-09-26",
+        "3. Last Refreshed": "2025-10-03",
         "4. Time Zone": "US/Eastern"
     },
     "Monthly Time Series": {
-        "2025-09-26": {
+        "2025-10-03": {
+            "1. open": "313.9700",
+            "2. high": "314.5900",
+            "3. low": "306.1400",
+            "4. close": "310.0300",
+            "5. volume": "22865038"
+        },
+        "2025-09-30": {
             "1. open": "300.2600",
-            "2. high": "317.8100",
+            "2. high": "318.0100",
             "3. low": "291.4400",
-            "4. close": "316.0600",
-            "5. volume": "164133382"
+            "4. close": "315.4300",
+            "5. volume": "182419139"
         },
         "2025-08-29": {
             "1. open": "290.4000",

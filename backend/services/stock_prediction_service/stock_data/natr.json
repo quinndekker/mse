@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Normalized Average True Range (NATR)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: NATR": {
+        "2025-10-03": {
+            "NATR": "1.6706"
+        },
+        "2025-10-02": {
+            "NATR": "1.7227"
+        },
+        "2025-10-01": {
+            "NATR": "1.7313"
+        },
+        "2025-09-30": {
+            "NATR": "1.6123"
+        },
+        "2025-09-29": {
+            "NATR": "1.5331"
+        },
         "2025-09-26": {
             "NATR": "1.5485"
         },

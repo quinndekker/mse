@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Stochastic (STOCH)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5.1: FastK Period": 5,
         "5.2: SlowK Period": 3,
@@ -12,6 +12,26 @@
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: STOCH": {
+        "2025-10-03": {
+            "SlowK": "25.2608",
+            "SlowD": "39.2649"
+        },
+        "2025-10-02": {
+            "SlowK": "36.7842",
+            "SlowD": "54.7244"
+        },
+        "2025-10-01": {
+            "SlowK": "55.7497",
+            "SlowD": "65.3119"
+        },
+        "2025-09-30": {
+            "SlowK": "71.6392",
+            "SlowD": "68.3427"
+        },
+        "2025-09-29": {
+            "SlowK": "68.5466",
+            "SlowD": "63.1669"
+        },
         "2025-09-26": {
             "SlowK": "64.8421",
             "SlowD": "59.3731"

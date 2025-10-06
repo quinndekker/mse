@@ -3,19 +3,21 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Prediction, Timeframe } from '../../models/prediction';
 import { RouterLink } from '@angular/router';
 import { InfoComponent } from '../info/info.component';
+import { FormsModule } from '@angular/forms'; 
 
 type SortKey = 'ticker' | 'modelType' | 'predictionTimeline';
 type SortDir = 'asc' | 'desc';
 
 @Component({
   selector: 'app-prediction-list',
-  imports: [CommonModule, DatePipe, RouterLink, InfoComponent],
+  imports: [CommonModule, DatePipe, RouterLink, InfoComponent, FormsModule],
   templateUrl: './prediction-list.component.html',
   styleUrl: './prediction-list.component.css'
 })
 export class PredictionsListComponent {
   @Input() set predictions(value: Prediction[] | null | undefined) {
     this._predictions.set(value ?? []);
+    this.page.set(1)
   }
   private _predictions = signal<Prediction[]>([]);
 
@@ -31,7 +33,8 @@ export class PredictionsListComponent {
     priceDifference: "The difference between the actual price at the end date and the model's predicted price. Useful to assess how close the model was.",
     predictionAccuracy: "A score or percentage that shows how accurate the prediction was, calculated based on the real price vs predicted price after the time period passed.",
     actualPrice: "The real market opening price on the end date (first trade of that session), fetched from Alpha Vantage once the end date has passed. This value is used to evaluate the model’s prediction. Before the end date, it will show as Pending.",
-    insuffientData: "Indicates whether the model had enough historical data to make a prediction. If true, it means the model could not find enough data points to generate a reliable forecast."
+    insuffientData: "Indicates whether the model had enough historical data to make a prediction. If true, it means the model could not find enough data points to generate a reliable forecast.",
+    sector: "The market sector the stock belongs to, such as Technology, Healthcare, Financials, etc. This helps categorize stocks based on their industry and economic function."
   };
 
   sortKey = signal<SortKey>('ticker');
@@ -65,6 +68,7 @@ export class PredictionsListComponent {
       this.sortKey.set(key);
       this.sortDir.set('asc');
     }
+    this.page.set(1);
   }
 
   sortIcon(key: SortKey) {
@@ -74,4 +78,60 @@ export class PredictionsListComponent {
 
   trackByRow = (_: number, p: Prediction) =>
     p._id || p.id || `${p.ticker}-${p.modelType}-${p.predictionTimeline}-${p.startDate}`;
+
+  page = signal(1);
+  pageSize = signal(10); 
+  pageSizeOptions = [5, 10, 25, 50];
+
+  totalItems = computed(() => this.sortedPredictions().length);
+  totalPages = computed(() => {
+    const n = this.totalItems();
+    const sz = this.pageSize();
+    return Math.max(1, Math.ceil(n / Math.max(1, sz)));
+  });
+
+  pagedPredictions = computed(() => {
+    const data = this.sortedPredictions();
+    const sz = this.pageSize();
+    const maxPage = Math.max(1, Math.ceil(data.length / Math.max(1, sz)));
+    // clamp page if pageSize changed or data shrank
+    const p = Math.min(this.page(), maxPage);
+    if (p !== this.page()) this.page.set(p);
+
+    const start = (p - 1) * sz;
+    return data.slice(start, start + sz);
+  });
+
+  // for UI footer: "x–y of N"
+  pageBounds = computed(() => {
+    const n = this.totalItems();
+    if (n === 0) return { from: 0, to: 0, total: 0 };
+    const p = this.page();
+    const sz = this.pageSize();
+    const from = (p - 1) * sz + 1;
+    const to = Math.min(p * sz, n);
+    return { from, to, total: n };
+  });
+
+  pageNumbers = computed(() => {
+    const total = this.totalPages();
+    const current = this.page();
+    const windowSize = 5; // how many buttons to show
+    const half = Math.floor(windowSize / 2);
+    let start = Math.max(1, current - half);
+    let end = Math.min(total, start + windowSize - 1);
+    if (end - start + 1 < windowSize) start = Math.max(1, end - windowSize + 1);
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  });
+
+  goToPage(n: number) {
+    const clamped = Math.max(1, Math.min(this.totalPages(), Math.trunc(n)));
+    this.page.set(clamped);
+  }
+  nextPage() { this.goToPage(this.page() + 1); }
+  prevPage() { this.goToPage(this.page() - 1); }
+  changePageSize(sz: number) {
+    this.pageSize.set(Math.max(1, Math.trunc(sz)));
+    this.page.set(1); // reset to first page when size changes
+  }
 }

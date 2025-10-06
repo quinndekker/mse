@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Rate of change ratio: (price/prevPrice)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: ROCR": {
+        "2025-10-03": {
+            "ROCR": "0.9849"
+        },
+        "2025-10-02": {
+            "ROCR": "0.9819"
+        },
+        "2025-10-01": {
+            "ROCR": "0.9967"
+        },
+        "2025-09-30": {
+            "ROCR": "1.0202"
+        },
+        "2025-09-29": {
+            "ROCR": "1.0220"
+        },
         "2025-09-26": {
             "ROCR": "1.0298"
         },

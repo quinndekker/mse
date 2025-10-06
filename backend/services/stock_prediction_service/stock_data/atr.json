@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Average True Range (ATR)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: ATR": {
+        "2025-10-03": {
+            "ATR": "5.1795"
+        },
+        "2025-10-02": {
+            "ATR": "5.2983"
+        },
+        "2025-10-01": {
+            "ATR": "5.3792"
+        },
+        "2025-09-30": {
+            "ATR": "5.0858"
+        },
+        "2025-09-29": {
+            "ATR": "4.8398"
+        },
         "2025-09-26": {
             "ATR": "4.8942"
         },

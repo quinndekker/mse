@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Triple Exponential Moving Average (T3)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Volume Factor (vFactor)": 0.7,
@@ -10,6 +10,21 @@
         "8: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: T3": {
+        "2025-10-03": {
+            "T3": "315.0359"
+        },
+        "2025-10-02": {
+            "T3": "314.9622"
+        },
+        "2025-10-01": {
+            "T3": "314.6053"
+        },
+        "2025-09-30": {
+            "T3": "313.9112"
+        },
+        "2025-09-29": {
+            "T3": "312.9875"
+        },
         "2025-09-26": {
             "T3": "311.9563"
         },

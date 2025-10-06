@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Aroon Oscillator (AROONOSC)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: AROONOSC": {
+        "2025-10-03": {
+            "AROONOSC": "-30.0000"
+        },
+        "2025-10-02": {
+            "AROONOSC": "-30.0000"
+        },
+        "2025-10-01": {
+            "AROONOSC": "-20.0000"
+        },
+        "2025-09-30": {
+            "AROONOSC": "90.0000"
+        },
+        "2025-09-29": {
+            "AROONOSC": "90.0000"
+        },
         "2025-09-26": {
             "AROONOSC": "100.0000"
         },

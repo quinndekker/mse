@@ -2,10 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PredictionService } from '../../services/prediction/prediction.service';
 import { FormsModule } from '@angular/forms';
-import { InfoComponent } from '../info/info.component';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap, tap, takeUntil, distinctUntilChanged } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { Prediction } from '../../models/prediction';
 import { PredictionsListComponent } from '../prediction-list/prediction-list.component';
 import { Subject } from 'rxjs';
@@ -15,7 +13,6 @@ import { Subject } from 'rxjs';
   imports: [
     CommonModule,
     FormsModule,
-    InfoComponent,
     PredictionsListComponent
   ],
   templateUrl: './predictions.component.html',

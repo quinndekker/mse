@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Average Directional Movement Index Rating (ADXR)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: ADXR": {
+        "2025-10-03": {
+            "ADXR": "31.1316"
+        },
+        "2025-10-02": {
+            "ADXR": "31.2374"
+        },
+        "2025-10-01": {
+            "ADXR": "31.7014"
+        },
+        "2025-09-30": {
+            "ADXR": "32.1162"
+        },
+        "2025-09-29": {
+            "ADXR": "31.5889"
+        },
         "2025-09-26": {
             "ADXR": "29.4454"
         },

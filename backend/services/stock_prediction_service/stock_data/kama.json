@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Kaufman Adaptive Moving Average (KAMA)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: KAMA": {
+        "2025-10-03": {
+            "KAMA": "312.4405"
+        },
+        "2025-10-02": {
+            "KAMA": "312.5792"
+        },
+        "2025-10-01": {
+            "KAMA": "313.0005"
+        },
+        "2025-09-30": {
+            "KAMA": "313.0276"
+        },
+        "2025-09-29": {
+            "KAMA": "312.6393"
+        },
         "2025-09-26": {
             "KAMA": "312.0604"
         },

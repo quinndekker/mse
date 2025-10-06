@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Double Exponential Moving Average (DEMA)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: DEMA": {
+        "2025-10-03": {
+            "DEMA": "312.2936"
+        },
+        "2025-10-02": {
+            "DEMA": "313.0958"
+        },
+        "2025-10-01": {
+            "DEMA": "315.2450"
+        },
+        "2025-09-30": {
+            "DEMA": "316.6711"
+        },
+        "2025-09-29": {
+            "DEMA": "316.4093"
+        },
         "2025-09-26": {
             "DEMA": "315.8543"
         },

@@ -2,11 +2,26 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "On Balance Volume (OBV)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: OBV": {
+        "2025-10-03": {
+            "OBV": "-661240120.0000"
+        },
+        "2025-10-02": {
+            "OBV": "-667269974.0000"
+        },
+        "2025-10-01": {
+            "OBV": "-659670001.0000"
+        },
+        "2025-09-30": {
+            "OBV": "-650434790.0000"
+        },
+        "2025-09-29": {
+            "OBV": "-638611475.0000"
+        },
         "2025-09-26": {
             "OBV": "-632149033.0000"
         },

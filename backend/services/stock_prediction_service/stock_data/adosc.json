@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Chaikin A/D Oscillator (ADOSC)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5.1: FastK Period": 3,
         "5.2: SlowK Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: ADOSC": {
+        "2025-10-03": {
+            "ADOSC": "3832473.6258"
+        },
+        "2025-10-02": {
+            "ADOSC": "4902272.7808"
+        },
+        "2025-10-01": {
+            "ADOSC": "6686227.0317"
+        },
+        "2025-09-30": {
+            "ADOSC": "7421414.7341"
+        },
+        "2025-09-29": {
+            "ADOSC": "6989099.3091"
+        },
         "2025-09-26": {
             "ADOSC": "8586639.6062"
         },

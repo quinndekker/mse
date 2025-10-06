@@ -2,11 +2,26 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Chaikin A/D Line",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: Chaikin A/D": {
+        "2025-10-03": {
+            "Chaikin A/D": "1495144360.6228"
+        },
+        "2025-10-02": {
+            "Chaikin A/D": "1494812281.7069"
+        },
+        "2025-10-01": {
+            "Chaikin A/D": "1497563403.1548"
+        },
+        "2025-09-30": {
+            "Chaikin A/D": "1498309422.9849"
+        },
+        "2025-09-29": {
+            "Chaikin A/D": "1492899851.4644"
+        },
         "2025-09-26": {
             "Chaikin A/D": "1493330680.9310"
         },

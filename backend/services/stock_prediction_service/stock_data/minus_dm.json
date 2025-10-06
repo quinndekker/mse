@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Minus Directional Movement (MINUS_DM)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: MINUS_DM": {
+        "2025-10-03": {
+            "MINUS_DM": "7.7337"
+        },
+        "2025-10-02": {
+            "MINUS_DM": "8.5929"
+        },
+        "2025-10-01": {
+            "MINUS_DM": "8.1366"
+        },
+        "2025-09-30": {
+            "MINUS_DM": "6.0407"
+        },
+        "2025-09-29": {
+            "MINUS_DM": "2.7674"
+        },
         "2025-09-26": {
             "MINUS_DM": "3.0749"
         },

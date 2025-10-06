@@ -33,4 +33,16 @@ export class SectorService {
           })
         );
     }
+
+    getSectorsByTicker(ticker: string): Observable<SectorTickerResponse[]> {
+      return this.http
+        .get<SectorTickerResponse[]>(`${this.apiUrl}/by-ticker/${encodeURIComponent(ticker)}`)
+        .pipe(
+          catchError((error) => {
+            console.error('error getting sectors by ticker:', error);
+            return throwError(() => error);
+          })
+        );
+    }
+  
 }

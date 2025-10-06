@@ -2,12 +2,32 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Hilbert Transform - Phasor Components (HT_PHASOR)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_PHASOR": {
+        "2025-10-03": {
+            "PHASE": "1.6663",
+            "QUADRATURE": "1.4124"
+        },
+        "2025-10-02": {
+            "PHASE": "0.4221",
+            "QUADRATURE": "1.0307"
+        },
+        "2025-10-01": {
+            "PHASE": "0.4027",
+            "QUADRATURE": "-0.5463"
+        },
+        "2025-09-30": {
+            "PHASE": "0.5096",
+            "QUADRATURE": "-2.9185"
+        },
+        "2025-09-29": {
+            "PHASE": "2.6428",
+            "QUADRATURE": "-5.1235"
+        },
         "2025-09-26": {
             "PHASE": "4.7122",
             "QUADRATURE": "-3.8391"

@@ -13,4 +13,5 @@ export interface Prediction {
   predictedPrice?: number | null;
   priceDifference?: number | null;
   predictionAccuracy?: number | null;
+  sector?: string | "general";
 }

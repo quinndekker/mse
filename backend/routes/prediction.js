@@ -26,7 +26,6 @@ router.post('/', async (req, res) => {
   }
 
   try {
-    // 1) Create doc first, mark as Queued
     const prediction = new Prediction({
       user: req.user._id,
       ticker: ticker.toUpperCase(),
@@ -34,13 +33,14 @@ router.post('/', async (req, res) => {
       predictionTimeline,
       startDate: new Date(),
       status: 'Queued',
+      sector: sectorTicker ? sectorTicker.toUpperCase() : 'general',
     });
 
     const endISO = await getPredictionEndDateFromPython(predictionTimeline, prediction.startDate, 'iso');
     prediction.endDate = new Date(endISO);
     await prediction.save(); // now _id exists
 
-    // (Optional) simple backpressure: cap queue length
+    // cap queue length
     if (predictionQueue.size() > 25) {
       return res.status(429).json({ error: 'Too many pending predictions, try again shortly.' });
     }
@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
       await Prediction.updateOne({ _id: prediction._id }, { $set: { status: 'Running', startedAt: new Date() } });
 
       try {
-        const price = await runPredictionScript(prediction.ticker, modelType, predictionTimeline, secto);
+        const price = await runPredictionScript(prediction.ticker, modelType, predictionTimeline, sectorTicker);
 
         const doc = await Prediction.findById(prediction._id);
         if (!doc) return; 

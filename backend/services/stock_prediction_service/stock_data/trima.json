@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Triangular Exponential Moving Average (TRIMA)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: TRIMA": {
+        "2025-10-03": {
+            "TRIMA": "313.6570"
+        },
+        "2025-10-02": {
+            "TRIMA": "313.9043"
+        },
+        "2025-10-01": {
+            "TRIMA": "313.9433"
+        },
+        "2025-09-30": {
+            "TRIMA": "313.7300"
+        },
+        "2025-09-29": {
+            "TRIMA": "313.3080"
+        },
         "2025-09-26": {
             "TRIMA": "312.8577"
         },

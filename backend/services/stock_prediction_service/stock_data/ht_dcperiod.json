@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Hilbert Transform - Dominant Cycle Period (HT_DCPERIOD)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_DCPERIOD": {
+        "2025-10-03": {
+            "DCPERIOD": "18.5494"
+        },
+        "2025-10-02": {
+            "DCPERIOD": "17.8642"
+        },
+        "2025-10-01": {
+            "DCPERIOD": "17.2528"
+        },
+        "2025-09-30": {
+            "DCPERIOD": "16.8156"
+        },
+        "2025-09-29": {
+            "DCPERIOD": "16.6433"
+        },
         "2025-09-26": {
             "DCPERIOD": "16.7407"
         },

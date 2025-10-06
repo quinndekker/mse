@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Commodity Channel Index (CCI)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: CCI": {
+        "2025-10-03": {
+            "CCI": "-91.4073"
+        },
+        "2025-10-02": {
+            "CCI": "-199.3110"
+        },
+        "2025-10-01": {
+            "CCI": "-141.5891"
+        },
+        "2025-09-30": {
+            "CCI": "45.3949"
+        },
+        "2025-09-29": {
+            "CCI": "121.1328"
+        },
         "2025-09-26": {
             "CCI": "141.1792"
         },

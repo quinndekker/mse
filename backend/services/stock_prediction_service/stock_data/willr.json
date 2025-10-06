@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Williams' %R (WILLR)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: WILLR": {
+        "2025-10-03": {
+            "WILLR": "-67.2283"
+        },
+        "2025-10-02": {
+            "WILLR": "-88.1213"
+        },
+        "2025-10-01": {
+            "WILLR": "-68.8679"
+        },
+        "2025-09-30": {
+            "WILLR": "-27.9287"
+        },
+        "2025-09-29": {
+            "WILLR": "-21.3327"
+        },
         "2025-09-26": {
             "WILLR": "-16.3930"
         },

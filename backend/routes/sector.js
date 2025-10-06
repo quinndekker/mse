@@ -63,5 +63,20 @@ router.get('/ticker-by-name/:name', async (req, res) => {
   }
 });
 
+router.get('/by-ticker/:ticker', async (req, res) => {
+  const raw = req.params.ticker;
+  if (!raw) return res.status(400).json({ error: 'Ticker is required.' });
+
+  const ticker = String(raw).trim().toUpperCase();
+
+  try {
+    const sectors = await Sector.find({ tickers: ticker }).lean();
+    return res.json(sectors);
+  } catch (err) {
+    console.error('Error fetching sectors by ticker:', err);
+    return res.status(500).json({ error: 'Internal server error.' });
+  }
+});
+
 
 module.exports = router;

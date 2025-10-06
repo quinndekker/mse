@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Chande Momentum Oscillator (CMO)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "closed",
         "7: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: CMO": {
+        "2025-10-03": {
+            "CMO": "9.9120"
+        },
+        "2025-10-02": {
+            "CMO": "-1.9998"
+        },
+        "2025-10-01": {
+            "CMO": "5.7189"
+        },
+        "2025-09-30": {
+            "CMO": "24.4777"
+        },
+        "2025-09-29": {
+            "CMO": "57.5611"
+        },
         "2025-09-26": {
             "CMO": "58.0296"
         },

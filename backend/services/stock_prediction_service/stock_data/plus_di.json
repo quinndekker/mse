@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Plus Directional Indicator (PLUS_DI)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: PLUS_DI": {
+        "2025-10-03": {
+            "PLUS_DI": "18.0389"
+        },
+        "2025-10-02": {
+            "PLUS_DI": "17.2869"
+        },
+        "2025-10-01": {
+            "PLUS_DI": "18.9187"
+        },
+        "2025-09-30": {
+            "PLUS_DI": "22.2336"
+        },
+        "2025-09-29": {
+            "PLUS_DI": "25.9597"
+        },
         "2025-09-26": {
             "PLUS_DI": "28.0694"
         },

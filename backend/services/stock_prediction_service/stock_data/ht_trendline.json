@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Hilbert Transform - Instantaneous Trendline (HT_TRENDLINE)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_TRENDLINE": {
+        "2025-10-03": {
+            "HT_TRENDLINE": "310.2824"
+        },
+        "2025-10-02": {
+            "HT_TRENDLINE": "310.0051"
+        },
+        "2025-10-01": {
+            "HT_TRENDLINE": "309.4393"
+        },
+        "2025-09-30": {
+            "HT_TRENDLINE": "308.4120"
+        },
+        "2025-09-29": {
+            "HT_TRENDLINE": "307.4076"
+        },
         "2025-09-26": {
             "HT_TRENDLINE": "306.5579"
         },

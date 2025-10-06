@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, inject } from '@angular/core';
-import { CommonModule, ViewportScroller, NgOptimizedImage } from '@angular/common';
+import { CommonModule, ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ModelDetailsService } from '../../services/modelDetails/model-details.service';
 import { ModelDetails } from '../../models/modelDetails';
@@ -21,7 +21,6 @@ interface ModelState {
   selector: 'app-models',
   imports: [
     CommonModule,
-    NgOptimizedImage,
     FormsModule
   ],
   templateUrl: './models.component.html',

@@ -2,12 +2,27 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Hilbert Transform - Dominant Cycle Phase (HT_DCPHASE)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_DCPHASE": {
+        "2025-10-03": {
+            "HT_DCPHASE": "232.6525"
+        },
+        "2025-10-02": {
+            "HT_DCPHASE": "227.0430"
+        },
+        "2025-10-01": {
+            "HT_DCPHASE": "221.8972"
+        },
+        "2025-09-30": {
+            "HT_DCPHASE": "216.1567"
+        },
+        "2025-09-29": {
+            "HT_DCPHASE": "208.5996"
+        },
         "2025-09-26": {
             "HT_DCPHASE": "198.0795"
         },

@@ -2,12 +2,32 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Aroon (AROON)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: AROON": {
+        "2025-10-03": {
+            "Aroon Down": "90.0000",
+            "Aroon Up": "60.0000"
+        },
+        "2025-10-02": {
+            "Aroon Down": "100.0000",
+            "Aroon Up": "70.0000"
+        },
+        "2025-10-01": {
+            "Aroon Down": "100.0000",
+            "Aroon Up": "80.0000"
+        },
+        "2025-09-30": {
+            "Aroon Down": "0.0000",
+            "Aroon Up": "90.0000"
+        },
+        "2025-09-29": {
+            "Aroon Down": "10.0000",
+            "Aroon Up": "100.0000"
+        },
         "2025-09-26": {
             "Aroon Down": "0.0000",
             "Aroon Up": "100.0000"

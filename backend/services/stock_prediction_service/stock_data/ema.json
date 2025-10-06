@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Exponential Moving Average (EMA)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: EMA": {
+        "2025-10-03": {
+            "EMA": "311.3764"
+        },
+        "2025-10-02": {
+            "EMA": "311.6756"
+        },
+        "2025-10-01": {
+            "EMA": "312.5924"
+        },
+        "2025-09-30": {
+            "EMA": "313.0107"
+        },
+        "2025-09-29": {
+            "EMA": "312.4731"
+        },
         "2025-09-26": {
             "EMA": "311.7583"
         },

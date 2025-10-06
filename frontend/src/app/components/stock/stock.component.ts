@@ -12,6 +12,8 @@ import { PredictionsListComponent } from '../prediction-list/prediction-list.com
 import { Prediction } from '../../models/prediction';
 import { SectorService } from '../../services/sector/sector.service';
 import { Stock } from '../../models/stock';
+import { Sector } from '../../models/sector';
+import { SectorTickerResponse } from '../../models/sectorTickerResponse';
 
 type ModelType = 'lstm' | 'gru' | 'rnn';
 type Timeframe = '1d' | '2w' | '2m';
@@ -19,6 +21,7 @@ type Timeframe = '1d' | '2w' | '2m';
 interface PredictionGroup {
   modelType: ModelType;
   timeframe: Timeframe;
+  sector: string;
   items: any[];
 }
 
@@ -50,8 +53,10 @@ export class StockComponent {
   sectorTicker: string | null = null;
   showSector: boolean = false;
   companyName: string | null = null;
-  quote: any = null; // You can create a type/interface later if needed
+  quote: any = null;
   errorMessage: string | null = null;
+
+  sectors: SectorTickerResponse[] = [];
 
   timeframes: string[] = ['1d','5d','1m','3m','6m','1y','5y','max'];
   selectedTimeframe: string = '6m';
@@ -116,16 +121,20 @@ export class StockComponent {
       }
     });
 
-    this.route.queryParamMap.subscribe(qp => {
-      const qpSector = qp.get('sector');
-      const pSector  = this.route.snapshot.paramMap.get('sector');
-      this.sectorName = qpSector ?? pSector;
-      this.showSector = !!this.sectorName;
-  
-      if (this.showSector && this.sectorName) {
-        this.getSectorInfo();
-      }
-    });
+      this.sectorService.getSectorsByTicker(this.ticker || "").subscribe({
+        next: (data) => {
+          this.sectors = data;
+          if (this.sectors.length > 0) {
+            this.sectorName = this.sectors[0].name;
+            this.showSector = true;
+            this.getSectorInfo();
+          }
+        },
+        error: (error) => {
+          console.error('Error loading sectors:', error);
+          this.errorMessage = 'Failed to load sectors.';
+        }
+      });
   }
 
   getSectorInfo(): void {
@@ -186,8 +195,8 @@ export class StockComponent {
     const t = this.ticker.toUpperCase().trim();
 
     let predictiveModelSector = "general";
-    if (this.showSector && this.sectorName) {
-      predictiveModelSector = this.sectorName.toLowerCase();
+    if (this.showSector && this.sectorName && this.useSector) {
+      predictiveModelSector = this.sectorTicker?.toLowerCase() || "general";
     }
   
     this.predictionService.createPrediction(t, this.modelType, this.predictionTimeline, predictiveModelSector).subscribe({
@@ -311,28 +320,9 @@ export class StockComponent {
       default: return null; // unknown code
     }
   
-    // Optional: align to ~market open (13:30Z); skip if you don't care
     d.setUTCHours(13, 30, 0, 0);
     return d.toISOString();
   }
-  
-  // private normalizePredictionsToSeries(preds: any[]): Array<{ t: string; close: number }> {
-  //   // keep items that have an end date (provided or computable) AND a numeric predictedPrice
-  //   const points = preds
-  //     .map(p => {
-  //       const t = p.endDate ?? this.computeEndDate(p.startDate, p.predictionTimeline);
-  //       const close = Number(p.predictedPrice);
-  //       return t && Number.isFinite(close) ? { t, close } : null;
-  //     })
-  //     .filter((x): x is { t: string; close: number } => !!x)
-  //     // de-dupe by timestamp (keep the last one)
-  //     .reduce((acc, cur) => acc.set(cur.t, cur), new Map<string, { t: string; close: number }>())
-  //     .values();
-  
-  //   return Array.from(points).sort(
-  //     (a, b) => new Date(a.t).getTime() - new Date(b.t).getTime()
-  //   );
-  // }
 
   private buildPredictionGroups(list: any[]): PredictionGroup[] {
     const groups = new Map<string, PredictionGroup>();
@@ -340,32 +330,40 @@ export class StockComponent {
     for (const p of list) {
       const modelType = String(p?.modelType || '').toLowerCase() as ModelType;
       const timeframe = String(p?.predictionTimeline || '').toLowerCase() as Timeframe;
+      const sector = String(p?.sector || 'general').toLowerCase();
   
       // keep only recognized values
       if (!this.MODEL_TYPES.includes(modelType) || !this.TIMEFRAMES.includes(timeframe)) continue;
   
-      const key = `${modelType}|${timeframe}`;
+      const key = `${modelType}|${timeframe}|${sector}`;
       if (!groups.has(key)) {
-        groups.set(key, { modelType, timeframe, items: [] });
+        groups.set(key, { modelType, timeframe, sector, items: [] });
       }
       groups.get(key)!.items.push(p);
     }
   
-    // sort items in each group by startDate ascending (tweak as needed)
+    // Sort items in each group by startDate ascending
     for (const g of groups.values()) {
       g.items.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
     }
   
-    // return in a stable display order: timeframe major, then model type
+    // Build a display order: sort by timeframe → modelType → sector alphabetically
     const ordered: PredictionGroup[] = [];
+  
     for (const tf of this.TIMEFRAMES) {
       for (const mt of this.MODEL_TYPES) {
-        const g = groups.get(`${mt}|${tf}`);
-        if (g) ordered.push(g);
+        // get all groups for this modelType/timeframe and sort them by sector
+        const sectorGroups = Array.from(groups.values())
+          .filter((g) => g.timeframe === tf && g.modelType === mt)
+          .sort((a, b) => a.sector.localeCompare(b.sector));
+  
+        ordered.push(...sectorGroups);
       }
     }
+  
     return ordered;
-  }  
+  }
+  
 
 @ViewChild('comboChart', { static: false }) comboChartRef!: ElementRef<HTMLCanvasElement>;
 private chart?: Chart;
@@ -374,9 +372,8 @@ private chart?: Chart;
 selectedActual = true;                                // toggle for actual price
 selectedKeys: Record<string, boolean> = {};           // toggle per prediction group
 
-// unchanged
 keyOf(g: PredictionGroup): string {
-  return `${g.modelType}|${g.timeframe}`;
+  return `${g.modelType}|${g.timeframe}|${g.sector}`;
 }
 
 private dayKeyUTC(iso: string): string {
@@ -507,7 +504,7 @@ const data: ChartDatum[] = pts.map(p => ({
 }));
 
 datasets.push({
-  label: `${g.modelType.toUpperCase()} • ${g.timeframe}`,
+  label: `${g.modelType.toUpperCase()} • ${g.timeframe} • ${g.sector}`,
   modelType: g.modelType,                // for tooltip
   timeframe: g.timeframe,                // for tooltip
   data,                                  // typed objects with metadata

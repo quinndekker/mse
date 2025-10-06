@@ -2,7 +2,7 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Stochastic Relative Strength Index (STOCHRSI)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6.1: FastK Period": 5,
@@ -12,6 +12,26 @@
         "8: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: STOCHRSI": {
+        "2025-10-03": {
+            "FastK": "24.2888",
+            "FastD": "8.0963"
+        },
+        "2025-10-02": {
+            "FastK": "0.0000",
+            "FastD": "11.9255"
+        },
+        "2025-10-01": {
+            "FastK": "0.0000",
+            "FastD": "35.4907"
+        },
+        "2025-09-30": {
+            "FastK": "35.7765",
+            "FastD": "68.8241"
+        },
+        "2025-09-29": {
+            "FastK": "70.6957",
+            "FastD": "63.9265"
+        },
         "2025-09-26": {
             "FastK": "100.0000",
             "FastD": "47.1622"

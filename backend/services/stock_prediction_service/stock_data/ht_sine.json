@@ -2,12 +2,32 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Hilbert Transform - SineWave (HT_SINE)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Series Type": "close",
         "6: Time Zone": "US/Eastern Time"
     },
     "Technical Analysis: HT_SINE": {
+        "2025-10-03": {
+            "SINE": "-0.7950",
+            "LEAD SINE": "-0.9911"
+        },
+        "2025-10-02": {
+            "SINE": "-0.7319",
+            "LEAD SINE": "-0.9994"
+        },
+        "2025-10-01": {
+            "SINE": "-0.6678",
+            "LEAD SINE": "-0.9985"
+        },
+        "2025-09-30": {
+            "SINE": "-0.5900",
+            "LEAD SINE": "-0.9881"
+        },
+        "2025-09-29": {
+            "SINE": "-0.4787",
+            "LEAD SINE": "-0.9593"
+        },
         "2025-09-26": {
             "SINE": "-0.3103",
             "LEAD SINE": "-0.8916"

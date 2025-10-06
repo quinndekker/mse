@@ -2,7 +2,7 @@
     "symbol": "JPM",
     "annualEarnings": [
         {
-            "fiscalDateEnding": "2025-06-30",
+            "fiscalDateEnding": "2025-09-30",
             "reportedEPS": "10.03"
         },
         {
@@ -163,9 +163,9 @@
             "fiscalDateEnding": "2024-06-30",
             "reportedDate": "2024-07-12",
             "reportedEPS": "6.12",
-            "estimatedEPS": "4.53",
-            "surprise": "1.59",
-            "surprisePercentage": "35.0993",
+            "estimatedEPS": "5.09",
+            "surprise": "1.03",
+            "surprisePercentage": "20.2358",
             "reportTime": "pre-market"
         },
         {

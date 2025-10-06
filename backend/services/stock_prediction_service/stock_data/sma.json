@@ -2,13 +2,28 @@
     "Meta Data": {
         "1: Symbol": "JPM",
         "2: Indicator": "Simple Moving Average (SMA)",
-        "3: Last Refreshed": "2025-09-26",
+        "3: Last Refreshed": "2025-10-03",
         "4: Interval": "daily",
         "5: Time Period": 10,
         "6: Series Type": "close",
         "7: Time Zone": "US/Eastern"
     },
     "Technical Analysis: SMA": {
+        "2025-10-03": {
+            "SMA": "312.7520"
+        },
+        "2025-10-02": {
+            "SMA": "313.2270"
+        },
+        "2025-10-01": {
+            "SMA": "313.7950"
+        },
+        "2025-09-30": {
+            "SMA": "313.8990"
+        },
+        "2025-09-29": {
+            "SMA": "313.2750"
+        },
         "2025-09-26": {
             "SMA": "312.5960"
         },
