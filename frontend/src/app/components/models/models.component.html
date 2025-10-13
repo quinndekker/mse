@@ -26,6 +26,7 @@
             <li>Gates: <strong>input</strong>, <strong>forget</strong>, <strong>output</strong></li>
             <li>Good at: longer contexts, noisy signals, irregular patterns</li>
             <li>Typical sizes: 32–256 hidden units per layer, 1–3 layers for tabular/finance</li>
+            <li>Training test split: 80% Training 20% Test</li>
           </ul>
         </div>
         <div class="cell">
@@ -75,11 +76,31 @@
             <span class="metric-label">Training Time</span>
             <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
           </div>
+          <div class="metric">
+            <span class="metric-label">Avg Accuracy</span>
+            <span class="metric-val">
+              <ng-container *ngIf="state.lstm.avgAccuracy !== null && state.lstm.avgAccuracy !== undefined; else dashAccL">
+                {{ state.lstm.avgAccuracy | number:'1.2-2' }}%
+              </ng-container>
+              <ng-template #dashAccL>—</ng-template>
+            </span>
+          </div>
           <div class="metric small">
             <span>Sector:</span> {{ d.sectorName }} ({{ d.sectorSpdr }}) • <span>TF:</span> {{ d.timeframe }}
           </div>
         </ng-container>
-      </div>      
+      </div>   
+      <div class="predictions-block">
+        <ng-container *ngIf="state.lstm.predLoading">Loading predictions…</ng-container>
+        <ng-container *ngIf="state.lstm.predError && !state.lstm.predLoading">
+          <span class="err">{{ state.lstm.predError }}</span>
+        </ng-container>
+      
+        <app-prediction-list
+          *ngIf="!state.lstm.predLoading && !state.lstm.predError"
+          [predictions]="state.lstm.predictions">
+        </app-prediction-list>
+      </div>   
     </section>
   
     <!-- GRU -->
@@ -102,6 +123,7 @@
           <ul class="bullets">
             <li>Good at: medium-range dependencies, tighter compute budgets</li>
             <li>Typical sizes: 32–256 units, 1–3 layers</li>
+            <li>Training test split: 80% Training 20% Test</li>
           </ul>
         </div>
         <div class="cell">
@@ -153,6 +175,17 @@
           </div>
         </ng-container>
       </div>      
+      <div class="predictions-block">
+        <ng-container *ngIf="state.gru.predLoading">Loading predictions…</ng-container>
+        <ng-container *ngIf="state.gru.predError && !state.gru.predLoading">
+          <span class="err">{{ state.gru.predError }}</span>
+        </ng-container>
+      
+        <app-prediction-list
+          *ngIf="!state.gru.predLoading && !state.gru.predError"
+          [predictions]="state.gru.predictions">
+        </app-prediction-list>
+      </div>   
     </section>
   
     <!-- Vanilla RNN -->
@@ -174,6 +207,7 @@
           <ul class="bullets">
             <li>Good at: short-term signals, quick experiments, educational baselines</li>
             <li>Typical sizes: 16–128 units, 1–2 layers</li>
+            <li>Training test split: 80% Training 20% Test</li>
           </ul>
         </div>
         <div class="cell">
@@ -225,6 +259,17 @@
           </div>
         </ng-container>
       </div>      
+      <div class="predictions-block">
+        <ng-container *ngIf="state.rnn.predLoading">Loading predictions…</ng-container>
+        <ng-container *ngIf="state.rnn.predError && !state.rnn.predLoading">
+          <span class="err">{{ state.rnn.predError }}</span>
+        </ng-container>
+      
+        <app-prediction-list
+          *ngIf="!state.rnn.predLoading && !state.rnn.predError"
+          [predictions]="state.rnn.predictions">
+        </app-prediction-list>
+      </div>   
     </section>
   
     <footer class="footer">

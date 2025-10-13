@@ -217,4 +217,10 @@
     color: #b91c1c;
     font-weight: 700;
   }
+  .predictions-block {
+    margin-top: 0.75rem;
+  }
+  .err {
+    color: #b91c1c;
+  }
   

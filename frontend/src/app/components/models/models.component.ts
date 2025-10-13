@@ -4,29 +4,30 @@ import { ActivatedRoute } from '@angular/router';
 import { ModelDetailsService } from '../../services/modelDetails/model-details.service';
 import { ModelDetails } from '../../models/modelDetails';
 import { FormsModule } from '@angular/forms';
+import { Prediction } from '../../models/prediction';
+import { PredictionService } from '../../services/prediction/prediction.service';
+import { PredictionsListComponent } from '../prediction-list/prediction-list.component';
+import { ModelState } from '../../models/modelState';
 
 type ModelType = 'lstm' | 'gru' | 'rnn';
 type Timeframe = '1d' | '2w' | '2m';
-
-interface ModelState {
-  sector: string;
-  timeframe: Timeframe;
-  loading: boolean;
-  error?: string | null;
-  data?: ModelDetails | null;
-}
-
 
 @Component({
   selector: 'app-models',
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    PredictionsListComponent
   ],
   templateUrl: './models.component.html',
   styleUrl: './models.component.css'
 })
 export class ModelsComponent implements AfterViewInit {
+
+  constructor(
+    private predictionSvc: PredictionService,
+  ) {}
+
   private route = inject(ActivatedRoute);
   private scroller = inject(ViewportScroller);
   private modelSvc = inject(ModelDetailsService);
@@ -81,12 +82,24 @@ export class ModelsComponent implements AfterViewInit {
     this.refresh(model);
   }
 
+  private sectorTickerFor(value: string): string {
+    return value && value.toLowerCase() !== 'general' ? value.toUpperCase() : 'general';
+  }  
+
   private refresh(model: ModelType) {
     const s = this.state[model];
+  
+    // reset metrics state
     s.loading = true;
     s.error = null;
     s.data = null;
-
+  
+    // reset predictions state
+    s.predLoading = true;
+    s.predError = null;
+    s.predictions = null;
+  
+    // Load model details
     this.modelSvc.getModelDetails(model, s.timeframe, s.sector).subscribe({
       next: (doc) => { s.data = doc; s.loading = false; },
       error: (err) => {
@@ -94,5 +107,23 @@ export class ModelsComponent implements AfterViewInit {
         s.loading = false;
       }
     });
+  
+
+    const sectorTicker = this.sectorTickerFor(s.sector);
+    this.predictionSvc.getPredictionsByFilter(
+      model,            // modelType: 'lstm' | 'gru' | 'rnn'
+      s.timeframe,      // predictionTimeline: '1d' | '2w' | '2m'
+      sectorTicker      // sectorTicker: 'general' or 'XLK' etc.
+    ).subscribe({
+      next: (preds) => {
+        s.predictions = Array.isArray(preds) ? preds : (preds?.predictions ?? []);
+        s.predLoading = false;
+      },
+      error: (err) => {
+        s.predError = (err?.error?.error) || 'Failed to load predictions';
+        s.predLoading = false;
+      }
+    });
   }
+  
 }

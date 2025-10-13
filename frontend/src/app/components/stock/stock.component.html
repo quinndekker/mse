@@ -118,6 +118,20 @@
           </span>
           <span class="toggle-text">Use model trained specifically on {{ sectorName }} sector</span>
         </label>
+
+        <ng-container *ngIf="sectors.length > 1; else singleSector">
+          <label for="sectorSelect">Sector:</label>
+          <select id="sectorSelect"
+                  [(ngModel)]="sectorName"
+                  (ngModelChange)="onSectorChange($event)">
+            <option *ngFor="let s of sectors" [ngValue]="s.name">{{ s.name }}</option>
+          </select>
+        </ng-container>
+      
+        <!-- Show the single sector as text if there's only one -->
+        <ng-template #singleSector>
+          <span class="sector-pill" *ngIf="sectors.length">{{ sectors[0].name }}</span>
+        </ng-template>
       </div>
 
       <!-- Timeline -->

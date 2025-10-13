@@ -116,25 +116,32 @@ export class StockComponent {
         this.getData(this.ticker);
         this.fetchPriceSeries();       
         this.fetchPredictions(this.ticker);  
+
+        this.sectorService.getSectorsByTicker(this.ticker).subscribe({
+          next: (data) => {
+            this.sectors = data || [];
+            this.showSector = this.sectors.length > 0;
+  
+            if (this.showSector) {
+              // default to first sector if none selected yet
+              this.sectorName = this.sectorName ?? this.sectors[0]?.name ?? null;
+              this.getSectorInfo();
+            } else {
+              this.sectorName = null;
+              this.sectorTicker = null;
+              this.sectorSeries = [];
+              this.updateChart();
+            }
+          },
+          error: (error) => {
+            console.error('Error loading sectors:', error);
+            this.errorMessage = 'Failed to load sectors.';
+          }
+        });
       } else {
         this.errorMessage = 'Ticker is missing in route.';
       }
     });
-
-      this.sectorService.getSectorsByTicker(this.ticker || "").subscribe({
-        next: (data) => {
-          this.sectors = data;
-          if (this.sectors.length > 0) {
-            this.sectorName = this.sectors[0].name;
-            this.showSector = true;
-            this.getSectorInfo();
-          }
-        },
-        error: (error) => {
-          console.error('Error loading sectors:', error);
-          this.errorMessage = 'Failed to load sectors.';
-        }
-      });
   }
 
   getSectorInfo(): void {
@@ -306,6 +313,17 @@ export class StockComponent {
         this.updateChart();
       }
     });
+  }
+
+  onSectorChange(name: string) {
+    this.sectorName = name || null;
+    if (!this.sectorName) {
+      this.sectorTicker = null;
+      this.sectorSeries = [];
+      this.updateChart();
+      return;
+    }
+    this.getSectorInfo();
   }
   
 
@@ -587,10 +605,6 @@ datasets.push({
       }
     });
   }
-
-  // quick sanity: first few labels and first dataset points
-  if (labels.length) console.log('[chart] labels:', labels.slice(0, 8));
-  if (datasets.length) console.log('[chart] sample points:', datasets[0].data.slice(0, 8));
 }
 }
 

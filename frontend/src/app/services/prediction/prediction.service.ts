@@ -37,4 +37,27 @@ export class PredictionService {
       })
     );
   }
+
+  getPredictionsByFilter(
+    modelType: string,
+    predictionTimeline: string,
+    sectorTicker: string,
+    ticker?: string
+  ): Observable<any> {
+    let params = new HttpParams()
+      .set('modelType', modelType)
+      .set('predictionTimeline', predictionTimeline)
+      .set('sectorTicker', sectorTicker);
+  
+    if (ticker?.trim()) {
+      params = params.set('ticker', ticker.trim());
+    }
+  
+    return this.http.get<any>(`${this.apiUrl}/filter`, { params }).pipe(
+      catchError((error) => {
+        console.error('Error fetching filtered predictions:', error);
+        return throwError(() => error);
+      })
+    );
+  }
 }

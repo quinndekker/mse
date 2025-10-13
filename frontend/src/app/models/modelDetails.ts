@@ -1,3 +1,4 @@
+import { Prediction } from './prediction';
 export interface ModelDetails {
     _id: string;
     sector: string;
@@ -8,5 +9,5 @@ export interface ModelDetails {
     createdAt: string;
     updatedAt: string;
     sectorSpdr: string;  
-    sectorName: string;  
+    sectorName: string;
   }

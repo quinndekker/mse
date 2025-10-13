@@ -11,10 +11,9 @@ const {
   toYMDInTZ,
   getAlphaKey,
   fetchDailySeries,
-  setPredictionMetrics,   // <- you call this in GET; make sure it's imported
+  setPredictionMetrics,   
 } = require('../services/predictionService');
 
-// --- CREATE (queued) ---
 router.post('/', async (req, res) => {
   const { ticker, modelType, predictionTimeline, sectorTicker } = req.body;
 
@@ -146,5 +145,31 @@ router.get('/', async (req, res) => {
     return res.status(500).json({ error: 'Failed to fetch predictions' });
   }
 });
+
+
+router.get('/filter', async (req, res) => {
+  if (!req.user || !req.user._id) {
+    return res.status(401).json({ error: 'Unauthorized: user not found on request' });
+  }
+
+  const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const { ticker, modelType, predictionTimeline, sectorTicker } = req.query;
+
+  try {
+    const filter = { user: req.user._id };
+
+    if (ticker) filter.ticker = new RegExp(`^${escapeRegex(ticker)}$`, 'i');
+    if (modelType) filter.modelType = new RegExp(`^${escapeRegex(modelType)}$`, 'i');
+    if (predictionTimeline) filter.predictionTimeline = new RegExp(`^${escapeRegex(predictionTimeline)}$`, 'i');
+    if (sectorTicker) filter.sector = new RegExp(`^${escapeRegex(sectorTicker)}$`, 'i');
+
+    const predictions = await Prediction.find(filter).sort({ createdAt: -1 }).exec();
+    return res.status(200).json(predictions);
+  } catch (err) {
+    console.error('Error fetching filtered predictions:', err);
+    return res.status(500).json({ error: 'Failed to fetch filtered predictions' });
+  }
+});
+
 
 module.exports = router;
