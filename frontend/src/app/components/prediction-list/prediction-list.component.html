@@ -42,7 +42,7 @@
           Predicted <app-info [text]="definitions.predictedPrice"></app-info>
         </th>
         <th>
-          Accuracy <app-info [text]="definitions.predictionAccuracy"></app-info>
+          Mean Squared Error <app-info [text]="definitions.mse"></app-info>
         </th>
       </tr>
     </thead>
@@ -89,16 +89,16 @@
         </td>
   
         <td class="numeric">
-          <ng-container *ngIf="p.predictionAccuracy !== null && p.predictionAccuracy !== undefined; else dash2">
+          <ng-container *ngIf="p.mse !== null && p.mse !== undefined; else dash2">
             <span
               class="accuracy"
               [ngClass]="{
-                good: p.predictionAccuracy >= 66,
-                meh:  p.predictionAccuracy >= 33 && p.predictionAccuracy < 66,
-                bad:  p.predictionAccuracy < 33
+                good: p.mse >= 66,
+                meh:  p.mse >= 33 && p.mse < 66,
+                bad:  p.mse < 33
               }"
             >
-              {{ p.predictionAccuracy | number:'1.2-2' }}%
+              {{ p.mse | number:'1.2-7' }}
             </span>
           </ng-container>
           <ng-template #dash2>—</ng-template>

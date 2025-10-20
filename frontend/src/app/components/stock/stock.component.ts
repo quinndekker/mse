@@ -225,7 +225,8 @@ export class StockComponent {
         this.predictions = [created, ...this.predictions];
         this.predictionGroups = this.buildPredictionGroups(this.predictions);
         this.updateChart();
-  
+        
+        window.location.reload();
       },
       error: (err) => {
         console.error('❌ Prediction error:', err);
@@ -463,7 +464,7 @@ private pointsForGroup(g: PredictionGroup): PredPoint[] {
     const key = this.dayKeyUTC(tISO);
     const ap   = (p.actualPrice ?? null);
     const diff = (p.priceDifference ?? null);
-    const acc  = (p.predictionAccuracy ?? null);
+    const acc  = (p.mse ?? null);
 
     byDay.set(key, { t: key, y, ap, diff, acc }); // keep last for that day
   }

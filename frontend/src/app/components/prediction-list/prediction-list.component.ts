@@ -34,7 +34,8 @@ export class PredictionsListComponent {
     predictionAccuracy: "A score or percentage that shows how accurate the prediction was, calculated based on the real price vs predicted price after the time period passed.",
     actualPrice: "The real market opening price on the end date (first trade of that session), fetched from Alpha Vantage once the end date has passed. This value is used to evaluate the model’s prediction. Before the end date, it will show as Pending.",
     insuffientData: "Indicates whether the model had enough historical data to make a prediction. If true, it means the model could not find enough data points to generate a reliable forecast.",
-    sector: "The market sector the stock belongs to, such as Technology, Healthcare, Financials, etc. This helps categorize stocks based on their industry and economic function."
+    sector: "The market sector the stock belongs to, such as Technology, Healthcare, Financials, etc. This helps categorize stocks based on their industry and economic function.",
+    mse: "Measures how far the predicted percentage change differs from the actual percentage change in stock price. Lower values indicate more accurate predictions, with zero meaning a perfect match."
   };
 
   sortKey = signal<SortKey>('ticker');

@@ -14,6 +14,74 @@ const {
   setPredictionMetrics,   
 } = require('../services/predictionService');
 
+function pickCloseOnOrBefore(series, targetDate) {
+  const targetYMD = toYMDInTZ(targetDate, 'America/New_York'); // 'YYYY-MM-DD'
+  const days = Object.keys(series).sort().reverse(); // newest -> oldest
+  const day = days.find(d => d <= targetYMD);
+  if (!day) return null;
+  const close = Number(series[day]['4. close']);
+  if (!Number.isFinite(close)) return null;
+  return { date: day, close };
+}
+
+function pLimit(concurrency) {
+  const queue = [];
+  let active = 0;
+  const next = () => {
+    if (active >= concurrency || queue.length === 0) return;
+    active++;
+    const { fn, resolve, reject } = queue.shift();
+    fn().then(resolve, reject).finally(() => {
+      active--;
+      next();
+    });
+  };
+  return (fn) => new Promise((resolve, reject) => {
+    queue.push({ fn, resolve, reject });
+    next();
+  });
+}
+
+const autoFinalizePastDue = async (req, res, next) => {
+  try {
+    if (!req.user?._id) return res.status(401).json({ error: 'Unauthorized: user not found on request' });
+
+    const filter = { user: req.user._id };
+    const nowNY = toYMDInTZ(new Date(), 'America/New_York');
+
+    // Narrow initial fetch (only those that could possibly need work)
+    const candidates = await Prediction.find({
+      user: req.user._id,
+      actualPrice: null,
+      endDate: { $ne: null },
+      predictedPrice: { $ne: null },
+    }).sort({ createdAt: -1 }).exec();
+
+    const due = candidates.filter(p => needsEvaluation(p, nowNY));
+    if (due.length === 0) return next();
+
+    // Limit concurrency to avoid API rate limits (Alpha Vantage is touchy)
+    const limit = pLimit(3);
+    await Promise.all(due.map(p => limit(() => populateActualPriceAndMSE(p).catch(e => {
+      console.warn(`Auto-finalize ${p._id} failed: ${e.message}`);
+    }))));
+
+    return next();
+  } catch (e) {
+    console.error('autoFinalizePastDue error:', e);
+    // Don’t fail the request if background finalize fails
+    return next();
+  }
+};
+
+const needsEvaluation = (p, nowNY) => {
+  if (!p.endDate) return false;
+  if (p.actualPrice != null) return false;
+  if (p.predictedPrice == null) return false; // don’t evaluate until we have a prediction
+  const endYMD = toYMDInTZ(p.endDate, 'America/New_York');
+  return endYMD <= nowNY;
+};
+
 router.post('/', async (req, res) => {
   const { ticker, modelType, predictionTimeline, sectorTicker } = req.body;
 
@@ -38,6 +106,12 @@ router.post('/', async (req, res) => {
     const endISO = await getPredictionEndDateFromPython(predictionTimeline, prediction.startDate, 'iso');
     prediction.endDate = new Date(endISO);
     await prediction.save(); // now _id exists
+
+    const tickerU = String(ticker).toUpperCase().trim();
+    const apiKey = await getAlphaKey();
+    const series = await fetchDailySeries(tickerU, apiKey);
+    const startPick = pickCloseOnOrBefore(series, prediction.startDate);
+    if (startPick) prediction.startPrice = startPick.close;
 
     // cap queue length
     if (predictionQueue.size() > 25) {
@@ -83,7 +157,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/', async (req, res) => {
+router.get('/', autoFinalizePastDue, async (req, res) => {
   if (!req.user || !req.user._id) {
     return res.status(401).json({ error: 'Unauthorized: user not found on request' });
   }
@@ -147,7 +221,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/filter', async (req, res) => {
+router.get('/filter', autoFinalizePastDue, async (req, res) => {
   if (!req.user || !req.user._id) {
     return res.status(401).json({ error: 'Unauthorized: user not found on request' });
   }
@@ -170,6 +244,5 @@ router.get('/filter', async (req, res) => {
     return res.status(500).json({ error: 'Failed to fetch filtered predictions' });
   }
 });
-
 
 module.exports = router;

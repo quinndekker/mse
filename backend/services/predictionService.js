@@ -142,21 +142,43 @@ async function fetchDailySeries(ticker, apiKey) {
 }
 
 function setPredictionMetrics(doc) {
-  // priceDifference = predicted - actual
   if (doc.predictedPrice != null && doc.actualPrice != null) {
-    doc.priceDifference = Number(doc.predictedPrice) - Number(doc.actualPrice);
-
-    // predictionAccuracy as % difference: 100 - ((pred - actual) / actual) * 100
-    if (Number(doc.actualPrice) !== 0) {
-      doc.predictionAccuracy =
-        100 - (((Number(doc.predictedPrice) - Number(doc.actualPrice)) / Number(doc.actualPrice)) * 100);
-    } else {
-      doc.predictionAccuracy = null; 
-    }
+    const diff = Number(doc.predictedPrice) - Number(doc.actualPrice);
+    doc.priceDifference = diff; // optional to keep
+    const se = diff * diff;
+    doc.squaredError = se;
+    doc.mse = se;
+    doc.predictionAccuracy = undefined;
   } else {
     doc.priceDifference = null;
-    doc.predictionAccuracy = null;
+    doc.squaredError = null;
+    doc.mse = null;
+    doc.predictionAccuracy = undefined;
   }
+}
+
+async function populateActualPriceAndMSE(prediction) {
+  if (!prediction?.ticker || !prediction?.endDate) {
+    throw new Error('populateActualPriceAndMSE: ticker and endDate required');
+  }
+  const apiKey = await getAlphaKey();
+  const series = await fetchDailySeries(prediction.ticker, apiKey);
+
+  // Ensure startPrice
+  if (prediction.startPrice == null && prediction.startDate) {
+    const startPick = pickCloseOnOrBefore(series, prediction.startDate);
+    if (!startPick) throw new Error(`No trading data on/before startDate for ${prediction.ticker}`);
+    prediction.startPrice = startPick.close;
+  }
+
+  // Actual on/≤ endDate
+  const actualPick = pickCloseOnOrBefore(series, prediction.endDate);
+  if (!actualPick) throw new Error(`No trading data on/before endDate for ${prediction.ticker}`);
+  prediction.actualPrice = actualPick.close;
+
+  // Let the pre-save hook compute return-based squaredError/mse
+  await prediction.save();
+  return prediction;
 }
 
 module.exports = {
@@ -166,4 +188,5 @@ module.exports = {
   getAlphaKey,
   fetchDailySeries,
   setPredictionMetrics,
+  populateActualPriceAndMSE,
 };
