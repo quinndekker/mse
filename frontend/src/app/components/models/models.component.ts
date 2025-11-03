@@ -56,9 +56,9 @@ export class ModelsComponent implements AfterViewInit {
 
   // Per-model UI state
   state: Record<ModelType, ModelState> = {
-    lstm: { sector: 'general', timeframe: '1d', loading: false, data: null, error: null },
-    gru:  { sector: 'general', timeframe: '1d', loading: false, data: null, error: null },
-    rnn:  { sector: 'general', timeframe: '1d', loading: false, data: null, error: null },
+    lstm: { sector: 'general', timeframe: '1d', loading: false, data: null, error: null, predLoading: false, predError: null, predictions: null, avgMSE: null },
+    gru:  { sector: 'general', timeframe: '1d', loading: false, data: null, error: null, predLoading: false, predError: null, predictions: null, avgMSE: null },
+    rnn:  { sector: 'general', timeframe: '1d', loading: false, data: null, error: null, predLoading: false, predError: null, predictions: null, avgMSE: null },
   };
 
   ngAfterViewInit(): void {
@@ -89,6 +89,8 @@ export class ModelsComponent implements AfterViewInit {
   private refresh(model: ModelType) {
     const s = this.state[model];
   
+    s.avgMSE = null;
+    
     // reset metrics state
     s.loading = true;
     s.error = null;
@@ -117,6 +119,7 @@ export class ModelsComponent implements AfterViewInit {
     ).subscribe({
       next: (preds) => {
         s.predictions = Array.isArray(preds) ? preds : (preds?.predictions ?? []);
+        s.avgMSE = this.computeAvgMSE(s.predictions); 
         s.predLoading = false;
       },
       error: (err) => {
@@ -124,6 +127,14 @@ export class ModelsComponent implements AfterViewInit {
         s.predLoading = false;
       }
     });
+  }
+
+  private computeAvgMSE(preds: Prediction[] | null | undefined): number | null {
+    if (!Array.isArray(preds) || preds.length === 0) return null;
+    const evald = preds.filter(p => p && p.mse != null && Number.isFinite(p.mse as any));
+    if (evald.length === 0) return null;
+    const sum = evald.reduce((acc, p) => acc + (p.mse as number), 0);
+    return sum / evald.length;
   }
   
 }

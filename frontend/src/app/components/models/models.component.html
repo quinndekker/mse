@@ -77,12 +77,12 @@
             <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
           </div>
           <div class="metric">
-            <span class="metric-label">Avg Accuracy</span>
+            <span class="metric-label">Avg MSE</span>
             <span class="metric-val">
-              <ng-container *ngIf="state.lstm.avgAccuracy !== null && state.lstm.avgAccuracy !== undefined; else dashAccL">
-                {{ state.lstm.avgAccuracy | number:'1.2-2' }}%
+              <ng-container *ngIf="state.lstm.avgMSE !== null && state.lstm.avgMSE !== undefined; else dashAvgMseL">
+                {{ state.lstm.avgMSE | number:'1.0-6' }}
               </ng-container>
-              <ng-template #dashAccL>—</ng-template>
+              <ng-template #dashAvgMseL>—</ng-template>
             </span>
           </div>
           <div class="metric small">
@@ -169,6 +169,14 @@
           <div class="metric">
             <span class="metric-label">Training Time</span>
             <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
+          </div><div class="metric">
+            <span class="metric-label">Avg MSE</span>
+            <span class="metric-val">
+              <ng-container *ngIf="state.gru.avgMSE !== null && state.gru.avgMSE !== undefined; else dashAvgMseL">
+                {{ state.gru.avgMSE | number:'1.0-6' }}
+              </ng-container>
+              <ng-template #dashAvgMseL>—</ng-template>
+            </span>
           </div>
           <div class="metric small">
             <span>Sector:</span> {{ d.sectorName }} ({{ d.sectorSpdr }}) • <span>TF:</span> {{ d.timeframe }}
@@ -253,6 +261,15 @@
           <div class="metric">
             <span class="metric-label">Training Time</span>
             <span class="metric-val">{{ d.trainingTimeSeconds | number:'1.0-0' }} s</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Avg MSE</span>
+            <span class="metric-val">
+              <ng-container *ngIf="state.rnn.avgMSE !== null && state.rnn.avgMSE !== undefined; else dashAvgMseL">
+                {{ state.rnn.avgMSE | number:'1.0-6' }}
+              </ng-container>
+              <ng-template #dashAvgMseL>—</ng-template>
+            </span>
           </div>
           <div class="metric small">
             <span>Sector:</span> {{ d.sectorName }} ({{ d.sectorSpdr }}) • <span>TF:</span> {{ d.timeframe }}
