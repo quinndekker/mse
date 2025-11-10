@@ -1,18 +1,44 @@
-<!-- <div *ngIf="loading">Loading…</div> -->
+<!-- Loading -->
+<div *ngIf="loading" class="loading">
+  <span class="spinner" aria-hidden="true"></span>
+  <span>Loading…</span>
+</div>
 
-<div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
+<!-- Error -->
+<div *ngIf="errorMsg" class="alert" role="alert">
+  {{ errorMsg }}
+</div>
 
-<div *ngIf="list">
-  <h2>{{ list.name }}</h2>
+<!-- Content -->
+<div *ngIf="list" class="list-detail">
+  <header class="list-header">
+    <h2 class="title">{{ list.name }}</h2>
+    <span class="subtle">{{ list.tickers?.length || 0 }} tickers</span>
+  </header>
 
-  <p *ngIf="list.tickers.length === 0">
-    No tickers in this list.
-  </p>
+  <!-- Empty state -->
+  <div *ngIf="list.tickers?.length === 0" class="empty card">
+    <p>No tickers in this list.</p>
+    <p class="subtle">Add tickers to see them here.</p>
+  </div>
 
-  <ul>
-    <li *ngFor="let t of list.tickers">
-      <button (click)="navigateToStock(t)">
-        {{ t }}
+  <!-- Tickers -->
+  <ul *ngIf="list.tickers?.length" class="ticker-list" role="list">
+    <li *ngFor="let t of list.tickers" role="listitem">
+      <button
+        type="button"
+        class="ticker-chip"
+        (click)="navigateToStock(t)"
+        [attr.aria-label]="'Open ' + t + ' details'"
+      >
+        <span class="ticker-text">{{ t }}</span>
+        <button
+        type="button"
+        class="icon-btn danger"
+        [attr.aria-label]="'Remove ' + t + ' from list'"
+        (click)="confirmRemove(t, $event)">
+        ✕
+      </button>
       </button>
     </li>
   </ul>

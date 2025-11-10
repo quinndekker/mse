@@ -70,6 +70,44 @@
       </table>      
   </div>
 
+  <section class="add-to-list card" *ngIf="ticker && lists?.length">
+    <h3>Add {{ ticker }} to a list</h3>
+  
+    <div class="atl-row">
+      <label for="listSelect">List</label>
+      <select
+        id="listSelect"
+        [(ngModel)]="selectedListId"
+        (change)="clearAddListStates()">
+        <option *ngFor="let l of lists" [value]="l._id">
+          {{ l.name }} <ng-container *ngIf="l.myStocks">• My Stocks</ng-container>
+        </option>
+      </select>
+  
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="addTickerToSelectedList()"
+        [disabled]="addingToList || !selectedListId">
+        <ng-container *ngIf="!addingToList">Add</ng-container>
+        <span *ngIf="addingToList" class="spinner" aria-hidden="true"></span>
+      </button>
+  
+      <!-- Optional quick add to “My Stocks” -->
+      <button
+        type="button"
+        class="btn"
+        (click)="quickAddToMyStocks()"
+        [disabled]="addingToList || !myStocksId">
+        Quick add to My Stocks
+      </button>
+    </div>
+  
+    <p class="result success" *ngIf="addListSuccess">{{ addListSuccess }}</p>
+    <p class="result error" *ngIf="addListError">{{ addListError }}</p>
+  </section>
+  
+
   <!-- Make a Prediction (for this ticker) -->
 <section class="pred-create-card" *ngIf="ticker">
   <header class="pred-create-header">

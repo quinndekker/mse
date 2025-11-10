@@ -66,4 +66,14 @@ export class ListService {
       })
     );
   }
+
+  removeTickerFromList(listId: string, ticker: string): Observable<List> {
+    return this.http.post<List>(`${this.apiUrl}/remove-ticker`, { listId, ticker }).pipe(
+      catchError(err => {
+        console.error('Remove ticker error:', err);
+        return throwError(() => err);
+      })
+    );
+  }
+  
 }

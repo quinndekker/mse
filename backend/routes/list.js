@@ -107,4 +107,39 @@ router.post('/add-ticker', async (req, res) => {
     }
 });
 
+router.post('/remove-ticker', async (req, res) => {
+    const userId = req.user ? req.user._id : null;
+    const { listId, ticker } = req.body;
+  
+    if (!userId) {
+      return res.status(401).json({ message: 'User not authenticated' });
+    }
+    if (!listId || !ticker) {
+      return res.status(400).json({ message: 'List ID and ticker are required' });
+    }
+  
+    try {
+      // Find the list by ID and ensure it belongs to the user
+      const list = await List.findOne({ _id: listId, user: userId });
+      if (!list) {
+        return res.status(404).json({ message: 'List not found' });
+      }
+  
+      // Remove the ticker if it exists
+      const beforeCount = list.tickers.length;
+      list.tickers = list.tickers.filter(t => t !== ticker);
+  
+      if (list.tickers.length === beforeCount) {
+        return res.status(400).json({ message: `${ticker} not found in list` });
+      }
+  
+      await list.save();
+      res.json(list);
+    } catch (error) {
+      console.error('Error removing ticker:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+  
+
 module.exports = router;

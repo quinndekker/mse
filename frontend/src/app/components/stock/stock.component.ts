@@ -14,6 +14,8 @@ import { SectorService } from '../../services/sector/sector.service';
 import { Stock } from '../../models/stock';
 import { Sector } from '../../models/sector';
 import { SectorTickerResponse } from '../../models/sectorTickerResponse';
+import { ListService } from '../../services/list/list.service';
+import { List } from '../../services/list/list.service';
 
 type ModelType = 'lstm' | 'gru' | 'rnn';
 type Timeframe = '1d' | '2w' | '2m';
@@ -87,6 +89,16 @@ export class StockComponent {
   readonly TIMEFRAMES: Timeframe[] = ['1d', '2w', '2m'];
   predictionGroups: PredictionGroup[] = [];
 
+  
+  lists: List[] = [];
+  loading = false;
+  errorMsg = '';
+  selectedListId: string | null = null;
+  myStocksId: string | null = null;     // cache My Stocks list id for quick add
+  addingToList = false;
+  addListSuccess = '';
+  addListError = '';
+
   definitions = {
     open: "The stock's price when the market opened on the latest trading day. For example, if the market opened at $150.25 on a Monday, that's the value shown here.",
     high: "The highest price the stock reached during the trading day. For example, the stock may have peaked at $153.70 before closing.",
@@ -106,7 +118,8 @@ export class StockComponent {
     private route: ActivatedRoute,
     private router: Router,
     private predictionService: PredictionService,
-    private sectorService: SectorService
+    private sectorService: SectorService,
+    private listService: ListService,
   ) {}
 
   ngOnInit(): void {
@@ -142,6 +155,79 @@ export class StockComponent {
         this.errorMessage = 'Ticker is missing in route.';
       }
     });
+
+    this.fetchLists();
+  }
+
+  private pickDefaultList() {
+    if (!Array.isArray(this.lists) || this.lists.length === 0) {
+      this.selectedListId = null;
+      this.myStocksId = null;
+      return;
+    }
+    const my = this.lists.find((l: any) => l.myStocks);
+    this.myStocksId = my?._id ?? null;
+    this.selectedListId = (my?._id || this.lists[0]._id) ?? null;
+  }
+  
+  clearAddListStates() {
+    this.addListSuccess = '';
+    this.addListError = '';
+  }
+  
+  // Override your fetchLists to set defaults
+  fetchLists(): void {
+    this.listService.getUserLists().subscribe({
+      next: (data) => {
+        this.lists = data || [];
+        this.pickDefaultList();
+      },
+      error: (err) => {
+        console.error('getUserLists failed:', err);
+      }
+    });
+  }
+  
+  private alreadyInList(listId: string, t: string): boolean {
+    const list = this.lists.find((l: any) => l._id === listId);
+    return !!list && Array.isArray(list.tickers) && list.tickers.includes(t);
+  }
+  
+  addTickerToSelectedList(): void {
+    this.clearAddListStates();
+    if (!this.ticker || !this.selectedListId) return;
+  
+    const t = this.ticker.toUpperCase().trim();
+  
+    // Client-side duplicate guard
+    if (this.alreadyInList(this.selectedListId, t)) {
+      const l = this.lists.find((x: any) => x._id === this.selectedListId);
+      this.addListError = `${t} is already in "${l?.name ?? 'that list'}".`;
+      return;
+    }
+  
+    this.addingToList = true;
+    this.listService.addTickerToList(this.selectedListId, t).subscribe({
+      next: (updated) => {
+        // Update local cache so UI reflects new ticker
+        const idx = this.lists.findIndex((l: any) => l._id === updated._id);
+        if (idx >= 0) this.lists[idx] = updated;
+        this.addListSuccess = `Added ${t} to "${updated.name}".`;
+        this.addingToList = false;
+      },
+      error: (err) => {
+        console.error('Add ticker error:', err);
+        this.addListError = 'Failed to add ticker to list.';
+        this.addingToList = false;
+      }
+    });
+  }
+  
+  // Optional quick-add to My Stocks
+  quickAddToMyStocks(): void {
+    if (!this.myStocksId) return;
+    this.selectedListId = this.myStocksId;
+    this.addTickerToSelectedList();
   }
 
   getSectorInfo(): void {

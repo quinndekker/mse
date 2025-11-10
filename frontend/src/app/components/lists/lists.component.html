@@ -1,39 +1,68 @@
 <div class="lists-container">
+  <header class="page-header">
     <h2>My Lists</h2>
-  
-    <!-- Error message -->
-    <div *ngIf="errorMsg" class="error">
-      {{ errorMsg }}
-    </div>
-  
-    <!-- New-list input -->
-    <form (ngSubmit)="addList()" #listForm="ngForm" class="add-form">
-      <input
-        type="text"
-        name="listName"
-        [(ngModel)]="newListName"
-        placeholder="New list name"
-        required
-      />
-      <button type="submit" [disabled]="loading || listForm.invalid">
-        Add
-      </button>
-    </form>
-  
-    <!-- Loading indicator -->
-    <p *ngIf="loading">Loading…</p>
-  
-    <!-- Existing lists -->
-    <ul class="list-group">
-        <li
-          *ngFor="let l of lists"
-          class="list-item"
-          (click)="openList(l._id!)"
-          style="cursor:pointer"
-        >
-          {{ l.name }}
-          <span *ngIf="l.myStocks" class="badge">My Stocks</span>
-        </li>
-      </ul>
+    <span class="subtle" *ngIf="lists?.length">
+      {{ lists.length }} {{ lists.length === 1 ? 'list' : 'lists' }}
+    </span>
+  </header>
+
+  <!-- Error -->
+  <div *ngIf="errorMsg" class="alert" role="alert">
+    {{ errorMsg }}
   </div>
-  
+
+  <!-- Add new list -->
+  <form (ngSubmit)="addList()" #listForm="ngForm" class="card add-form" novalidate>
+    <div class="field">
+      <div class="field-input">
+        <input
+          type="text"
+          name="listName"
+          [(ngModel)]="newListName"
+          placeholder="New list name"
+          aria-label="New list name"
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="loading || listForm.invalid">
+        <span *ngIf="!loading">Add</span>
+        <span *ngIf="loading" class="spinner" aria-hidden="true"></span>
+      </button>
+    </div>
+  </form>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="skeleton-list" aria-hidden="true">
+    <div class="skeleton-item"></div>
+    <div class="skeleton-item"></div>
+    <div class="skeleton-item"></div>
+  </div>
+
+  <!-- Empty state -->
+  <div *ngIf="!loading && (!lists || lists.length === 0)" class="empty">
+    <p>No lists yet.</p>
+    <p class="subtle">Create your first list above.</p>
+  </div>
+
+  <!-- Lists -->
+  <ul class="list-group" *ngIf="!loading && lists?.length">
+    <li
+      *ngFor="let l of lists"
+      class="list-item card"
+      (click)="openList(l._id!)"
+      tabindex="0"
+      role="button"
+      (keyup.enter)="openList(l._id!)"
+      [attr.aria-label]="'Open list ' + l.name"
+    >
+      <div class="item-main">
+        <span class="item-name">{{ l.name }}</span>
+        <span *ngIf="l.myStocks" class="badge">My Stocks</span>
+      </div>
+      <span class="chevron" aria-hidden="true">›</span>
+    </li>
+  </ul>
+</div>

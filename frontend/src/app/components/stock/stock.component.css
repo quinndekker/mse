@@ -310,3 +310,36 @@
 }
 .toggle { display: inline-flex; align-items: center; gap: .35rem; }
 
+.card{
+  background:#fff; border:1px solid #e2e8f0; border-radius:1rem;
+  box-shadow:0 8px 24px rgba(2,6,23,.06); padding:1rem; margin:1rem 0;
+}
+.add-to-list h3{ margin:0 0 .75rem; font-size:1.1rem; font-weight:700; }
+
+.atl-row{
+  display:flex; gap:.5rem; align-items:center; flex-wrap:wrap;
+}
+.atl-row label{ font-weight:600; }
+.atl-row select{
+  min-width:220px; padding:.5rem .6rem; border:1px solid #e2e8f0; border-radius:.6rem;
+}
+
+.btn{
+  padding:.55rem 1rem; border-radius:.6rem; border:1px solid #e2e8f0; cursor:pointer;
+  background:#f8fafc; font-weight:600;
+}
+.btn-primary{ background:#2563eb; color:#fff; border-color:#1e40af; }
+.btn:disabled{ opacity:.65; cursor:not-allowed; }
+
+.spinner{
+  width:1.1rem;height:1.1rem;border-radius:50%;
+  border:3px solid rgba(255,255,255,.45); border-top-color:#fff;
+  animation:spin .9s linear infinite;
+}
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+.result{ margin:.5rem 0 0; }
+.result.success{ color:#166534; }
+.result.error{ color:#b91c1c; }
+
+
