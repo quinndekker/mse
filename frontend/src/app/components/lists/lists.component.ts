@@ -58,4 +58,19 @@ export class ListsComponent {
   openList(id: string): void {
     this.router.navigate(['/lists', id]);
   }
+
+  confirmDelete(listId: string, name: string): void {
+    const ok = window.confirm(`Are you sure you want to delete the list "${name}"?`);
+    if (!ok) return;
+  
+    this.listService.deleteList(listId).subscribe({
+      next: (res) => {
+        this.lists = this.lists.filter(l => l._id !== listId);
+        console.log(res.message);
+      },
+      error: (err) => {
+        console.error('Failed to delete list:', err);
+      }
+    });
+  }
 }

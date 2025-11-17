@@ -12,9 +12,9 @@
   </div>
 
   <!-- Add new list -->
-  <form (ngSubmit)="addList()" #listForm="ngForm" class="card add-form" novalidate>
-    <div class="field">
-      <div class="field-input">
+  <form (ngSubmit)="addList()" #listForm="ngForm" class=" add-form" novalidate>
+    <!-- <div class="field"> -->
+     
         <input
           type="text"
           name="listName"
@@ -23,7 +23,7 @@
           aria-label="New list name"
           required
         />
-      </div>
+   
       <button
         type="submit"
         class="btn btn-primary"
@@ -31,7 +31,7 @@
         <span *ngIf="!loading">Add</span>
         <span *ngIf="loading" class="spinner" aria-hidden="true"></span>
       </button>
-    </div>
+    <!-- </div> -->
   </form>
 
   <!-- Loading -->
@@ -62,7 +62,13 @@
         <span class="item-name">{{ l.name }}</span>
         <span *ngIf="l.myStocks" class="badge">My Stocks</span>
       </div>
-      <span class="chevron" aria-hidden="true">›</span>
+      <button
+        *ngIf="!l.myStocks"
+        class="icon-btn danger"
+        (click)="confirmDelete(l._id!, l.name!)"
+        [attr.aria-label]="'Delete list ' + l.name">
+        ×
+      </button>
     </li>
   </ul>
 </div>

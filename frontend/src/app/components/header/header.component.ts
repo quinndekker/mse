@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   currentUserIsAdmin: boolean = false;
   userLists: List[] = [];
   myStocksId: string | null = null;
+  userIconUrl: string = 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png';
 
   constructor(
     private authService: AuthService,
@@ -36,6 +37,7 @@ export class HeaderComponent implements OnInit {
       this.profilePictureUrl = this.currentUser?.picture || null;
       this.email = this.currentUser?.email || null;
       this.currentUserIsAdmin = this.currentUser?.admin || false;
+      this.userIconUrl = this.currentUser.picture || 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png';
     }
 
     this.authService.userUpdate.subscribe(() => {

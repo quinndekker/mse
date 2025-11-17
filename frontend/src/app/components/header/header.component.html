@@ -20,7 +20,7 @@
             Sectors
         </div>
         <div class="header-item" (click)="navigateToProfile()">
-            <img src="https://cdn-icons-png.flaticon.com/512/12225/12225935.png" alt="Profile Icon" class="profile-picture" (error)="profilePictureUrl = 'assets/profileIcon.jpg'">
+            <img [src]="userIconUrl" alt="Profile Icon" class="profile-picture">
             <div>
                 {{ email }}
             </div>

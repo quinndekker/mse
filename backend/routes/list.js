@@ -141,5 +141,27 @@ router.post('/remove-ticker', async (req, res) => {
     }
   });
   
+router.delete('/:id', async (req, res) => {
+    const userId = req.user ? req.user._id : null;
+    const listId = req.params.id;
+
+    if (!userId) {
+        return res.status(401).json({ message: 'User not authenticated' });
+    }
+
+    try {
+        // Find and delete the list only if it belongs to the user
+        const deletedList = await List.findOneAndDelete({ _id: listId, user: userId });
+
+        if (!deletedList) {
+        return res.status(404).json({ message: 'List not found or not authorized to delete' });
+        }
+
+        res.json({ message: 'List deleted successfully', deletedList });
+} catch (error) {
+        console.error('Error deleting list:', error);
+        res.status(500).json({ message: 'Internal server error' });
+}
+});
 
 module.exports = router;

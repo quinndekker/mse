@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   firstName: string | null = null;
   lastName: string | null = null;
   userCreatedAt: Date | null = null;
+  userIconUrl: string = 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png';
 
   constructor (
     private authService: AuthService
@@ -36,6 +37,7 @@ export class ProfileComponent implements OnInit {
           this.firstName = this.currentUser.firstName || null;
           this.lastName = this.currentUser.lastName || null;
           this.userCreatedAt = new Date(this.currentUser.createdAt || Date.now());
+          this.userIconUrl = this.currentUser.picture || 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png';
       }
   }
 

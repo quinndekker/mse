@@ -75,5 +75,14 @@ export class ListService {
       })
     );
   }
+
+  deleteList(listId: string): Observable<{ message: string }> {
+    return this.http.delete<{ message: string }>(`${this.apiUrl}/${listId}`).pipe(
+      catchError(err => {
+        console.error('Delete list error:', err);
+        return throwError(() => err);
+      })
+    );
+  }
   
 }
