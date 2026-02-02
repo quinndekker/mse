@@ -474,8 +474,8 @@ export class StockComponent {
 private chart?: Chart;
 
 // UI state
-selectedActual = true;                                // toggle for actual price
-selectedKeys: Record<string, boolean> = {};           // toggle per prediction group
+// selectedActual = true;                                // toggle for actual price
+// selectedKeys: Record<string, boolean> = {};           // toggle per prediction group
 
 keyOf(g: PredictionGroup): string {
   return `${g.modelType}|${g.timeframe}|${g.sector}`;
@@ -504,23 +504,24 @@ private alignToLabels(labels: string[], pts: Array<{ t: string; y: number }>): (
 private buildLabels(): string[] {
   const set = new Set<string>();
 
-  if (this.selectedActual && this.series?.length) {
+  // Always include actual series labels if we have data
+  if (this.series?.length) {
     for (const p of this.series) set.add(this.dayKeyUTC(p.t));
   }
 
-  // NEW: include sector labels when enabled
+  // Include sector labels when we have sector data
   if (this.showSector && this.sectorSeries?.length) {
     for (const p of this.sectorSeries) set.add(this.dayKeyUTC(p.t));
   }
 
+  // Include labels for all prediction groups (no checkboxes)
   for (const g of this.predictionGroups) {
-    const k = this.keyOf(g);
-    if (!this.selectedKeys[k]) continue;
     for (const p of g.items) {
       const t = p.endDate ?? this.computeEndDate(p.startDate, p.predictionTimeline);
       if (t) set.add(this.dayKeyUTC(t));
     }
   }
+
   return Array.from(set).sort();
 }
 
@@ -562,16 +563,17 @@ private pointsForGroup(g: PredictionGroup): PredPoint[] {
 updateChart(): void {
   if (!this.comboChartRef) return;
 
-  const dayKeys = this.buildLabels();                 // ['YYYY-MM-DD', ...]
-  const labels  = dayKeys.map(d => this.labelForDayKey(d)); // display labels
+  const dayKeys = this.buildLabels();
+  const labels  = dayKeys.map(d => this.labelForDayKey(d));
 
   const datasets: any[] = [];
 
-  if (this.selectedActual) {
-    const pts = this.pointsForActual();              // [{t:'YYYY-MM-DD', y}]
+  // Actual price – include whenever we have series data
+  if (this.series?.length) {
+    const pts = this.pointsForActual();
     datasets.push({
       label: 'Actual Price',
-      data: pts.map(p => ({ x: this.labelForDayKey(p.t), y: p.y })), // <—
+      data: pts.map(p => ({ x: this.labelForDayKey(p.t), y: p.y })),
       borderColor: '#111827',
       backgroundColor: '#111827',
       borderWidth: 2,
@@ -580,14 +582,14 @@ updateChart(): void {
     });
   }
 
-  if (this.showSector && this.showSector && this.sectorSeries?.length) {
+  // Sector series – as before
+  if (this.showSector && this.sectorSeries?.length) {
     const spts = this.pointsForSector();
     datasets.push({
       label: `${this.sectorName} Price`,
       data: spts.map(p => ({ x: this.labelForDayKey(p.t), y: p.y })),
-      borderColor: '#6b7280',       // gray
+      borderColor: '#6b7280',
       backgroundColor: '#6b7280',
-      borderDash: [5, 3],
       borderWidth: 2,
       pointRadius: 0,
       spanGaps: true,
@@ -596,30 +598,30 @@ updateChart(): void {
     });
   }
 
+  // Prediction groups – include all groups (no selectedKeys filter)
   for (const g of this.predictionGroups) {
     const key = this.keyOf(g);
-    if (!this.selectedKeys[key]) continue;
     const pts: PredPoint[] = this.pointsForGroup(g);
-const data: ChartDatum[] = pts.map(p => ({
-  x: this.labelForDayKey(p.t),
-  y: p.y,
-  ap: p.ap ?? null,
-  diff: p.diff ?? null,
-  acc: p.acc ?? null
-}));
-
-datasets.push({
-  label: `${g.modelType.toUpperCase()} • ${g.timeframe} • ${g.sector}`,
-  modelType: g.modelType,                // for tooltip
-  timeframe: g.timeframe,                // for tooltip
-  data,                                  // typed objects with metadata
-  borderColor: this.colorForKey(key),
-  backgroundColor: this.colorForKey(key),
-  borderDash: g.timeframe === '1d' ? [] : g.timeframe === '2w' ? [6, 4] : [2, 3],
-  borderWidth: 2,
-  pointRadius: 0,
-  spanGaps: true
-} as any);
+    const data: ChartDatum[] = pts.map(p => ({
+      x: this.labelForDayKey(p.t),
+      y: p.y,
+      ap: p.ap ?? null,
+      diff: p.diff ?? null,
+      acc: p.acc ?? null
+    }));
+  
+    datasets.push({
+      label: `${g.modelType.toUpperCase()} • ${g.timeframe} • ${g.sector}`,
+      modelType: g.modelType,
+      timeframe: g.timeframe,
+      data,
+      borderColor: this.colorForKey(key),
+      backgroundColor: this.colorForKey(key),
+      borderWidth: 2,
+      pointRadius: 0,
+      spanGaps: true,
+      hidden: true
+    } as any);
   }
 
   const ctx = this.comboChartRef.nativeElement.getContext('2d')!;
@@ -633,13 +635,13 @@ datasets.push({
       type: 'line',
       data: { labels, datasets },
       options: {
-        parsing: false,                 // we provide {x,label,y} objects already
+        parsing: false,
         responsive: true,
         maintainAspectRatio: false,
         interaction: { mode: 'nearest', intersect: false },
         elements: { line: { tension: 0 }, point: { radius: 0 } },
         plugins: {
-          legend: { position: 'bottom' },
+          legend: { position: 'bottom' },   // Chart.js legend = colored boxes
           tooltip: {
             callbacks: {
               title: (items) => (items?.[0]?.label ?? ''),
@@ -648,45 +650,46 @@ datasets.push({
                 const ds: any = ctx.dataset || {};
                 const isActual = (ds.label || '').toLowerCase().includes('actual');
                 const isSector = !!ds.isSector;
-        
+
                 const y = typeof ctx.parsed?.y === 'number' ? ctx.parsed.y : raw.y;
                 const lines: string[] = [];
-        
+
                 if (isActual) {
-                  // Actual series
                   lines.push(`Actual: $${Number(y).toFixed(2)}`);
-                } else if (isSector)
-                {
+                } else if (isSector) {
                   const name = ds.sectorName || 'Sector';
                   lines.push(`${name} Sector`);
                   lines.push(`Price (SPDR Ticker: ${this.sectorTicker}): $${Number(y).toFixed(2)}`);
-
                 } else {
-                  // Prediction series
                   const mt = (ds.modelType ?? '').toString().toUpperCase();
                   const tf = (ds.timeframe ?? '').toString();
-                  // NEW: show model/timeframe
                   lines.push(`${mt} • ${tf}`);
                   lines.push(`Predicted: $${Number(y).toFixed(2)}`);
-        
+
                   if (Number.isFinite(raw.ap))   lines.push(`Actual: $${Number(raw.ap).toFixed(2)}`);
                   if (Number.isFinite(raw.diff)) lines.push(`Δ: $${Number(raw.diff).toFixed(2)}`);
                   if (Number.isFinite(raw.acc))  lines.push(`Accuracy: ${Number(raw.acc).toFixed(2)}%`);
                 }
-        
+
                 return lines;
               }
             }
           }
-        }, 
+        },
         scales: {
           x: {
-            type: 'category',          // evenly spaced labels
+            type: 'category',
             ticks: { maxTicksLimit: 8, autoSkip: true }
           },
           y: {
             beginAtZero: false,
-            ticks: { callback: (v) => `$${v}` }
+            ticks: {
+              callback: (v) => {
+                const num = typeof v === 'number' ? v : Number(v);
+                if (!Number.isFinite(num)) return '';
+                return `$${num.toFixed(2)}`;
+              }
+            }
           }
         }
       }

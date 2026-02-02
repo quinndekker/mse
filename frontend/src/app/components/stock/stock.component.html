@@ -222,15 +222,11 @@
     >
       <option *ngFor="let tf of timeframes" [value]="tf">{{ tf }}</option>
     </select>
-
-    <span class="tf-meta" *ngIf="series && series.length && !seriesLoading">
-      {{ series.length }} prices loaded
-    </span>
     <span class="tf-meta loading" *ngIf="seriesLoading">Loading series…</span>
     <span class="tf-meta error" *ngIf="seriesError">{{ seriesError }}</span>
   </div>
 
-  <div class="plot-controls" *ngIf="predictionGroups?.length || series?.length">
+  <!-- <div class="plot-controls" *ngIf="predictionGroups?.length || series?.length">
     <label class="control">
       <input type="checkbox" [(ngModel)]="selectedActual" (change)="updateChart()" />
       Show actual price
@@ -248,7 +244,7 @@
         </label>
       </div>
     </div>
-  </div>
+  </div> -->
   
   <div class="chart-wrap">
     <canvas #comboChart></canvas>
