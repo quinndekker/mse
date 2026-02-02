@@ -12,12 +12,12 @@
     </form>
 </div>
 <img *ngIf="showLoading" class="loading" id="loading" src="../app/assets/bouncing-circles.svg">
+
 <div class="results-container" *ngIf="showResults">
-    <app-stock-list
-    [stockList]="stockList"
-    ></app-stock-list>
+  <app-stock-list [stockList]="stockList"></app-stock-list>
 </div>
-<div *ngIf="showNoResults">
-    <h1>No Results Found</h1>
-    <h2>Try a more specific search.</h2>
+
+<div *ngIf="showNoResults && !showLoading">
+  <h1>No Results Found</h1>
+  <h2>Try a more specific search.</h2>
 </div>

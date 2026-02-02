@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StockService } from '../../services/stock/stock.service';
@@ -23,7 +23,7 @@ export class SearchComponent {
   showResults: boolean = false;
   showNoResults: boolean = false;
   showLoading: boolean = false;
-  constructor(private fb: FormBuilder, private stockService: StockService) {
+  constructor(private fb: FormBuilder, private stockService: StockService, private ngZone: NgZone) {
     this.searchForm = this.fb.group({
       searchQuery: ['', Validators.required]
     });
@@ -43,48 +43,56 @@ export class SearchComponent {
     this.showNoResults = false;
     this.showResults = false;
     this.showLoading = true;
+
     this.stockService.searchStocks(searchQuery, page, limit).subscribe({
       next: (results) => {
-        this.stockList = {
-          stocks: [],
-          total: results.total,
-          page: results.page,
-          totalPages: results.totalPages,
-          limit: results.limit
-        }
+        this.ngZone.run(() => {
+          this.stockList = {
+            stocks: [],
+            total: results.total,
+            page: results.page,
+            totalPages: results.totalPages,
+            limit: results.limit
+          };
 
-        if (Array.isArray(results.stocks)) {
-          results.stocks.forEach((stock: any) => {
-            const stockData: Stock = {
-              ticker: stock.ticker || 'N/A',
-              name: stock.name || 'N/A',
-              open: Number(stock.open) || 0,
-              high: Number(stock.high) || 0,
-              low: Number(stock.low) || 0,
-              close: Number(stock.close) || 0,
-              volume: Number(stock.volume) || 0,
-              change: Number(stock.change) || 0,
-              price: Number(stock.price) || 0,
-              changePercent: Number(stock.changePercent) || 0,
-            };
-          
-            this.stockList?.stocks.push(stockData);
-          });
-        } else {
-          console.warn('results.stocks is not an array:', results.stocks);
-        }
+          if (Array.isArray(results.stocks)) {
+            results.stocks.forEach((stock: any) => {
+              const stockData: Stock = {
+                ticker: stock.ticker || 'N/A',
+                name: stock.name || 'N/A',
+                open: Number(stock.open) || 0,
+                high: Number(stock.high) || 0,
+                low: Number(stock.low) || 0,
+                close: Number(stock.close) || 0,
+                volume: Number(stock.volume) || 0,
+                change: Number(stock.change) || 0,
+                price: Number(stock.price) || 0,
+                changePercent: Number(stock.changePercent) || 0,
+              };
+              this.stockList?.stocks.push(stockData);
+            });
+          } else {
+            console.warn('results.stocks is not an array:', results.stocks);
+          }
 
-        this.showLoading = false;
-        if (this.stockList.stocks.length > 0) {
-          this.showResults = true;
-          this.showNoResults = false;
-        } else {
-          this.showResults = false;
-          this.showNoResults = true;
-        }
+          this.showLoading = false;
+
+          if (this.stockList.stocks.length > 0) {
+            this.showResults = true;
+            this.showNoResults = false;
+          } else {
+            this.showResults = false;
+            this.showNoResults = true;
+          }
+        });
       },
       error: (err) => {
-        console.error('Search failed:', err);
+        this.ngZone.run(() => {
+          console.error('Search failed:', err);
+          this.showLoading = false;
+          this.showResults = false;
+          this.showNoResults = true;
+        });
       }
     });
   }
