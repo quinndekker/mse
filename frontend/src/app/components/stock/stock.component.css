@@ -342,4 +342,16 @@
 .result.success{ color:#166534; }
 .result.error{ color:#b91c1c; }
 
+.use-sector.no-sector {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
 
+.sector-pill.sector-missing {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  background: #f3f4f6;
+  color: #6b7280;
+}

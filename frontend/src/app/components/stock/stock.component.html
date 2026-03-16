@@ -92,15 +92,6 @@
         <ng-container *ngIf="!addingToList">Add</ng-container>
         <span *ngIf="addingToList" class="spinner" aria-hidden="true"></span>
       </button>
-  
-      <!-- Optional quick add to “My Stocks” -->
-      <button
-        type="button"
-        class="btn"
-        (click)="quickAddToMyStocks()"
-        [disabled]="addingToList || !myStocksId">
-        Quick add to My Stocks
-      </button>
     </div>
   
     <p class="result success" *ngIf="addListSuccess">{{ addListSuccess }}</p>
@@ -142,7 +133,9 @@
           Choose a model type.
         </small>
       </div>
-      <div class="use-sector" *ngIf="showSector">
+
+      <!-- Sector toggle / info -->
+      <div class="use-sector" *ngIf="showSector; else noSectorTpl">
         <input
           type="checkbox"
           id="useSector"
@@ -171,6 +164,15 @@
           <span class="sector-pill" *ngIf="sectors.length">{{ sectors[0].name }}</span>
         </ng-template>
       </div>
+
+      <!-- Shown when no sector data is available -->
+      <ng-template #noSectorTpl>
+        <div class="use-sector no-sector">
+          <span class="sector-pill sector-missing">
+            No sector data found for this ticker
+          </span>
+        </div>
+      </ng-template>
 
       <!-- Timeline -->
       <div class="field">
@@ -225,26 +227,6 @@
     <span class="tf-meta loading" *ngIf="seriesLoading">Loading series…</span>
     <span class="tf-meta error" *ngIf="seriesError">{{ seriesError }}</span>
   </div>
-
-  <!-- <div class="plot-controls" *ngIf="predictionGroups?.length || series?.length">
-    <label class="control">
-      <input type="checkbox" [(ngModel)]="selectedActual" (change)="updateChart()" />
-      Show actual price
-    </label>
-  
-    <div class="group-controls">
-      <div class="group" *ngFor="let g of predictionGroups">
-        <label>
-          <input
-            type="checkbox"
-            [(ngModel)]="selectedKeys[keyOf(g)]"
-            (change)="updateChart()"
-          />
-          {{ g.modelType.toUpperCase() }} • {{ g.timeframe }}, {{ g.sector}} ({{ g.items.length }})
-        </label>
-      </div>
-    </div>
-  </div> -->
   
   <div class="chart-wrap">
     <canvas #comboChart></canvas>

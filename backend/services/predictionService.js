@@ -45,6 +45,16 @@ function run(cmd, args, opts = {}) {
   });
 }
 
+function pickCloseOnOrBefore(series, targetDate) {
+  const targetYMD = toYMDInTZ(targetDate, 'America/New_York'); // 'YYYY-MM-DD'
+  const days = Object.keys(series).sort().reverse(); // newest -> oldest
+  const day = days.find(d => d <= targetYMD);
+  if (!day) return null;
+  const close = Number(series[day]['4. close']);
+  if (!Number.isFinite(close)) return null;
+  return { date: day, close };
+}
+
 async function runPredictionScript(ticker, modelType, predictionTimeline, sectorTicker = 'general') {
   const modelName = `${sectorTicker}_${predictionTimeline}_${modelType}`.toLowerCase();
 

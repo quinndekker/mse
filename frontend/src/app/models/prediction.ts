@@ -15,4 +15,5 @@ export interface Prediction {
   predictionAccuracy?: number | null;
   sector?: string | "general";
   mse?: number | null;
+  actualPrice?: number | null;
 }

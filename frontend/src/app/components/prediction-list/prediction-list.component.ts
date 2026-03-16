@@ -45,13 +45,23 @@ export class PredictionsListComponent {
 
   sortedPredictions = computed(() => {
     const data = [...this._predictions()];
+  
+    // filter: hide rows that have actualPrice but no mse
+    const filtered = data.filter(p => {
+      const hasActual = p.actualPrice !== null && p.actualPrice !== undefined;
+      const hasMse = p.mse !== null && p.mse !== undefined;
+      return !hasActual || hasMse;
+    });
+  
     const key = this.sortKey();
     const dir = this.sortDir();
-
-    data.sort((a, b) => {
+  
+    filtered.sort((a, b) => {
       let cmp = 0;
       if (key === 'predictionTimeline') {
-        cmp = (this.timelineOrder[a.predictionTimeline] ?? 99) - (this.timelineOrder[b.predictionTimeline] ?? 99);
+        cmp =
+          (this.timelineOrder[a.predictionTimeline] ?? 99) -
+          (this.timelineOrder[b.predictionTimeline] ?? 99);
       } else {
         const av = (a[key] ?? '').toString().toUpperCase();
         const bv = (b[key] ?? '').toString().toUpperCase();
@@ -59,7 +69,8 @@ export class PredictionsListComponent {
       }
       return dir === 'asc' ? cmp : -cmp;
     });
-    return data;
+  
+    return filtered;
   });
 
   setSort(key: SortKey) {

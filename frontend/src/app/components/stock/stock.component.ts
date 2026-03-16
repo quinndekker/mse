@@ -222,12 +222,13 @@ export class StockComponent {
       }
     });
   }
-  
-  // Optional quick-add to My Stocks
-  quickAddToMyStocks(): void {
-    if (!this.myStocksId) return;
-    this.selectedListId = this.myStocksId;
-    this.addTickerToSelectedList();
+
+  isInMyStocks(): boolean {
+    if (!this.ticker || !this.myStocksId) return false;
+    const list = this.lists.find((l: any) => l._id === this.myStocksId);
+    if (!list || !Array.isArray(list.tickers)) return false;
+    const t = this.ticker.toUpperCase().trim();
+    return list.tickers.includes(t);
   }
 
   getSectorInfo(): void {
@@ -582,7 +583,7 @@ updateChart(): void {
     });
   }
 
-  // Sector series – as before
+  // Sector series – dashed line
   if (this.showSector && this.sectorSeries?.length) {
     const spts = this.pointsForSector();
     datasets.push({
@@ -594,11 +595,12 @@ updateChart(): void {
       pointRadius: 0,
       spanGaps: true,
       isSector: true,
-      sectorName: this.sectorName
+      sectorName: this.sectorName,
+      borderDash: [6, 6]               // dashed sector line
     });
   }
 
-  // Prediction groups – include all groups (no selectedKeys filter)
+  // Prediction groups
   for (const g of this.predictionGroups) {
     const key = this.keyOf(g);
     const pts: PredPoint[] = this.pointsForGroup(g);
@@ -618,7 +620,12 @@ updateChart(): void {
       borderColor: this.colorForKey(key),
       backgroundColor: this.colorForKey(key),
       borderWidth: 2,
-      pointRadius: 0,
+      pointRadius: 5,
+      pointHoverRadius: 7,
+      pointStyle: 'triangle',          // triangles on chart
+      pointBackgroundColor: this.colorForKey(key),
+      pointBorderColor: '#000000',
+      pointBorderWidth: 1.5,
       spanGaps: true,
       hidden: true
     } as any);
@@ -641,11 +648,66 @@ updateChart(): void {
         interaction: { mode: 'nearest', intersect: false },
         elements: { line: { tension: 0 }, point: { radius: 0 } },
         plugins: {
-          legend: { position: 'bottom' },   // Chart.js legend = colored boxes
+          legend: {
+            position: 'bottom',
+            labels: {
+              // Show a line segment with the dataset's dash pattern
+              usePointStyle: false,
+              boxWidth: 40,
+              boxHeight: 4
+            },
+            // ADD THIS:
+            generateLabels: (chart: Chart<'line'>) => {
+              // Use Chart.js' default label generator as a base
+              const original = Chart.defaults.plugins.legend.labels.generateLabels!;
+const items = original(chart);
+
+return items.map((item) => {
+  const dsIndex = item.datasetIndex;
+  if (dsIndex == null) {
+    // Fallback: return the item unchanged if there is no datasetIndex
+    return item;
+  }
+
+  const ds = chart.data.datasets[dsIndex] as any;
+
+  const isSector = !!ds.isSector;
+  const isPrediction = !isSector && dsIndex >= 1;
+
+  let text = ds.label ?? item.text ?? '';
+
+  if (isSector) {
+    // dashed indicator for sector
+    text = `— — ${text}`;
+  } else if (isPrediction) {
+    // triangle indicator for prediction datasets
+    text = `▲ ${text}`;
+  }
+
+  return {
+    ...item,
+    text
+  };
+});
+            },
+            onClick: (
+              _e: unknown,
+              legendItem: any,
+              legend: any
+            ) => {
+              const index: number = legendItem.datasetIndex!;
+              const chart: Chart<'line'> = legend.chart;
+              const meta = chart.getDatasetMeta(index);
+              meta.hidden = meta.hidden === null
+                ? !chart.data.datasets[index].hidden
+                : !meta.hidden;
+              chart.update();
+            }
+          } as any,
           tooltip: {
             callbacks: {
-              title: (items) => (items?.[0]?.label ?? ''),
-              label: (ctx) => {
+              title: (items: any[]) => (items?.[0]?.label ?? ''),
+              label: (ctx: any) => {
                 const raw: any = ctx.raw || {};
                 const ds: any = ctx.dataset || {};
                 const isActual = (ds.label || '').toLowerCase().includes('actual');
@@ -675,7 +737,7 @@ updateChart(): void {
               }
             }
           }
-        },
+        } as any,
         scales: {
           x: {
             type: 'category',
@@ -684,7 +746,7 @@ updateChart(): void {
           y: {
             beginAtZero: false,
             ticks: {
-              callback: (v) => {
+              callback: (v: string | number) => {
                 const num = typeof v === 'number' ? v : Number(v);
                 if (!Number.isFinite(num)) return '';
                 return `$${num.toFixed(2)}`;

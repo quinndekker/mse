@@ -11,7 +11,8 @@ const {
   toYMDInTZ,
   getAlphaKey,
   fetchDailySeries,
-  setPredictionMetrics,   
+  setPredictionMetrics,
+  populateActualPriceAndMSE
 } = require('../services/predictionService');
 
 function pickCloseOnOrBefore(series, targetDate) {
@@ -119,29 +120,48 @@ router.post('/', async (req, res) => {
     }
 
     // Enqueue the single-file task
-    await predictionQueue.enqueue(async () => {
-      // mark running
-      await Prediction.updateOne({ _id: prediction._id }, { $set: { status: 'Running', startedAt: new Date() } });
-
-      try {
-        const price = await runPredictionScript(prediction.ticker, modelType, predictionTimeline, sectorTicker);
-
-        const doc = await Prediction.findById(prediction._id);
-        if (!doc) return; 
-
-        doc.predictedPrice = price;
-        doc.status = 'Completed';
-        doc.completedAt = new Date();
-
-        setPredictionMetrics(doc);
-        await doc.save();
-      } catch (e) {
+    await predictionQueue.enqueue(
+      async () => {
+        // mark running
         await Prediction.updateOne(
           { _id: prediction._id },
-          { $set: { status: 'Failed', errorMessage: String(e?.message || e), failedAt: new Date() } }
+          { $set: { status: 'Running', startedAt: new Date() } }
         );
-      }
-    }, { predictionId: prediction._id.toString(), ticker: prediction.ticker, modelType, predictionTimeline });
+
+        try {
+          // FIX: call runPredictionScript directly
+          const price = await runPredictionScript(
+            prediction.ticker,
+            modelType,
+            predictionTimeline,
+            sectorTicker
+          );
+
+          const doc = await Prediction.findById(prediction._id);
+          if (!doc) return;
+
+          doc.predictedPrice = price;
+          doc.status = 'Completed';
+          doc.completedAt = new Date();
+
+          setPredictionMetrics(doc);
+          await doc.save();
+        } catch (e) {
+          // optionally delete on failure instead of just marking Failed
+          await Prediction.updateOne(
+            { _id: prediction._id },
+            {
+              $set: {
+                status: 'Failed',
+                errorMessage: String(e?.message || e),
+                failedAt: new Date(),
+              },
+            }
+          );
+        }
+      },
+      { predictionId: prediction._id.toString(), ticker: prediction.ticker, modelType, predictionTimeline }
+    );
 
     //  Respond immediately
     return res.status(202).json({
@@ -151,9 +171,15 @@ router.post('/', async (req, res) => {
       endDate: prediction.endDate,
       queueSize: predictionQueue.size(),
     });
-  } catch (err) {
-    console.error('Error in prediction creation:', err);
-    return res.status(500).json({ error: err.message || 'Internal server error' });
+  } catch (e) {
+    console.error('Prediction job failed, deleting doc', {
+      id: prediction._id,
+      err: e?.message || e,
+    });
+    await Prediction.findByIdAndDelete(prediction._id).catch(delErr =>
+      console.error('Error deleting failed prediction', delErr)
+    );
+    throw e; // optional rethrow
   }
 });
 

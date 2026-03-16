@@ -42,6 +42,9 @@
           Predicted <app-info [text]="definitions.predictedPrice"></app-info>
         </th>
         <th>
+          Actual <app-info [text]="definitions.actualPrice"></app-info>
+        </th>
+        <th>
           Mean Squared Error <app-info [text]="definitions.mse"></app-info>
         </th>
       </tr>
@@ -86,6 +89,13 @@
             {{ p.predictedPrice | currency:'USD':'symbol':'1.2-2' }}
           </ng-container>
           <ng-template #dash>—</ng-template>
+        </td>
+
+        <td class="numeric">
+          <ng-container *ngIf="p.actualPrice !== null && p.actualPrice !== undefined; else dash3">
+            {{ p.actualPrice | currency:'USD':'symbol':'1.2-2' }}
+          </ng-container>
+          <ng-template #dash3>—</ng-template>
         </td>
   
         <td class="numeric">

@@ -38,12 +38,15 @@ export class PriceChartComponent {
           ? [{
               label: 'Prediction',
               data: preds,
-              pointRadius: 0,
               borderWidth: 2,
-              borderDash: [6, 6],
+              borderDash: [6, 6],        // dashed line
               tension: 0.2,
               spanGaps: true,
-              normalized: true
+              normalized: true,
+              // make prediction points visible & triangular
+              pointRadius: 5,
+              pointHoverRadius: 7,
+              pointStyle: 'triangle'
             }]
           : [])
       ]
@@ -93,20 +96,21 @@ export class PriceChartComponent {
       plugins: {
         legend: {
           display: true,
+          labels: {
+            // draw a short line segment instead of a big filled box
+            usePointStyle: true,
+            boxWidth: 12,
+            boxHeight: 8
+          },
           onClick(event, legendItem, legend) {
             const chart = legend.chart as Chart;
             const datasetIndex = legendItem.datasetIndex ?? 0;
   
             const meta = chart.getDatasetMeta(datasetIndex);
-  
-            // Toggle boolean explicitly; avoid null
             const currentlyHidden = !!meta.hidden;
             meta.hidden = !currentlyHidden;
   
-            // Now recompute x-range using the new hidden flags
             self.recomputeXAxisRange();
-  
-            // Finally, update the chart (no extra logic here)
             chart.update();
           }
         }
