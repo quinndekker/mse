@@ -21,7 +21,6 @@ export class PredictionsListComponent {
   }
   private _predictions = signal<Prediction[]>([]);
 
-  // Tooltips content
   definitions = {
     ticker: "The stock ticker symbol (e.g., AAPL for Apple, MSFT for Microsoft). This tells the model which stock you're interested in predicting.",
     modelType: "The type of machine learning model used for the prediction:\n- LSTM: Good for learning long-term patterns\n- GRU: Faster to train, handles short-term trends well\n- RNN: A simpler, more general-purpose model",
@@ -46,7 +45,6 @@ export class PredictionsListComponent {
   sortedPredictions = computed(() => {
     const data = [...this._predictions()];
   
-    // filter: hide rows that have actualPrice but no mse
     const filtered = data.filter(p => {
       const hasActual = p.actualPrice !== null && p.actualPrice !== undefined;
       const hasMse = p.mse !== null && p.mse !== undefined;
@@ -106,7 +104,6 @@ export class PredictionsListComponent {
     const data = this.sortedPredictions();
     const sz = this.pageSize();
     const maxPage = Math.max(1, Math.ceil(data.length / Math.max(1, sz)));
-    // clamp page if pageSize changed or data shrank
     const p = Math.min(this.page(), maxPage);
     if (p !== this.page()) this.page.set(p);
 
@@ -114,7 +111,6 @@ export class PredictionsListComponent {
     return data.slice(start, start + sz);
   });
 
-  // for UI footer: "x–y of N"
   pageBounds = computed(() => {
     const n = this.totalItems();
     if (n === 0) return { from: 0, to: 0, total: 0 };
@@ -128,13 +124,35 @@ export class PredictionsListComponent {
   pageNumbers = computed(() => {
     const total = this.totalPages();
     const current = this.page();
-    const windowSize = 5; // how many buttons to show
+    const windowSize = 5;
     const half = Math.floor(windowSize / 2);
     let start = Math.max(1, current - half);
     let end = Math.min(total, start + windowSize - 1);
     if (end - start + 1 < windowSize) start = Math.max(1, end - windowSize + 1);
     return Array.from({ length: end - start + 1 }, (_, i) => start + i);
   });
+
+  private static readonly SPDR_MAP: Record<string, string> = {
+    xlk:  'Technology',
+    xlv:  'Health Care',
+    xlf:  'Financials',
+    xly:  'Consumer Discretionary',
+    xlp:  'Consumer Staples',
+    xle:  'Energy',
+    xli:  'Industrials',
+    xlb:  'Materials',
+    xlre: 'Real Estate',
+    xlu:  'Utilities',
+    xlc:  'Communication Services',
+  };
+
+  formatSector(sector: string | undefined | null): string {
+    if (!sector) return 'GENERAL';
+    const lower = sector.toLowerCase().trim();
+    if (lower === 'general' || lower === 'none') return 'GENERAL';
+    const name = PredictionsListComponent.SPDR_MAP[lower];
+    return name ? `${name} (${sector.toUpperCase()})` : sector;
+  }
 
   goToPage(n: number) {
     const clamped = Math.max(1, Math.min(this.totalPages(), Math.trunc(n)));
@@ -144,6 +162,6 @@ export class PredictionsListComponent {
   prevPage() { this.goToPage(this.page() - 1); }
   changePageSize(sz: number) {
     this.pageSize.set(Math.max(1, Math.trunc(sz)));
-    this.page.set(1); // reset to first page when size changes
+    this.page.set(1);
   }
 }

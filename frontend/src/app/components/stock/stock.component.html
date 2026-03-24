@@ -1,74 +1,58 @@
 <div class="stock-container" *ngIf="quote; else loadingOrError">
-    <h2>{{ companyName }} ({{ ticker }})</h2>
-    <table class="quote-table">
-        <tr>
-          <td>
-            Open <app-info [text]="definitions.open"></app-info>
-          </td>
-          <td>$ {{ quote['02. open'] | number:'1.2-2' }}</td>
-        </tr>
-      
-        <tr>
-          <td>
-            High <app-info [text]="definitions.high"></app-info>
-          </td>
-          <td>$ {{ quote['03. high'] | number:'1.2-2' }}</td>
-        </tr>
-      
-        <tr>
-          <td>
-            Low <app-info [text]="definitions.low"></app-info>
-          </td>
-          <td>$ {{ quote['04. low'] | number:'1.2-2' }}</td>
-        </tr>
-      
-        <tr>
-          <td>
-            Price <app-info [text]="definitions.price"></app-info>
-          </td>
-          <td>$ {{ quote['05. price'] | number:'1.2-2' }}</td>
-        </tr>
-      
-        <tr>
-          <td>
-            Previous Close <app-info [text]="definitions.previousClose"></app-info>
-          </td>
-          <td>$ {{ quote['08. previous close'] | number:'1.2-2' }}</td>
-        </tr>
-      
-        <tr>
-          <td>
-            Change <app-info [text]="definitions.change"></app-info>
-          </td>
-          <td [ngClass]="{'positive': quote['09. change'] >= 0, 'negative': quote['09. change'] < 0}">
-            $ {{ quote['09. change'] | number:'1.2-2' }}
-          </td>
-        </tr>
-      
-        <tr>
-          <td>
-            Change % <app-info [text]="definitions.changePercent"></app-info>
-          </td>
-          <td [ngClass]="{'positive': isPositive(quote['10. change percent']), 'negative': !isPositive(quote['10. change percent'])}">
-            {{ quote['10. change percent'] }}
-          </td>
-        </tr>
-      
-        <tr>
-          <td>
-            Volume <app-info [text]="definitions.volume"></app-info>
-          </td>
-          <td>{{ quote['06. volume'] | number }}</td>
-        </tr>
-      
-        <tr>
-          <td>
-            Latest Trading Day <app-info [text]="definitions.latestTradingDay"></app-info>
-          </td>
-          <td>{{ quote['07. latest trading day'] }}</td>
-        </tr>
-      </table>      
+  <h2>{{ companyName }} ({{ ticker }})</h2>
+  <div class="quote-grid">
+
+    <div class="stat-card">
+      <span class="stat-label">Open <app-info [text]="definitions.open"></app-info></span>
+      <span class="stat-value">$ {{ quote['02. open'] | number:'1.2-2' }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">High <app-info [text]="definitions.high"></app-info></span>
+      <span class="stat-value">$ {{ quote['03. high'] | number:'1.2-2' }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Low <app-info [text]="definitions.low"></app-info></span>
+      <span class="stat-value">$ {{ quote['04. low'] | number:'1.2-2' }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Price <app-info [text]="definitions.price"></app-info></span>
+      <span class="stat-value">$ {{ quote['05. price'] | number:'1.2-2' }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Previous Close <app-info [text]="definitions.previousClose"></app-info></span>
+      <span class="stat-value">$ {{ quote['08. previous close'] | number:'1.2-2' }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Change <app-info [text]="definitions.change"></app-info></span>
+      <span class="stat-value" [ngClass]="{'positive': quote['09. change'] >= 0, 'negative': quote['09. change'] < 0}">
+        $ {{ quote['09. change'] | number:'1.2-2' }}
+      </span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Change % <app-info [text]="definitions.changePercent"></app-info></span>
+      <span class="stat-value" [ngClass]="{'positive': isPositive(quote['10. change percent']), 'negative': !isPositive(quote['10. change percent'])}">
+        {{ quote['10. change percent'] }}
+      </span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Volume <app-info [text]="definitions.volume"></app-info></span>
+      <span class="stat-value">{{ quote['06. volume'] | number }}</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-label">Latest Trading Day <app-info [text]="definitions.latestTradingDay"></app-info></span>
+      <span class="stat-value">{{ quote['07. latest trading day'] }}</span>
+    </div>
+
   </div>
+</div>
 
   <section class="add-to-list card" *ngIf="ticker && lists?.length">
     <h3>Add {{ ticker }} to a list</h3>
@@ -215,7 +199,6 @@
 
 
   <div class="tf-bar">
-    <label for="timeframe">Timeframe</label>
     <select
       id="timeframe"
       [(ngModel)]="selectedTimeframe"

@@ -1,0 +1,758 @@
+[
+  {
+    "modelType": "lstm",
+    "mse": 0.01128,
+    "sector": "xlb",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 3277.16
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.009699,
+    "sector": "xlc",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2343.81
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.031352,
+    "sector": "xle",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2738.77
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.005501,
+    "sector": "xlf",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 7985.15
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007398,
+    "sector": "xli",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 8108.6
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007809,
+    "sector": "xlk",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 7692.77
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.010186,
+    "sector": "xlp",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 4520.5
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.010248,
+    "sector": "xlre",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 1862.25
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007955,
+    "sector": "xlu",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 3967.45
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.012529,
+    "sector": "xlv",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 7118.07
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.012458,
+    "sector": "xly",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 5036.02
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.004893,
+    "sector": "general",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 55420.43
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.011365,
+    "sector": "xlb",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2163.85
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.009611,
+    "sector": "xlc",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 1546.8
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.031425,
+    "sector": "xle",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 1816.15
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.005512,
+    "sector": "xlf",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 5306.71
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007404,
+    "sector": "xli",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 5935.47
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007819,
+    "sector": "xlk",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 5035.15
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.01012,
+    "sector": "xlp",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2995.69
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.010087,
+    "sector": "xlre",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 1250.79
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007959,
+    "sector": "xlu",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2624.74
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.012523,
+    "sector": "xlv",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 4722.12
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.012498,
+    "sector": "xly",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 3345.89
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.004893,
+    "sector": "general",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 36668.47
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.011331,
+    "sector": "xlb",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 3090.51
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.009688,
+    "sector": "xlc",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2224.68
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.031393,
+    "sector": "xle",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 2614.3
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.00551,
+    "sector": "xlf",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 7719.13
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007399,
+    "sector": "xli",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 7732
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007817,
+    "sector": "xlk",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 7274.86
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.010172,
+    "sector": "xlp",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 4305.74
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.010337,
+    "sector": "xlre",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 1799.9
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007977,
+    "sector": "xlu",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 3814.19
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.012536,
+    "sector": "xlv",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 6855.42
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.012494,
+    "sector": "xly",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 4877.58
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.004894,
+    "sector": "general",
+    "timeframe": "1d",
+    "trainingTimeSeconds": 53509.13
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.011741,
+    "sector": "xlb",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 3258.53
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.009802,
+    "sector": "xlc",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2452.5
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.031466,
+    "sector": "xle",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2727.64
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.005455,
+    "sector": "xlf",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 7970.76
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007328,
+    "sector": "xli",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 8989.34
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007637,
+    "sector": "xlk",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 7442.57
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.010301,
+    "sector": "xlp",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 4522.52
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.010408,
+    "sector": "xlre",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 1883.28
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007942,
+    "sector": "xlu",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 3941.96
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.012544,
+    "sector": "xlv",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 7113.91
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.012464,
+    "sector": "xly",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 5088.3
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.004865,
+    "sector": "general",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 55081.33
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.011756,
+    "sector": "xlb",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2151.25
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.009658,
+    "sector": "xlc",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 1632.91
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.031523,
+    "sector": "xle",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 1822.91
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.005457,
+    "sector": "xlf",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 5307.73
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007338,
+    "sector": "xli",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 5876.01
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007636,
+    "sector": "xlk",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 4966.01
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.010292,
+    "sector": "xlp",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2988.56
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.010397,
+    "sector": "xlre",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 1260.59
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007947,
+    "sector": "xlu",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2600.31
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.012561,
+    "sector": "xlv",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 4751.32
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.012501,
+    "sector": "xly",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 3342.35
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.004866,
+    "sector": "general",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 36734.47
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.011769,
+    "sector": "xlb",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 3117.1
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.009778,
+    "sector": "xlc",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2350.63
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.03153,
+    "sector": "xle",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 2630.69
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.005464,
+    "sector": "xlf",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 7628.65
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007337,
+    "sector": "xli",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 8504.13
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007648,
+    "sector": "xlk",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 7145.52
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.010303,
+    "sector": "xlp",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 4321.57
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.010588,
+    "sector": "xlre",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 1802.23
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007949,
+    "sector": "xlu",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 3752.14
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.012539,
+    "sector": "xlv",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 6840.92
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.0125,
+    "sector": "xly",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 4836.02
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.004867,
+    "sector": "general",
+    "timeframe": "2w",
+    "trainingTimeSeconds": 53528.89
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.011346,
+    "sector": "xlb",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 3082.24
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.009544,
+    "sector": "xlc",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2435.92
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.031727,
+    "sector": "xle",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2499.57
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.005489,
+    "sector": "xlf",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 7953.66
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007401,
+    "sector": "xli",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 8673.45
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007867,
+    "sector": "xlk",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 7466.48
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.010115,
+    "sector": "xlp",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 4250.37
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.010513,
+    "sector": "xlre",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 1863.91
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.007956,
+    "sector": "xlu",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 3729.77
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.012651,
+    "sector": "xlv",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 7028.02
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.012494,
+    "sector": "xly",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 4993.99
+  },
+  {
+    "modelType": "lstm",
+    "mse": 0.004897,
+    "sector": "general",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 54134.42
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.011359,
+    "sector": "xlb",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2055.39
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.009437,
+    "sector": "xlc",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 1616
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.031732,
+    "sector": "xle",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 1730.7
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.005493,
+    "sector": "xlf",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 5217.53
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007397,
+    "sector": "xli",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 5732.49
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007875,
+    "sector": "xlk",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 4920.33
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.010047,
+    "sector": "xlp",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2793.32
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.010175,
+    "sector": "xlre",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 1242.43
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.007981,
+    "sector": "xlu",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2472.1
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.012664,
+    "sector": "xlv",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 4667.49
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.012521,
+    "sector": "xly",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 3307.88
+  },
+  {
+    "modelType": "rnn",
+    "mse": 0.004899,
+    "sector": "general",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 35667.35
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.011373,
+    "sector": "xlb",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2941.76
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.009444,
+    "sector": "xlc",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2316.38
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.031728,
+    "sector": "xle",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 2498.54
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.005489,
+    "sector": "xlf",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 7568.07
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007407,
+    "sector": "xli",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 8271.4
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007866,
+    "sector": "xlk",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 7146.52
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.010087,
+    "sector": "xlp",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 4027.75
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.010375,
+    "sector": "xlre",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 1772.87
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.007979,
+    "sector": "xlu",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 3572.49
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.012657,
+    "sector": "xlv",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 6723.03
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.012505,
+    "sector": "xly",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 4796.82
+  },
+  {
+    "modelType": "gru",
+    "mse": 0.004899,
+    "sector": "general",
+    "timeframe": "2m",
+    "trainingTimeSeconds": 51766.29
+  }
+]

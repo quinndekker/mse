@@ -14,7 +14,7 @@
 <img *ngIf="showLoading" class="loading" id="loading" src="../app/assets/bouncing-circles.svg">
 
 <div class="results-container" *ngIf="showResults">
-  <app-stock-list [stockList]="stockList"></app-stock-list>
+  <app-stock-list [stockList]="stockList" (pageUpdate)="searchStocks(searchQuery, $event, limit)"></app-stock-list>
 </div>
 
 <div *ngIf="showNoResults && !showLoading">

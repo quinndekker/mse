@@ -4,6 +4,10 @@
     "unit": "billions of dollars",
     "data": [
         {
+            "date": "2025-01-01",
+            "value": "23852.994"
+        },
+        {
             "date": "2024-01-01",
             "value": "23358.435"
         },

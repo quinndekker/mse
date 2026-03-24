@@ -38,6 +38,7 @@ export class HeaderComponent implements OnInit {
       this.email = this.currentUser?.email || null;
       this.currentUserIsAdmin = this.currentUser?.admin || false;
       this.userIconUrl = this.currentUser.picture || 'https://cdn-icons-png.flaticon.com/512/12225/12225935.png';
+      this.getUserLists();
     }
 
     this.authService.userUpdate.subscribe(() => {
@@ -77,8 +78,7 @@ export class HeaderComponent implements OnInit {
   }
 
   navigateToMyStocks() {
-    // Ensure userLists is defined and has items before navigating
-    if ( this.userLists.length <= 0) {
+    if (this.userLists.length <= 0) {
       return;
     }
 

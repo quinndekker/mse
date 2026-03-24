@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service'; // Adjust the path as necessary
+import { AuthService } from '../../services/auth/auth.service';
 
 
 @Component({
@@ -22,10 +22,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     const clientId = '39536509300-g04og3umfjppgbq7mdd87e3teru10onp.apps.googleusercontent.com';
   
-    // Define global callback
     (window as any).handleCredentialResponse = this.handleCredentialResponse.bind(this);
-  
-    // Wait until script is ready
+
     let interval: any = setInterval(() => {
       if ((window as any).google && (window as any).google.accounts?.id) {
         clearInterval(interval);

@@ -1,4 +1,4 @@
-import { afterNextRender, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StockService } from '../../services/stock/stock.service';
 import { ActivatedRoute } from '@angular/router';
@@ -11,14 +11,26 @@ import { Chart } from 'chart.js/auto';
 import { PredictionsListComponent } from '../prediction-list/prediction-list.component';
 import { Prediction } from '../../models/prediction';
 import { SectorService } from '../../services/sector/sector.service';
-import { Stock } from '../../models/stock';
-import { Sector } from '../../models/sector';
 import { SectorTickerResponse } from '../../models/sectorTickerResponse';
 import { ListService } from '../../services/list/list.service';
 import { List } from '../../services/list/list.service';
 
 type ModelType = 'lstm' | 'gru' | 'rnn';
 type Timeframe = '1d' | '2w' | '2m';
+
+const SPDR_MAP: Record<string, string> = {
+  xlk:  'Technology',
+  xlv:  'Health Care',
+  xlf:  'Financials',
+  xly:  'Consumer Discretionary',
+  xlp:  'Consumer Staples',
+  xle:  'Energy',
+  xli:  'Industrials',
+  xlb:  'Materials',
+  xlre: 'Real Estate',
+  xlu:  'Utilities',
+  xlc:  'Communication Services',
+};
 
 interface PredictionGroup {
   modelType: ModelType;
@@ -278,7 +290,7 @@ export class StockComponent {
   }
   
 
-  submitPredictionForTicker(form: any) {
+  submitPredictionForTicker(_form: any) {
     if (!this.ticker) return;
   
     this.submitting = true;
@@ -388,8 +400,7 @@ export class StockComponent {
         this.predictions = list;
         this.predictionGroups = this.buildPredictionGroups(list);
 
-        // this.predictionSeries = this.normalizePredictionsToSeries(list);  
-        this.predictionsLoading = false;
+              this.predictionsLoading = false;
         this.updateChart();
       },
       error: (err) => {
@@ -401,6 +412,14 @@ export class StockComponent {
         this.updateChart();
       }
     });
+  }
+
+  formatSectorLabel(ticker: string | null): string {
+    if (!ticker) return 'GENERAL';
+    const key = ticker.toLowerCase();
+    const name = SPDR_MAP[key];
+    if (!name) return 'GENERAL';
+    return `${name} (${ticker.toUpperCase()})`;
   }
 
   onSectorChange(name: string) {
@@ -474,10 +493,6 @@ export class StockComponent {
 @ViewChild('comboChart', { static: false }) comboChartRef!: ElementRef<HTMLCanvasElement>;
 private chart?: Chart;
 
-// UI state
-// selectedActual = true;                                // toggle for actual price
-// selectedKeys: Record<string, boolean> = {};           // toggle per prediction group
-
 keyOf(g: PredictionGroup): string {
   return `${g.modelType}|${g.timeframe}|${g.sector}`;
 }
@@ -488,7 +503,7 @@ private dayKeyUTC(iso: string): string {
 
 private labelForDayKey(ymd: string): string {
   const [Y, M, D] = ymd.split('-').map(Number);
-  return new Date(Date.UTC(Y, M - 1, D)).toLocaleDateString();
+  return new Date(Y, M - 1, D).toLocaleDateString();
 }
 
 private colorForKey(key: string): string {
@@ -497,29 +512,28 @@ private colorForKey(key: string): string {
   return palette[h % palette.length];
 }
 
-private alignToLabels(labels: string[], pts: Array<{ t: string; y: number }>): (number | null)[] {
-  const map = new Map(pts.map(p => [p.t, p.y])); // keys are 'YYYY-MM-DD'
-  return labels.map(t => (map.has(t) ? map.get(t)! : null));
-}
-
 private buildLabels(): string[] {
   const set = new Set<string>();
 
-  // Always include actual series labels if we have data
   if (this.series?.length) {
     for (const p of this.series) set.add(this.dayKeyUTC(p.t));
   }
 
-  // Include sector labels when we have sector data
   if (this.showSector && this.sectorSeries?.length) {
     for (const p of this.sectorSeries) set.add(this.dayKeyUTC(p.t));
   }
 
-  // Include labels for all prediction groups (no checkboxes)
+  const seriesDates = [...set].sort();
+  const minDate = seriesDates[0] ?? null;
+
   for (const g of this.predictionGroups) {
     for (const p of g.items) {
       const t = p.endDate ?? this.computeEndDate(p.startDate, p.predictionTimeline);
-      if (t) set.add(this.dayKeyUTC(t));
+      if (!t) continue;
+      const key = this.dayKeyUTC(t);
+      if (minDate && key >= minDate) {
+        set.add(key);
+      }
     }
   }
 
@@ -567,6 +581,14 @@ updateChart(): void {
   const dayKeys = this.buildLabels();
   const labels  = dayKeys.map(d => this.labelForDayKey(d));
 
+  // The earliest date in the price series defines the left boundary.
+  // Prediction points before this date have no matching label on the
+  // category axis, so Chart.js would render them at the wrong position
+  // and the connecting line would go backwards.
+  const minDate = this.series?.length
+    ? [...this.series].map(p => this.dayKeyUTC(p.t)).sort()[0]
+    : null;
+
   const datasets: any[] = [];
 
   // Actual price – include whenever we have series data
@@ -587,7 +609,7 @@ updateChart(): void {
   if (this.showSector && this.sectorSeries?.length) {
     const spts = this.pointsForSector();
     datasets.push({
-      label: `${this.sectorName} Price`,
+      label: this.formatSectorLabel(this.sectorTicker),
       data: spts.map(p => ({ x: this.labelForDayKey(p.t), y: p.y })),
       borderColor: '#6b7280',
       backgroundColor: '#6b7280',
@@ -603,7 +625,9 @@ updateChart(): void {
   // Prediction groups
   for (const g of this.predictionGroups) {
     const key = this.keyOf(g);
-    const pts: PredPoint[] = this.pointsForGroup(g);
+    const pts: PredPoint[] = this.pointsForGroup(g)
+      .filter(p => !minDate || p.t >= minDate)
+      .sort((a, b) => a.t.localeCompare(b.t));
     const data: ChartDatum[] = pts.map(p => ({
       x: this.labelForDayKey(p.t),
       y: p.y,
@@ -613,7 +637,7 @@ updateChart(): void {
     }));
   
     datasets.push({
-      label: `${g.modelType.toUpperCase()} • ${g.timeframe} • ${g.sector}`,
+      label: `${g.modelType.toUpperCase()} • ${g.timeframe} • ${this.formatSectorLabel(g.sector)}`,
       modelType: g.modelType,
       timeframe: g.timeframe,
       data,
@@ -651,44 +675,34 @@ updateChart(): void {
           legend: {
             position: 'bottom',
             labels: {
-              // Show a line segment with the dataset's dash pattern
-              usePointStyle: false,
-              boxWidth: 40,
-              boxHeight: 4
+              usePointStyle: true,
+              pointStyleWidth: 24,
+              font: { size: 18, weight: 'bold' },
+              padding: 24,
             },
-            // ADD THIS:
             generateLabels: (chart: Chart<'line'>) => {
-              // Use Chart.js' default label generator as a base
               const original = Chart.defaults.plugins.legend.labels.generateLabels!;
-const items = original(chart);
+              const items = original(chart);
 
-return items.map((item) => {
-  const dsIndex = item.datasetIndex;
-  if (dsIndex == null) {
-    // Fallback: return the item unchanged if there is no datasetIndex
-    return item;
-  }
+              return items.map((item) => {
+                const dsIndex = item.datasetIndex;
+                if (dsIndex == null) return item;
 
-  const ds = chart.data.datasets[dsIndex] as any;
+                const ds = chart.data.datasets[dsIndex] as any;
+                const isSector = !!ds.isSector;
+                const isActual = (ds.label ?? '').toLowerCase().includes('actual');
+                const isPrediction = !isSector && !isActual;
 
-  const isSector = !!ds.isSector;
-  const isPrediction = !isSector && dsIndex >= 1;
+                const labelText = isSector
+                  ? this.formatSectorLabel(this.sectorTicker)
+                  : (ds.label ?? item.text ?? '');
 
-  let text = ds.label ?? item.text ?? '';
-
-  if (isSector) {
-    // dashed indicator for sector
-    text = `— — ${text}`;
-  } else if (isPrediction) {
-    // triangle indicator for prediction datasets
-    text = `▲ ${text}`;
-  }
-
-  return {
-    ...item,
-    text
-  };
-});
+                return {
+                  ...item,
+                  text: labelText,
+                  pointStyle: isPrediction ? 'triangle' : 'line',
+                };
+              });
             },
             onClick: (
               _e: unknown,
@@ -719,9 +733,9 @@ return items.map((item) => {
                 if (isActual) {
                   lines.push(`Actual: $${Number(y).toFixed(2)}`);
                 } else if (isSector) {
-                  const name = ds.sectorName || 'Sector';
+                  const name = this.formatSectorLabel(this.sectorTicker);
                   lines.push(`${name} Sector`);
-                  lines.push(`Price (SPDR Ticker: ${this.sectorTicker}): $${Number(y).toFixed(2)}`);
+                  lines.push(`Price: $${Number(y).toFixed(2)}`);
                 } else {
                   const mt = (ds.modelType ?? '').toString().toUpperCase();
                   const tf = (ds.timeframe ?? '').toString();
@@ -730,7 +744,6 @@ return items.map((item) => {
 
                   if (Number.isFinite(raw.ap))   lines.push(`Actual: $${Number(raw.ap).toFixed(2)}`);
                   if (Number.isFinite(raw.diff)) lines.push(`Δ: $${Number(raw.diff).toFixed(2)}`);
-                  if (Number.isFinite(raw.acc))  lines.push(`Accuracy: ${Number(raw.acc).toFixed(2)}%`);
                 }
 
                 return lines;

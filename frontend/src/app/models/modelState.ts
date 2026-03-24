@@ -13,6 +13,5 @@ export interface ModelState {
   predError?: string | null;
   predictions?: Prediction[] | null;
 
-  // NEW
   avgMSE?: number | null;
 }

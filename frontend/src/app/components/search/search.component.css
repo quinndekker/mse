@@ -16,12 +16,12 @@ form {
 input {
     flex: 1;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 button {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     cursor: pointer;
     background-color: #027bffff;
     color: white;

@@ -1,5 +1,4 @@
 <div class="controls">
-  <span class="hint">Click a column to sort</span>
 
   <div class="pager-controls">
     <label>
@@ -30,9 +29,6 @@
           <span class="sort">{{ sortIcon('predictionTimeline') }}</span>
         </th>
         <th>
-          Status <app-info [text]="definitions.status"></app-info>
-        </th>
-        <th>
           Start <app-info [text]="definitions.startDate"></app-info>
         </th>
         <th>
@@ -61,23 +57,11 @@
         </td>
 
         <td>
-          <span class="sector">{{ p.sector }}</span>
+          <span class="sector">{{ formatSector(p.sector) }}</span>
         </td>
   
         <td>
           <span class="badge badge-timeline">{{ p.predictionTimeline.toUpperCase() }}</span>
-        </td>
-  
-        <td>
-          <span
-            class="status"
-            [ngClass]="{
-              completed: (p.status || '').toLowerCase() === 'completed',
-              pending:   (p.status || '').toLowerCase() === 'pending'
-            }"
-          >
-            {{ p.status }}
-          </span>
         </td>
   
         <td>{{ p.startDate | date: 'shortDate' }}</td>
@@ -118,22 +102,18 @@
   </table>
 
   <div class="pagination-bar" *ngIf="totalItems() > 0">
-    <div class="range">
-      {{ pageBounds().from }}–{{ pageBounds().to }} of {{ pageBounds().total }}
+    <button *ngIf="page() > 1" (click)="goToPage(1)">First Page</button>
+    <button *ngIf="page() > 1" (click)="prevPage()">&lt;</button>
+    <div *ngIf="page() > 1" class="page-number" (click)="goToPage(page() - 1)">
+      {{ page() - 1 }}
     </div>
-  
-    <div class="buttons">
-      <button (click)="prevPage()" [disabled]="page() === 1">Prev</button>
-  
-      <button
-        *ngFor="let n of pageNumbers()"
-        (click)="goToPage(n)"
-        [class.active]="page() === n">
-        {{ n }}
-      </button>
-  
-      <button (click)="nextPage()" [disabled]="page() === totalPages()">Next</button>
+    <span class="current-page">{{ page() }}</span>
+    <div *ngIf="page() < totalPages()" class="page-number" (click)="goToPage(page() + 1)">
+      {{ page() + 1 }}
     </div>
+    <button *ngIf="page() < totalPages()" (click)="nextPage()">&gt;</button>
+    <button *ngIf="page() < totalPages()" (click)="goToPage(totalPages())">Last Page</button>
+    <span class="page-label">Page {{ page() }} of {{ totalPages() }}</span>
   </div>
   
   <ng-template #empty>

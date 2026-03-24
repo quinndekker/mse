@@ -6,15 +6,12 @@
     </span>
   </header>
 
-  <!-- Error -->
   <div *ngIf="errorMsg" class="alert" role="alert">
     {{ errorMsg }}
   </div>
 
-  <!-- Add new list -->
   <form (ngSubmit)="addList()" #listForm="ngForm" class=" add-form" novalidate>
-    <!-- <div class="field"> -->
-     
+
         <input
           type="text"
           name="listName"
@@ -31,10 +28,8 @@
         <span *ngIf="!loading">Add</span>
         <span *ngIf="loading" class="spinner" aria-hidden="true"></span>
       </button>
-    <!-- </div> -->
   </form>
 
-  <!-- Loading -->
   <div *ngIf="loading" class="skeleton-list" aria-hidden="true">
     <div class="skeleton-item"></div>
     <div class="skeleton-item"></div>
@@ -47,8 +42,7 @@
     <p class="subtle">Create your first list above.</p>
   </div>
 
-  <!-- Lists -->
-  <ul class="list-group" *ngIf="!loading && lists?.length">
+  <ul class="list-group" *ngIf="!loading && lists.length">
     <li
       *ngFor="let l of lists"
       class="list-item card"
@@ -65,7 +59,7 @@
       <button
         *ngIf="!l.myStocks"
         class="icon-btn danger"
-        (click)="confirmDelete(l._id!, l.name!)"
+        (click)="$event.stopPropagation(); confirmDelete(l._id!, l.name!)"
         [attr.aria-label]="'Delete list ' + l.name">
         ×
       </button>

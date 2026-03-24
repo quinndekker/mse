@@ -17,7 +17,6 @@ export class PriceChartComponent {
   @Input() priceSeries: Array<{ t: string; close: number }> = [];
   @Input() predictionSeries: Array<{ t: string; close: number }> = [];
 
-  // NEW: control the x-axis unit from parent: 'minute' | 'hour' | 'day' | 'month'
   @Input() timeUnit: 'minute' | 'hour' | 'day' | 'month' = 'day';
 
   get data(): ChartData<'line', XY[]> {
@@ -39,11 +38,10 @@ export class PriceChartComponent {
               label: 'Prediction',
               data: preds,
               borderWidth: 2,
-              borderDash: [6, 6],        // dashed line
+              borderDash: [6, 6],
               tension: 0.2,
               spanGaps: true,
               normalized: true,
-              // make prediction points visible & triangular
               pointRadius: 5,
               pointHoverRadius: 7,
               pointStyle: 'triangle'
@@ -61,7 +59,7 @@ export class PriceChartComponent {
 
     chart.data.datasets.forEach((ds, idx) => {
       const meta = chart.getDatasetMeta(idx);
-      if (meta.hidden) return; // dataset hidden
+      if (meta.hidden) return;
       const data = ds.data as XY[];
       for (const p of data) {
         if (p && typeof p.x === 'number' && Number.isFinite(p.x)) {
@@ -74,7 +72,6 @@ export class PriceChartComponent {
     if (!xScale) return;
 
     if (!visibleXs.length) {
-      // no visible data: let chart auto-range
       xScale.min = undefined;
       xScale.max = undefined;
     } else {
@@ -92,17 +89,17 @@ export class PriceChartComponent {
     return {
       responsive: true,
       maintainAspectRatio: false,
-      parsing: false, // we supply {x:number(ms), y}
+      parsing: false,
       plugins: {
         legend: {
           display: true,
           labels: {
-            // draw a short line segment instead of a big filled box
             usePointStyle: true,
             boxWidth: 12,
-            boxHeight: 8
+            boxHeight: 8,
+            font: { size: 14 }
           },
-          onClick(event, legendItem, legend) {
+          onClick(_event, legendItem, legend) {
             const chart = legend.chart as Chart;
             const datasetIndex = legendItem.datasetIndex ?? 0;
   
@@ -125,11 +122,12 @@ export class PriceChartComponent {
                 ? 'PP'
                 : 'PP p'
           },
-          ticks: { source: 'data', maxRotation: 0, autoSkip: true }
+          ticks: { source: 'data', maxRotation: 0, autoSkip: true, font: { size: 13 } }
         },
         y: {
           ticks: {
-            callback: (v) => `$${Number(v).toFixed(2)}`
+            callback: (v) => `$${Number(v).toFixed(2)}`,
+            font: { size: 13 }
           }
         }
       },

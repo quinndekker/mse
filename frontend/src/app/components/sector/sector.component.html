@@ -5,5 +5,6 @@
     <app-stock-list
     [stockList]="stockList"
     [sector]="sector"
+    (pageUpdate)="setPage($event)"
     ></app-stock-list>
 </div>

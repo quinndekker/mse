@@ -43,12 +43,13 @@
   }
   
   .ticker-text {
+    font-size: 1.1rem;
     font-weight: 600;
     letter-spacing: 0.3px;
   }
-  
+
   .chev {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #475569;
   }
 
@@ -64,4 +65,24 @@
   .icon-btn:hover{ filter: brightness(0.96); }
   .icon-btn.danger{ color:#b91c1c; border-color:#fecaca; background:#fee2e2; }
   .icon-btn.danger:hover{ background:#fecaca; }
+
+  .list-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-delete {
+    margin-left: auto;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #b91c1c;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .btn-delete:hover { background: #fecaca; }
   

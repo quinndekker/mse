@@ -21,7 +21,6 @@ export class StockListItemComponent {
   @Input() stock: Stock | null = null;
   @Input() sector?: string; 
 
-  // userLists: List[] = [];
   selectedListId: string | null = null;
 
   definitions = {
@@ -32,42 +31,6 @@ export class StockListItemComponent {
   constructor(
     private router: Router
   ) { }
-
-  ngOnInit() {
-    // this.getUserLists();
-  }
-
-  addToList() {
-    if (!this.stock || !this.selectedListId) {
-      console.warn('Missing stock or list selection.');
-      return;
-    }
-
-    // this.listService.addTickerToList(this.selectedListId, this.stock.ticker).subscribe({
-    //   next: updatedList => {
-    //     console.log(`Ticker ${this.stock!.ticker} added to list ${updatedList.name}`);
-    //   },
-    //   error: err => {
-    //     console.error('Error adding ticker to list:', err);
-    //   }
-    // });
-  }
-
-  // getUserLists() {
-  //   // Ensure stock is defined before making the API call
-  //   if (this.stock === null) {
-  //     return;
-  //   }
-
-  //   this.listService.getUserLists().subscribe({
-  //     next: lists => {
-  //       this.userLists = lists;
-  //     },
-  //     error: err => {
-  //       console.error('Error fetching user lists:', err);
-  //     }
-  //   });
-  // }
 
   navigateToStock() {
     if (this.stock && this.stock.ticker) {

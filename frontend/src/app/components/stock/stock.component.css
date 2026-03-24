@@ -1,23 +1,49 @@
 .stock-container {
-    padding: 20px;
+    padding: 24px;
     background-color: #f3f7fb;
     border-radius: 8px;
-    max-width: 500px;
-    margin: auto;
-  }
-  
-  .quote-table {
     width: 100%;
-    border-collapse: collapse;
+    box-sizing: border-box;
   }
-  
-  .quote-table td {
-    padding: 8px 12px;
-    border-bottom: 1px solid #ccc;
+
+  .stock-container h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
   }
-  
-  .quote-table tr:last-child td {
-    border-bottom: none;
+
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #dde3ec;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    gap: 0.4rem;
+  }
+
+  .stat-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #0f172a;
   }
   
   .error {

@@ -1,16 +1,17 @@
 .sector-container {
     padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   h2, h3 {
     color: #2c3e50;
     margin-bottom: 10px;
+    font-size: 1.5rem;
   }
-  
+
   .intro, .benefits {
-    font-size: 16px;
+    font-size: 1.05rem;
     margin-bottom: 20px;
     line-height: 1.6;
   }

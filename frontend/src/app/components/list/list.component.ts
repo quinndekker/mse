@@ -53,6 +53,20 @@ export class ListComponent {
     }
   }
 
+  confirmDelete(): void {
+    if (!this.list?._id) return;
+    const ok = window.confirm(`Are you sure you want to delete the list "${this.list.name}"?`);
+    if (!ok) return;
+
+    this.listService.deleteList(this.list._id).subscribe({
+      next: () => this.router.navigate(['/lists']),
+      error: (err) => {
+        this.errorMsg = err?.error?.message || 'Failed to delete list.';
+        console.error('Delete list failed:', err);
+      }
+    });
+  }
+
   confirmRemove(ticker: string, ev?: Event): void {
     ev?.stopPropagation();
     if (!this.list?._id) return;

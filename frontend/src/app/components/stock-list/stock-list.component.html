@@ -5,6 +5,7 @@
     <app-page-selector
     [page]="stockList?.page || 1"
     [totalPages]="stockList?.totalPages || 1"
+    (pageUpdate)="pageUpdate.emit($event)"
     ></app-page-selector>
     <div *ngFor="let stock of stockList?.stocks || []">
         <app-stock-list-item

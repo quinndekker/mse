@@ -45,7 +45,7 @@ export class ListsComponent {
     this.listService.createList(this.newListName.trim()).subscribe({
       next: (created) => {
         this.lists.push(created);
-        this.newListName = '';      // clear input
+        this.newListName = '';
         this.loading = false;
       },
       error: (err) => {

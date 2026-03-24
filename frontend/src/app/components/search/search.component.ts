@@ -18,6 +18,7 @@ import { StockList } from '../../models/stockList';
 })
 export class SearchComponent {
   searchForm: FormGroup;
+  readonly limit = 10;
   searchQuery = '';
   stockList: StockList | null = null;
   showResults: boolean = false;
@@ -35,11 +36,11 @@ export class SearchComponent {
       this.showLoading = true;
       const { searchQuery } = this.searchForm.value;
       this.searchQuery = searchQuery; 
-      this.searchStocks(searchQuery, 1, 10);
+      this.searchStocks(searchQuery, 1, this.limit);
     }
   }
 
-  searchStocks(searchQuery: string, page: number = 1, limit: number = 100) {
+  searchStocks(searchQuery: string, page: number = 1, limit: number = 10) {
     this.showNoResults = false;
     this.showResults = false;
     this.showLoading = true;

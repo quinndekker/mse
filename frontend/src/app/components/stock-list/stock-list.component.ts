@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { PageSelectorComponent } from '../page-selector/page-selector.component';
 import { StockList } from '../../models/stockList';
 import { Stock } from '../../models/stock';
@@ -18,6 +18,7 @@ import { StockListItemComponent } from '../stock-list-item/stock-list-item.compo
 export class StockListComponent {
   @Input() stockList: StockList | null = null;
   @Input() sector?: string;
+  @Output() pageUpdate = new EventEmitter<number>();
 
   constructor() { }
 
