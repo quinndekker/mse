@@ -20,6 +20,7 @@ const modelDetailsRouter = require('./routes/modelDetails');
 require('dotenv').config();
 
 var app = express();
+app.set('trust proxy', 1);
 
 app.use(cors());
 app.use(logger('dev'));
@@ -32,7 +33,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie : {
-    secure: false,
+    secure: true,
     maxAge: 3600000
   }
 }));

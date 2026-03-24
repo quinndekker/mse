@@ -98,7 +98,7 @@ async function populateActualPriceAndMSE(prediction) {
     prediction.startPrice = startPick.close;
   }
 
-  // Actual on/≤ endDate
+  // Actual endDate
   const actualPick = pickCloseOnOrBefore(series, prediction.endDate);
   if (!actualPick) throw new Error(`No trading data on/before endDate for ${prediction.ticker}`);
   prediction.actualPrice = actualPick.close;

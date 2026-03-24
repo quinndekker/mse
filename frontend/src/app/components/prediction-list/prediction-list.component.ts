@@ -46,6 +46,8 @@ export class PredictionsListComponent {
     const data = [...this._predictions()];
   
     const filtered = data.filter(p => {
+      const hasPredicted = p.predictedPrice !== null && p.predictedPrice !== undefined;
+      if (!hasPredicted) return false;
       const hasActual = p.actualPrice !== null && p.actualPrice !== undefined;
       const hasMse = p.mse !== null && p.mse !== undefined;
       return !hasActual || hasMse;

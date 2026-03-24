@@ -40,27 +40,27 @@ def predict_next_price(csv_file, model_name):
         if not os.path.exists(path):
             raise FileNotFoundError(f"Required file not found: {path}")
 
-    print(f"🔄 Loading GRU model: {model_path}")
+    print(f"Loading GRU model: {model_path}")
     model = load_model(model_path)
 
-    print(f"🔄 Loading scalers...")
+    print(f"Loading scalers...")
     feature_scaler = joblib.load(feature_scaler_path)
     target_scaler = joblib.load(target_scaler_path)
 
-    print(f"🔄 Loading feature names...")
+    print(f"Loading feature names...")
     with open(feature_names_path, "r") as f:
         feature_names = json.load(f)
 
-    print(f"📂 Processing input data from: {csv_file}")
+    print(f"Processing input data from: {csv_file}")
     X_latest = load_latest_data(csv_file, feature_names)
 
     X_scaled = feature_scaler.transform(X_latest.reshape(-1, X_latest.shape[2])).reshape(1, X_latest.shape[1], X_latest.shape[2])
 
-    print("📈 Making prediction...")
+    print("Making prediction...")
     predicted_scaled_log_return = model.predict(X_scaled)
 
     predicted_log_return = target_scaler.inverse_transform(predicted_scaled_log_return)
-    print(f"🔄 Predicted Log Return: {predicted_log_return[0, 0]:.6f}")
+    print(f"Predicted Log Return: {predicted_log_return[0, 0]:.6f}")
 
     df = pd.read_csv(csv_file, index_col=0)
     df.index = pd.to_datetime(df.index)
@@ -68,7 +68,7 @@ def predict_next_price(csv_file, model_name):
     latest_close_price = df["close"].iloc[-1]
 
     predicted_price = latest_close_price * np.exp(predicted_log_return[0, 0])
-    print(f"💰 Predicted Next Day Price: ${predicted_price:.2f}")
+    print(f"Predicted Next Day Price: ${predicted_price:.2f}")
     return predicted_price
 
 def main():
