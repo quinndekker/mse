@@ -7,24 +7,8 @@ const csv = require('csv-parser');
 const Stock = require('../models/stock');
 
 
-// async function searchStocks(searchQuery, page = 1, limit = 10) {
-//     const tickers = await getTickersFromQuery(searchQuery);
-//     const stockData = await getStockData(tickers);
-
-//     // Pagination logic
-//     const startIndex = (page - 1) * limit;
-//     const endIndex = startIndex + limit;
-//     const paginatedStocks = stockData.slice(startIndex, endIndex);
-//     return {
-//         stocks: paginatedStocks,
-//         total: stockData.length,
-//         page: page,
-//         limit: limit,
-//         totalPages: Math.ceil(stockData.length / limit)
-//     };
-// }
 async function searchStocks(query, page = 1, limit = 10) {
-  const regex = new RegExp(query, 'i'); // case-insensitive
+  const regex = new RegExp(query, 'i');
 
   const filter = {
     $or: [
@@ -35,7 +19,7 @@ async function searchStocks(query, page = 1, limit = 10) {
 
   const total = await Stock.countDocuments(filter);
   const stocks = await Stock.find(filter)
-    .sort({ ticker: 1 }) // Optional: sort by ticker
+    .sort({ ticker: 1 })
     .skip((page - 1) * limit)
     .limit(limit);
 
@@ -48,13 +32,10 @@ async function searchStocks(query, page = 1, limit = 10) {
   };
 }
 
-// Uses Alpha Vantage API to search for stock tickers based on a search query
 async function getTickersFromQuery(searchQuery) {
   const searchUrl = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${searchQuery}&apikey=${alphaVantageApiKey}`;
 
-  // returns a list of ticker symbols based on the search query
   return new Promise((resolve, reject) => {
-    // alphavantage search api endpoint
     request.get({
       url: searchUrl,
       json: true,
@@ -67,8 +48,6 @@ async function getTickersFromQuery(searchQuery) {
         console.log('Status:', res.statusCode);
         return resolve([]);
       } else {
-          // Check if data is valid and has bestMatches
-          // return an array of ticker symbols
           if (data && data.bestMatches) {
           const tickers = data.bestMatches.map(match => match['1. symbol']);
           return resolve(tickers);
@@ -81,7 +60,6 @@ async function getTickersFromQuery(searchQuery) {
   });
 }
 
-// Alpha Vantage Bulk Quote API to get stock data for multiple tickers
 async function getStockData(tickers) {
   if (!tickers || tickers.length === 0) {
     console.log('No tickers found for the query');
@@ -157,9 +135,9 @@ async function loadStocksFromCSVIfEmpty() {
 
   try {
     await Stock.insertMany(stocksToInsert, { ordered: false });
-    console.log(`✅ Inserted ${stocksToInsert.length} stocks into DB`);
+    console.log(`Inserted ${stocksToInsert.length} stocks into DB`);
   } catch (err) {
-    console.error('⚠️ Insert error:', err.writeErrors?.length || err.message);
+    console.error('Insert error:', err.writeErrors?.length || err.message);
   }
 }
 
@@ -193,7 +171,6 @@ const TIMEFRAME_PLAN = {
   'max': { kind: 'daily',    outputsize: 'full',    tradingDays: Infinity },
 };
 
-// tiny promise wrapper around `request.get`
 function getJson(url) {
   return new Promise((resolve, reject) => {
     request.get({ url, headers: { 'User-Agent': 'overstock/1.0' } }, (err, res, body) => {
@@ -256,7 +233,6 @@ async function fetchSeriesForTimeframe(ticker, timeframe) {
     };
   }
 
-  // DAILY (raw as-traded). Swap to TIME_SERIES_DAILY_ADJUSTED if you want adjusted close.
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY`
     + `&symbol=${encodeURIComponent(sym)}`
     + `&outputsize=${encodeURIComponent(plan.outputsize)}`
@@ -279,7 +255,6 @@ async function fetchSeriesForTimeframe(ticker, timeframe) {
   };
 }
 
-// Public API: get fixed-length chart series
 async function getPriceSeries(ticker, timeframe, points = 120) {
   const { series, meta } = await fetchSeriesForTimeframe(ticker, timeframe);
   const asc = series.sort((a, b) => a.t.getTime() - b.t.getTime());

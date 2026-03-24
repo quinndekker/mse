@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const stockService = require("../services/stockService");
+const stockService = require("../services/stockController");
 
 // Add searchable stocks to database
 stockService.loadStocksFromCSVIfEmpty();

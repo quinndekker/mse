@@ -46,11 +46,7 @@ export class ListComponent {
   }
 
   navigateToStock(ticker: string): void {
-    if (ticker) {
-      this.router.navigate(['/stock', ticker]);
-    } else {
-      console.warn('Ticker is undefined or empty.');
-    }
+    if (ticker) this.router.navigate(['/stock', ticker]);
   }
 
   confirmDelete(): void {
@@ -80,17 +76,14 @@ export class ListComponent {
   private removeTicker(ticker: string): void {
     if (!this.list?._id) return;
   
-    // Optimistic update
     const prevTickers = [...(this.list.tickers || [])];
     this.list.tickers = prevTickers.filter(t => t !== ticker);
-  
+
     this.listService.removeTickerFromList(this.list._id, ticker).subscribe({
       next: (updated) => {
-        // trust server truth; also covers concurrent changes
         this.list = updated;
       },
       error: (err) => {
-        // rollback
         this.list!.tickers = prevTickers;
         this.errorMsg = err?.error?.message || 'Failed to remove ticker.';
         console.error('Remove ticker failed:', err);

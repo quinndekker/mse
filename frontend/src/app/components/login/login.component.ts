@@ -53,7 +53,6 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginWithGoogle(idToken).subscribe({
       next: (res: any) => {
-        console.log('User:', res.user);
         localStorage.setItem('user', JSON.stringify(res.user));
         this.router.navigate(['/search']);
       },

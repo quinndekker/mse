@@ -2,7 +2,6 @@ import { Component, AfterViewInit, inject } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ModelDetailsService } from '../../services/modelDetails/model-details.service';
-import { ModelDetails } from '../../models/modelDetails';
 import { FormsModule } from '@angular/forms';
 import { Prediction } from '../../models/prediction';
 import { PredictionService } from '../../services/prediction/prediction.service';
@@ -32,7 +31,6 @@ export class ModelsComponent implements AfterViewInit {
   private scroller = inject(ViewportScroller);
   private modelSvc = inject(ModelDetailsService);
 
-  // Select options
   sectors = [
     { value: 'general', label: 'General' },
     { value: 'xlk', label: 'Technology (XLK)' },
@@ -54,8 +52,7 @@ export class ModelsComponent implements AfterViewInit {
     { value: '2m', label: '2 Months' },
   ];
 
-  // Per-model UI state
-  state: Record<ModelType, ModelState> = {
+    state: Record<ModelType, ModelState> = {
     lstm: { sector: 'general', timeframe: '1d', loading: false, data: null, error: null, predLoading: false, predError: null, predictions: null, avgMSE: null },
     gru:  { sector: 'general', timeframe: '1d', loading: false, data: null, error: null, predLoading: false, predError: null, predictions: null, avgMSE: null },
     rnn:  { sector: 'general', timeframe: '1d', loading: false, data: null, error: null, predLoading: false, predError: null, predictions: null, avgMSE: null },
@@ -66,7 +63,6 @@ export class ModelsComponent implements AfterViewInit {
     if (initialFragment) this.scrollTo(initialFragment);
     this.route.fragment.subscribe((frag) => { if (frag) this.scrollTo(frag); });
 
-    // Initial loads
     this.refresh('lstm');
     this.refresh('gru');
     this.refresh('rnn');
@@ -90,18 +86,13 @@ export class ModelsComponent implements AfterViewInit {
     const s = this.state[model];
   
     s.avgMSE = null;
-    
-    // reset metrics state
     s.loading = true;
     s.error = null;
     s.data = null;
-  
-    // reset predictions state
     s.predLoading = true;
     s.predError = null;
     s.predictions = null;
-  
-    // Load model details
+
     this.modelSvc.getModelDetails(model, s.timeframe, s.sector).subscribe({
       next: (doc) => { s.data = doc; s.loading = false; },
       error: (err) => {
@@ -112,11 +103,7 @@ export class ModelsComponent implements AfterViewInit {
   
 
     const sectorTicker = this.sectorTickerFor(s.sector);
-    this.predictionSvc.getPredictionsByFilter(
-      model,            // modelType: 'lstm' | 'gru' | 'rnn'
-      s.timeframe,      // predictionTimeline: '1d' | '2w' | '2m'
-      sectorTicker      // sectorTicker: 'general' or 'XLK' etc.
-    ).subscribe({
+    this.predictionSvc.getPredictionsByFilter(model, s.timeframe, sectorTicker).subscribe({
       next: (preds) => {
         s.predictions = Array.isArray(preds) ? preds : (preds?.predictions ?? []);
         s.avgMSE = this.computeAvgMSE(s.predictions); 

@@ -14,13 +14,11 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        // Check if the user already has a list with the same name
         const existingList = await List.findOne({ user: userId, name: listName });
         if (existingList) {
             return res.status(400).json({ message: 'List with this name already exists' });
         }
 
-        // Create a new list
         const newList = new List({
             name: listName,
             user: userId,
@@ -47,7 +45,6 @@ router.get('/:id', async (req, res) => {
     }
 
     try {
-        // Find the list by ID and ensure it belongs to the user
         const list = await List.findOne({ _id: listId, user: userId });
         if (!list && !userIsAdmin) {
             return res.status(404).json({ message: 'List not found' });
@@ -60,14 +57,12 @@ router.get('/:id', async (req, res) => {
 });
 
 router.get('/', async (req, res) => {
-    console.log('get hit');
     const userId = req.user ? req.user._id : null;
     if (!userId) {
         return res.status(401).json({ message: 'User not authenticated' });
     }
 
     try {
-        // Find all lists for the user
         const lists = await List.find({ user: userId });
         res.json(lists);
     } catch (error) {
@@ -88,13 +83,11 @@ router.post('/add-ticker', async (req, res) => {
     }
 
     try {
-        // Find the list by ID and ensure it belongs to the user
         const list = await List.findOne({ _id: listId, user: userId });
         if (!list) {
             return res.status(404).json({ message: 'List not found' });
         }
 
-        // Add the ticker to the list if it doesn't already exist
         if (!list.tickers.includes(ticker)) {
             list.tickers.push(ticker);
             await list.save();
@@ -119,13 +112,11 @@ router.post('/remove-ticker', async (req, res) => {
     }
   
     try {
-      // Find the list by ID and ensure it belongs to the user
       const list = await List.findOne({ _id: listId, user: userId });
       if (!list) {
         return res.status(404).json({ message: 'List not found' });
       }
-  
-      // Remove the ticker if it exists
+
       const beforeCount = list.tickers.length;
       list.tickers = list.tickers.filter(t => t !== ticker);
   
@@ -150,7 +141,6 @@ router.delete('/:id', async (req, res) => {
     }
 
     try {
-        // Find and delete the list only if it belongs to the user
         const deletedList = await List.findOneAndDelete({ _id: listId, user: userId });
 
         if (!deletedList) {

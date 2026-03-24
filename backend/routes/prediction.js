@@ -1,9 +1,8 @@
-// routes/prediction.js
 var express = require('express');
 var router = express.Router();
 
 const Prediction = require('../models/prediction');
-const predictionQueue = require('../services/predictionQueue');
+const predictionQueue = require('../services/predictionQueueController');
 
 const {
   runPredictionScript,
@@ -13,7 +12,7 @@ const {
   fetchDailySeries,
   setPredictionMetrics,
   populateActualPriceAndMSE
-} = require('../services/predictionService');
+} = require('../services/predictionController');
 
 function pickCloseOnOrBefore(series, targetDate) {
   const targetYMD = toYMDInTZ(targetDate, 'America/New_York'); // 'YYYY-MM-DD'
@@ -129,7 +128,6 @@ router.post('/', async (req, res) => {
         );
 
         try {
-          // FIX: call runPredictionScript directly
           const price = await runPredictionScript(
             prediction.ticker,
             modelType,
@@ -163,7 +161,6 @@ router.post('/', async (req, res) => {
       { predictionId: prediction._id.toString(), ticker: prediction.ticker, modelType, predictionTimeline }
     );
 
-    //  Respond immediately
     return res.status(202).json({
       message: 'Prediction queued',
       id: prediction._id,

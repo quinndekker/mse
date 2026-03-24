@@ -63,9 +63,7 @@
         id="listSelect"
         [(ngModel)]="selectedListId"
         (change)="clearAddListStates()">
-        <option *ngFor="let l of lists" [value]="l._id">
-          {{ l.name }} <ng-container *ngIf="l.myStocks">• My Stocks</ng-container>
-        </option>
+        <option *ngFor="let l of lists" [value]="l._id">{{ l.name }}</option>
       </select>
   
       <button
@@ -191,7 +189,7 @@
 
     <!-- Inline result -->
     <p class="result success" *ngIf="createSuccess">
-      ✅ Prediction created{{ createdPredictionPrice ? (': $' + (createdPredictionPrice | number:'1.2-2')) : '' }}.
+      Prediction created{{ createdPredictionPrice ? (': $' + (createdPredictionPrice | number:'1.2-2')) : '' }}.
     </p>
     <p class="result error" *ngIf="createError">{{ createError }}</p>
   </form>

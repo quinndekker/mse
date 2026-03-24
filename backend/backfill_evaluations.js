@@ -1,15 +1,4 @@
 #!/usr/bin/env node
-/**
- * Evaluate all past-due predictions and store MSE based on percentage price change.
- *
- * Defaults (can be overridden by env):
- *   MONGO_URI="mongodb://127.0.0.1:27017/mse"
- *   ALPHA_VANTAGE_KEY="VZ5NW76KL6HKHQQC"
- *   EVAL_VERSION=2
- *
- * Run:
- *   node evaluate_all_past_predictions.js
- */
 
 const DEFAULT_MONGO = "mongodb://127.0.0.1:27017/mse";
 const DEFAULT_AV_KEY = "VZ5NW76KL6HKHQQC";
@@ -21,14 +10,13 @@ const {
 } = process.env;
 
 const mongoose = require('mongoose');
-const fetch = require('node-fetch'); // install: npm i mongoose node-fetch@2
+const fetch = require('node-fetch');
 
 if (!MONGO_URI || !ALPHA_VANTAGE_KEY) {
-  console.error("❌ Missing MONGO_URI or ALPHA_VANTAGE_KEY.");
+  console.error("Missing MONGO_URI or ALPHA_VANTAGE_KEY.");
   process.exit(1);
 }
 
-// ---------- Model (fallback-safe) ----------
 let Prediction;
 try {
   Prediction = require('../models/prediction');
@@ -41,8 +29,6 @@ try {
       predictionTimeline: String,
       modelType: String,
       predictedPrice: Number,
-
-      // evaluation fields
       startPriceClose: Number,
       actualPriceClose: Number,
       absError: Number,
@@ -52,9 +38,8 @@ try {
       within1pct: Boolean,
       within2pct: Boolean,
       within5pct: Boolean,
-      squaredError: Number, // % return error squared
-      mse: Number,          // % return error squared (single horizon)
-
+      squaredError: Number,
+      mse: Number,
       evaluationVersion: Number,
       evaluatedAt: Date,
     },
@@ -65,7 +50,6 @@ try {
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// ---------- Alpha Vantage helpers ----------
 async function fetchDailyCloseMap(ticker, retries = 3) {
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${encodeURIComponent(
     ticker
@@ -86,8 +70,8 @@ async function fetchDailyCloseMap(ticker, retries = 3) {
       return map;
     } catch (e) {
       lastErr = e;
-      console.warn(`⚠️ Fetch ${ticker} attempt ${i + 1}: ${e.message}`);
-      await sleep(1500 * (i + 1)); // backoff
+      console.warn(`Fetch ${ticker} attempt ${i + 1}: ${e.message}`);
+      await sleep(1500 * (i + 1));
     }
   }
   throw lastErr;
@@ -103,9 +87,7 @@ function getCloseOnOrAfter(isoDate, closeMap, maxLookahead = 10) {
   return null;
 }
 
-// ---------- Evaluation logic (MSE on percentage change) ----------
 function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
-  // Legacy (keep for UI/compat)
   const absError = Math.abs(predictedPrice - actualPrice);
   const pctError = absError / (actualPrice || 1);
   const priceDifference = actualPrice - predictedPrice;
@@ -114,11 +96,9 @@ function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
   let actualReturn = null;
 
   if (Number.isFinite(startPrice) && startPrice !== 0) {
-    // proper horizon returns versus START price
     predictedReturn = (predictedPrice - startPrice) / startPrice;
     actualReturn = (actualPrice - startPrice) / startPrice;
   } else if (Number.isFinite(actualPrice) && actualPrice !== 0) {
-    // fallback so we can still produce a metric if start is missing
     predictedReturn = (predictedPrice - actualPrice) / actualPrice;
     actualReturn = 0;
   }
@@ -131,7 +111,6 @@ function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
   const squaredError =
     pctChangeDiff != null ? Math.pow(pctChangeDiff, 2) : null;
 
-  // Direction correctness still relative to the start if available; else null
   const directionCorrect =
     Number.isFinite(startPrice)
       ? Math.sign(predictedPrice - startPrice) === Math.sign(actualPrice - startPrice)
@@ -146,18 +125,16 @@ function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
     within2pct: pctError <= 0.02,
     within5pct: pctError <= 0.05,
     squaredError,
-    mse: squaredError, // single end-horizon → mse == squaredError
+    mse: squaredError,
   };
 }
 
-// ---------- Main ----------
 (async function main() {
   await mongoose.connect(MONGO_URI);
-  console.log("✅ Mongo connected");
+  console.log("Mongo connected");
 
   const now = new Date();
 
-  // Evaluate ALL predictions whose endDate is in the past and have a predictedPrice
   const cursor = Prediction.find({
     predictedPrice: { $ne: null },
     endDate: { $lte: now },
@@ -181,8 +158,8 @@ function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
 
     try {
       if (!cache.has(ticker)) {
-        console.log(`📡 Loading prices for ${ticker}...`);
-        await sleep(1500); // gentle on rate limits
+        console.log(`Loading prices for ${ticker}...`);
+        await sleep(1500);
         cache.set(ticker, await fetchDailyCloseMap(ticker));
       }
       const map = cache.get(ticker);
@@ -193,7 +170,7 @@ function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
       const startHit = startISO ? getCloseOnOrAfter(startISO, map) : null;
       const endHit = getCloseOnOrAfter(endISO, map);
       if (!endHit) {
-        console.warn(`⚠️ ${ticker} ${p._id}: No close on/after ${endISO} (skipping)`);
+        console.warn(`${ticker} ${p._id}: No close on/after ${endISO} (skipping)`);
         skipped++;
         continue;
       }
@@ -225,24 +202,19 @@ function computeMetrics({ startPrice, predictedPrice, actualPrice }) {
 
       const pct = metrics.mse != null ? (Math.sqrt(metrics.mse) * 100).toFixed(2) : 'n/a';
       console.log(
-        `✅ ${ticker} ${p.modelType || ''} ${p.predictionTimeline || ''} | ` +
+        `${ticker} ${p.modelType || ''} ${p.predictionTimeline || ''} | ` +
         `Pred ${predictedPrice?.toFixed?.(2)} | Act ${actualPrice?.toFixed?.(2)} | ` +
-        `| Return RMSE ~ ${pct}%`
+        `Return RMSE ~ ${pct}%`
       );
     } catch (e) {
-      console.error(`❌ ${ticker} ${p._id}: ${e.message}`);
+      console.error(`${ticker} ${p._id}: ${e.message}`);
       errors++;
     }
   }
 
-  console.log("\n📋 SUMMARY");
-  console.log(`Processed: ${processed}`);
-  console.log(`Updated:   ${updated}`);
-  console.log(`Skipped:   ${skipped}`);
-  console.log(`Errors:    ${errors}`);
+  console.log(`\nSummary: processed=${processed} updated=${updated} skipped=${skipped} errors=${errors}`);
 
   await mongoose.disconnect();
-  console.log("🏁 Done.");
 })().catch((e) => {
   console.error("Fatal:", e);
   process.exit(1);

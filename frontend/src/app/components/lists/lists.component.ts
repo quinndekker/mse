@@ -64,9 +64,8 @@ export class ListsComponent {
     if (!ok) return;
   
     this.listService.deleteList(listId).subscribe({
-      next: (res) => {
+      next: () => {
         this.lists = this.lists.filter(l => l._id !== listId);
-        console.log(res.message);
       },
       error: (err) => {
         console.error('Failed to delete list:', err);

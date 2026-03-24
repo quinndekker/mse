@@ -148,7 +148,6 @@ export class StockComponent {
             this.showSector = this.sectors.length > 0;
   
             if (this.showSector) {
-              // default to first sector if none selected yet
               this.sectorName = this.sectorName ?? this.sectors[0]?.name ?? null;
               this.getSectorInfo();
             } else {
@@ -187,7 +186,6 @@ export class StockComponent {
     this.addListError = '';
   }
   
-  // Override your fetchLists to set defaults
   fetchLists(): void {
     this.listService.getUserLists().subscribe({
       next: (data) => {
@@ -211,7 +209,6 @@ export class StockComponent {
   
     const t = this.ticker.toUpperCase().trim();
   
-    // Client-side duplicate guard
     if (this.alreadyInList(this.selectedListId, t)) {
       const l = this.lists.find((x: any) => x._id === this.selectedListId);
       this.addListError = `${t} is already in "${l?.name ?? 'that list'}".`;
@@ -221,7 +218,6 @@ export class StockComponent {
     this.addingToList = true;
     this.listService.addTickerToList(this.selectedListId, t).subscribe({
       next: (updated) => {
-        // Update local cache so UI reflects new ticker
         const idx = this.lists.findIndex((l: any) => l._id === updated._id);
         if (idx >= 0) this.lists[idx] = updated;
         this.addListSuccess = `Added ${t} to "${updated.name}".`;
@@ -311,7 +307,6 @@ export class StockComponent {
         this.createSuccess = true;
         this.createdPredictionPrice = (typeof res?.predictedPrice === 'number') ? res.predictedPrice : null;
   
-        // Optimistically add to the page’s prediction list
         const created = {
           ...res,
           ticker: t,
@@ -328,7 +323,7 @@ export class StockComponent {
         window.location.reload();
       },
       error: (err) => {
-        console.error('❌ Prediction error:', err);
+        console.error('Prediction error:', err);
         this.submitting = false;
         this.createError = 'Failed to create prediction. Not enough information on company';
       }
@@ -457,7 +452,6 @@ export class StockComponent {
       const timeframe = String(p?.predictionTimeline || '').toLowerCase() as Timeframe;
       const sector = String(p?.sector || 'general').toLowerCase();
   
-      // keep only recognized values
       if (!this.MODEL_TYPES.includes(modelType) || !this.TIMEFRAMES.includes(timeframe)) continue;
   
       const key = `${modelType}|${timeframe}|${sector}`;
@@ -467,17 +461,14 @@ export class StockComponent {
       groups.get(key)!.items.push(p);
     }
   
-    // Sort items in each group by startDate ascending
     for (const g of groups.values()) {
       g.items.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
     }
-  
-    // Build a display order: sort by timeframe → modelType → sector alphabetically
+
     const ordered: PredictionGroup[] = [];
-  
+
     for (const tf of this.TIMEFRAMES) {
       for (const mt of this.MODEL_TYPES) {
-        // get all groups for this modelType/timeframe and sort them by sector
         const sectorGroups = Array.from(groups.values())
           .filter((g) => g.timeframe === tf && g.modelType === mt)
           .sort((a, b) => a.sector.localeCompare(b.sector));
@@ -498,7 +489,7 @@ keyOf(g: PredictionGroup): string {
 }
 
 private dayKeyUTC(iso: string): string {
-  return String(iso).slice(0, 10); // 'YYYY-MM-DD'
+  return String(iso).slice(0, 10);
 }
 
 private labelForDayKey(ymd: string): string {
@@ -548,7 +539,7 @@ private pointsForActual(): Array<{ t: string; y: number }> {
   )) {
     const y = Number(p.close);
     if (!Number.isFinite(y)) continue;
-    byDay.set(this.dayKeyUTC(p.t), y); // keep last close that day
+    byDay.set(this.dayKeyUTC(p.t), y);
   }
   return Array.from(byDay.entries())
     .sort(([a], [b]) => a.localeCompare(b))
@@ -568,30 +559,24 @@ private pointsForGroup(g: PredictionGroup): PredPoint[] {
     const diff = (p.priceDifference ?? null);
     const acc  = (p.mse ?? null);
 
-    byDay.set(key, { t: key, y, ap, diff, acc }); // keep last for that day
+    byDay.set(key, { t: key, y, ap, diff, acc });
   }
 
   return Array.from(byDay.values()).sort((a, b) => a.t.localeCompare(b.t));
 }
 
-// Build/update the chart using {x: label, y: number} data
 updateChart(): void {
   if (!this.comboChartRef) return;
 
   const dayKeys = this.buildLabels();
   const labels  = dayKeys.map(d => this.labelForDayKey(d));
 
-  // The earliest date in the price series defines the left boundary.
-  // Prediction points before this date have no matching label on the
-  // category axis, so Chart.js would render them at the wrong position
-  // and the connecting line would go backwards.
   const minDate = this.series?.length
     ? [...this.series].map(p => this.dayKeyUTC(p.t)).sort()[0]
     : null;
 
   const datasets: any[] = [];
 
-  // Actual price – include whenever we have series data
   if (this.series?.length) {
     const pts = this.pointsForActual();
     datasets.push({
@@ -605,7 +590,6 @@ updateChart(): void {
     });
   }
 
-  // Sector series – dashed line
   if (this.showSector && this.sectorSeries?.length) {
     const spts = this.pointsForSector();
     datasets.push({
@@ -622,7 +606,6 @@ updateChart(): void {
     });
   }
 
-  // Prediction groups
   for (const g of this.predictionGroups) {
     const key = this.keyOf(g);
     const pts: PredPoint[] = this.pointsForGroup(g)

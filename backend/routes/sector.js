@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Sector = require('../models/sector');
-const stockService = require('../services/stockService');
+const stockService = require('../services/stockController');
 
 // escape regex helper
 const escapeRegex = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

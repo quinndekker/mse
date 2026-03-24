@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client('39536509300-g04og3umfjppgbq7mdd87e3teru10onp.apps.googleusercontent.com');
-const { createMyStocks } = require('../services/listService');
+const { createMyStocks } = require('../services/listController');
 
 passport.use(new LocalStrategy(
    async (email, done) => {
@@ -21,12 +21,10 @@ passport.use(new LocalStrategy(
 
  
  passport.serializeUser((user, done) => {
-   console.log(`serialize user (${user})`);
-   done(null, user._id );
+   done(null, user._id);
  });
- 
+
  passport.deserializeUser(async (_id, done) => {
-   console.log(`deserialize user (${_id})`);
    const user = await User.findOne({_id});
    if ( user ) {
      done(null, user);
@@ -58,7 +56,6 @@ passport.use(new LocalStrategy(
         const payload = ticket.getPayload();
         const { email, given_name, family_name, picture, sub } = payload;
   
-        // Check if user already exists
         let user = await User.findOne({ email });
         if (!user) {
             user = await User.create({
@@ -69,30 +66,20 @@ passport.use(new LocalStrategy(
                 googleId: sub
             });
 
-            // create My Stocks list for new user
-            const list = await createMyStocks(user._id);
-            if (!list) {
-                console.error('Error creating My Stocks list for new user');
-            } else {
-                console.log('My Stocks list created successfully for new user');
-            }
+            await createMyStocks(user._id);
         }
 
-        // Use Passport to login
         req.login(user, (err) => {
             if (err) {
                 console.error('Error logging in Google user:', err);
                 return next(err);
             }
 
-            // update user information from google
             user.firstName = given_name;
             user.lastName = family_name;
             user.picture = picture || 'https://static.thenounproject.com/png/5034901-200.png';
             user.googleId = sub;
-            user.save()
-                .then(() => console.log('User updated successfully'))
-                .catch(err => console.error('Error updating user:', err));
+            user.save().catch(err => console.error('Error updating user:', err));
 
             const maxAge = req.session.cookie.maxAge || 600000;
             const expiresAt = Date.now() + maxAge;
